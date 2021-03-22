@@ -37,7 +37,7 @@ app.get("/info/unemployment", (req, res) => {
     //Tabla de Francisco
 app.get("/info/rentals", (req, res) => {
     res.send("<html><body><table class='tftable' border='1'>"+
-    "<tr><th>autonomous communities</th><th>province</th><th>year</th><th>rent</th><th>rent-variation</th><th>meter</th><th>salary</th></tr>"+
+    "<tr><th>autonomous-community</th><th>province</th><th>year</th><th>rent</th><th>rent-variation</th><th>meter</th><th>salary</th></tr>"+
     "<tr><td>andalucía</td><td>sevilla</td><td>2018</td><td>560,5</td><td>4</td><td>94,6</td><td>29</td></tr>"+
     "<tr><td>cataluña</td><td>barcelona</td><td>2018</td><td>696</td><td>6</td><td>96,8</td><td>49</td></tr>"+
     "<tr><td>madrid</td><td>madrid</td><td>2018</td><td>780</td><td>4,6</td><td>86,5</td><td>51</td></tr>"+
