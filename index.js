@@ -44,7 +44,7 @@ app.get("/info/rentals", (req, res) => {
     "<tr><td>castilla-y-león</td><td>salamanca</td><td>2018</td><td>468</td><td>22.2</td><td>91</td><td>24</td></tr>"+
     "<tr><td>castilla-y-león</td><td>palencia</td><td>2018</td><td>416,7</td><td>22.5</td><td>94,1</td><td>24</td></tr>"+
     "</table><//body></html>");
-});
+}); 
 
     //Tabla de Nuria...
 
