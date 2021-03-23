@@ -24,7 +24,7 @@ app.post("/hello", (req, res) => {
     //Tabla de Alejandro
 app.get("/info/unemployment", (req, res) => {
     res.send("<html><body><table class='tftable' border='1'>"+
-    "<tr><th>autonomous communities</th><th>youth unemployment rates</th><th>provinces</th><th>years</th><th>unemployment rates</th><th>occupation variations</th></tr>"+
+    "<tr><th>autonomous-community</th><th>youth-unemployment-rate</th><th>province</th><th>year</th><th>unemployment-rate</th><th>occupation-variation</th></tr>"+
     "<tr><td>extremadura</td><td>48.1605</td><td>badajoz</td><td>2020</td><td>22.8954</td><td>-1.09999</td></tr>"+
     "<tr><td>extremadura</td><td>-</td><td>cáceres</td><td>2020</td><td>18.5352</td><td>100.00610</td></tr>"+
     "<tr><td>andalucía</td><td>52.1912</td><td>málaga</td><td>2020</td><td>19.3225</td><td>32.79998</td></tr>"+
@@ -47,6 +47,20 @@ app.get("/info/rentals", (req, res) => {
 }); 
 
     //Tabla de Nuria...
+app.get("/info/buy-sell", (req, res) => {
+    res.send("<html><body><table class='tftable' border='1'>"+
+    "<tr><th>autonomous-community</th><th>province</th><th>year</th><th>surface</th><th>annual-variation-percentage</th><th>eviction</th></tr>"+
+    "<tr><td>andalucía</td><td>sevilla</td><td>2018</td><td>1.594,97</td><td>9,22</td><td>2.003</td></tr>"+
+    "<tr><td>comunidad de madrid</td><td>madrid</td><td>2020</td><td>2.357,05</td><td>6,25</td><td>2.872</td></tr>"+
+    "<tr><td>cataluña</td><td>barcelona</td><td>2018</td><td>3.470,8</td><td>9,35</td><td>2.381</td></tr>"+
+    "<tr><td>navarra</td><td>navarra</td><td>2020</td><td>1.400,22</td><td>10,22</td><td>1.057</td></tr>"+
+    "<tr><td>región de murcia</td><td>murcia</td><td>2020</td><td>876,64</td><td>4,32</td><td>1.504</td></tr>"+
+    "<tr><td>andalucía</td><td>málaga</td><td>2018</td><td>1.496,23</td><td>14,02</td><td>2.636</td></tr>"+
+    "<tr><td>cantabria</td><td>cantabria</td><td>2017</td><td>1.202,38</td><td>6,9</td><td>705</td></tr>"+
+    "<tr><td>comunidad valenciana</td><td>valencia</td><td>2017</td><td>1.169,92</td><td>6,23</td><td>2.358</td></tr>"+
+    "<tr><td>andalucía</td><td>granada</td><td>2017</td><td>1.250,99</td><td>1,54</td><td>1.013</td></tr>"+
+    "</table><//body></html>");
+});
 
 app.listen(port, () => {
     console.log("Server currently listening on port ${port} ...")
