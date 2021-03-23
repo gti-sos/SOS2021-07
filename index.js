@@ -25,12 +25,12 @@ app.post("/hello", (req, res) => {
 app.get("/info/unemployment", (req, res) => {
     res.send("<html><body><table class='tftable' border='1'>"+
     "<tr><th>autonomous-community</th><th>youth-unemployment-rate</th><th>province</th><th>year</th><th>unemployment-rate</th><th>occupation-variation</th></tr>"+
-    "<tr><td>extremadura</td><td>48.1605</td><td>badajoz</td><td>2020</td><td>22.8954</td><td>-1.09999</td></tr>"+
-    "<tr><td>extremadura</td><td>-</td><td>cáceres</td><td>2020</td><td>18.5352</td><td>100.00610</td></tr>"+
-    "<tr><td>andalucía</td><td>52.1912</td><td>málaga</td><td>2020</td><td>19.3225</td><td>32.79998</td></tr>"+
-    "<tr><td>andalucía</td><td>-</td><td>granada</td><td>2020</td><td>24.8484844928</td><td>13.79998</td></tr>"+
-    "<tr><td>cataluña</td><td>38.1233</td><td>barcelona</td><td>2020</td><td>13.6676</td><td>29.69995</td></tr>"+
-    "<tr><td>aragón</td><td>34.4671</td><td>zaragoza</td><td>2020</td><td>12.9139</td><td>1.39999</td></tr>"+
+    "<tr><td>extremadura</td><td>48,1605</td><td>badajoz</td><td>2020</td><td>22,8954</td><td>-1,09999</td></tr>"+
+    "<tr><td>extremadura</td><td>-</td><td>cáceres</td><td>2020</td><td>18,5352</td><td>100,00610</td></tr>"+
+    "<tr><td>andalucía</td><td>52,1912</td><td>málaga</td><td>2020</td><td>19,3225</td><td>32,79998</td></tr>"+
+    "<tr><td>andalucía</td><td>-</td><td>granada</td><td>2020</td><td>24,8484</td><td>13,79998</td></tr>"+
+    "<tr><td>cataluña</td><td>38,1233</td><td>barcelona</td><td>2020</td><td>13,6676</td><td>29,69995</td></tr>"+
+    "<tr><td>aragón</td><td>34,4671</td><td>zaragoza</td><td>2020</td><td>12,9139</td><td>1,39999</td></tr>"+
     "</table><//body></html>");
 });
     
