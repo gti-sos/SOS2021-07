@@ -46,7 +46,7 @@ app.get("/info/rentals", (req, res) => {
     "</table><//body></html>");
 }); 
 
-    //Tabla de Nuria...
+    //Tabla de Nuria
 app.get("/info/buy-sell", (req, res) => {
     res.send("<html><body><table class='tftable' border='1'>"+
     "<tr><th>autonomous-community</th><th>province</th><th>year</th><th>surface</th><th>annual-variation-percentage</th><th>eviction</th></tr>"+
