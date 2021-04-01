@@ -60,7 +60,14 @@ app.get("/info/buy-sell", (req, res) => {
     "<tr><td>comunidad valenciana</td><td>valencia</td><td>2017</td><td>1.169,92</td><td>6,23</td><td>2.358</td></tr>"+
     "<tr><td>andalucía</td><td>granada</td><td>2017</td><td>1.250,99</td><td>1,54</td><td>1.013</td></tr>"+
     "</table><//body></html>");
+	
 });
+
+app.get("/api/v1/buy-sell", (req, res) => {
+    res.send("<html><body><h1>NO SE QUE PONER AQUI TODAVIA</h1></body></html>");
+});
+
+
 
 app.listen(port, () => {
     console.log("Server currently listening on port ${port} ...")
