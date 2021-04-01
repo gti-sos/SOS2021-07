@@ -5,6 +5,9 @@ var port = (process.env.PORT || 10000);
 
 var path = require("path");
 
+//Definición de la API
+var BASE_API_PATH="/api/v1";
+
 app.use("/", express.static(path.join(__dirname,"public")));
 
 app.get("/cool", (request,response) => {
@@ -63,9 +66,6 @@ app.get("/info/buy-sell", (req, res) => {
 	
 });
 
-app.get("/api/v1/buy-sell", (req, res) => {
-    res.send("<html><body><h1>NO SE QUE PONER AQUI TODAVIA</h1></body></html>");
-});
 
 
 
