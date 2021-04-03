@@ -13,6 +13,9 @@ var port = (process.env.PORT || 10000);
 //Ruta base API
 var BASE_API_PATH="/api/v1";
 
+//Conjunto de datos vacío
+var empty = [];
+
 //API unemployment - Alejandro
 var unemployment = [
     {
@@ -42,18 +45,30 @@ var unemployment = [
 ];
 
 app.get(BASE_API_PATH + "/unemployment", (req, res) => {
-    res.send(JSON.stringify(unemployment,null,2));
+    res.send(JSON.stringify(empty,null,2));
 });
 
 app.get(BASE_API_PATH + "/unemployment/loadInitialData", (req, res) => {
-    res.set(JSON.stringify(unemployment,null,2));
+    app.post(BASE_API_PATH + "/unemployment", (req, res) => {
+        console.log('Setting default resources: <${JSON.stringfy(unemployment,null,2)}>');
+        empty.push(unemployment);
+        res.sendStatus(201);
+    });
 });
 
 app.post(BASE_API_PATH + "/unemployment", (req, res) => {
     var newUnemploymentEntry = req.body;
     console.log('New unemployment entry to be added: <${JSON.stringfy(newUnemploymentEntry,null,2)}>');
-    unemployment.push(newUnemploymentEntry);
+    empty.push(newUnemploymentEntry);
     res.sendStatus(201);
+});
+
+app.delete(BASE_API_PATH + "/unemployment", (req, res) => {
+    
+});
+
+app.put(BASE_API_PATH + "/unemployment", (req, res) => {
+    
 });
 
 //API rentals - Francisco
