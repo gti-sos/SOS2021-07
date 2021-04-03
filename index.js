@@ -6,10 +6,10 @@ var app = express();
 var port = (process.env.PORT || 10000);
 
 var path = require("path");
-
+/*
 var bodyParser = require("body-parser");
 app.use(bodyParser.json);
-
+*/
 //Ruta base API
 var BASE_API_PATH="/api/v1";
 
