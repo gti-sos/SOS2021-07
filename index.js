@@ -1,13 +1,12 @@
 var cool = require("cool-ascii-faces");
-
 var express = require("express");
-var app = express();
-
-var port = (process.env.PORT || 10000);
-
+var bodyParser = require("body-parser");
 var path = require("path");
 
-var bodyParser = require("body-parser");
+var app = express();
+var port = (process.env.PORT || 10000);
+
+app.use(bodyParser.json());
 
 //Ruta base API
 var BASE_API_PATH="/api/v1";
@@ -45,7 +44,6 @@ app.get(BASE_API_PATH + "/unemployment", (req, res) => {
 });
 
 app.post(BASE_API_PATH + "/unemployment", (req, res) => {
-    app.use(bodyParser.json);
     var newUnemploymentEntry = req.body;
     console.log('New unemployment entry to be added: <${JSON.stringfy(newUnemploymentEntry,null,2)}>');
     unemployment.push(newUnemploymentEntry);
