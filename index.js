@@ -13,7 +13,7 @@ var port = (process.env.PORT || 10000);
 //Ruta base API
 var BASE_API_PATH="/api/v1";
 
-//Conjunto de datos vacío
+var vacio = [];
 var unemployment_initial = [
     {
         "autonomous-community":"extremadura",
@@ -75,6 +75,15 @@ app.get(BASE_API_PATH + "/unemployment", (req, res) => {
 
 app.get(BASE_API_PATH + "/unemployment/loadInitialData", (req, res) => {
     res.send(JSON.stringify(unemployment_initial,null,2));
+});
+
+//prueba
+app.get(BASE_API_PATH + "/unemployment/iniciales", (req, res) => {
+    res.send(JSON.stringify(vacio,null,2));
+});
+
+app.get(BASE_API_PATH + "/unemployment/iniciales/prueba", (req, res) => {
+    vacio.push(unemployment_initial);
 });
 
 app.post(BASE_API_PATH + "/unemployment", (req, res) => {
