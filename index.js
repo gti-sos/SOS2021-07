@@ -48,6 +48,7 @@ app.get(BASE_API_PATH + "/unemployment", (req, res) => {
     res.send(JSON.stringify(empty,null,2));
 });
 
+//este no va
 app.get(BASE_API_PATH + "/unemployment/loadInitialData", (req, res) => {
     app.post(BASE_API_PATH + "/unemployment", (req, res) => {
         console.log('Setting default resources: <${JSON.stringfy(unemployment,null,2)}>');
