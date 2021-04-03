@@ -1,9 +1,14 @@
 var cool = require("cool-ascii-faces");
+
 var express = require("express");
 var app = express();
+
 var port = (process.env.PORT || 10000);
 
 var path = require("path");
+
+var bodyParser = require("body-parser");
+app.use(bodyParser.JSON);
 
 //Ruta base API
 var BASE_API_PATH="/api/v1";
@@ -34,11 +39,17 @@ var unemployment = [
         "unemployment-rate":19.3225,
         "occupation-variation":32.79998
     }
-    //Faltan pero pone que minimo 2, de momento.
 ];
 
 app.get(BASE_API_PATH + "/unemployment", (req, res) => {
     res.send(JSON.stringify(unemployment,null,2));
+});
+
+app.post(BASE_API_PATH + "/unemployment", (req, res) => {
+    var newUnemploymentEntry = req.body;
+    console.log('New unemployment entry to be added: <${JSON.stringfy(newUnemploymentEntry,null,2)}>');
+    unemployment.push(newUnemploymentEntry);
+    res.sendStatus(201);
 });
 
 //API rentals - Francisco
