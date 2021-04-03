@@ -40,7 +40,7 @@ var unemployment = [
         "occupation-variation":32.79998
     }
 ];
-
+/*
 app.get(BASE_API_PATH + "/unemployment", (req, res) => {
     res.send(JSON.stringify(unemployment,null,2));
 });
@@ -51,7 +51,7 @@ app.post(BASE_API_PATH + "/unemployment", (req, res) => {
     unemployment.push(newUnemploymentEntry);
     res.sendStatus(201);
 });
-
+*/
 //API rentals - Francisco
 
 //API buy-sell - Nuria
