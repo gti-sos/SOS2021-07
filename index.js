@@ -46,7 +46,7 @@ app.get(BASE_API_PATH + "/unemployment", (req, res) => {
 });
 
 app.get(BASE_API_PATH + "/unemployment/loadInitialData", (req, res) => {
-    res.sendStatus(205);
+    res.send(JSON.stringify(unemployment,null,2));
 });
 
 app.post(BASE_API_PATH + "/unemployment", (req, res) => {
