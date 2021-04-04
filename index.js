@@ -144,63 +144,12 @@ var rentals_initial = [
     }
 ];
 
-var rentals = [
-    {
-        "autonomous_community": "polla",
-        "province": "sevilla",
-        "year":2018,
-        "rent":560.5,
-        "rent-variation":4,
-        "meter":94.6,
-        "salary":29
-    },
-
-    {
-        "autonomous_community": "madrid",
-        "province": "madrid",
-        "year":2018,
-        "rent":780,
-        "rent-variation":4.6,
-        "meter":86.5,
-        "salary":51
-    },
-
-    {
-        "autonomous_community": "cataluña",
-        "province": "barcelona",
-        "year":2018,
-        "rent":696,
-        "rent-variation":6,
-        "meter":96.8,
-        "salary":49
-    },
-
-    {
-        "autonomous_community": "castilla-y-león",
-        "province": "salamanca",
-        "year":2018,
-        "rent":468,
-        "rent-variation":2.2,
-        "meter":91,
-        "salary":24
-    },
-
-    {
-        "autonomous_community": "madrid",
-        "province": "madrid",
-        "year":2020,
-        "rent":848,
-        "rent-variation":3.7,
-        "meter":71,
-        "salary":55.7
-    }
-];
+var rentals = [];
 
 app.get(BASE_API_PATH + "/rentals/loadInitialData", (req, res) => {
-    
-    console.log('START - LOAD INITIAL DATA \n'+
-    JSON.stringify(rentals_initial,null,2)+
-    '\n END - LOAD INITIAL DATA');
+    rentals.push(rentals_initial);
+    res.send(JSON.stringify("LOAD INITIAL DATA"));
+
 });
 
 app.get(BASE_API_PATH + "/rentals", (req, res) => {
@@ -217,52 +166,20 @@ app.post(BASE_API_PATH + "/rentals", (req, res) => {
 
 app.get(BASE_API_PATH+'/rentals/:autonomous_community',(req,res)=>{
     var autonomous_community_url = req.params.autonomous_community;
-
-    rentals.find({autonomous_community:autonomous_community_url},(err,docs)=>{
-        if(docs.length>=1){
-            res.send(
-                docs.map(ti=>{
-                    delete ti._id;
-                    return ti;
-                })
-            );
-            console.log(
-                '\n START - SHOW THOSE DATA FROM DB\n'+
-                JSON.stringify(docs, null, 2)+
-                '\n END - SHOW THOSE DATA FROM DB\n'
-            );
-        }else {
-            res.sendStatus(404);
-            console.log('\n 404 - RENTALS NOT FOUND');
-        }
-    });
+    const resultado = rentals.filter(rentals => rentals.autonomous_community == autonomous_community_url);
+    res.send(JSON.stringify(resultado,null,2));
+   
 });
 
 
-app.get(BASE_API_PATH+'/rentals/:autonomous_community/:province/:year',(req,res)=>{
+app.get(BASE_API_PATH+'/rentals/:autonomous_community/:year',(req,res)=>{
     var autonomous_community_url = req.params.autonomous_community;
-    var province_url = req.params.province;
     var year_url = req.params.year;
+    const resultado = rentals.filter(rentals => rentals.autonomous_community == autonomous_community_url &&
+        rentals.year==year_url);
+    res.send(JSON.stringify(resultado,null,2));
 
-
-    rentals.find({autonomous_community:autonomous_community_url, province: province_url, year: parseInt(year_url)},(err,docs)=>{
-        if(docs.length>=1){
-            res.send(
-                docs.map(ti=>{
-                    delete ti._id;
-                    return ti;
-                })[0]
-            );
-            console.log(
-                '\n START - SHOW THOSE DATA FROM DB\n'+
-                JSON.stringify(docs, null, 2)+
-                '\n END - SHOW THOSE DATA FROM DB\n'
-            );
-        }else {
-            res.sendStatus(404);
-            console.log('\n 404 - RENTALS NOT FOUND');
-        }
-    });
+   
 });
 
 app.delete(BASE_API_PATH + 'rentals/:autonomous_community', (req, res) => {
@@ -355,7 +272,7 @@ app.post(BASE_API_PATH + "rentals/:autonomous_community", (req, res) => {
    console.log('METHOD NOT ALLOWED\n');
 });
 
-app.post(BASE_API_PATH + "/rentals/:autonomous_community/:province/:year", (req, res) => {
+app.post(BASE_API_PATH + "/rentals/:autonomous_community/:year", (req, res) => {
     res.sendStatus(405);
     console.log('METHOD NOT ALLOWED\n');
  });
