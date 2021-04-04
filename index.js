@@ -210,20 +210,7 @@ app.get(BASE_API_PATH + "/rentals", (req, res) => {
 
 app.post(BASE_API_PATH + "/rentals", (req, res) => {
     var newRentalsEntry = req.body;
-    if (
-        newRentalsEntry.autonomous_community == null||
-        newRentalsEntry.province == null||
-        newRentalsEntry.year == null||
-        newRentalsEntry.rent == null||
-        newRentalsEntry.rent_variation == null||
-        newRentalsEntry.meter == null||
-        newRentalsEntry.salary == null
-        
-
-    ) {
-        res.sendStatus(400);
-        console.log('\n 400 - RENTALS CAN NOT BE EMPITY OR NULL');
-    }else{
+    
         rentals.insert(newRentalsEntry);
         res.sendStatus(201);
         console.log(
@@ -231,7 +218,7 @@ app.post(BASE_API_PATH + "/rentals", (req, res) => {
             JSON.stringify(newRentalsEntry, null, 2)+
             '\n END - ADD NEW DATA TO DB'
         );
-    }
+    
 });
 
 
