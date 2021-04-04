@@ -207,7 +207,7 @@ app.get(BASE_API_PATH + "/rentals", (req, res) => {
     res.send(JSON.stringify(rentals,null,2));
 });
 
-app.post(BASE_API_PATH + "/rentals", (req, res) => {
+app.post(BASE_API_PATH + "/unemployment", (req, res) => {
     var newRentalsEntry = req.body;
     console.log(`New rentals entry to be added: <${JSON.stringfy(newRentalsEntry,null,2)}>`);
     rentals.push(newRentalsEntry);
