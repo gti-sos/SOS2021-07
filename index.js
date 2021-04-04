@@ -224,7 +224,7 @@ app.post(BASE_API_PATH + "/rentals", (req, res) => {
         res.sendStatus(400);
         console.log('\n 400 - RENTALS CAN NOT BE EMPITY OR NULL');
     }else{
-        db.insert(newRentalsEntry);
+        rentals.insert(newRentalsEntry);
         res.sendStatus(201);
         console.log(
             '\n START - ADD NEW DATA TO DB\n'+
@@ -238,7 +238,7 @@ app.post(BASE_API_PATH + "/rentals", (req, res) => {
 app.get(BASE_API_PATH+'/rentals/:autonomous_community',(req,res)=>{
     var autonomous_community_url = req.params.autonomous_community;
 
-    db.find({autonomous_community:autonomous_community_url},(err,docs)=>{
+    rentals.find({autonomous_community:autonomous_community_url},(err,docs)=>{
         if(docs.length>=1){
             res.send(
                 docs.map(ti=>{
@@ -265,7 +265,7 @@ app.get(BASE_API_PATH+'/rentals/:autonomous_community/:province/:year',(req,res)
     var year_url = req.params.year;
 
 
-    db.find({autonomous_community:autonomous_community_url, province: province_url, year: parseInt(year_url)},(err,docs)=>{
+    rentals.find({autonomous_community:autonomous_community_url, province: province_url, year: parseInt(year_url)},(err,docs)=>{
         if(docs.length>=1){
             res.send(
                 docs.map(ti=>{
@@ -288,7 +288,7 @@ app.get(BASE_API_PATH+'/rentals/:autonomous_community/:province/:year',(req,res)
 app.delete(BASE_API_PATH + 'rentals/:autonomous_community', (req, res) => {
     var autonomous_community_url = req.params.autonomous_community;
     
-    db.remove({autonomous_community: autonomous_community_url},{multi:true},(err, numRemoved)=>{
+    rentals.remove({autonomous_community: autonomous_community_url},{multi:true},(err, numRemoved)=>{
         if(numRemoved==0){
             res.sendStatus(404);
             console.log('RENTALS NOT FOUND');
@@ -310,7 +310,7 @@ app.delete(BASE_API_PATH + 'rentals/:autonomous_community/:province/:year', (req
     var year_url = req.params.year;
 
     
-    db.remove({autonomous_community: autonomous_community_url, province: province_url, year: parseInt(year_url)},{multi:true},(err, numRemoved)=>{
+    rentals.remove({autonomous_community: autonomous_community_url, province: province_url, year: parseInt(year_url)},{multi:true},(err, numRemoved)=>{
         if(numRemoved==0){
             res.sendStatus(404);
             console.log('RENTALS NOT FOUND');
@@ -345,7 +345,7 @@ app.put(BASE_API_PATH + "rentals/:autonomous_community/:province/:year", (req, r
         res.sendStatus(400);
         console.log('\n 400 - RENTALS CAN NOT BE EMPITY OR NULL');
     }else{
-        db.update(
+        rentals.update(
             {autonomous_community: autonomous_community_url, 
             province: province_url, year: parseInt(year_url)},
             {
@@ -386,7 +386,7 @@ app.post(BASE_API_PATH + "/rentals/:autonomous_community/:province/:year", (req,
  });
 
  app.delete(BASE_API_PATH + "/rentals", (req, res) => {
-    db.remove({}, {multi: true}, function(err,numRemoved){
+    rentals.remove({}, {multi: true}, function(err,numRemoved){
         if(numRemoved>=1){
             res.sendStatus(200);
             console.log(
