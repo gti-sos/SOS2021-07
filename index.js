@@ -112,50 +112,51 @@ var rentals_initial = [
         "rent-variation":7.4,
         "meter":101.6,
         "salary":28.8
+    },
+    {
+        "autonomous_community": "andalucía",
+        "province": "sevilla",
+        "year":2018,
+        "rent":560.5,
+        "rent-variation":4,
+        "meter":94.6,
+        "salary":29
+    },
+    
+    {
+        "autonomous_community": "madrid",
+        "province": "madrid",
+        "year":2018,
+        "rent":780,
+        "rent-variation":4.6,
+        "meter":86.5,
+        "salary":51
+    },
+    
+    {
+        "autonomous_community": "cataluña",
+        "province": "barcelona",
+        "year":2018,
+        "rent":696,
+        "rent-variation":6,
+        "meter":96.8,
+        "salary":49
+    },
+    
+    
+    
+    {
+        "autonomous_community": "madrid",
+        "province": "madrid",
+        "year":2020,
+        "rent":848,
+        "rent-variation":3.7,
+        "meter":71,
+        "salary":55.7
     }
 ];
 
-var rentals = [{
-    "autonomous_community": "andalucía",
-    "province": "sevilla",
-    "year":2018,
-    "rent":560.5,
-    "rent-variation":4,
-    "meter":94.6,
-    "salary":29
-},
-
-{
-    "autonomous_community": "madrid",
-    "province": "madrid",
-    "year":2018,
-    "rent":780,
-    "rent-variation":4.6,
-    "meter":86.5,
-    "salary":51
-},
-
-{
-    "autonomous_community": "cataluña",
-    "province": "barcelona",
-    "year":2018,
-    "rent":696,
-    "rent-variation":6,
-    "meter":96.8,
-    "salary":49
-},
-
-
-
-{
-    "autonomous_community": "madrid",
-    "province": "madrid",
-    "year":2020,
-    "rent":848,
-    "rent-variation":3.7,
-    "meter":71,
-    "salary":55.7
-}];
+var rentals = [];
 
 app.get(BASE_API_PATH + "/rentals/loadInitialData", (req, res) => {
     var inicial = rentals_initial;
@@ -178,7 +179,8 @@ app.post(BASE_API_PATH + "/rentals", (req, res) => {
 
 app.get(BASE_API_PATH+'/rentals/:autonomous_community',(req,res)=>{
     var autonomous_community_url = req.params.autonomous_community;
-    const resultado = rentals.filter(rentals => rentals.autonomous_community == autonomous_community_url);
+    
+    const resultado = rentals.filter(rentals => rentals.autonomous_community == autonomous_community_url).concat(rentals_initial.filter(rentals_initial => rentals_initial.autonomous_community == autonomous_community_url));
     res.send(JSON.stringify(resultado,null,2));
    
 });
@@ -188,7 +190,8 @@ app.get(BASE_API_PATH+'/rentals/:autonomous_community/:year',(req,res)=>{
     var autonomous_community_url = req.params.autonomous_community;
     var year_url = req.params.year;
     const resultado = rentals.filter(rentals => rentals.autonomous_community == autonomous_community_url &&
-        rentals.year==year_url);
+        rentals.year==year_url).concat(rentals_initial.filter(rentals_initial => rentals_initial.autonomous_community == autonomous_community_url &&
+            rentals_initial.year==year_url));
     res.send(JSON.stringify(resultado,null,2));
 
    
