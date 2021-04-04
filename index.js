@@ -144,6 +144,58 @@ var rentals_initial = [
     }
 ];
 
+var rentals = [
+    {
+        "autonomous_community": "polla",
+        "province": "sevilla",
+        "year":2018,
+        "rent":560.5,
+        "rent-variation":4,
+        "meter":94.6,
+        "salary":29
+    },
+
+    {
+        "autonomous_community": "madrid",
+        "province": "madrid",
+        "year":2018,
+        "rent":780,
+        "rent-variation":4.6,
+        "meter":86.5,
+        "salary":51
+    },
+
+    {
+        "autonomous_community": "cataluña",
+        "province": "barcelona",
+        "year":2018,
+        "rent":696,
+        "rent-variation":6,
+        "meter":96.8,
+        "salary":49
+    },
+
+    {
+        "autonomous_community": "castilla-y-león",
+        "province": "salamanca",
+        "year":2018,
+        "rent":468,
+        "rent-variation":2.2,
+        "meter":91,
+        "salary":24
+    },
+
+    {
+        "autonomous_community": "madrid",
+        "province": "madrid",
+        "year":2020,
+        "rent":848,
+        "rent-variation":3.7,
+        "meter":71,
+        "salary":55.7
+    }
+];
+
 app.get(BASE_API_PATH + "/rentals/loadInitialData", (req, res) => {
     
     console.log('START - LOAD INITIAL DATA \n'+
@@ -152,7 +204,7 @@ app.get(BASE_API_PATH + "/rentals/loadInitialData", (req, res) => {
 });
 
 app.get(BASE_API_PATH + "/rentals", (req, res) => {
-    res.send(JSON.stringify(unemployment,null,2));
+    res.send(JSON.stringify(rentals,null,2));
 });
 
 
