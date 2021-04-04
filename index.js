@@ -93,35 +93,6 @@ app.put(BASE_API_PATH + "/unemployment", (req, res) => {
 //API rentals - Francisco
 
 var rentals_initial = [
-    {
-        "autonomous_community": "andalucía",
-        "province": "sevilla",
-        "year":2018,
-        "rent":560.5,
-        "rent-variation":4,
-        "meter":94.6,
-        "salary":29
-    },
-
-    {
-        "autonomous_community": "madrid",
-        "province": "madrid",
-        "year":2018,
-        "rent":780,
-        "rent-variation":4.6,
-        "meter":86.5,
-        "salary":51
-    },
-
-    {
-        "autonomous_community": "cataluña",
-        "province": "barcelona",
-        "year":2018,
-        "rent":696,
-        "rent-variation":6,
-        "meter":96.8,
-        "salary":49
-    },
 
     {
         "autonomous_community": "castilla-y-león",
@@ -134,21 +105,62 @@ var rentals_initial = [
     },
 
     {
-        "autonomous_community": "madrid",
-        "province": "madrid",
-        "year":2020,
-        "rent":848,
-        "rent-variation":3.7,
-        "meter":71,
-        "salary":55.7
+        "autonomous_community": "andalucía",
+        "province": "málaga",
+        "year":2018,
+        "rent":615,
+        "rent-variation":7.4,
+        "meter":101.6,
+        "salary":28.8
     }
 ];
 
-var rentals = [];
+var rentals = [{
+    "autonomous_community": "andalucía",
+    "province": "sevilla",
+    "year":2018,
+    "rent":560.5,
+    "rent-variation":4,
+    "meter":94.6,
+    "salary":29
+},
+
+{
+    "autonomous_community": "madrid",
+    "province": "madrid",
+    "year":2018,
+    "rent":780,
+    "rent-variation":4.6,
+    "meter":86.5,
+    "salary":51
+},
+
+{
+    "autonomous_community": "cataluña",
+    "province": "barcelona",
+    "year":2018,
+    "rent":696,
+    "rent-variation":6,
+    "meter":96.8,
+    "salary":49
+},
+
+
+
+{
+    "autonomous_community": "madrid",
+    "province": "madrid",
+    "year":2020,
+    "rent":848,
+    "rent-variation":3.7,
+    "meter":71,
+    "salary":55.7
+}];
 
 app.get(BASE_API_PATH + "/rentals/loadInitialData", (req, res) => {
-    rentals.push(rentals_initial);
-    res.send(JSON.stringify("LOAD INITIAL DATA"));
+    var inicial = rentals_initial;
+    rentals.push(inicial);
+    res.sendStatus(201);
 
 });
 
