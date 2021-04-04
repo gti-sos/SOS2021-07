@@ -94,8 +94,8 @@ app.put(BASE_API_PATH + "/unemployment", (req, res) => {
 
 var rentals_initial = [
     {
-        "autonomous_community": andalucía,
-        "province": sevilla,
+        "autonomous_community": "andalucía",
+        "province": "sevilla",
         "year":2018,
         "rent":560.5,
         "rent-variation":4,
@@ -104,8 +104,8 @@ var rentals_initial = [
     },
 
     {
-        "autonomous_community": madrid,
-        "province": madrid,
+        "autonomous_community": "madrid",
+        "province": "madrid",
         "year":2018,
         "rent":780,
         "rent-variation":4.6,
@@ -114,8 +114,8 @@ var rentals_initial = [
     },
 
     {
-        "autonomous_community": cataluña,
-        "province": barcelona,
+        "autonomous_community": "cataluña",
+        "province": "barcelona",
         "year":2018,
         "rent":696,
         "rent-variation":6,
@@ -124,8 +124,8 @@ var rentals_initial = [
     },
 
     {
-        "autonomous_community": castilla-y-león,
-        "province": salamanca,
+        "autonomous_community": "castilla-y-león",
+        "province": "salamanca",
         "year":2018,
         "rent":468,
         "rent-variation":2.2,
@@ -134,8 +134,8 @@ var rentals_initial = [
     },
 
     {
-        "autonomous_community": madrid,
-        "province": madrid,
+        "autonomous_community": "madrid",
+        "province": "madrid",
         "year":2020,
         "rent":848,
         "rent-variation":3.7,
@@ -151,44 +151,9 @@ app.get(BASE_API_PATH + "/rentals/loadInitialData", (req, res) => {
     '\n END - LOAD INITIAL DATA');
 });
 
-app.get(BASE_API_PATH+"/rentals",(req,res)=>{
-    var limit = parseInt(req.query.limit);
-    var offset = parseInt(req.query.offset);
-    var search = {};
-
-    if(req.query.autonomous_community) search["autonomous_community"]=req.query.autonomous_community;
-    if(req.query.province) search["province"]=req.query.province;
-    if(req.query.year) search["year"]=parseInt (req.query.year);
-    if(req.query.rent) search["rent"]=parseInt (req.query.rent);
-    if(req.query.rent_variation) search["rent_variation"]=parseInt (req.query.rent_variation);
-    if(req.query.meter) search["meter"]=parseInt (req.query.meter);
-    if(req.query.salary) search["salary"]=parseInt (req.query.salary);
-db
-    .find(search)
-    .sort({autonomous_community: 1, province: -1, year: -2, rent: -3, rent_variation: -4, meter: -5, salary: -6})
-    .skip(offset)
-    .limit(limit)
-    .exec((err,docs)=>{
-        if(docs.length ==0){
-            res.sendStatus(204);
-            console.log('\n NO CONTENT TO SHOW');
-        }else{
-            res.send(
-                docs.map(ti=>{
-                    delete ti._id;
-                    return ti;
-                })
-            );
-            console.log(
-                '\n START - SHOW ALL DATA OR AVAILABLE ON DB\N'+
-                JSON.stringify(docs,null,2)+
-                '\n END - SHOW ALL DATA OR AVAILABLE ON DB'
-            );
-        }
-    });
-
+app.get(BASE_API_PATH + "/rentals", (req, res) => {
+    res.send(JSON.stringify(unemployment,null,2));
 });
-
 
 
 app.post(BASE_API_PATH + "/rentals", (req, res) => {
