@@ -92,20 +92,6 @@ app.put(BASE_API_PATH + "/unemployment", (req, res) => {
 
 //API rentals - Francisco
 
-module.exports = function(app, express, bodyParser, path){
-console.log('Registering rentals API V1...');
-
-const dataStore=require('nedb');
-
-const dbFileName = path.join(__dirname,'/rentals.db');
-var BASE_API_PATH="/api/v1";
-app.use(bodyParser.json());
-const db = new dataStore({
-    filename: dbFileName,
-
-    autoload: true
-});
-
 var rentals_initial = [
     {
         "autonomous_community": andalucía,
@@ -159,8 +145,7 @@ var rentals_initial = [
 ];
 
 app.get(BASE_API_PATH + "/rentals/loadInitialData", (req, res) => {
-    db.insert(rentals_initial);
-    res.send(rentals_initial);
+    
     console.log('START - LOAD INITIAL DATA \n'+
     JSON.stringify(rentals_initial,null,2)+
     '\n END - LOAD INITIAL DATA');
@@ -399,9 +384,7 @@ app.post(BASE_API_PATH + "/rentals/:autonomous_community/:province/:year", (req,
     });
  });
 
- console.log('Registered rentals API! V1\n');
 
-};
 //API buy-sell - Nuria
 
 //Mostrar directamente el contenido de /public
