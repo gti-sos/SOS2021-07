@@ -40,35 +40,12 @@ var unemployment_initial = [
 ];
 
 //API unemployment - Alejandro
-var unemployment = [
-    {
-        "autonomous-community":"extremadura",
-        "youth-unemployment-rate":48.1605,
-        "province":"badajoz",
-        "year":2020,
-        "unemployment-rate":22.8954,
-        "occupation-variation":-1.09999
-    },
-    {
-        "autonomous-community":"extremadura",
-        "youth-unemployment-rate":"-",
-        "province":"cáceres",
-        "year":2020,
-        "unemployment-rate":18.5352,
-        "occupation-variation":100.00610
-    },
-    {
-        "autonomous-community":"andalucía",
-        "youth-unemployment-rate":52.1912,
-        "province":"málaga",
-        "year":2020,
-        "unemployment-rate":19.3225,
-        "occupation-variation":32.79998
-    }
-];
+var unemployment = [];
 
 app.get(BASE_API_PATH + "/unemployment/loadInitialData", (req, res) => {
-    res.send(JSON.stringify(unemployment_initial,null,2));
+    var inicial = unemployment_initial;
+    unemployment.push(inicial);
+    res.sendStatus(201);
 });
 
 app.get(BASE_API_PATH + "/unemployment", (req, res) => {
