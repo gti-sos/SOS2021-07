@@ -8,6 +8,17 @@ app.use(bodyParser.json());
 
 var path = require("path");
 
+console.log('Registering rentals API V1...');
+
+const dataStore=require('nedb');
+const { json } = require("body-parser");
+const dbFileName = path.join(__dirname,'/rentals.db');
+const db = new dataStore({
+    filename: dbFileName,
+
+    autoload: true
+});
+
 var port = (process.env.PORT || 10000);
 
 //Ruta base API
@@ -94,6 +105,300 @@ app.put(BASE_API_PATH + "/unemployment", (req, res) => {
 
 //API rentals - Francisco
 
+var rentals_initial = [
+    {
+        "autonomous_community": andalucía,
+        "province": sevilla,
+        "year":2018,
+        "rent":560.5,
+        "rent-variation":4,
+        "meter":94.6,
+        "salary":29
+    },
+
+    {
+        "autonomous_community": madrid,
+        "province": madrid,
+        "year":2018,
+        "rent":780,
+        "rent-variation":4.6,
+        "meter":86.5,
+        "salary":51
+    },
+
+    {
+        "autonomous_community": cataluña,
+        "province": barcelona,
+        "year":2018,
+        "rent":696,
+        "rent-variation":6,
+        "meter":96.8,
+        "salary":49
+    },
+
+    {
+        "autonomous_community": castilla-y-león,
+        "province": salamanca,
+        "year":2018,
+        "rent":468,
+        "rent-variation":2.2,
+        "meter":91,
+        "salary":24
+    },
+
+    {
+        "autonomous_community": madrid,
+        "province": madrid,
+        "year":2020,
+        "rent":848,
+        "rent-variation":3.7,
+        "meter":71,
+        "salary":55.7
+    }
+];
+
+app.get(BASE_API_PATH + "/rentals/loadInitialData", (req, res) => {
+    db.insert(rentals_initial);
+    res.send(rentals_initial);
+    console.log('START - LOAD INITIAL DATA \n'+
+    JSON.stringify(rentals_initial,null,2)+
+    '\n END - LOAD INITIAL DATA');
+});
+
+app.get(BASE_API_PATH+"/rentals",(req,res)=>{
+    var limit = parseInt(req.query.limit);
+    var offset = parseInt(req.query.offset);
+    var search = {};
+
+    if(req.query.autonomous_community) search["autonomous_community"]=req.query.autonomous_community;
+    if(req.query.province) search["province"]=req.query.province;
+    if(req.query.year) search["year"]=parseInt (req.query.year);
+    if(req.query.rent) search["rent"]=parseInt (req.query.rent);
+    if(req.query.rent_variation) search["rent_variation"]=parseInt (req.query.rent_variation);
+    if(req.query.meter) search["meter"]=parseInt (req.query.meter);
+    if(req.query.salary) search["salary"]=parseInt (req.query.salary);
+db
+    .find(search)
+    .sort({autonomous_community: 1, province: -1, year: -2, rent: -3, rent_variation: -4, meter: -5, salary: -6})
+    .skip(offset)
+    .limit(limit)
+    .exec((err,docs)=>{
+        if(docs.length ==0){
+            res.sendStatus(204);
+            console.log('\n NO CONTENT TO SHOW');
+        }else{
+            res.send(
+                docs.map(ti=>{
+                    delete ti._id;
+                    return ti;
+                })
+            );
+            console.log(
+                '\n START - SHOW ALL DATA OR AVAILABLE ON DB\N'+
+                JSON.stringify(docs,null,2)+
+                '\n END - SHOW ALL DATA OR AVAILABLE ON DB'
+            );
+        }
+    });
+
+});
+
+
+
+app.post(BASE_API_PATH + "/rentals", (req, res) => {
+    var newRentalsEntry = req.body;
+    if (
+        newRentalsEntry.autonomous_community == null||
+        newRentalsEntry.province == null||
+        newRentalsEntry.year == null||
+        newRentalsEntry.rent == null||
+        newRentalsEntry.rent_variation == null||
+        newRentalsEntry.meter == null||
+        newRentalsEntry.salary == null||
+        newRentalsEntry==''
+
+    ) {
+        res.sendStatus(400);
+        console.log('\n 400 - RENTALS CAN NOT BE EMPITY OR NULL');
+    }else{
+        db.insert(newRentalsEntry);
+        res.sendStatus(201);
+        console.log(
+            '\n START - ADD NEW DATA TO DB\n'+
+            JSON.stringify(newRentalsEntry, null, 2)+
+            '\n END - ADD NEW DATA TO DB'
+        );
+    }
+});
+
+
+app.get(BASE_API_PATH+'/rentals/:autonomous_community',(req,res)=>{
+    var autonomous_community_url = req.params.autonomous_community;
+
+    db.find({autonomous_community:autonomous_community_url},(err,docs)=>{
+        if(docs.length>=1){
+            res.send(
+                docs.map(ti=>{
+                    delete ti._id;
+                    return ti;
+                })
+            );
+            console.log(
+                '\n START - SHOW THOSE DATA FROM DB\n'+
+                JSON.stringify(docs, null, 2)+
+                '\n END - SHOW THOSE DATA FROM DB\n'
+            );
+        }else {
+            res.sendStatus(404);
+            console.log('\n 404 - RENTALS NOT FOUND');
+        }
+    });
+});
+
+
+app.get(BASE_API_PATH+'/rentals/:autonomous_community/:province/:year',(req,res)=>{
+    var autonomous_community_url = req.params.autonomous_community;
+    var province_url = req.params.province;
+    var year_url = req.params.year;
+
+
+    db.find({autonomous_community:autonomous_community_url, province: province_url, year: parseInt(year_url)},(err,docs)=>{
+        if(docs.length>=1){
+            res.send(
+                docs.map(ti=>{
+                    delete ti._id;
+                    return ti;
+                })[0]
+            );
+            console.log(
+                '\n START - SHOW THOSE DATA FROM DB\n'+
+                JSON.stringify(docs, null, 2)+
+                '\n END - SHOW THOSE DATA FROM DB\n'
+            );
+        }else {
+            res.sendStatus(404);
+            console.log('\n 404 - RENTALS NOT FOUND');
+        }
+    });
+});
+
+app.delete(BASE_API_PATH + 'rentals/:autonomous_community', (req, res) => {
+    var autonomous_community_url = req.params.autonomous_community;
+    
+    db.remove({autonomous_community: autonomous_community_url},{multi:true},(err, numRemoved)=>{
+        if(numRemoved==0){
+            res.sendStatus(404);
+            console.log('RENTALS NOT FOUND');
+        }else{
+            res.sendStatus(200);
+            console.log(
+                '\n START - DELETE THOSE DATA FROM DB\n'+
+                numRemoved + 
+                '\n END - DELETE THOSE DATA FROM DB\n'
+            );
+        }
+    });
+});
+
+
+app.delete(BASE_API_PATH + 'rentals/:autonomous_community/:province/:year', (req, res) => {
+    var autonomous_community_url = req.params.autonomous_community;
+    var province_url = req.params.province;
+    var year_url = req.params.year;
+
+    
+    db.remove({autonomous_community: autonomous_community_url, province: province_url, year: parseInt(year_url)},{multi:true},(err, numRemoved)=>{
+        if(numRemoved==0){
+            res.sendStatus(404);
+            console.log('RENTALS NOT FOUND');
+        }else{
+            res.sendStatus(200);
+            console.log(
+                '\n START - DELETE THOSE DATA FROM DB\n'+
+                numRemoved + 
+                '\n END - DELETE THOSE DATA FROM DB\n'
+            );
+        }
+    });
+});
+
+
+app.put(BASE_API_PATH + "rentals/:autonomous_community/:province/:year", (req, res) => {
+    var newRentalsEntry = req.body;
+    var autonomous_community_url = req.params.autonomous_community;
+    var province_url = req.params.province;
+    var year_url = req.params.year;
+
+    if (
+        newRentalsEntry.autonomous_community == null||
+        newRentalsEntry.province == null||
+        newRentalsEntry.year == null||
+        newRentalsEntry.rent == null||
+        newRentalsEntry.rent_variation == null||
+        newRentalsEntry.meter == null||
+        newRentalsEntry.salary == null||
+        newRentalsEntry==''
+    ) {
+        res.sendStatus(400);
+        console.log('\n 400 - RENTALS CAN NOT BE EMPITY OR NULL');
+    }else{
+        db.update(
+            {autonomous_community: autonomous_community_url, 
+            province: province_url, year: parseInt(year_url)},
+            {
+                autonomous_community: newRentalsEntry.autonomous_community,
+                province: newRentalsEntry.province,
+                year: newRentalsEntry.year,
+                rent: newRentalsEntry.rent,
+                rent_variation: newRentalsEntry.rent_variation,
+                meter: newRentalsEntry.meter,
+                salary: newRentalsEntry.salary
+            },
+            {},
+            (err,numRemoved)=>{
+                res.sendStatus(200);
+                console.log(
+                    '\n START - UPDATE THIS DATA FROM DB\n'+
+                    numRemoved+
+                    '\n END - UPDATE THIS DATA FROM DB\n'
+                );
+            }
+        );
+    }
+});
+
+app.post(BASE_API_PATH + "rentals/:autonomous_community", (req, res) => {
+   res.sendStatus(405);
+   console.log('METHOD NOT ALLOWED\n');
+});
+
+app.post(BASE_API_PATH + "/rentals/:autonomous_community/:province/:year", (req, res) => {
+    res.sendStatus(405);
+    console.log('METHOD NOT ALLOWED\n');
+ });
+
+ app.put(BASE_API_PATH + "/rentals", (req, res) => {
+    res.sendStatus(405);
+    console.log('METHOD NOT ALLOWED\n');
+ });
+
+ app.delete(BASE_API_PATH + "/rentals", (req, res) => {
+    db.remove({}, {multi: true}, function(err,numRemoved){
+        if(numRemoved>=1){
+            res.sendStatus(200);
+            console.log(
+                '\n START - DELETE ALL DATA FROM DB\n'+
+                numRemoved+
+                '\n END - DELETE ALL DATA FROM DB\n'
+            );
+        }else{
+            res.sendStatus(404);
+            console.log('NO DATA TO REMOVE');
+        }
+    });
+ });
+
+ console.log('Registered rentals API! V1\n');
 //API buy-sell - Nuria
 
 //Mostrar directamente el contenido de /public
