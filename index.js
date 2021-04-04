@@ -98,7 +98,7 @@ console.log('Registering rentals API V1...');
 const dataStore=require('nedb');
 
 const dbFileName = path.join(__dirname,'/rentals.db');
-const BASE_API_PATH="/api/v1";
+var BASE_API_PATH="/api/v1";
 app.use(bodyParser.json());
 const db = new dataStore({
     filename: dbFileName,
