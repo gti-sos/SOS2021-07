@@ -70,7 +70,6 @@ app.put(BASE_API_PATH + "/unemployment", (req, res) => {
 //API rentals - Francisco
 
 var rentals_initial = [
-
     {
         "autonomous_community": "castilla-y-león",
         "province": "salamanca",
@@ -80,7 +79,6 @@ var rentals_initial = [
         "meter":91,
         "salary":24
     },
-
     {
         "autonomous_community": "andalucía",
         "province": "málaga",
@@ -99,7 +97,6 @@ var rentals_initial = [
         "meter":94.6,
         "salary":29
     },
-    
     {
         "autonomous_community": "madrid",
         "province": "madrid",
@@ -109,7 +106,6 @@ var rentals_initial = [
         "meter":86.5,
         "salary":51
     },
-    
     {
         "autonomous_community": "cataluña",
         "province": "barcelona",
@@ -119,9 +115,6 @@ var rentals_initial = [
         "meter":96.8,
         "salary":49
     },
-    
-    
-    
     {
         "autonomous_community": "madrid",
         "province": "madrid",
@@ -137,7 +130,7 @@ var rentals = [];
 
 app.get(BASE_API_PATH + "/rentals/loadInitialData", (req, res) => {
     var inicial = rentals_initial;
-    rentals.push(inicial);
+    rentals_initial.forEach(x => rentals.push(x));
     res.sendStatus(201);
 
 });
