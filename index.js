@@ -209,7 +209,7 @@ app.get(BASE_API_PATH + "/rentals", (req, res) => {
 
 app.post(BASE_API_PATH + "/rentals", (req, res) => {
     var newRentalsEntry = req.body;
-    console.log("New rentals entry to be added: <${JSON.stringfy(newRentalsEntry,null,2)}>");
+    console.log(`New rentals entry to be added: <${JSON.stringfy(newRentalsEntry,null,2)}>`);
     rentals.push(newRentalsEntry);
     res.sendStatus(201);
 });
