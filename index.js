@@ -217,8 +217,8 @@ app.post(BASE_API_PATH + "/rentals", (req, res) => {
         newRentalsEntry.rent == null||
         newRentalsEntry.rent_variation == null||
         newRentalsEntry.meter == null||
-        newRentalsEntry.salary == null||
-        newRentalsEntry==''
+        newRentalsEntry.salary == null
+        
 
     ) {
         res.sendStatus(400);
