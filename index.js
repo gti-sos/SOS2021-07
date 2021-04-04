@@ -44,7 +44,7 @@ var unemployment = [];
 
 app.get(BASE_API_PATH + "/unemployment/loadInitialData", (req, res) => {
     var inicial = unemployment_initial;
-    unemployment.concat(inicial);
+    unemployment_initial.forEach(x => unemployment.push(x));
     res.sendStatus(201);
 });
 
