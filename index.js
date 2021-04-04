@@ -207,19 +207,16 @@ app.get(BASE_API_PATH + "/rentals", (req, res) => {
     res.send(JSON.stringify(rentals,null,2));
 });
 
-
 app.post(BASE_API_PATH + "/rentals", (req, res) => {
     var newRentalsEntry = req.body;
-    
-        rentals.insert(newRentalsEntry);
-        res.sendStatus(201);
-        console.log(
-            '\n START - ADD NEW DATA TO DB\n'+
-            JSON.stringify(newRentalsEntry, null, 2)+
-            '\n END - ADD NEW DATA TO DB'
-        );
-    
+    console.log('New rentals entry to be added: <${JSON.stringfy(newRentalsEntry,null,2)}>');
+    rentals.push(newRentalsEntry);
+    res.sendStatus(201);
 });
+
+
+
+
 
 
 app.get(BASE_API_PATH+'/rentals/:autonomous_community',(req,res)=>{
