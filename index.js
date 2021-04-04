@@ -5,6 +5,11 @@ var app = express();
 
 var bodyParser = require("body-parser");
 app.use(bodyParser.json());
+app.use(express.urlencoded());
+
+app.use(bodyParser.urlencoded({
+    extended: true
+  }));
 
 var path = require("path");
 var port = (process.env.PORT || 10000);
@@ -213,10 +218,6 @@ app.post(BASE_API_PATH + "/rentals", (req, res) => {
     rentals.push(newRentalsEntry);
     res.sendStatus(201);
 });
-
-
-
-
 
 
 app.get(BASE_API_PATH+'/rentals/:autonomous_community',(req,res)=>{
