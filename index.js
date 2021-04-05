@@ -266,18 +266,20 @@ app.delete(BASE_API_PATH+'/rentals/:autonomous_community/:year', (req, res) =>{
 });
 
 app.put(BASE_API_PATH + "/rentals/:autonomous_community/:year", (req,res)=>{
-	for(var i in rentals){
-		if(rentals[i].autonomous_community == String(req.params.autonomous_community) && rentals[i].year == String(req.params.year)){
+	if(rentals[i].autonomous_community == String(req.params.autonomous_community) && rentals[i].year == String(req.params.year)){
+    for(var i in rentals){
+		
 			var newData = req.body;
 			rentals[i] = newData;
-			break;
-		}
-	}
+    }
+		
+	
 	rentals = rentals.map(i => JSON.stringify(i));
 	rentals = new Set(rentals);
 	rentals = [...rentals]
 	rentals = rentals.map(i => JSON.parse(i))
-	res.status(200).send("Modificacion correcta");
+	return res.status(200).send("Modificacion correcta");
+}else{return res.sendStatus(404);}
 });
    
 
