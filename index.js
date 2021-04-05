@@ -194,41 +194,75 @@ app.get(BASE_API_PATH + "/rentals", (req, res) => {
     res.send(JSON.stringify(rentals,null,2));
 });
 
-app.post(BASE_API_PATH + "/rentals", (req, res) => {
-    var newRentalsEntry = req.body;
-    console.log(`New rentals entry to be added: <${JSON.stringfy(newRentalsEntry,null , 2)}>`);
-    rentals.push(newRentalsEntry);
-    res.sendStatus(201);
+app.post(BASE_API_PATH + '/rentals',(req,res)=>{
+
+	var newObject = req.body;
+    if(
+        newObject.autonomous_community== null||
+        newObject.province== null||
+        newObject.year== null||
+        newObject.rent== null||
+        newObject.rent_varation== null||
+        newObject.meter== null||
+        newObject.salary== null||
+        newObject==""
+
+
+    ){
+        res.sendStatus(400);
+        console.log("400 - Rentals can be null or empty")
+    }else{
+        console.log(`Nuevo elemento creado: <${JSON.stringify(newObject,null,2)}>`);
+	rentals.push(newObject);
+	res.sendStatus(201);
+    }
+	
+
 });
+
 
 
 app.get(BASE_API_PATH + '/rentals/:autonomous_community',(req,res) => {
     var autonomous_community_url = req.params.autonomous_community;
+    for (var i of rentals){
+        if (i.autonomous_community===autonomous_community_url) {
+            var resultado = rentals.filter(x => x.autonomous_community == autonomous_community_url);
+            res.send(JSON.stringify(resultado,null,2));
+            return res.status(200)
+        }
+        
+    }
+    return res.sendStatus(404);
     
-    var resultado = rentals.filter(x => x.autonomous_community == autonomous_community_url);
-    res.send(JSON.stringify(resultado,null,2));
 });
 
 app.get(BASE_API_PATH + '/rentals/:autonomous_community/:year',(req,res) => {
     var autonomous_community_url = req.params.autonomous_community;
     var year_url = req.params.year;
-
-    var resultado = rentals.filter(x => x.autonomous_community == autonomous_community_url && x.year==year_url);
-    res.send(JSON.stringify(resultado,null,2)); 
+    for (var i of rentals){
+        if (i.autonomous_community===autonomous_community_url && i.year===year_url) {
+            var resultado = rentals.filter(x => x.autonomous_community == autonomous_community_url && x.year==year_url);
+            res.send(JSON.stringify(resultado,null,2)); 
+            return res.status(200)
+        }
+    }
+    return res.sendStatus(404);
 });
 
 
 app.delete(BASE_API_PATH+'/rentals/:autonomous_community/:year', (req, res) =>{ 
 
-    //Recorremos el array en busca del elemento a eliminar
+    
     for(var e in rentals){
         if(rentals[e].autonomous_community == String(req.params.autonomous_community) &&
             rentals[e].year == String(req.params.year)){
-                rentals.splice(e,1);//Eliminamos 1 elemento desde la posicion e
-                break;
+                rentals.splice(e,1);
+                return res.status(200);
+               
         }
     }
-    res.status(200).send("Eliminacion correcta");
+    return res.sendStatus(404);
+    
 });
 
 app.put(BASE_API_PATH + "/rentals/:autonomous_community/:year", (req,res)=>{
@@ -264,7 +298,7 @@ app.post(BASE_API_PATH + "/rentals/:autonomous_community/:year", (req, res) => {
 
  app.delete(BASE_API_PATH + "/rentals", (req, res) => {
     rentals.length = 0;
-    console.log('RENTALS DELETE');
+    console.log('RENTALS DELETE\n');
     return res.sendStatus(200);
   });
 
