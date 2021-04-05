@@ -17,7 +17,7 @@ var BASE_API_PATH = "/api/v1";
 var unemployment_initial = [
     {
         "autonomous_community":"extremadura",
-        "youth_unemployment-rate":48.1605,
+        "youth_unemployment_rate":48.1605,
         "province":"badajoz",
         "year":2020,
         "unemployment_rate":22.8954,
@@ -25,7 +25,7 @@ var unemployment_initial = [
     },
     {
         "autonomous_community":"extremadura",
-        "youth_unemployment-rate":"-",
+        "youth_unemployment_rate":null,
         "province":"cáceres",
         "year":2020,
         "unemployment-rate":18.5352,
@@ -59,7 +59,7 @@ app.get(BASE_API_PATH + "/unemployment", (req, res) => {    //get lista recursos
 app.get(BASE_API_PATH + "/unemployment/:autonomous_community", (req,res) => { //get recurso
     var autonomous_community_url = req.params.autonomous_community;
 
-    const resultado = req.body.filter(unemployment => unemployment.autonomous_community == autonomous_community_url);
+    const resultado = unemployment.filter(unemployment => unemployment.autonomous_community == autonomous_community_url);
     res.send(JSON.stringify(resultado,null,2));
 });
 
