@@ -84,39 +84,26 @@ app.post(BASE_API_PATH + "/unemployment/:autonomous_community", (req,res) => {
     res.sendStatus(405);
 });
 
-app.put(BASE_API_PATH + "/unemployment/:autonomous_community/:province/:year", (req,res) => {
-    var newUnemploymentEntry = req.body;
+app.put(BASE_API_PATH + "/unemployment/:autonomous_community/:province/:year", (req,res)=>{
     var autonomous_community_url = req.params.autonomous_community;
-    var province_url = req.params.province;
     var year_url = parseInt(req.params.year);
-
-    var index = 0;
-
-    if (
-        unemployment.length == 0 ||
-        newUnemploymentEntry.length == 0 ||
-        newUnemploymentEntry.youth_unemployment_rate == null ||
-        newUnemploymentEntry.year == null ||
-        newUnemploymentEntry.province == null ||
-        newUnemploymentEntry.autonomous_community == null ||
-        newUnemploymentEntry.occupation_variation == null ||
-        newUnemploymentEntry.unemployment_rate == null
-        ) 
-    {
-        res.sendStatus(400); 
+    var province_url = req.params.province;
+	
+    for(var i in unemployment){
+		if(unemployment[i].autonomous_community == String(autonomous_community_url) 
+        && unemployment[i].year == String(year_url) 
+        && unemployment[i].province == String(province_url))
+        {
+			var newData = req.body;
+			unemployment[i] = newData;
+            break;
+        }
     }
-    else {
-        unemployment
-        .forEach(x => {
-            if(x.autonomous_community == autonomous_community_url && x.year == year_url && x.province == province_url) {
-                unemployment[i] = newUnemploymentEntry;
-                return res.send('PUT Done');
-            }
-            index++;
-        })
-        //.find(x => x.autonomous_community == autonomous_community_url && x.year == year_url && x.province == province_url)
-       //.update(newUnemploymentEntry);
-    }
+	unemployment = unemployment.map(i => JSON.stringify(i));
+	unemployment = new Set(unemployment);
+	unemployment = [...unemployment];
+	unemployment = unemployment.map(i => JSON.parse(i));
+	return res.status(200);
 });
 
 app.put(BASE_API_PATH + "/unemployment", (req,res) => {
@@ -501,19 +488,17 @@ app.put(BASE_API_PATH + "/buy_sell", (req, res) => {
     return res.sendStatus(200);
   });
 
-
-
 //F03
     //Tabla de Alejandro
 app.get("/info/unemployment", (req, res) => {
     res.send("<html><body><table class='tftable' border='1'>"+
     "<tr><th>autonomous-community</th><th>youth-unemployment-rate</th><th>province</th><th>year</th><th>unemployment-rate</th><th>occupation-variation</th></tr>"+
     "<tr><td>extremadura</td><td>48.1605</td><td>badajoz</td><td>2020</td><td>22.8954</td><td>-1.09999</td></tr>"+
-    "<tr><td>extremadura</td><td>-</td><td>cáceres</td><td>2020</td><td>18.5352</td><td>100,00610</td></tr>"+
-    "<tr><td>andalucía</td><td>52.1912</td><td>málaga</td><td>2020</td><td>19.3225</td><td>32.79998</td></tr>"+
-    "<tr><td>andalucía</td><td>-</td><td>granada</td><td>2020</td><td>24.8484</td><td>13.79998</td></tr>"+
+    "<tr><td>extremadura</td><td>-</td><td>caceres</td><td>2020</td><td>18.5352</td><td>100,00610</td></tr>"+
+    "<tr><td>andalucia</td><td>52.1912</td><td>malaga</td><td>2020</td><td>19.3225</td><td>32.79998</td></tr>"+
+    "<tr><td>andalucia</td><td>-</td><td>granada</td><td>2020</td><td>24.8484</td><td>13.79998</td></tr>"+
     "<tr><td>cataluña</td><td>38.1233</td><td>barcelona</td><td>2020</td><td>13.6676</td><td>29.69995</td></tr>"+
-    "<tr><td>aragón</td><td>34.4671</td><td>zaragoza</td><td>2020</td><td>12.9139</td><td>1.39999</td></tr>"+
+    "<tr><td>aragon</td><td>34.4671</td><td>zaragoza</td><td>2020</td><td>12.9139</td><td>1.39999</td></tr>"+
     "</table><//body></html>");
 });
     
