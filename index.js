@@ -93,7 +93,7 @@ app.put(BASE_API_PATH + "unemployment/:autonomous_community/:province/:year", (r
     var year_url = req.params.year;
 
     if (
-        newUnemploymentEntry == '' ||
+        newUnemploymentEntry,length == 0 ||
         newUnemploymentEntry.youth_unemployment_rate == null ||
         newUnemploymentEntry.year == null ||
         newUnemploymentEntry.province == null ||
@@ -118,7 +118,6 @@ app.put(BASE_API_PATH + "unemployment/:autonomous_community/:province/:year", (r
             }
         );
     }
-    
 });
 
 app.put(BASE_API_PATH + "/unemployment", (req, res) => {
