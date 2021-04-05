@@ -90,6 +90,8 @@ app.put(BASE_API_PATH + "/unemployment/:autonomous_community/:province/:year", (
     var province_url = req.params.province;
     var year_url = req.params.year;
 
+    var index = 0;
+
     if (
         unemployment.length == 0 ||
         newUnemploymentEntry.length == 0 ||
@@ -101,13 +103,19 @@ app.put(BASE_API_PATH + "/unemployment/:autonomous_community/:province/:year", (
         newUnemploymentEntry.unemployment_rate == null
         ) 
     {
-        console.log('\n 400 - BOTH DATA AND FIELDS CAN NOT BE EMPTY (EXCEPT PROVINCE)');
         res.sendStatus(400); 
     }
     else {
         unemployment
-        .find(x => x.autonomous_community == autonomous_community_url && x.year == year_url && x.province == province_url)
-        .update(newUnemploymentEntry);
+        .forEach(x => {
+            if(x.autonomous_community == autonomous_community_url && x.year == year_url && x.province == province_url) {
+                unemployment[i] = newUnemploymentEntry;
+                return res.send('PUT done.');
+            }
+            index++;
+        })
+        //.find(x => x.autonomous_community == autonomous_community_url && x.year == year_url && x.province == province_url)
+       //.update(newUnemploymentEntry);
     }
 });
 
