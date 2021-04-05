@@ -96,10 +96,10 @@ app.put(BASE_API_PATH + "/unemployment/:autonomous_community/:province/:year", (
         {
 			var newData = req.body;
 			unemployment[i] = newData;
-            break;
+            return res.status(200);
         }
     }
-	return res.status(200);
+	return res.status(404);
 });
 
 app.put(BASE_API_PATH + "/unemployment", (req,res) => {
@@ -250,7 +250,6 @@ app.put(BASE_API_PATH + "/rentals/:autonomous_community/:year", (req,res)=>{
     var autonomous_community_url = req.params.autonomous_community;
     var year_url = parseInt( req.params.year);
     
-	
     for(var i in rentals){
 		if(rentals[i].autonomous_community == autonomous_community_url && rentals[i].year == year_url){
 			var newRentals = req.body;
@@ -259,8 +258,6 @@ app.put(BASE_API_PATH + "/rentals/:autonomous_community/:year", (req,res)=>{
 			
 		}
 	}
-
-	
 });
    
 
@@ -442,16 +439,10 @@ app.put(BASE_API_PATH + "/buy_sell/:autonomous_community/:year", (req,res)=>{
 		if(buy_sell[i].autonomous_community == String(req.params.autonomous_community) && buy_sell[i].year == String(req.params.year)){
 			var newData = req.body;
 			buy_sell[i] = newData;
-            break;
+            return res.status(200);
         }
     }
-		
-	
-	buy_sell = buy_sell.map(i => JSON.stringify(i));
-	buy_sell = new Set(buy_sell);
-	buy_sell = [...buy_sell]
-	buy_sell = buy_sell.map(i => JSON.parse(i));
-	return res.status(200);
+	return res.status(404);
 });
 
 //POST a un recurso (p.e. “/api/v1/stats/sevilla/2013”) debe dar un error de método no permitido.
