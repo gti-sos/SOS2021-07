@@ -308,7 +308,7 @@ app.post(BASE_API_PATH + "/rentals/:autonomous_community/:year", (req, res) => {
   });
 
 
-//API buy-sell - Nuria
+//API buy_sell - Nuria
 
 //Mostrar directamente el contenido de /public
 app.use("/", express.static(path.join(__dirname, "public")));
@@ -436,6 +436,74 @@ app.get(BASE_API_PATH + '/buy_sell/:autonomous_community/:year',(req,res) => {
     }
     return res.sendStatus(404);
 });
+
+// DELETE a un recurso (p.e. “/api/v1/stats/sevilla/2013”) borra ese recurso (un objeto en JSON).
+
+app.delete(BASE_API_PATH+'/buy_sell/:autonomous_community/:year', (req, res) =>{ 
+
+    
+    var dato = req.params;
+	for (var i = 0; i <  buy_sell.length; i++){
+		if(buy_sell[i].autonomous_community === dato.autonomous_community && buy_sell[i].year === parseInt(dato.year)){
+			buy_sell.splice(i,1);
+			
+			return res.sendStatus(200);
+		}
+	}
+	return res.sendStatus(404);
+});
+
+// PUT a un recurso (p.e. “/api/v1/stats/sevilla/2013”) actualiza ese recurso. 
+
+app.put(BASE_API_PATH + "/buy_sell/:autonomous_community/:year", (req,res)=>{
+    var autonomous_community_url = req.params.autonomous_community;
+    var year_url = parseInt( req.params.year);
+    
+	
+    for(var i in buy_sell){
+		if(buy_sell[i].autonomous_community == String(req.params.autonomous_community) && buy_sell[i].year == String(req.params.year)){
+			var newData = req.body;
+			buy_sell[i] = newData;
+            break;
+        }
+    }
+		
+	
+	buy_sell = buy_sell.map(i => JSON.stringify(i));
+	buy_sell = new Set(buy_sell);
+	buy_sell = [...buy_sell]
+	buy_sell = buy_sell.map(i => JSON.parse(i))
+	return res.status(200);
+});
+
+//POST a un recurso (p.e. “/api/v1/stats/sevilla/2013”) debe dar un error de método no permitido.
+
+app.post(BASE_API_PATH + "buy_sell/:autonomous_community", (req, res) => {
+   res.sendStatus(405);
+   console.log('METHOD NOT ALLOWED\n');
+});
+
+app.post(BASE_API_PATH + "/buy_sell/:autonomous_community/:year", (req, res) => {
+    res.sendStatus(405);
+    console.log('METHOD NOT ALLOWED\n');
+ });
+
+//PUT a la lista de recursos (p.e. “/api/v1/stats”) debe dar un error de método no permitido.
+
+app.put(BASE_API_PATH + "/buy_sell", (req, res) => {
+    res.sendStatus(405);
+    console.log('METHOD NOT ALLOWED\n');
+ });
+
+// DELETE a la lista de recursos (p.e. “/api/v1/stats”) borra todos los recursos.
+
+ app.delete(BASE_API_PATH + "/buy_sell", (req, res) => {
+    buy_sell.length = 0;
+    console.log('Registers DELETED\n');
+    return res.sendStatus(200);
+  });
+
+
 
 //F03
     //Tabla de Alejandro
