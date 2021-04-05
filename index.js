@@ -238,12 +238,11 @@ app.get(BASE_API_PATH + '/rentals/:autonomous_community',(req,res) => {
 
 app.get(BASE_API_PATH + '/rentals/:autonomous_community/:year',(req,res) => {
     var autonomous_community_url = req.params.autonomous_community;
-    var year_url = req.params.year;
+    var year_url = parseInt( req.params.year);
     for (var i of rentals){
         if (i.autonomous_community===autonomous_community_url && i.year===year_url) {
-            var resultado = rentals.filter(x => x.autonomous_community == autonomous_community_url && x.year==year_url);
-            res.send(JSON.stringify(resultado,null,2)); 
-            return res.status(200)
+            return res.status(200).json(i);
+            
         }
     }
     return res.sendStatus(404);
@@ -253,24 +252,28 @@ app.get(BASE_API_PATH + '/rentals/:autonomous_community/:year',(req,res) => {
 app.delete(BASE_API_PATH+'/rentals/:autonomous_community/:year', (req, res) =>{ 
 
     
-    for(var e in rentals){
-        if(rentals[e].autonomous_community == String(req.params.autonomous_community) &&
-            rentals[e].year == String(req.params.year)){
-                rentals.splice(e,1);
-                return res.status(200);
-               
-        }
-    }
-    return res.sendStatus(404);
-    
+    var dato = req.params;
+	for (var i = 0; i <  rentals.length; i++){
+		if(rentals[i].autonomous_community === dato.autonomous_community && rentals[i].year === parseInt(dato.year)){
+			rentals.splice(i,1);
+			
+			return res.sendStatus(200);
+		}
+	}
+	return res.sendStatus(404);
 });
 
 app.put(BASE_API_PATH + "/rentals/:autonomous_community/:year", (req,res)=>{
-	if(rentals[i].autonomous_community == String(req.params.autonomous_community) && rentals[i].year == String(req.params.year)){
+    var autonomous_community_url = req.params.autonomous_community;
+    var year_url = parseInt( req.params.year);
+    
+	
     for(var i in rentals){
-		
+		if(rentals[i].autonomous_community == String(req.params.autonomous_community) && rentals[i].year == String(req.params.year)){
 			var newData = req.body;
 			rentals[i] = newData;
+            break;
+        }
     }
 		
 	
@@ -278,8 +281,8 @@ app.put(BASE_API_PATH + "/rentals/:autonomous_community/:year", (req,res)=>{
 	rentals = new Set(rentals);
 	rentals = [...rentals]
 	rentals = rentals.map(i => JSON.parse(i))
-	return res.status(200).send("Modificacion correcta");
-}else{return res.sendStatus(404);}
+	return res.status(200);
+
 });
    
 
