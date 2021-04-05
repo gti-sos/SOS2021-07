@@ -10,7 +10,9 @@ var path = require("path");
 var port = (process.env.PORT || 10000);
 
 //Ruta base API
-var BASE_API_PATH="/api/v1";
+var BASE_API_PATH = "/api/v1";
+
+//API unemployment - Alejandro
 
 var unemployment_initial = [
     {
@@ -39,17 +41,32 @@ var unemployment_initial = [
     }
 ];
 
-//API unemployment - Alejandro
 var unemployment = [];
 
-app.get(BASE_API_PATH + "/unemployment/loadInitialData", (req, res) => {
+app.get(BASE_API_PATH + "/unemployment/loadInitialData", (req, res) => {    //carga inicial
     var inicial = unemployment_initial;
     unemployment_initial.forEach(x => unemployment.push(x));
     res.sendStatus(201);
 });
 
-app.get(BASE_API_PATH + "/unemployment", (req, res) => {
+app.get(BASE_API_PATH + "/unemployment", (req, res) => {    //get lista recursos
     res.send(JSON.stringify(unemployment,null,2));
+});
+
+app.get(BASE_API_PATH + '/unemployment/:autonomous_community', (req,res) => { //get recurso
+    var autonomous_community_url = req.params.autonomous_community;
+
+    const resultado = unemployment.filter(unemployment => unemployment.autonomous_community == autonomous_community_url);
+    res.send(JSON.stringify(resultado,null,2));
+});
+
+
+app.get(BASE_API_PATH + '/rentals/:autonomous_community/:year', (req,res) => {   //get recurso
+    var autonomous_community_url = req.params.autonomous_community;
+    var year_url = req.params.year;
+
+    const resultado = unemployment.filter(unemployment => unemployment.autonomous_community == autonomous_community_url && unemployment.year==year_url);
+    res.send(JSON.stringify(resultado,null,2));
 });
 
 app.post(BASE_API_PATH + "/unemployment", (req, res) => {
@@ -58,6 +75,14 @@ app.post(BASE_API_PATH + "/unemployment", (req, res) => {
     unemployment.push(newUnemploymentEntry);
     res.sendStatus(201);
 });
+
+app.post(BASE_API_PATH + "unemployment/:autonomous_community", (req, res) => {
+    res.sendStatus(405);
+ });
+ 
+ app.post(BASE_API_PATH + "/unemployment/:autonomous_community/:year", (req, res) => {
+     res.sendStatus(405);
+  });
 
 app.delete(BASE_API_PATH + "/unemployment", (req, res) => {
     
@@ -147,7 +172,7 @@ app.post(BASE_API_PATH + "/rentals", (req, res) => {
 });
 
 
-app.get(BASE_API_PATH+'/rentals/:autonomous_community',(req,res)=>{
+app.get(BASE_API_PATH + '/rentals/:autonomous_community',(req,res) => {
     var autonomous_community_url = req.params.autonomous_community;
     
     const resultado = rentals.filter(rentals => rentals.autonomous_community == autonomous_community_url).concat(rentals_initial.filter(rentals_initial => rentals_initial.autonomous_community == autonomous_community_url));
@@ -156,7 +181,7 @@ app.get(BASE_API_PATH+'/rentals/:autonomous_community',(req,res)=>{
 });
 
 
-app.get(BASE_API_PATH+'/rentals/:autonomous_community/:year',(req,res)=>{
+app.get(BASE_API_PATH + '/rentals/:autonomous_community/:year',(req,res) => {
     var autonomous_community_url = req.params.autonomous_community;
     var year_url = req.params.year;
     const resultado = rentals.filter(rentals => rentals.autonomous_community == autonomous_community_url &&
@@ -206,7 +231,6 @@ app.delete(BASE_API_PATH + 'rentals/:autonomous_community/:province/:year', (req
         }
     });
 });
-
 
 app.put(BASE_API_PATH + "rentals/:autonomous_community/:province/:year", (req, res) => {
     var newRentalsEntry = req.body;
@@ -268,7 +292,7 @@ app.post(BASE_API_PATH + "/rentals/:autonomous_community/:year", (req, res) => {
  });
 
  app.delete(BASE_API_PATH + "/rentals", (req, res) => {
-    rentals.remove({}, {multi: true}, function(err,numRemoved){
+    rentals.remove({}, {multi: true}, function(err,numRemoved) {
         if(numRemoved>=1){
             res.sendStatus(200);
             console.log(
