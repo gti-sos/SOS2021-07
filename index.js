@@ -99,10 +99,6 @@ app.put(BASE_API_PATH + "/unemployment/:autonomous_community/:province/:year", (
             break;
         }
     }
-	unemployment = unemployment.map(i => JSON.stringify(i));
-	unemployment = new Set(unemployment);
-	unemployment = [...unemployment];
-	unemployment = unemployment.map(i => JSON.parse(i));
 	return res.status(200);
 });
 
