@@ -59,8 +59,8 @@ app.get(BASE_API_PATH + "/unemployment", (req,res) => {    //get lista recursos
 app.get(BASE_API_PATH + "/unemployment/:autonomous_community", (req,res) => { //get recurso
     var autonomous_community_url = req.params.autonomous_community;
 
-    const resultado = unemployment.filter(x => x.autonomous_community == autonomous_community_url);
-    res.send(JSON.stringify(unemployment.filter(x => x.autonomous_community == autonomous_community_url),null,2));
+    const resultado = req.body.filter(x => x.autonomous_community == autonomous_community_url);
+    res.send(JSON.stringify(resultado,null,2));
 });
 
 app.get(BASE_API_PATH + "/rentals/:autonomous_community/:year", (req,res) => {   //get recurso
