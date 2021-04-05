@@ -67,7 +67,7 @@ app.get(BASE_API_PATH + "/rentals/:autonomous_community/:year", (req,res) => {  
     var autonomous_community_url = req.params.autonomous_community;
     var year_url = parseInt(req.params.year);
 
-    var resultado = unemployment.filter(x => x.autonomous_community == autonomous_community_url && unemployment.year==year_url);
+    var resultado = unemployment.filter(x => x.autonomous_community == autonomous_community_url && x.year==year_url);
     res.send(JSON.stringify(resultado,null,2));
 });
 
@@ -78,7 +78,7 @@ app.post(BASE_API_PATH + "/unemployment", (req,res) => {
     res.sendStatus(201);
 });
 
-app.post(BASE_API_PATH + "unemployment/:autonomous_community", (req,res) => {
+app.post(BASE_API_PATH + "/unemployment/:autonomous_community", (req,res) => {
     res.sendStatus(405);
 });
  
