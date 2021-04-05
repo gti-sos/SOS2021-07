@@ -328,6 +328,14 @@ app.post("/hello", (req, res) => {
     res.send("<html><body><h1>POST Hello from this tiny server</h1></body></html>");
 });
 
+var buy_sell = [];
+
+//5.1 Tener desplegado en Heroku la API en la ruta: /api/v1/YYYYYY
+
+app.get(BASE_API_PATH + "/buy_sell", (req,res) => {    
+    res.send(JSON.stringify(buy_sell,null,2));
+});
+
 //F03
     //Tabla de Alejandro
 app.get("/info/unemployment", (req, res) => {
