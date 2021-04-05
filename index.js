@@ -33,7 +33,7 @@ var unemployment_initial = [
     },
     {
         "autonomous_community":"andalucía",
-        "youth_unemployment-rate":52.1912,
+        "youth_unemployment_rate":52.1912,
         "province":"málaga",
         "year":2020,
         "unemployment_rate":19.3225,
@@ -86,13 +86,41 @@ app.post(BASE_API_PATH + "/unemployment/:autonomous_community", (req,res) => {
      res.sendStatus(405);
 });
 
-app.delete(BASE_API_PATH + "/unemployment", (req, res) => {
-    
+app.put(BASE_API_PATH + "unemployment/:autonomous_community/:year", (req, res) => {
+    var newUnemploymentEntry = req.body;
+    var autonomous_community_url = req.params.autonomous_community;
+    var year_url = req.params.year;
+
+    if (
+        newUnemploymentEntry==''||
+        newUnemploymentEntry.autonomous_community == ''||
+        newUnemploymentEntry.year == ''||
+        newUnemploymentEntry.youth_unemployment_rate == ''||
+        newUnemploymentEntry.occupation_variation == ''||
+        newUnemploymentEntry.unemployment_rate == '') 
+    {
+        res.sendStatus(400); console.log('\n 400 - BOTH DATA AND FIELDS CAN NOT BE EMPTY (EXCEPT PROVINCE)');
+    }
+    else{
+        unemployment.forEach(x => {
+            if(x.autonomous_community == autonomous_community_url && x.year == year_url)
+                x.update(
+                    {
+                        autonomous_community: newUnemploymentEntry.autonomous_community,
+                        province: newUnemploymentEntry.province,
+                        year: newUnemploymentEntry.year,
+                        youth_unemployment_rate: newUnemploymentEntry.youth_unemployment_rate,
+                        occupation_variation: newUnemploymentEntry.occupation_variation,
+                        unemployment_rate: newUnemploymentEntry.unemployment_rate
+                    }
+                );
+        })
+    }
 });
 
 app.put(BASE_API_PATH + "/unemployment", (req, res) => {
-    
-});
+    res.sendStatus(405);
+ });
 
 //API rentals - Francisco
 
@@ -180,16 +208,15 @@ app.post(BASE_API_PATH + "/rentals", (req, res) => {
 app.get(BASE_API_PATH + '/rentals/:autonomous_community',(req,res) => {
     var autonomous_community_url = req.params.autonomous_community;
     
-    const resultado = rentals.filter(rentals => rentals.autonomous_community == autonomous_community_url).concat(rentals_initial.filter(rentals_initial => rentals_initial.autonomous_community == autonomous_community_url));
+    var resultado = rentals.filter(x => x.autonomous_community == autonomous_community_url);
     res.send(JSON.stringify(resultado,null,2));
 });
 
 app.get(BASE_API_PATH + '/rentals/:autonomous_community/:year',(req,res) => {
     var autonomous_community_url = req.params.autonomous_community;
     var year_url = req.params.year;
-    const resultado = rentals.filter(rentals => rentals.autonomous_community == autonomous_community_url &&
-        rentals.year==year_url).concat(rentals_initial.filter(rentals_initial => rentals_initial.autonomous_community == autonomous_community_url &&
-            rentals_initial.year==year_url));
+
+    var resultado = rentals.filter(x => x.autonomous_community == autonomous_community_url && x.year==year_url);
     res.send(JSON.stringify(resultado,null,2)); 
 });
 
