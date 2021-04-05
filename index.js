@@ -92,12 +92,12 @@ app.put(BASE_API_PATH + "unemployment/:autonomous_community/:year", (req,res) =>
     var year_url = req.params.year;
 
     if (
-        JSON.stringify(newUnemploymentEntry,null,2) == ""||
-        JSON.stringify(newUnemploymentEntry.autonomous_community,null,2) == ""||
-        JSON.stringify(newUnemploymentEntry.year,null,2) == ""||
-        JSON.stringify(newUnemploymentEntry.youth_unemployment_rate,null,2) == ""||
-        JSON.stringify(newUnemploymentEntry.occupation_variation,null,2) == ""||
-        JSON.stringify(newUnemploymentEntry.unemployment_rate,null,2) == "") 
+        newUnemploymentEntry == ""||
+        newUnemploymentEntry.autonomous_community == ""||
+        newUnemploymentEntry.year == ""||
+        newUnemploymentEntry.youth_unemployment_rate == ""||
+        newUnemploymentEntry.occupation_variation == ""||
+        newUnemploymentEntry.unemployment_rate == "") 
     {
         res.sendStatus(400); console.log('\n 400 - BOTH DATA AND FIELDS CAN NOT BE EMPTY (EXCEPT PROVINCE)');
     }
