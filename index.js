@@ -88,7 +88,7 @@ app.put(BASE_API_PATH + "/unemployment/:autonomous_community/:province/:year", (
     var newUnemploymentEntry = req.body;
     var autonomous_community_url = req.params.autonomous_community;
     var province_url = req.params.province;
-    var year_url = req.params.year;
+    var year_url = parseInt(req.params.year);
 
     var index = 0;
 
@@ -110,7 +110,7 @@ app.put(BASE_API_PATH + "/unemployment/:autonomous_community/:province/:year", (
         .forEach(x => {
             if(x.autonomous_community == autonomous_community_url && x.year == year_url && x.province == province_url) {
                 unemployment[i] = newUnemploymentEntry;
-                return res.send('PUT done.');
+                return res.send('PUT Done');
             }
             index++;
         })
