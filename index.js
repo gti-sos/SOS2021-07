@@ -56,7 +56,7 @@ app.get(BASE_API_PATH + "/unemployment", (req, res) => {    //get lista recursos
     res.send(JSON.stringify(unemployment,null,2));
 });
 
-app.get(BASE_API_PATH + '/unemployment/:autonomous_community', (req,res) => { //get recurso
+app.get(BASE_API_PATH + '/unemployment/search:autonomous_community', (req,res) => { //get recurso
     var autonomous_community_url = req.params.autonomous_community;
 
     const resultado = req.body.filter(unemployment => unemployment.autonomous_community == autonomous_community_url);
