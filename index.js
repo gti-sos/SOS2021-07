@@ -222,88 +222,35 @@ app.get(BASE_API_PATH + '/rentals/:autonomous_community/:year',(req,res) => {
     res.send(JSON.stringify(resultado,null,2)); 
 });
 
-app.delete(BASE_API_PATH + 'rentals/:autonomous_community', (req, res) => {
-    var autonomous_community_url = req.params.autonomous_community;
-    
-    rentals.remove({autonomous_community: autonomous_community_url},{multi:true},(err, numRemoved)=>{
-        if(numRemoved==0){
-            res.sendStatus(404);
-            console.log('RENTALS NOT FOUND');
-        }else{
-            res.sendStatus(200);
-            console.log(
-                '\n START - DELETE THOSE DATA FROM DB\n'+
-                numRemoved + 
-                '\n END - DELETE THOSE DATA FROM DB\n'
-            );
+
+app.delete(BASE_API_PATH+'/rentals/:autonomous_community/:year', (req, res) =>{ 
+
+    //Recorremos el array en busca del elemento a eliminar
+    for(var e in rentals){
+        if(rentals[e].autonomous_community == String(req.params.autonomous_community) &&
+            rentals[e].year == String(req.params.year)){
+                rentals.splice(e,1);//Eliminamos 1 elemento desde la posicion e
+                break;
         }
-    });
-});
-
-app.delete(BASE_API_PATH + 'rentals/:autonomous_community/:province/:year', (req, res) => {
-    var autonomous_community_url = req.params.autonomous_community;
-    var province_url = req.params.province;
-    var year_url = req.params.year;
-
-    
-    rentals.remove({autonomous_community: autonomous_community_url, province: province_url, year: parseInt(year_url)},{multi:true},(err, numRemoved)=>{
-        if(numRemoved==0){
-            res.sendStatus(404);
-            console.log('RENTALS NOT FOUND');
-        }else{
-            res.sendStatus(200);
-            console.log(
-                '\n START - DELETE THOSE DATA FROM DB\n'+
-                numRemoved + 
-                '\n END - DELETE THOSE DATA FROM DB\n'
-            );
-        }
-    });
-});
-
-app.put(BASE_API_PATH + "rentals/:autonomous_community/:province/:year", (req, res) => {
-    var newRentalsEntry = req.body;
-    var autonomous_community_url = req.params.autonomous_community;
-    var province_url = req.params.province;
-    var year_url = req.params.year;
-
-    if (
-        newRentalsEntry.autonomous_community == null||
-        newRentalsEntry.province == null||
-        newRentalsEntry.year == null||
-        newRentalsEntry.rent == null||
-        newRentalsEntry.rent_variation == null||
-        newRentalsEntry.meter == null||
-        newRentalsEntry.salary == null||
-        newRentalsEntry==''
-    ) {
-        res.sendStatus(400);
-        console.log('\n 400 - RENTALS CAN NOT BE EMPITY OR NULL');
-    }else{
-        rentals.update(
-            {autonomous_community: autonomous_community_url, 
-            province: province_url, year: parseInt(year_url)},
-            {
-                autonomous_community: newRentalsEntry.autonomous_community,
-                province: newRentalsEntry.province,
-                year: newRentalsEntry.year,
-                rent: newRentalsEntry.rent,
-                rent_variation: newRentalsEntry.rent_variation,
-                meter: newRentalsEntry.meter,
-                salary: newRentalsEntry.salary
-            },
-            {},
-            (err,numRemoved)=>{
-                res.sendStatus(200);
-                console.log(
-                    '\n START - UPDATE THIS DATA FROM DB\n'+
-                    numRemoved+
-                    '\n END - UPDATE THIS DATA FROM DB\n'
-                );
-            }
-        );
     }
+    res.status(200).send("Eliminacion correcta");
 });
+
+app.put(BASE_API_PATH + "/rentals/:autonomous_community/:year", (req,res)=>{
+	for(var i in rentals){
+		if(rentals[i].autonomous_community == String(req.params.autonomous_community) && rentals[i].year == String(req.params.year)){
+			var newData = req.body;
+			rentals[i] = newData;
+			break;
+		}
+	}
+	rentals = rentals.map(i => JSON.stringify(i));
+	rentals = new Set(rentals);
+	rentals = [...rentals]
+	rentals = rentals.map(i => JSON.parse(i))
+	res.status(200).send("Modificacion correcta");
+});
+   
 
 app.post(BASE_API_PATH + "rentals/:autonomous_community", (req, res) => {
    res.sendStatus(405);
@@ -321,20 +268,10 @@ app.post(BASE_API_PATH + "/rentals/:autonomous_community/:year", (req, res) => {
  });
 
  app.delete(BASE_API_PATH + "/rentals", (req, res) => {
-    rentals.remove({}, {multi: true}, function(err,numRemoved) {
-        if(numRemoved>=1){
-            res.sendStatus(200);
-            console.log(
-                '\n START - DELETE ALL DATA FROM DB\n'+
-                numRemoved+
-                '\n END - DELETE ALL DATA FROM DB\n'
-            );
-        }else{
-            res.sendStatus(404);
-            console.log('NO DATA TO REMOVE');
-        }
-    });
- });
+    rentals.length = 0;
+    console.log('RENTALS DELETE');
+    return res.sendStatus(200);
+  });
 
 
 //API buy-sell - Nuria
