@@ -86,36 +86,39 @@ app.post(BASE_API_PATH + "/unemployment/:autonomous_community", (req,res) => {
      res.sendStatus(405);
 });
 
-app.put(BASE_API_PATH + "unemployment/:autonomous_community/:year", (req,res) => {
+app.put(BASE_API_PATH + "unemployment/:autonomous_community/:province/:year", (req,res) => {
     var newUnemploymentEntry = req.body;
     var autonomous_community_url = req.params.autonomous_community;
+    var province_url = req.params.province;
     var year_url = req.params.year;
 
     if (
-        newUnemploymentEntry == ""||
-        newUnemploymentEntry.autonomous_community == ""||
-        newUnemploymentEntry.year == ""||
-        newUnemploymentEntry.youth_unemployment_rate == ""||
-        newUnemploymentEntry.occupation_variation == ""||
-        newUnemploymentEntry.unemployment_rate == "") 
+        newUnemploymentEntry == "" ||
+        newUnemploymentEntry.youth_unemployment_rate == null ||
+        newUnemploymentEntry.year == null ||
+        newUnemploymentEntry.province == null ||
+        newUnemploymentEntry.autonomous_community == null ||
+        newUnemploymentEntry.occupation_variation == null ||
+        newUnemploymentEntry.unemployment_rate == null
+        ) 
     {
         res.sendStatus(400); console.log('\n 400 - BOTH DATA AND FIELDS CAN NOT BE EMPTY (EXCEPT PROVINCE)');
     }
     else {
-        unemployment.forEach(x => {
-            if(x.autonomous_community == autonomous_community_url && x.year == year_url)
-                x.update(
-                    {
-                        autonomous_community: newUnemploymentEntry.autonomous_community,
-                        province: newUnemploymentEntry.province,
-                        year: newUnemploymentEntry.year,
-                        youth_unemployment_rate: newUnemploymentEntry.youth_unemployment_rate,
-                        occupation_variation: newUnemploymentEntry.occupation_variation,
-                        unemployment_rate: newUnemploymentEntry.unemployment_rate
-                    }
-                );
-        })
+        unemployment
+        .find(x => x.autonomous_community == autonomous_community_url && x.year == year_url && x.province == province_url)
+        .update(
+            {
+                autonomous_community: newUnemploymentEntry.autonomous_community,
+                province: newUnemploymentEntry.province,
+                year: newUnemploymentEntry.year,
+                youth_unemployment_rate: newUnemploymentEntry.youth_unemployment_rate,
+                occupation_variation: newUnemploymentEntry.occupation_variation,
+                unemployment_rate: newUnemploymentEntry.unemployment_rate
+            }
+        );
     }
+    
 });
 
 app.put(BASE_API_PATH + "/unemployment", (req, res) => {
