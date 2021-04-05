@@ -44,8 +44,6 @@ var unemployment_initial = [
 var unemployment = [];
 
 app.get(BASE_API_PATH + "/unemployment/loadInitialData", (req,res) => {    //carga inicial
-    var inicial = unemployment_initial;
-
     if(unemployment.length > 0) unemployment.length = 0;
 
     unemployment_initial.forEach(x => unemployment.push(x));
@@ -86,14 +84,15 @@ app.post(BASE_API_PATH + "/unemployment/:autonomous_community", (req,res) => {
      res.sendStatus(405);
 });
 
-app.put(BASE_API_PATH + "unemployment/:autonomous_community/:province/:year", (req,res) => {
+app.put(BASE_API_PATH + "/unemployment/:autonomous_community/:province/:year", (req,res) => {
     var newUnemploymentEntry = req.body;
     var autonomous_community_url = req.params.autonomous_community;
     var province_url = req.params.province;
     var year_url = req.params.year;
 
     if (
-        newUnemploymentEntry,length == 0 ||
+        unemployment.length == 0 ||
+        newUnemploymentEntry.length == 0 ||
         newUnemploymentEntry.youth_unemployment_rate == null ||
         newUnemploymentEntry.year == null ||
         newUnemploymentEntry.province == null ||
@@ -107,25 +106,15 @@ app.put(BASE_API_PATH + "unemployment/:autonomous_community/:province/:year", (r
     else {
         unemployment
         .find(x => x.autonomous_community == autonomous_community_url && x.year == year_url && x.province == province_url)
-        .update(
-            {
-                autonomous_community: newUnemploymentEntry.autonomous_community,
-                province: newUnemploymentEntry.province,
-                year: newUnemploymentEntry.year,
-                youth_unemployment_rate: newUnemploymentEntry.youth_unemployment_rate,
-                occupation_variation: newUnemploymentEntry.occupation_variation,
-                unemployment_rate: newUnemploymentEntry.unemployment_rate
-            }
-        );
+        .update(newUnemploymentEntry);
     }
 });
 
-app.put(BASE_API_PATH + "/unemployment", (req, res) => {
+app.put(BASE_API_PATH + "/unemployment", (req,res) => {
     res.sendStatus(405);
- });
+});
 
 //API rentals - Francisco
-
 var rentals_initial = [
     {
         "autonomous_community": "castilla-y-león",
@@ -185,14 +174,11 @@ var rentals_initial = [
 
 var rentals = [];
 
-app.get(BASE_API_PATH + "/rentals/loadInitialData", (req, res) => {
-    var inicial = rentals_initial;
-    
+app.get(BASE_API_PATH + "/rentals/loadInitialData", (req, res) => {    
     if(rentals.length > 0) rentals.length = 0;
 
     rentals_initial.forEach(x => rentals.push(x));
     res.sendStatus(201);
-
 });
 
 app.get(BASE_API_PATH + "/rentals", (req, res) => {
