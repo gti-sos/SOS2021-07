@@ -340,35 +340,35 @@ app.get(BASE_API_PATH + "/buy_sell", (req,res) => {
 
 var buy_sell_initial = [
     {
-        "autonomous-community":"andalucía",
+        "autonomous_community":"andalucía",
         "province":"sevilla",
         "year":2018,
         "surface":1594.97,
-        "annual-variation-percentage":9.22,
+        "annual_variation_percentage":9.22,
         "eviction":2.003
     },
     {
-        "autonomous-community":"comunidad de madrid",
+        "autonomous_community":"comunidad de madrid",
         "province":"madrid",
         "year":2020,
         "surface":2357.05,
-        "annual-variation-percentage":6.25,
+        "annual_variation_percentage":6.25,
         "eviction":2.872
     },
     {
-        "autonomous-community":"cataluña",
+        "autonomous_community":"cataluña",
         "province":"barcelona",
         "year":2018,
         "surface":3470.8,
-        "annual-variation-percentage":9.35,
+        "annual_variation_percentage":9.35,
         "eviction":2.381
     },
 	{
-        "autonomous-community":"navarra",
+        "autonomous_community":"navarra",
         "province":"navarra",
         "year":2020,
         "surface":1400.22,
-        "annual-variation-percentage":10.22,
+        "annual_variation_percentage":10.22,
         "eviction":1.057
     }
 ];
@@ -380,6 +380,61 @@ app.get(BASE_API_PATH + "/buy_sell/loadInitialData", (req,res) => {
 
     buy_sell_initial.forEach(x => buy_sell.push(x));
     res.sendStatus(201);
+});
+
+//POST a la lista de recursos (p.e. “/api/v1/stats”) crea un nuevo recurso.
+
+app.post(BASE_API_PATH + '/buy_sell',(req,res)=>{
+
+	var newObject = req.body;
+    if(
+        newObject.autonomous_community== null||
+        newObject.province== null||
+        newObject.year== null||
+        newObject.surface== null||
+        newObject.annual_variation_percentage== null||
+        newObject.eviction== null||
+        newObject==""
+
+
+    ){
+        res.sendStatus(400);
+        console.log("400 - Object can be null or empty")
+    }else{
+        console.log(`Nuevo elemento creado: <${JSON.stringify(newObject,null,2)}>`);
+	buy_sell.push(newObject);
+	res.sendStatus(201);
+    }
+	
+
+});
+
+//GET a un recurso (p.e. “/api/v1/stats/sevilla/2013”) devuelve ese recurso (un objeto en JSON) .
+
+app.get(BASE_API_PATH + '/buy_sell/:autonomous_community',(req,res) => {
+    var autonomous_community_url = req.params.autonomous_community;
+    for (var i of buy_sell){
+        if (i.autonomous_community===autonomous_community_url) {
+            var resultado = buy_sell.filter(x => x.autonomous_community == autonomous_community_url);
+            res.send(JSON.stringify(resultado,null,2));
+            return res.status(200)
+        }
+        
+    }
+    return res.sendStatus(404);
+    
+});
+
+app.get(BASE_API_PATH + '/buy_sell/:autonomous_community/:year',(req,res) => {
+    var autonomous_community_url = req.params.autonomous_community;
+    var year_url = parseInt( req.params.year);
+    for (var i of buy_sell){
+        if (i.autonomous_community===autonomous_community_url && i.year===year_url) {
+            return res.status(200).json(i);
+            
+        }
+    }
+    return res.sendStatus(404);
 });
 
 //F03
@@ -409,9 +464,9 @@ app.get("/info/rentals", (req, res) => {
 }); 
 
     //Tabla de Nuria
-app.get("/info/buy-sell", (req, res) => {
+app.get("/info/buy_sell", (req, res) => {
     res.send("<html><body><table class='tftable' border='1'>"+
-    "<tr><th>autonomous-community</th><th>province</th><th>year</th><th>surface</th><th>annual-variation-percentage</th><th>eviction</th></tr>"+
+    "<tr><th>autonomous_community</th><th>province</th><th>year</th><th>surface</th><th>annual_variation_percentage</th><th>eviction</th></tr>"+
     "<tr><td>andalucía</td><td>sevilla</td><td>2018</td><td>1594.97</td><td>9.22</td><td>2.003</td></tr>"+
     "<tr><td>comunidad de madrid</td><td>madrid</td><td>2020</td><td>2357.05</td><td>6.25</td><td>2.872</td></tr>"+
     "<tr><td>cataluña</td><td>barcelona</td><td>2018</td><td>3470.8</td><td>9.35</td><td>2.381</td></tr>"+
