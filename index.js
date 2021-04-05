@@ -16,28 +16,28 @@ var BASE_API_PATH = "/api/v1";
 
 var unemployment_initial = [
     {
-        "autonomous-community":"extremadura",
-        "youth-unemployment-rate":48.1605,
+        "autonomous_community":"extremadura",
+        "youth_unemployment-rate":48.1605,
         "province":"badajoz",
         "year":2020,
-        "unemployment-rate":22.8954,
-        "occupation-variation":-1.09999
+        "unemployment_rate":22.8954,
+        "occupation_variation":-1.09999
     },
     {
-        "autonomous-community":"extremadura",
-        "youth-unemployment-rate":"-",
+        "autonomous_community":"extremadura",
+        "youth_unemployment-rate":"-",
         "province":"cáceres",
         "year":2020,
         "unemployment-rate":18.5352,
-        "occupation-variation":100.00610
+        "occupation_variation":100.00610
     },
     {
-        "autonomous-community":"andalucía",
-        "youth-unemployment-rate":52.1912,
+        "autonomous_community":"andalucía",
+        "youth_unemployment-rate":52.1912,
         "province":"málaga",
         "year":2020,
-        "unemployment-rate":19.3225,
-        "occupation-variation":32.79998
+        "unemployment_rate":19.3225,
+        "occupation_variation":32.79998
     }
 ];
 
@@ -73,7 +73,7 @@ app.get(BASE_API_PATH + "/rentals/:autonomous_community/:year", (req,res) => {  
 
 app.post(BASE_API_PATH + "/unemployment", (req, res) => {
     var newUnemploymentEntry = req.body;
-    console.log('New unemployment entry to be added: <${JSON.stringfy(newUnemploymentEntry,null,2)}>');
+    console.log(`New unemployment entry to be added: <${JSON.stringfy(newUnemploymentEntry,null,2)}>`);
     unemployment.push(newUnemploymentEntry);
     res.sendStatus(201);
 });
@@ -157,6 +157,9 @@ var rentals = [];
 
 app.get(BASE_API_PATH + "/rentals/loadInitialData", (req, res) => {
     var inicial = rentals_initial;
+    
+    if(rentals.length > 0) rentals.length = 0;
+
     rentals_initial.forEach(x => rentals.push(x));
     res.sendStatus(201);
 
@@ -168,7 +171,7 @@ app.get(BASE_API_PATH + "/rentals", (req, res) => {
 
 app.post(BASE_API_PATH + "/rentals", (req, res) => {
     var newRentalsEntry = req.body;
-    console.log('New rentals entry to be added: <${JSON.stringfy(newRentalsEntry,null , 2)}>');
+    console.log(`New rentals entry to be added: <${JSON.stringfy(newRentalsEntry,null , 2)}>`);
     rentals.push(newRentalsEntry);
     res.sendStatus(201);
 });
@@ -374,5 +377,5 @@ app.get("/info/buy-sell", (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log("Server currently listening on port ${port} ...")
+    console.log(`Server currently listening on port ${port} ...`)
 });
