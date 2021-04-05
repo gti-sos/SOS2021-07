@@ -272,15 +272,12 @@ app.put(BASE_API_PATH + "/rentals/:autonomous_community/:year", (req,res)=>{
 		if(rentals[i].autonomous_community == autonomous_community_url && rentals[i].year == year_url){
 			var newRentals = req.body;
 			rentals[i] = newRentals;
-         
-			break;
+            res.status(200).send("CHANGE MADE");
+			
 		}
 	}
-	rentals = rentals.map(i => JSON.stringify(i));
-	rentals = new Set(rentals);
-	rentals = [...rentals]
-	rentals = rentals.map(i => JSON.parse(i))
-	res.status(200).send("CHANGE MADE");
+
+	
 });
    
 
