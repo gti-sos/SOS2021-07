@@ -81,7 +81,7 @@ app.post(BASE_API_PATH + "/unemployment/:autonomous_community", (req,res) => {
 });
  
  app.post(BASE_API_PATH + "/unemployment/:autonomous_community/:year", (req,res) => {
-     res.sendStatus(405);
+    res.sendStatus(405);
 });
 
 app.put(BASE_API_PATH + "/unemployment/:autonomous_community/:province/:year", (req,res) => {
@@ -101,7 +101,8 @@ app.put(BASE_API_PATH + "/unemployment/:autonomous_community/:province/:year", (
         newUnemploymentEntry.unemployment_rate == null
         ) 
     {
-        res.sendStatus(400); console.log('\n 400 - BOTH DATA AND FIELDS CAN NOT BE EMPTY (EXCEPT PROVINCE)');
+        console.log('\n 400 - BOTH DATA AND FIELDS CAN NOT BE EMPTY (EXCEPT PROVINCE)');
+        res.sendStatus(400); 
     }
     else {
         unemployment
