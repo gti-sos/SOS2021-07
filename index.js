@@ -56,14 +56,14 @@ app.get(BASE_API_PATH + "/unemployment", (req, res) => {    //get lista recursos
     res.send(JSON.stringify(unemployment,null,2));
 });
 
-app.get(BASE_API_PATH + '/unemployment/search/:autonomous_community', (req,res) => { //get recurso
+app.get(BASE_API_PATH + "/unemployment/:autonomous_community", (req,res) => { //get recurso
     var autonomous_community_url = req.params.autonomous_community;
 
     const resultado = req.body.filter(unemployment => unemployment.autonomous_community == autonomous_community_url);
     res.send(JSON.stringify(resultado,null,2));
 });
 
-app.get(BASE_API_PATH + '/rentals/:autonomous_community/:year', (req,res) => {   //get recurso
+app.get(BASE_API_PATH + "/rentals/:autonomous_community/:year", (req,res) => {   //get recurso
     var autonomous_community_url = req.params.autonomous_community;
     var year_url = req.params.year;
 
