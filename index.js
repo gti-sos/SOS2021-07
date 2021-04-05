@@ -43,7 +43,7 @@ var unemployment_initial = [
 
 var unemployment = [];
 
-app.get(BASE_API_PATH + "/unemployment/loadInitialData", (req, res) => {    //carga inicial
+app.get(BASE_API_PATH + "/unemployment/loadInitialData", (req,res) => {    //carga inicial
     var inicial = unemployment_initial;
 
     if(unemployment.length > 0) unemployment.length = 0;
@@ -52,15 +52,15 @@ app.get(BASE_API_PATH + "/unemployment/loadInitialData", (req, res) => {    //ca
     res.sendStatus(201);
 });
 
-app.get(BASE_API_PATH + "/unemployment", (req, res) => {    //get lista recursos
+app.get(BASE_API_PATH + "/unemployment", (req,res) => {    //get lista recursos
     res.send(JSON.stringify(unemployment,null,2));
 });
 
 app.get(BASE_API_PATH + "/unemployment/:autonomous_community", (req,res) => { //get recurso
     var autonomous_community_url = req.params.autonomous_community;
 
-    const resultado = unemployment.filter(unemployment => unemployment.autonomous_community == autonomous_community_url);
-    res.send(JSON.stringify(resultado,null,2));
+    const resultado = unemployment.filter(x => x.autonomous_community == autonomous_community_url);
+    res.send(JSON.stringify(unemployment.filter(x => x.autonomous_community == autonomous_community_url),null,2));
 });
 
 app.get(BASE_API_PATH + "/rentals/:autonomous_community/:year", (req,res) => {   //get recurso
@@ -71,18 +71,18 @@ app.get(BASE_API_PATH + "/rentals/:autonomous_community/:year", (req,res) => {  
     res.send(JSON.stringify(resultado,null,2));
 });
 
-app.post(BASE_API_PATH + "/unemployment", (req, res) => {
+app.post(BASE_API_PATH + "/unemployment", (req,res) => {
     var newUnemploymentEntry = req.body;
     console.log(`New unemployment entry to be added: <${JSON.stringfy(newUnemploymentEntry,null,2)}>`);
     unemployment.push(newUnemploymentEntry);
     res.sendStatus(201);
 });
 
-app.post(BASE_API_PATH + "unemployment/:autonomous_community", (req, res) => {
+app.post(BASE_API_PATH + "unemployment/:autonomous_community", (req,res) => {
     res.sendStatus(405);
 });
  
- app.post(BASE_API_PATH + "/unemployment/:autonomous_community/:year", (req, res) => {
+ app.post(BASE_API_PATH + "/unemployment/:autonomous_community/:year", (req,res) => {
      res.sendStatus(405);
 });
 
