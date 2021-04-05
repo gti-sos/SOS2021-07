@@ -336,6 +336,52 @@ app.get(BASE_API_PATH + "/buy_sell", (req,res) => {
     res.send(JSON.stringify(buy_sell,null,2));
 });
 
+// Recursos que se van a crear
+
+var buy_sell_initial = [
+    {
+        "autonomous-community":"andalucía",
+        "province":"sevilla",
+        "year":2018,
+        "surface":1594.97,
+        "annual-variation-percentage":9.22,
+        "eviction":2.003
+    },
+    {
+        "autonomous-community":"comunidad de madrid",
+        "province":"madrid",
+        "year":2020,
+        "surface":2357.05,
+        "annual-variation-percentage":6.25,
+        "eviction":2.872
+    },
+    {
+        "autonomous-community":"cataluña",
+        "province":"barcelona",
+        "year":2018,
+        "surface":3470.8,
+        "annual-variation-percentage":9.35,
+        "eviction":2.381
+    },
+	{
+        "autonomous-community":"navarra",
+        "province":"navarra",
+        "year":2020,
+        "surface":1400.22,
+        "annual-variation-percentage":10.22,
+        "eviction":1.057
+    }
+];
+
+//5.2 El recurso debe contener una ruta /api/v1/YYYYYY/loadInitialData que al hacer un GET cree 2 o más recursos.
+
+app.get(BASE_API_PATH + "/buy_sell/loadInitialData", (req,res) => {    
+    if(buy_sell.length > 0) buy_sell.length = 0;
+
+    buy_sell_initial.forEach(x => buy_sell.push(x));
+    res.sendStatus(201);
+});
+
 //F03
     //Tabla de Alejandro
 app.get("/info/unemployment", (req, res) => {
