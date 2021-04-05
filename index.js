@@ -63,7 +63,7 @@ app.get(BASE_API_PATH + "/unemployment/:autonomous_community", (req,res) => { //
     res.send(JSON.stringify(resultado,null,2));
 });
 
-app.get(BASE_API_PATH + "/rentals/:autonomous_community/:year", (req,res) => {   //get recurso
+app.get(BASE_API_PATH + "/unemployment/:autonomous_community/:year", (req,res) => {   //get recurso
     var autonomous_community_url = req.params.autonomous_community;
     var year_url = req.params.year;
 
