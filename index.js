@@ -319,8 +319,8 @@ app.post(BASE_API_PATH + '/rentals',(req,res)=>{
     }
     else{
         console.log(`New unemployment entry to be added: <${JSON.stringify(newObject,null,2)}>`);
-	rentals.push(newObject);
-	res.sendStatus(201);
+	    rentals.push(newObject);
+	    res.sendStatus(201);
     }
 });
 
