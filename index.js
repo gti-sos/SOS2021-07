@@ -115,10 +115,22 @@ app.get(BASE_API_PATH + "/unemployment/:autonomous_community/:province/:year", (
 
 //Post a la lista de recursos unemployment
 app.post(BASE_API_PATH + "/unemployment", (req,res) => {
-    var newUnemploymentEntry = req.body;
-    console.log(`New unemployment entry to be added: <${JSON.stringfy(newUnemploymentEntry,null,2)}>`);
-    unemployment.push(newUnemploymentEntry);
-    res.sendStatus(201);
+	var newObject = req.body;
+
+    if (newObject['autonomous_community'] === null
+        || newObject['province'] === null
+        || newObject['year'] === null
+        || newObject['youth_unemployment_rate'] === null
+        || newObject['unemployment_rate'] === null
+        || newObject['occupation_variation'] === null
+        || Object.keys(newObject).length != 6) {
+        res.sendStatus(400);
+    }
+    else{
+        console.log(`New unemployment entry to be added: <${JSON.stringify(newObject,null,2)}>`);
+	    unemployment.push(newObject);
+	    res.sendStatus(201);
+    }
 });
 
 //Post al recurso /:autonomous_community => Method Not Allowed
@@ -307,7 +319,7 @@ app.post(BASE_API_PATH + '/rentals',(req,res)=>{
         || newObject['province'] === null
         || newObject['year'] === null
         || newObject['rent'] === null
-        || newObject['rent-varation'] === null
+        || newObject['rent_varation'] === null
         || newObject['meter'] === null
         || newObject['salary'] === null
         || Object.keys(newObject).length != 7) {
