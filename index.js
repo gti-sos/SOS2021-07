@@ -48,7 +48,6 @@ app.post("/hello", (req, res) => {
 *
 *
 */
-
 //Conjunto de datos para la carga inicial
 var unemployment_initial = [
     {
@@ -283,7 +282,6 @@ app.get(BASE_API_PATH + "/rentals/:autonomous_community",(req,res) => {
             res.send(JSON.stringify(resultado,null,2));
             return res.status(200)
         }
-        
     }
     res.sendStatus(404);
 });
@@ -455,8 +453,8 @@ app.post(BASE_API_PATH + "/buy_sell",(req,res)=>{
     }
     else {
         console.log(`Nuevo elemento creado: <${JSON.stringify(newObject,null,2)}>`);
-	buy_sell.push(newObject);
-	res.sendStatus(201);
+	    buy_sell.push(newObject);
+	    res.sendStatus(201);
     }
 });
 
