@@ -63,7 +63,7 @@ var unemployment_initial = [
         "youth_unemployment_rate":null,
         "province":"caceres",
         "year":2020,
-        "unemployment-rate":18.5352,
+        "unemployment_rate":18.5352,
         "occupation_variation":100.00610
     },
     {
@@ -205,7 +205,7 @@ var rentals_initial = [
         "province": "salamanca",
         "year":2018,
         "rent":468,
-        "rent-variation":2.2,
+        "rent_variation":2.2,
         "meter":91,
         "salary":24
     },
@@ -214,7 +214,7 @@ var rentals_initial = [
         "province": "malaga",
         "year":2018,
         "rent":615,
-        "rent-variation":7.4,
+        "rent_variation":7.4,
         "meter":101.6,
         "salary":28.8
     },
@@ -223,7 +223,7 @@ var rentals_initial = [
         "province": "sevilla",
         "year":2018,
         "rent":560.5,
-        "rent-variation":4,
+        "rent_variation":4,
         "meter":94.6,
         "salary":29
     },
@@ -232,7 +232,7 @@ var rentals_initial = [
         "province": "madrid",
         "year":2018,
         "rent":780,
-        "rent-variation":4.6,
+        "rent_variation":4.6,
         "meter":86.5,
         "salary":51
     },
@@ -241,7 +241,7 @@ var rentals_initial = [
         "province": "barcelona",
         "year":2018,
         "rent":696,
-        "rent-variation":6,
+        "rent_variation":6,
         "meter":96.8,
         "salary":49
     },
@@ -250,7 +250,7 @@ var rentals_initial = [
         "province": "madrid",
         "year":2020,
         "rent":848,
-        "rent-variation":3.7,
+        "rent_variation":3.7,
         "meter":71,
         "salary":55.7
     }
