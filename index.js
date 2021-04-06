@@ -581,7 +581,6 @@ app.get("/info/buy_sell", (req, res) => {
     "<tr><td>comunidad_valenciana</td><td>valencia</td><td>2017</td><td>1.169.92</td><td>6.23</td><td>2.358</td></tr>"+
     "<tr><td>andalucia</td><td>granada</td><td>2017</td><td>1250.99</td><td>1.54</td><td>1.013</td></tr>"+
     "</table></body></html>");
-	
 });
 
 //Puerto de escucha para localhost
