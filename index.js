@@ -303,16 +303,14 @@ app.get(BASE_API_PATH + "/rentals/:autonomous_community/:year",(req,res) => {
 app.post(BASE_API_PATH + '/rentals',(req,res)=>{
 	var newObject = req.body;
 
-    if(
-        newObject.autonomous_community == null||
-        newObject.province== null||
-        newObject.year == null||
-        newObject.rent == null||
-        newObject.rent_varation == null||
-        newObject.meter == null||
-        newObject.salary == null||
-        newObject == "")
-    {
+    if (newObject['autonomous_community'] === null
+        || newObject['province'] === null
+        || newObject['year'] === null
+        || newObject['rent'] === null
+        || newObject['rent-varation'] === null
+        || newObject['meter'] === null
+        || newObject['salary'] === null
+        || Object.keys(newObject).length != 7) {
         res.sendStatus(400);
     }
     else{
