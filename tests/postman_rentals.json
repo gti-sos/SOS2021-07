@@ -1,0 +1,317 @@
+{
+	"info": {
+		"_postman_id": "e17598db-188b-4fae-804a-d43af4f6f0e9",
+		"name": "SOS2021-07-rentals",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get- /rentals",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Debe estar vacio\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get loadInitial",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals/loadInitialData",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get- /rentals despues carga",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(6);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post rentals",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"autonomous_community\": \"castilla-y-leon\",\r\n\"province\": \"salamanca\",\r\n\"year\": 2020,\r\n\"rent\": 568,\r\n\"rent_variation\": 3.2,\r\n\"meter\": 90,\r\n\"salary\": 60\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete nuevo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals/castilla-y-leon/2020",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals",
+						"castilla-y-leon",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "comprobar que fue eliminado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals/castilla-y-leon/2020",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals",
+						"castilla-y-leon",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eliminar todo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get- /rentals Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Debe estar vacio\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
