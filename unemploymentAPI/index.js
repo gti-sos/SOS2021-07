@@ -33,10 +33,10 @@ var unemployment_initial = [
     }
 ];
 
-module.exports.register = (app) => {
+//Conjunto de datos inicialmente vacio que sera cargado
+var unemployment = [];
 
-    //Conjunto de datos inicialmente vacio que sera cargado
-    var unemployment = [];
+module.exports.register = (app) => {
 
     //Carga del conjunto de datos inicial
     app.get(UNEMPLOYMENT_API_PATH + "/unemployment/loadInitialData", (req, res) => {
