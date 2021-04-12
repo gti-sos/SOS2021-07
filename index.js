@@ -5,6 +5,8 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
 
+var rentalsAPI = require("./rentalsAPI");
+
 var app = express();
 unemploymentAPI.register(app);
 app.use(bodyParser.json());
