@@ -33,7 +33,7 @@ var unemployment_initial = [
     }
 ];
 
-module.exports.register.register = (app) => {
+module.exports.register = (app) => {
 
     //Conjunto de datos inicialmente vacio que sera cargado
     var unemployment = [];
