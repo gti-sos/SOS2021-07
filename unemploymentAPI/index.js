@@ -1,9 +1,3 @@
-var express = require("express");
-var app = express();
-
-var bodyParser = require("body-parser");
-app.use(bodyParser.json());
-
 var UNEMPLOYMENT_API_PATH = "/api/v1";
 
 var unemployment_initial = [
@@ -33,10 +27,9 @@ var unemployment_initial = [
     }
 ];
 
-module.exports.register = (app) => {
+var unemployment = [];
 
-    //Conjunto de datos inicialmente vacio que sera cargado
-    var unemployment = [];
+module.exports.register = (app) => {
 
     //Carga del conjunto de datos inicial
     app.get(UNEMPLOYMENT_API_PATH + "/unemployment/loadInitialData", (req, res) => {

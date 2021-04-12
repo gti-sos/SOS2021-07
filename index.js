@@ -1,11 +1,11 @@
 //Declaracion de variables globales
 var cool = require("cool-ascii-faces");
-var unemploymentAPI = require("./unemploymentAPI");
 var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
 
 var rentalsAPI = require("./rentalsAPI");
+var unemploymentAPI = require("./unemploymentAPI");
 
 var app = express();
 unemploymentAPI.register(app);
