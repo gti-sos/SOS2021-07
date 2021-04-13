@@ -13,3 +13,4 @@ jobs:
       - run: npm start &
       - run: npx newman run tests/postman_rentals.json
       - run: npx newman run tests/postman_unemployment.json
+      - run: npx newman run tests/buy_sell.postman_collection.json
