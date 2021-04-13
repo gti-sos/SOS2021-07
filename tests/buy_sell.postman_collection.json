@@ -1,0 +1,296 @@
+{
+	"info": {
+		"_postman_id": "7c551a78-95f1-4b83-8eeb-ac8903faa41f",
+		"name": "SOS2021-buy_sell",
+		"description": "Portal de pruebas de la API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET /api/v1/buy_sell/loadInitialData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell/loadInitialData",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"buy_sell",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/v1/buy_sell",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"buy_sell"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET a algo en concreto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell/navarra/2020",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"buy_sell",
+						"navarra",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prueba del POST a la lista",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"autonomous_community\":\"cataluna\",\r\n    \"province\":\"barcelona\",\r\n    \"year\":2019,\r\n    \"surface\":3470.8,\r\n    \"annual_variation_percentage\":9.35,\r\n    \"eviction\":2.381\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"buy_sell"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prueba del DELETE a recurso",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell/navarra/2020",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"buy_sell",
+						"navarra",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prueba del PUT a recurso",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"autonomous_community\":\"cataluna\",\r\n    \"province\":\"barcelona\",\r\n    \"year\":2021,\r\n    \"surface\":3470.8,\r\n    \"annual_variation_percentage\":9.35,\r\n    \"eviction\":2.381\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell/cataluna/2018",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"buy_sell",
+						"cataluna",
+						"2018"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prueba del POST a un recurso",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell/andalucia/2018",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"buy_sell",
+						"andalucia",
+						"2018"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prueba del PUT a la lista",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"buy_sell"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prueba del DELETE a la lista",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"buy_sell"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -145,6 +145,7 @@ app.put(BUY_SELL_API_PATH + "/buy_sell", (req, res) => {
 //DELETE a la lista de recursos (p.e. “/api/v1/stats”) borra todos los recursos.
 app.delete(BUY_SELL_API_PATH + "/buy_sell", (req, res) => {
     buy_sell.length = 0;
+	console.log("PRUEBA");
     res.sendStatus(200);
 });
 	
