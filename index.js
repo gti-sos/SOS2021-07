@@ -8,12 +8,13 @@ var rentalsAPI = require("./rentalsAPI");
 var unemploymentAPI = require("./unemploymentAPI");
 
 var app = express();
-unemploymentAPI.register(app);
 app.use(bodyParser.json());
 
 var port = (process.env.PORT || 10000);
 
 var BASE_API_PATH = "/api/v1";
+
+unemploymentAPI.register(app);
 
 //Mostrar directamente el contenido de /public
 app.use("/", express.static(path.join(__dirname, "public")));
