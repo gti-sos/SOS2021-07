@@ -182,18 +182,18 @@ app.post(BASE_API_PATH + '/rentals',(req,res)=>{
         || !newObject.province
         || !newObject.year
         || !newObject.rent
-        || !newRent_varation
+        || !newObject.rent_varation
         || !newObject.meter
         || !newObject.salary
         || Object.keys(newObject).length != 7) {
-        console.log(!newObject.autonomous_community);
-        console.log(!newObject.province);
-        console.log(!newObject.year);
-        console.log(!newObject.rent);
-        console.log(!newObject.rent_varation);
-        console.log(!newObject.meter);
-        console.log(!newObject.salary);
-        console.log(Object.keys(newObject).length != 7);
+        console.log(!newObject.autonomous_community + " comunidad");
+        console.log(!newObject.province+ " provincia");
+        console.log(!newObject.year + " año");
+        console.log(!newObject.rent+ " renta");
+        console.log(!newObject.rent_varation+ " variacion");
+        console.log(!newObject.meter+" metros");
+        console.log(!newObject.salary+ " salario");
+        console.log((Object.keys(newObject).length != 7)+" tamaño");
         res.sendStatus(400);
     } else {
         console.log(`New rentals entry to be added: <${JSON.stringify(newObject,null,2)}>`);
