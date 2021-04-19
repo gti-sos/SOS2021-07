@@ -106,20 +106,22 @@ app.get(BASE_API_PATH + "/rentals", (req, res) => {
     delete query.limit;
 
     // With skip we make the offset and with the limit we limit
-    db.find(query).skip(offset).limit(limit).exec((error, rentals) => {
+    db.find(query).skip(offset).limit(limit).exec((error, data) => {
       if (error) {
         console.error("ERROR accesing DB: "+ error);
         res.sendStatus(500);
-      }
-      rentals.forEach((r) => {
-        delete r._id;
-      });
-
-      res.status(200).send(JSON.stringify(rentals, null, 2));
-      console.log("Dates : " + JSON.stringify(rentals, null, 2));
-    });
-
-    console.log("OK.");
+      } else{
+        if(data == 0){
+            console.error("There is no data");
+            res.sendStatus(404);
+        }
+        else{
+            data.forEach( (resource) =>{ delete resource._id; });
+            res.status(200).send(JSON.stringify(data, null, 2));
+            console.log("Get resource list:"+JSON.stringify(data, null, 2));
+        }
+    }
+});
 });
 
 //GET al recurso /:autonomous_community
