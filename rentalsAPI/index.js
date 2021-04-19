@@ -25,7 +25,7 @@ module.exports.register = (app) => {
                 "rent":468,
                 "rent_variation":2.2,
                 "meter":91,
-                "salary":24
+                "salary":24.0
             },
            
             {
@@ -33,9 +33,9 @@ module.exports.register = (app) => {
                 "province": "sevilla",
                 "year":2018,
                 "rent":560.5,
-                "rent_variation":4,
+                "rent_variation":4.0,
                 "meter":94.6,
-                "salary":29
+                "salary":29.0
             },
             
             {
@@ -43,9 +43,9 @@ module.exports.register = (app) => {
                 "province": "barcelona",
                 "year":2018,
                 "rent":696,
-                "rent_variation":6,
+                "rent_variation":6.0,
                 "meter":96.8,
-                "salary":49
+                "salary":49.0
             },
             {
                 "autonomous_community": "comunidad_de_madrid",
@@ -165,7 +165,7 @@ app.post(BASE_API_PATH + '/rentals',(req,res)=>{
     var newProvince = req.body.province;
     var newYear = parseInt(req.body.year);
     var newRent = parseInt(req.body.rent);
-    var newRent_varation = parseFloat(req.body.rent_varation);
+    var newRent_varation = parseFloat(req.body.rent_variation);
     var newMeter = parseInt(req.body.meter);
     var newSalary = parseFloat(req.body.salary);
 
@@ -178,21 +178,21 @@ app.post(BASE_API_PATH + '/rentals',(req,res)=>{
         res.sendStatus(500);
     } else{
         if(resource == 0){
-    if (!newObject.autonomous_community
+    if (!newObject['autonomous_community']
         || !newObject.province
         || !newObject.year
-        || !newObject.rent
-        || !newObject.rent_varation
-        || !newObject.meter
-        || !newObject.salary
+        || !newObject['rent']  
+        || !newObject['rent_variation']
+        || !newObject['meter']
+        || !newObject['salary']
         || Object.keys(newObject).length != 7) {
-        console.log(!newObject.autonomous_community + " comunidad");
+        console.log(!newObject['autonomous_community'] + " comunidad");
         console.log(!newObject.province+ " provincia");
         console.log(!newObject.year + " año");
-        console.log(!newObject.rent+ " renta");
-        console.log(!newObject.rent_varation+ " variacion");
-        console.log(!newObject.meter+" metros");
-        console.log(!newObject.salary+ " salario");
+        console.log(!newObject['rent']  + " renta");
+        console.log(newObject['rent_variation']+ " variacion");
+        console.log(!newObject['meter']+" metros");
+        console.log(!newObject['salary']+ " salario");
         console.log((Object.keys(newObject).length != 7)+" tamaño");
         res.sendStatus(400);
     } else {
