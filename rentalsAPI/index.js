@@ -229,19 +229,46 @@ app.delete(BASE_API_PATH + "/rentals/:province/:year", (req, res) => {
   });
 
 
-app.put(BASE_API_PATH + "/rentals/:autonomous_community/:year", (req,res) => {
-    var autonomous_community_url = req.params.autonomous_community;
-    var year_url = parseInt(req.params.year);
+app.put(BASE_API_PATH + "/rentals/:province/:year", (req,res) => {
+    var oldObject = req.params;
+    var newObject = req.body;
+    var autonomous_community_url = req.body.autonomous_community;
+    var province_url = req.body.province;
+    var year_url = parseInt(req.body.year);
+    var rent_url = parseInt(req.body.rent);
+    var rent_varation_url = parseFloat(req.body.rent_varation);
+    var meter_url = parseInt(req.body.meter);
+    var salary_url = parseFloat(req.body.salary);
     
-    for(var i in rentals){
-		if(rentals[i].autonomous_community == autonomous_community_url && rentals[i].year == year_url){
-			var newRentals = req.body;
-			rentals[i] = newRentals;
-            res.sendStatus(200);
-		}
-	}
+    if (!newObject.autonomous_community
+        || !newObject.province
+        || !newObject.year
+        || !newObject.rent
+        || !newObject.rent_varation
+        || !newObject.meter
+        || !newObject.salary
+        || Object.keys(newObject).length != 7) {
+            console.log("invalid update, incorrect or empty data");
+        res.sendStatus(400);
+    } else {
+        
+        db.update({"province": oldObject.province, "year": parseInt(oldObject.year)}, newObject, (err, resource) => {
+            if (err) {
+                console.error("ERROR accesing DB: "+ err);
+                res.sendStatus(500);
+            } else{
+                if(resource==0){ //no se encuentra el dato en la BD
+                    console.error("No data found");
+                    res.sendStatus(404);
+                }else {
+                    console.log("Put done successfully");
+                    res.sendStatus(200);
+                }
+            }
+        });
+    }
 });
-
+    
 app.post(BASE_API_PATH + "rentals/:autonomous_community", (req, res) => {
    res.sendStatus(405);
 });
@@ -255,8 +282,19 @@ app.post(BASE_API_PATH + "/rentals/:autonomous_community/:year", (req, res) => {
  });
 
  app.delete(BASE_API_PATH + "/rentals", (req, res) => {
-    rentals.length = 0;
-    res.sendStatus(200);
-  });
-
-}
+    db.remove({}, { multi: true }, function (err, numRemoved) {
+        if (err) {
+          console.error("ERROR deleting DB: "+ err);
+          res.sendStatus(500);
+        } else {
+          if (numRemoved == 0) {
+            console.error("ERROR: DB was empty");
+            res.sendStatus(404);
+          } else {
+            res.sendStatus(200);
+          }
+        }
+      });
+    })
+  
+  }
