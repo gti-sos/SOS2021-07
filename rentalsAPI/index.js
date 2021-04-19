@@ -219,14 +219,14 @@ app.delete(BASE_API_PATH + "/rentals/:province/:year", (req, res) => {
         console.error("ERROR accesing DB: "+ err);
         res.sendStatus(500);
       } else {
-        if (resource.length == 0) {
-          console.error("No data found");
-          res.sendStatus(404);
-        } else {
+            if (resource.length == 0) {
+                console.error("No data found");
+                res.sendStatus(404);
+            } else {
           
-          res.sendStatus(200);
+                res.sendStatus(200);
+            }
         }
-      }
     });
   });
 
