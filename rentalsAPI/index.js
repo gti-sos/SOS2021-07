@@ -186,14 +186,7 @@ app.post(BASE_API_PATH + '/rentals',(req,res)=>{
         || !newObject['meter']
         || !newObject['salary']
         || Object.keys(newObject).length != 7) {
-        console.log(!newObject['autonomous_community'] + " comunidad");
-        console.log(!newObject.province+ " provincia");
-        console.log(!newObject.year + " año");
-        console.log(!newObject['rent']  + " renta");
-        console.log(newObject['rent_variation']+ " variacion");
-        console.log(!newObject['meter']+" metros");
-        console.log(!newObject['salary']+ " salario");
-        console.log((Object.keys(newObject).length != 7)+" tamaño");
+
         res.sendStatus(400);
     } else {
         console.log(`New rentals entry to be added: <${JSON.stringify(newObject,null,2)}>`);
@@ -216,11 +209,11 @@ app.delete(BASE_API_PATH + "/rentals/:province/:year", (req, res) => {
     var province_url = req.body.province;
     var year_url = parseInt(req.body.year);
     var rent_url = parseInt(req.body.rent);
-    var rent_varation_url = parseFloat(req.body.rent_varation);
+    var rent_varation_url = parseFloat(req.body.rent_variation);
     var meter_url = parseInt(req.body.meter);
     var salary_url = parseFloat(req.body.salary);
 
-    db.remove({ $and: [{ province: province_url }, { year: year_url }] }, { multi: true }, function (err, resource) {
+    db.remove({ $and: [{ province: province_url }, { year: year_url }] }, { _id: 0 }, function (err, resource) {
       if (err) {
         console.error("ERROR accesing DB: "+ err);
         res.sendStatus(500);
