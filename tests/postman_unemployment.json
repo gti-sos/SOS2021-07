@@ -6,6 +6,41 @@
 	},
 	"item": [
 		{
+			"name": "DELETE /unemployment Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/unemployment",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"unemployment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "GET /unemployment/loadInitialData",
 			"event": [
 				{
@@ -14,6 +49,54 @@
 						"exec": [
 							"pm.test(\"Status code is 201\", function () {\r",
 							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/unemployment/loadInitialData",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"unemployment",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET conflict /unemployment/loadInitialData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 409\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -168,6 +251,96 @@
 			"response": []
 		},
 		{
+			"name": "GET search: /unemployment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/unemployment?autonomous_community=extremadura&province=badajoz",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"unemployment"
+					],
+					"query": [
+						{
+							"key": "autonomous_community",
+							"value": "extremadura"
+						},
+						{
+							"key": "province",
+							"value": "badajoz"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET paginacion: /unemployment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/unemployment?limit=2&offset=1",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"unemployment"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "offset",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "POST /unemployment",
 			"event": [
 				{
@@ -188,6 +361,50 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n\"autonomous_community\": \"prueba-post-lista-recursos\",\r\n\"youth_unemployment_rate\": 48.1605,\r\n\"province\": \"badajoz\",\r\n\"year\": 2020,\r\n\"unemployment_rate\": 22.8954,\r\n\"occupation_variation\": -1.09999\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/unemployment",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"unemployment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST conflict /unemployment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 409\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"autonomous_community\": \"andalucia\",\r\n\"youth_unemployment_rate\": 48.1605,\r\n\"province\": \"granada\",\r\n\"year\": 2020,\r\n\"unemployment_rate\": 22.8954,\r\n\"occupation_variation\": -1.09999\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -351,6 +568,53 @@
 			"response": []
 		},
 		{
+			"name": "PUT bad request /unemployment/:autonomous-community/:province/:year",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"autonomous_community\": \"prueba-put-recurso\",\r\n\"youth_unemployment_rate\": 48.1605,\r\n\"province\": \"badajoz\",\r\n\"year\": 2020,\r\n\"unemployment_rate\": 22.8954\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/unemployment/extremadura/badajoz/2020",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"unemployment",
+						"extremadura",
+						"badajoz",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "PUT /unemployment",
 			"event": [
 				{
@@ -426,6 +690,94 @@
 						"unemployment",
 						"andalucia",
 						"malaga",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET not found /unemployment/:autonomous-community/:province/:year Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/unemployment/andalucia/malaga/2020",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"unemployment",
+						"andalucia",
+						"malaga",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE not found /unemployment/:autonomous-community/:province/:year",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/unemployment/andalucia/almeria/2020",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"unemployment",
+						"andalucia",
+						"almeria",
 						"2020"
 					]
 				}
