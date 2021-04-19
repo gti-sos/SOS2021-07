@@ -115,7 +115,6 @@ app.get(BASE_API_PATH + "/rentals", (req, res) => {
             console.error("There is no data");
             res.sendStatus(404);
         }else{
-            console.log(data.length);
             data.forEach( (resource) =>{ delete resource._id; });
             res.status(200).send(JSON.stringify(data, null, 2));
             console.log("Get resource list:"+JSON.stringify(data, null, 2));
