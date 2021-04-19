@@ -1,7 +1,7 @@
 var path = require('path');
 var Datastore = require('nedb');
 
-//required vars and const
+//required vars and cons
 
 const BASE_API_PATH = "/api/v1";
 const datafile = path.join(__dirname, 'rentals.db');
