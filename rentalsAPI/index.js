@@ -241,13 +241,13 @@ app.put(BASE_API_PATH + "/rentals/:province/:year", (req,res) => {
     var meter_url = parseInt(req.body.meter);
     var salary_url = parseFloat(req.body.salary);
     
-    if (!newObject.autonomous_community
+    if (!newObject['autonomous_community']
         || !newObject.province
         || !newObject.year
-        || !newObject.rent
-        || !newObject.rent_varation
-        || !newObject.meter
-        || !newObject.salary
+        || !newObject['rent']  
+        || !newObject['rent_variation']
+        || !newObject['meter']
+        || !newObject['salary']
         || Object.keys(newObject).length != 7) {
             console.log("invalid update, incorrect or empty data");
         res.sendStatus(400);
