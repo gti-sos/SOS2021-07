@@ -204,7 +204,7 @@ app.post(BASE_API_PATH + '/rentals',(req,res)=>{
 
 app.delete(BASE_API_PATH + "/rentals/:province/:year", (req, res) => {
 
-    
+    var deleteThis = req.params;
     var autonomous_community_url = req.body.autonomous_community;
     var province_url = req.body.province;
     var year_url = parseInt(req.body.year);
@@ -213,7 +213,7 @@ app.delete(BASE_API_PATH + "/rentals/:province/:year", (req, res) => {
     var meter_url = parseInt(req.body.meter);
     var salary_url = parseFloat(req.body.salary);
 
-    db.remove({ $and: [{ province: province_url }, { year: year_url }] }, { _id: 0 }, function (err, resource) {
+    db.remove({ $and: [{ province: deleteThis.province }, { year: parseInt(deleteThis.year) }] }, { _id: 0 }, function (err, resource) {
       if (err) {
         console.error("ERROR accesing DB: "+ err);
         res.sendStatus(500);
@@ -222,7 +222,7 @@ app.delete(BASE_API_PATH + "/rentals/:province/:year", (req, res) => {
           console.error("No data found");
           res.sendStatus(404);
         } else {
-          console.log(`stat with province: <${province_url}> and year: <${year_url}> deleted`);
+          
           res.sendStatus(200);
         }
       }
