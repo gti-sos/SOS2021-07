@@ -119,6 +119,25 @@ module.exports.register = (app) => {
         res.send(JSON.stringify(resultado, null, 2));
     });
 
+    app.get(UNEMPLOYMENT_API_PATH + "/unemployment/:autonomous_community", (req, res) => {
+        var params = req.params;
+
+        db.find({ autonomous_community: params.autonomous_community }, (error, data) => {
+            if (error) {
+                console.error("ERROR accesing DB in GET");
+                res.sendStatus(500);
+            } else {
+                if (data.length == 0) {
+                    console.error("No data found");
+                    res.sendStatus(404);
+                } else {
+                    delete data[0]._id;
+                    res.send(JSON.stringify(data, null, 2));
+                }
+            }
+        });
+    });
+
     //Get al recurso /:autonomous_community/:province/:year
     app.get(UNEMPLOYMENT_API_PATH + "/unemployment/:autonomous_community/:province/:year", (req, res) => {
         var params = req.params;
@@ -235,16 +254,23 @@ module.exports.register = (app) => {
     app.delete(UNEMPLOYMENT_API_PATH + "/unemployment/:autonomous_community/:province/:year", (req, res) => {
         var params = req.params;
 
-        db.remove({ $and: [{ autonomous_community: params.autonomous_community, province: params.province, year: parseInt(params.year) }] }, { _id: 0 }, function (error, resource) {
+        dataBase.find({ autonomous_community: newData.autonomous_community, year: newData.year, province: newData.province }, (error, data) => {
             if (error) {
-                console.error("ERROR accesing DB: " + error);
-                res.sendStatus(500);
-            } else {
-                if (resource.length == 0) {
-                    console.error("No data found");
+                console.log("ERROR accesing DB" + error);
+                res.sendStatus(500); //Error de servidor
+            }
+            else {
+                if (data.length == 0)
                     res.sendStatus(404);
-                } else {
-                    res.sendStatus(200);
+                else {
+                    db.remove({ $and: [{ autonomous_community: params.autonomous_community, province: params.province, year: parseInt(params.year) }] }, { _id: 0 }, function (error, resource) {
+                        if (error) {
+                            console.error("ERROR accesing DB: " + error);
+                            res.sendStatus(500);
+                        } else {
+                            res.sendStatus(200);
+                        }
+                    });
                 }
             }
         });
