@@ -111,7 +111,7 @@ app.get(BASE_API_PATH + "/rentals", (req, res) => {
         console.error("ERROR accesing DB: "+ error);
         res.sendStatus(500);
       } else{
-        if(data === 0){
+        if(data.length == 0){
             console.error("There is no data");
             res.sendStatus(404);
         }else{
