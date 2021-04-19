@@ -2,7 +2,7 @@ var UNEMPLOYMENT_API_PATH = "/api/v1";
 
 const _ = require('lodash');
 
-const uniqueID = require('uuid/v4');
+const uniqueID = require('uuid');
 
 var unemployment_initial = [
     {
@@ -48,7 +48,7 @@ module.exports.register = (app) => {
         if (unemployment.length > 0) unemployment.length = 0;
 
         unemployment_initial.forEach(x => {
-            x["id"] = unemployment.length; 
+            x["id"] = uniqueID(); 
             unemployment.push(x)
         });
         res.sendStatus(201);
@@ -119,7 +119,7 @@ module.exports.register = (app) => {
         }
         else {
             console.log(`New unemployment entry to be added: <${JSON.stringify(newObject, null, 2)}>`);
-            newObject["id"] = unemployment.length;
+            newObject["id"] = uniqueID();
             unemployment.push(newObject);
             res.sendStatus(201);
         }
