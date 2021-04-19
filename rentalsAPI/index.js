@@ -49,7 +49,7 @@ var rentals_initial = [
         "salary":49
     },
     {
-        "autonomous_community": "madrid",
+        "autonomous_community": "comunidad_de_madrid",
         "province": "madrid",
         "year":2020,
         "rent":848,
@@ -75,6 +75,36 @@ module.exports.register = (app) => {
 app.get(BASE_API_PATH + "/rentals", (req, res) => {
     res.send(JSON.stringify(rentals,null,2));
 });
+
+//GET al recurso /:province
+app.get(BASE_API_PATH + "/rentals/:province",(req,res) => {
+    var province_url = req.params.province;
+
+    for (var i of rentals){
+        if (i.province == province_url) {
+            var resultado = rentals.filter(x => x.province == province_url);
+            res.send(JSON.stringify(resultado,null,2));
+            return res.status(200)
+        }
+    }
+    res.sendStatus(404);
+});
+
+//GET al recurso /:year
+app.get(BASE_API_PATH + "/rentals/:year",(req,res) => {
+    var year_url = req.params.year;
+
+    for (var i of rentals){
+        if (i.year == year_url) {
+            var resultado = rentals.filter(x => x.year == year_url);
+            res.send(JSON.stringify(resultado,null,2));
+            return res.status(200)
+        }
+    }
+    res.sendStatus(404);
+});
+
+
 
 //GET al recurso /:autonomous_community
 app.get(BASE_API_PATH + "/rentals/:autonomous_community",(req,res) => {
