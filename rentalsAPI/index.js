@@ -228,7 +228,7 @@ app.delete(BASE_API_PATH + "/rentals/:province/:year", (req, res) => {
             }
         }
     });
-  });
+});
 
 
 app.put(BASE_API_PATH + "/rentals/:province/:year", (req,res) => {
