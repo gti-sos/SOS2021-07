@@ -2,8 +2,6 @@ var UNEMPLOYMENT_API_PATH = "/api/v1";
 
 const _ = require('lodash');
 
-const uniqueID = require('uuid');
-
 var unemployment_initial = [
     {
         "autonomous_community": "extremadura",
@@ -48,7 +46,7 @@ module.exports.register = (app) => {
         if (unemployment.length > 0) unemployment.length = 0;
 
         unemployment_initial.forEach(x => {
-            x["id"] = uniqueID(); 
+            x["id"] = unemployment.length;
             unemployment.push(x)
         });
         res.sendStatus(201);
@@ -59,6 +57,10 @@ module.exports.register = (app) => {
         var resultado = [];
         var autonomous_community_query = req.query.autonomous_community;
         var province_query = req.query.province;
+        var youth_unemployment_rate_query = req.query.youth_unemployment_rate;
+        var unemployment_rate_query = req.query.unemployment_rate;
+        var year_query = req.query.year;
+        var occupation_variation_query = req.query.occupation_variation;
 
         if (typeof autonomous_community_query != 'undefined')
             unemployment.filter(function (x) {
@@ -67,9 +69,37 @@ module.exports.register = (app) => {
                 }
             });
 
+        if (typeof youth_unemployment_rate_query != 'undefined')
+            unemployment.filter(function (x) {
+                if (x.youth_unemployment_rate == youth_unemployment_rate_query) {
+                    resultado.push(x);
+                }
+            });
+
+        if (typeof unemployment_rate_query != 'undefined')
+            unemployment.filter(function (x) {
+                if (x.unemployment_rate == unemployment_rate_query) {
+                    resultado.push(x);
+                }
+            });
+
         if (typeof province_query != 'undefined')
             unemployment.filter(function (x) {
                 if (x.province == province_query) {
+                    resultado.push(x);
+                }
+            });
+
+        if (typeof year_query != 'undefined')
+            unemployment.filter(function (x) {
+                if (x.year == year_query) {
+                    resultado.push(x);
+                }
+            });
+
+        if (typeof occupation_variation_query != 'undefined')
+            unemployment.filter(function (x) {
+                if (x.occupation_variation == occupation_variation_query) {
                     resultado.push(x);
                 }
             });
@@ -119,7 +149,7 @@ module.exports.register = (app) => {
         }
         else {
             console.log(`New unemployment entry to be added: <${JSON.stringify(newObject, null, 2)}>`);
-            newObject["id"] = uniqueID();
+            newObject["id"] = unemployment.length;
             unemployment.push(newObject);
             res.sendStatus(201);
         }
