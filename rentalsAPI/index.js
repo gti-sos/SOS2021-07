@@ -137,7 +137,7 @@ app.get(BASE_API_PATH + "/rentals", (req, res) => {
     res.sendStatus(404);
 }); */
 
-//GET al recurso /:autonomous_community/:year
+//GET al recurso /:province/:year
 app.get(BASE_API_PATH + "/rentals/:province/:year",(req,res) => {
     var province_url = req.params.province;
     var year_url = parseInt(req.params.year);
@@ -151,8 +151,10 @@ app.get(BASE_API_PATH + "/rentals/:province/:year",(req,res) => {
           console.error("No data found");
           res.sendStatus(404);
         } else {
-          console.log(`GET stat by province: <${province_url}> and year: <${year_url}>`);
-          res.status(200).send(JSON.stringify(resource, null, 2));
+
+            delete resource[0]._id;
+            res.status(200).send(JSON.stringify(resource[0], null, 2)); 
+            console.log(`GET stat by province: <${province_url}> and year: <${year_url}>`);
         }
       }
     });
