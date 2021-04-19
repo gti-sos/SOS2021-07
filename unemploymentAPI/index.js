@@ -1,5 +1,9 @@
 var UNEMPLOYMENT_API_PATH = "/api/v1";
 
+const _ = require('lodash');
+
+const uniqueID = require('uuid/v4');
+
 var unemployment_initial = [
     {
         "autonomous_community": "extremadura",
@@ -24,6 +28,14 @@ var unemployment_initial = [
         "year": 2020,
         "unemployment_rate": 19.3225,
         "occupation_variation": 32.79998
+    },
+    {
+        "autonomous_community": "andalucia",
+        "youth_unemployment_rate": null,
+        "province": "granada",
+        "year": 2020,
+        "unemployment_rate": 24.8484,
+        "occupation_variation": 13.79998
     }
 ];
 
@@ -35,13 +47,40 @@ module.exports.register = (app) => {
     app.get(UNEMPLOYMENT_API_PATH + "/unemployment/loadInitialData", (req, res) => {
         if (unemployment.length > 0) unemployment.length = 0;
 
-        unemployment_initial.forEach(x => unemployment.push(x));
+        unemployment_initial.forEach(x => {
+            x["id"] = unemployment.length; 
+            unemployment.push(x)
+        });
         res.sendStatus(201);
     });
 
-    //Get a lista de recursos unemployment
-    app.get(UNEMPLOYMENT_API_PATH + "/unemployment", (req, res) => {
-        res.send(JSON.stringify(unemployment, null, 2));
+    //Get a lista de recursos /unemployment con busquedas incluidas
+    app.get(UNEMPLOYMENT_API_PATH + '/unemployment', (req, res) => {
+        var resultado = [];
+        var autonomous_community_query = req.query.autonomous_community;
+        var province_query = req.query.province;
+
+        if (typeof autonomous_community_query != 'undefined')
+            unemployment.filter(function (x) {
+                if (x.autonomous_community == autonomous_community_query) {
+                    resultado.push(x);
+                }
+            });
+
+        if (typeof province_query != 'undefined')
+            unemployment.filter(function (x) {
+                if (x.province == province_query) {
+                    resultado.push(x);
+                }
+            });
+
+        resultado = _.uniqBy(resultado, 'id');
+
+        if (Object.keys(req.query).length === 0) {
+            resultado = unemployment;
+        }
+
+        res.send(JSON.stringify(resultado, null, 2));
     });
 
     //Get al recurso /:autonomous_community
@@ -80,6 +119,7 @@ module.exports.register = (app) => {
         }
         else {
             console.log(`New unemployment entry to be added: <${JSON.stringify(newObject, null, 2)}>`);
+            newObject["id"] = unemployment.length;
             unemployment.push(newObject);
             res.sendStatus(201);
         }
