@@ -182,7 +182,7 @@ app.post(BASE_API_PATH + '/rentals',(req,res)=>{
         || !newObject.province
         || !newObject.year
         || !newObject.rent
-        || !newObject.rent_varation
+        || !newRent_varation
         || !newObject.meter
         || !newObject.salary
         || Object.keys(newObject).length != 7) {
