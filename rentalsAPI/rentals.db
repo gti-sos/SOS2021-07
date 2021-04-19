@@ -2,3 +2,7 @@
 {"autonomous_community":"castilla-y-leon","province":"salamanca","year":2018,"rent":468,"rent_variation":2.2,"meter":91,"salary":24,"_id":"n4yqJ0nzA9aZc2YD"}
 {"autonomous_community":"andalucia","province":"sevilla","year":2018,"rent":560.5,"rent_variation":4,"meter":94.6,"salary":29,"_id":"qYrTwvhQscliSP7w"}
 {"autonomous_community":"cataluna","province":"barcelona","year":2018,"rent":696,"rent_variation":6,"meter":96.8,"salary":49,"_id":"qeHa3A8U1LLuwJ5m"}
+{"$$deleted":true,"_id":"EMzyDsQBJOx1bExw"}
+{"$$deleted":true,"_id":"n4yqJ0nzA9aZc2YD"}
+{"$$deleted":true,"_id":"qYrTwvhQscliSP7w"}
+{"$$deleted":true,"_id":"qeHa3A8U1LLuwJ5m"}

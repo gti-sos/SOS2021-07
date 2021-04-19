@@ -217,7 +217,7 @@ app.delete(BASE_API_PATH + "/rentals/:province/:year", (req, res) => {
           console.error("No data found");
           res.sendStatus(404);
         } else {
-          console.log(`stat with province: <${province}> and year: <${year_url}> deleted`);
+          
           res.sendStatus(200);
         }
       }
