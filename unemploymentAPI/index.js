@@ -254,7 +254,7 @@ module.exports.register = (app) => {
     app.delete(UNEMPLOYMENT_API_PATH + "/unemployment/:autonomous_community/:province/:year", (req, res) => {
         var params = req.params;
 
-        db.find({ autonomous_community: params.autonomous_community, year: params.year, province: params.province }, (error, data) => {
+        db.find({ autonomous_community: params.autonomous_community, year: parseInt(params.year), province: params.province }, (error, data) => {
             if (error) {
                 console.log("ERROR accesing DB" + error);
                 res.sendStatus(500); //Error de servidor
