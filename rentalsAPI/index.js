@@ -151,11 +151,10 @@ app.get(BASE_API_PATH + "/rentals/:province/:year",(req,res) => {
           console.error("No data found");
           res.sendStatus(404);
         } else {
-
             delete resource[0]._id;
-            res.status(200).send(JSON.stringify(resource[0], null, 2)); 
-            console.log(`GET stat by province: <${province_url}> and year: <${year_url}>`);
+            res.status(200).send(JSON.stringify(resource[0], null, 2));
         }
+            
       }
     });
 });
