@@ -1,63 +1,15 @@
-var BASE_API_PATH = "/api/v1";
+var path = require('path');
+var Datastore = require("nedb");
 
-var rentals = [];
+//required vars and const
 
-var rentals_initial = [
-    {
-        "autonomous_community": "castilla-y-leon",
-        "province": "salamanca",
-        "year":2018,
-        "rent":468,
-        "rent_variation":2.2,
-        "meter":91,
-        "salary":24
-    },
-    {
-        "autonomous_community": "andalucia",
-        "province": "malaga",
-        "year":2018,
-        "rent":615,
-        "rent_variation":7.4,
-        "meter":101.6,
-        "salary":28.8
-    },
-    {
-        "autonomous_community": "andalucia",
-        "province": "sevilla",
-        "year":2018,
-        "rent":560.5,
-        "rent_variation":4,
-        "meter":94.6,
-        "salary":29
-    },
-    {
-        "autonomous_community": "madrid",
-        "province": "madrid",
-        "year":2018,
-        "rent":780,
-        "rent_variation":4.6,
-        "meter":86.5,
-        "salary":51
-    },
-    {
-        "autonomous_community": "cataluna",
-        "province": "barcelona",
-        "year":2018,
-        "rent":696,
-        "rent_variation":6,
-        "meter":96.8,
-        "salary":49
-    },
-    {
-        "autonomous_community": "comunidad_de_madrid",
-        "province": "madrid",
-        "year":2020,
-        "rent":848,
-        "rent_variation":3.7,
-        "meter":71,
-        "salary":55.7
-    }
-];
+const BASE_API_PATH = "/api/v1";
+const datafile = path.join(__dirname, 'rentals.db');
+const db = new Datastore({ filename: datafile, autoload: true });
+
+var rentalsData = [];
+
+
 
 
 module.exports.register = (app) => {
@@ -65,49 +17,113 @@ module.exports.register = (app) => {
     app.get(BASE_API_PATH + "/rentals/loadInitialData", (req, res) => {    
 
         
-        if(rentals.length > 0) rentals.length = 0;
-
-    rentals_initial.forEach(x => rentals.push(x));
-    res.sendStatus(201);
+        var rentals_initial = [
+            {
+                "autonomous_community": "castilla-y-leon",
+                "province": "salamanca",
+                "year":2018,
+                "rent":468,
+                "rent_variation":2.2,
+                "meter":91,
+                "salary":24
+            },
+           
+            {
+                "autonomous_community": "andalucia",
+                "province": "sevilla",
+                "year":2018,
+                "rent":560.5,
+                "rent_variation":4,
+                "meter":94.6,
+                "salary":29
+            },
+            
+            {
+                "autonomous_community": "cataluna",
+                "province": "barcelona",
+                "year":2018,
+                "rent":696,
+                "rent_variation":6,
+                "meter":96.8,
+                "salary":49
+            },
+            {
+                "autonomous_community": "comunidad_de_madrid",
+                "province": "madrid",
+                "year":2020,
+                "rent":848,
+                "rent_variation":3.7,
+                "meter":71,
+                "salary":55.7
+            }
+        ];
+    
+        db.find({ $or: [{ autonomous_community: "castilla-y-leon" }, { autonomous_community: "comunidad_de_madrid" }, { autonomous_community: "cataluna" },{ autonomous_community: "andalucia" }] }, { _id: 0 }, function (err, data) {
+            if (err) {
+              console.error("ERROR accesing DB");
+              res.sendStatus(500);
+            } else {
+              if (data.length == 0) {
+                db.insert(rentals_initial);
+                console.log(`DB Load: <${JSON.stringify(rentals_initial, null, 2)}>`);
+                res.sendStatus(201);
+              } else {
+                console.error(`Initial data exists`);
+                res.sendStatus(409);
+              }
+            }
+          });
 });
 
 //GET a lista de recursos rentals
 app.get(BASE_API_PATH + "/rentals", (req, res) => {
-    res.send(JSON.stringify(rentals,null,2));
-});
+   
+	
+    console.log("New GET .../rentals");
+    var query = req.query;
 
-//GET al recurso /:province
-app.get(BASE_API_PATH + "/rentals/:province",(req,res) => {
-    var province_url = req.params.province;
+    // Casting 
+    for (i in query) {
 
-    for (var i of rentals){
-        if (i.province == province_url) {
-            var resultado = rentals.filter(x => x.province == province_url);
-            res.send(JSON.stringify(resultado,null,2));
-            return res.status(200)
-        }
+      if (i == 'year') {
+        query[i] = parseInt(query[i]);
+      } else if (i == 'rent') {
+        query[i] = parseInt(query[i]);
+      } else if (i == 'rent_variation') {
+        query[i] = parseFloat(query[i]);
+      } else if (i == 'meter') {
+        query[i] = parseInt(query[i]);
+      } else if (i == 'salary') {
+        query[i] = parseFloat(query[i]);
+      }
     }
-    res.sendStatus(404);
+    console.log(`Query:  ${query}`);
+    // Getting the offset and limit from the url
+    var limit = query.limit;
+    var offset = query.offset;
+    // Removing extra query field of pagination
+    delete query.offset;
+    delete query.limit;
+
+    // With skip we make the offset and with the limit we limit
+    db.find(query).skip(offset).limit(limit).exec((error, rentals) => {
+      if (error) {
+        console.error("ERROR accesing DB: "+ error);
+        res.sendStatus(500);
+      }
+      rentals.forEach((r) => {
+        delete r._id;
+      });
+
+      res.status(200).send(JSON.stringify(rentals, null, 2));
+      console.log("Datas : " + JSON.stringify(rentals, null, 2));
+    });
+
+    console.log("OK.");
 });
-
-//GET al recurso /:year
-app.get(BASE_API_PATH + "/rentals/:year",(req,res) => {
-    var year_url = req.params.year;
-
-    for (var i of rentals){
-        if (i.year == year_url) {
-            var resultado = rentals.filter(x => x.year == year_url);
-            res.send(JSON.stringify(resultado,null,2));
-            return res.status(200)
-        }
-    }
-    res.sendStatus(404);
-});
-
-
 
 //GET al recurso /:autonomous_community
-app.get(BASE_API_PATH + "/rentals/:autonomous_community",(req,res) => {
+/*app.get(BASE_API_PATH + "/rentals/:autonomous_community",(req,res) => {
     var autonomous_community_url = req.params.autonomous_community;
 
     for (var i of rentals){
@@ -118,55 +134,100 @@ app.get(BASE_API_PATH + "/rentals/:autonomous_community",(req,res) => {
         }
     }
     res.sendStatus(404);
-});
+}); */
 
 //GET al recurso /:autonomous_community/:year
-app.get(BASE_API_PATH + "/rentals/:autonomous_community/:year",(req,res) => {
-    var autonomous_community_url = req.params.autonomous_community;
-    var year_url = parseInt( req.params.year);
+app.get(BASE_API_PATH + "/rentals/:province/:year",(req,res) => {
+    var province_url = req.params.province;
+    var year_url = parseInt(req.params.year);
 
-    for (var i of rentals){
-        if (i.autonomous_community == autonomous_community_url && i.year == year_url) {
-            return res.status(200).json(i);
+    db.find({ $and: [{ province: province_url }, { year: year_url }] }, { _id: 0 }, function (err, resource) {
+      if (err) {
+        console.error("ERROR accesing DB: "+ err);
+        res.sendStatus(500);
+      } else {
+        if (resource.length == 0) {
+          console.error("No data found");
+          res.sendStatus(404);
+        } else {
+          console.log(`GET stat by province: <${province_url}> and year: <${year_url}>`);
+          res.status(200).send(JSON.stringify(resource, null, 2));
         }
-    }
-    res.sendStatus(404);
+      }
+    });
 });
 
 //POST a lista de recursos rentals
 app.post(BASE_API_PATH + '/rentals',(req,res)=>{
-	var newObject = req.body;
+    var newObject = req.body;
+    var newAutonomous_community = req.body.autonomous_community;
+    var newProvince = req.body.province;
+    var newYear = parseInt(req.body.year);
+    var newRent = parseInt(req.body.rent);
+    var newRent_varation = parseFloat(req.body.rent_varation);
+    var newMeter = parseInt(req.body.meter);
+    var newSalary = parseFloat(req.body.salary);
 
-    if (newObject['autonomous_community'] === null
-        || newObject['province'] === null
-        || newObject['year'] === null
-        || newObject['rent'] === null
-        || newObject['rent_varation'] === null
-        || newObject['meter'] === null
-        || newObject['salary'] === null
+
+    db.find({ $and: [{ autonomous_community: newAutonomous_community }, { province: newProvince }, 
+        { year: newYear }] }, { _id: 0 }, function (err, resource) {
+
+    if (err) {
+        console.error("ERROR accesing DB: "+ err);
+        res.sendStatus(500);
+    } else{
+        if(resource == 0){
+    if (!newObject.autonomous_community
+        || !newObject.province
+        || !newObject.year
+        || !newObject.rent
+        || !newObject.rent_varation
+        || !newObject.meter
+        || !newObject.salary
         || Object.keys(newObject).length != 7) {
+            console.log("Data is missing or incorrect");
         res.sendStatus(400);
+    } else {
+        console.log(`New rentals entry to be added: <${JSON.stringify(newObject,null,2)}>`);
+        db.insert(newObject);
+        res.sendStatus(201);
     }
-    else{
-        console.log(`New unemployment entry to be added: <${JSON.stringify(newObject,null,2)}>`);
-	    rentals.push(newObject);
-	    res.sendStatus(201);
-    }
+} else {
+  //El recurso a crear ya existe
+  console.log("Conflict detected");
+  res.sendStatus(409);
+}
+}
+});
 });
 
-app.delete(BASE_API_PATH + "/rentals/:autonomous_community/:year", (req, res) => { 
-    var autonomous_community_url = req.params.autonomous_community;
-    var year_url = parseInt(req.params.year);
+app.delete(BASE_API_PATH + "/rentals/:province/:year", (req, res) => {
 
-	for (var i = 0; i <  rentals.length; i++){
-		if(rentals[i].autonomous_community == autonomous_community_url && rentals[i].year == year_url){
-			rentals.splice(i,1);
-			
-			return res.sendStatus(200);
-		}
-	}
-	res.sendStatus(404);
-});
+    
+    var autonomous_community_url = req.body.autonomous_community;
+    var province_url = req.body.province;
+    var year_url = parseInt(req.body.year);
+    var rent_url = parseInt(req.body.rent);
+    var rent_varation_url = parseFloat(req.body.rent_varation);
+    var meter_url = parseInt(req.body.meter);
+    var salary_url = parseFloat(req.body.salary);
+
+    db.remove({ $and: [{ province: province_url }, { year: year_url }] }, { multi: true }, function (err, resource) {
+      if (err) {
+        console.error("ERROR accesing DB: "+ err);
+        res.sendStatus(500);
+      } else {
+        if (resource == 0) {
+          console.error("No data found");
+          res.sendStatus(404);
+        } else {
+          console.log(`stat with province: <${province_url}> and year: <${year_url}> deleted`);
+          res.sendStatus(200);
+        }
+      }
+    });
+  });
+
 
 app.put(BASE_API_PATH + "/rentals/:autonomous_community/:year", (req,res) => {
     var autonomous_community_url = req.params.autonomous_community;
