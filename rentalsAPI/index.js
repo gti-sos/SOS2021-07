@@ -116,7 +116,7 @@ app.get(BASE_API_PATH + "/rentals", (req, res) => {
       });
 
       res.status(200).send(JSON.stringify(rentals, null, 2));
-      console.log("Datas : " + JSON.stringify(rentals, null, 2));
+      console.log("Dates : " + JSON.stringify(rentals, null, 2));
     });
 
     console.log("OK.");
