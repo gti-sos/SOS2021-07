@@ -205,30 +205,24 @@ app.post(BASE_API_PATH + '/rentals',(req,res)=>{
 
 app.delete(BASE_API_PATH + "/rentals/:province/:year", (req, res) => {
 
-    var deleteThis = req.params;
-    var autonomous_community_url = req.body.autonomous_community;
-    var province_url = req.body.province;
-    var year_url = parseInt(req.body.year);
-    var rent_url = parseInt(req.body.rent);
-    var rent_varation_url = parseFloat(req.body.rent_variation);
-    var meter_url = parseInt(req.body.meter);
-    var salary_url = parseFloat(req.body.salary);
+    var province_url = req.params.province;
+    var year_url = parseInt(req.params.year);
 
-    db.remove({ $and: [{ province: deleteThis.province }, { year: parseInt(deleteThis.year) }] }, { _id: 0 }, function (err, resource) {
+    db.remove({ $and: [{ province: province_url }, { year: year_url }] }, { multi: true }, function (err, data) {
       if (err) {
         console.error("ERROR accesing DB: "+ err);
         res.sendStatus(500);
       } else {
-            if (resource.length == 0) {
-                console.error("No data found "+ resource.length);
-                res.sendStatus(404);
-            } else {
-          
-                res.sendStatus(200);
-            }
+        if (data == 0) {
+          console.error("No data found");
+          res.sendStatus(404);
+        } else {
+          console.log(`stat with province: <${province}> and year: <${year_url}> deleted`);
+          res.sendStatus(200);
         }
+      }
     });
-});
+  });
 
 
 app.put(BASE_API_PATH + "/rentals/:province/:year", (req,res) => {
