@@ -1,5 +1,5 @@
 var path = require('path');
-var Datastore = require("nedb");
+var Datastore = require('nedb');
 
 //required vars and const
 
