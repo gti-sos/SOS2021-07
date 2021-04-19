@@ -1,12 +1,88 @@
 {
 	"info": {
-		"_postman_id": "e17598db-188b-4fae-804a-d43af4f6f0e9",
+		"_postman_id": "e07bcebc-5a65-43fe-ab58-52eeb483e66c",
 		"name": "SOS2021-07-rentals",
+		"description": "Postman collection to check all",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "get- /rentals",
+			"name": "Initial get- /rentals",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					]
+				},
+				"description": "get initial that should be all empty"
+			},
+			"response": []
+		},
+		{
+			"name": "get loadInitial",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals/loadInitialData",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals",
+						"loadInitialData"
+					]
+				},
+				"description": "data upload"
+			},
+			"response": []
+		},
+		{
+			"name": "get- /rentals despues carga",
 			"event": [
 				{
 					"listen": "test",
@@ -15,10 +91,9 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"\r",
-							"pm.test(\"Debe estar vacio\", function () {\r",
+							"pm.test(\"\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.length).to.eql(0);\r",
+							"    pm.expect(jsonData.length).to.eql(4);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -41,19 +116,20 @@
 						"v1",
 						"rentals"
 					]
-				}
+				},
+				"description": "verification that the data has been loaded, there must be 6"
 			},
 			"response": []
 		},
 		{
-			"name": "get loadInitial",
+			"name": "Get LoadnInitial, Initial data exists",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(201);\r",
+							"pm.test(\"Status code is 409\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -82,18 +158,14 @@
 			"response": []
 		},
 		{
-			"name": "get- /rentals despues carga",
+			"name": "GET ha recurso que no existe",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"pm.test(\"\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.length).to.eql(6);\r",
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -103,6 +175,143 @@
 			"request": {
 				"method": "GET",
 				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals/huelva/2019",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals",
+						"huelva",
+						"2019"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET a un recurso existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals/madrid/2020",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals",
+						"madrid",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "busqueda y paginacion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"There are 3 data\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(2);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals?offset=1&limit=2&year=2018",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "year",
+							"value": "2018"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post rentals",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"autonomous_community\": \"andalucia\",\r\n\"province\": \"huelva\",\r\n\"year\": 2020,\r\n\"rent\": 300,\r\n\"rent_variation\": 3.7,\r\n\"meter\": 100,\r\n\"salary\": 43\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals",
 					"protocol": "https",
@@ -116,19 +325,20 @@
 						"v1",
 						"rentals"
 					]
-				}
+				},
+				"description": "check that it is possible to create a new resource"
 			},
 			"response": []
 		},
 		{
-			"name": "post rentals",
+			"name": "Post de un recurso ya existente",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(201);\r",
+							"pm.test(\"Status code is 409\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -140,7 +350,398 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"autonomous_community\": \"castilla-y-leon\",\r\n\"province\": \"salamanca\",\r\n\"year\": 2020,\r\n\"rent\": 568,\r\n\"rent_variation\": 3.2,\r\n\"meter\": 90,\r\n\"salary\": 60\r\n}",
+					"raw": "{\r\n\"autonomous_community\": \"andalucia\",\r\n\"province\": \"huelva\",\r\n\"year\": 2020,\r\n\"rent\": 300,\r\n\"rent_variation\": 3.7,\r\n\"meter\": 100,\r\n\"salary\": 43\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					]
+				},
+				"description": "check that it is possible to create a new resource"
+			},
+			"response": []
+		},
+		{
+			"name": "post rentals datos incorrectos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"autonomous_community\": \"andalucia\",\r\n\"province\": \"jaen\",\r\n\"year\": 2020,\r\n\"rent\": 300.20,\r\n\"me_lo_invento\": \"pepe\",\r\n\"meter\": 100,\r\n\"salary\": 43\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals"
+					]
+				},
+				"description": "check that it is possible to create a new resource"
+			},
+			"response": []
+		},
+		{
+			"name": "delete recurso inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals/murcia/2010",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals",
+						"murcia",
+						"2010"
+					]
+				},
+				"description": "remove resource"
+			},
+			"response": []
+		},
+		{
+			"name": "delete recurso existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals/madrid/2020",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals",
+						"madrid",
+						"2020"
+					]
+				},
+				"description": "remove resource"
+			},
+			"response": []
+		},
+		{
+			"name": "comprobar que fue eliminado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals/madrid/2020",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals",
+						"madrid",
+						"2020"
+					]
+				},
+				"description": "check that was delete"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT correcto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"autonomous_community\": \"andalucia\",\r\n\"province\": \"huelva\",\r\n\"year\": 2020,\r\n\"rent\": 600000,\r\n\"rent_variation\": 3.7,\r\n\"meter\": 100,\r\n\"salary\": 43\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals/huelva/2020",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals",
+						"huelva",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Comprobar put",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"autonomous_community\": \"andalucia\",\r\n\"province\": \"huelva\",\r\n\"year\": 2020,\r\n\"rent\": 600000,\r\n\"rent_variation\": 3.7,\r\n\"meter\": 100,\r\n\"salary\": 43\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals/huelva/2020",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals",
+						"huelva",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put erroneo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"autonomous_community\": \"andalucia\",\r\n\"province\": \"huelva\",\r\n\"year\": 2020,\r\n\"rent\": 0,\r\n\r\n\"meter\": 100,\r\n\"salary\": 43\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals/huelva/2020",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals",
+						"huelva",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put recurso que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"autonomous_community\": \"andalucia\",\r\n\"province\": \"sevilla\",\r\n\"year\": 2020,\r\n\"rent\": 1,\r\n\"rent_variation\": 3.7,\r\n\"meter\": 100,\r\n\"salary\": 43\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals/sevilla/2020",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rentals",
+						"sevilla",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put a rentals",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"autonomous_community\": \"andalucia\",\r\n\"province\": \"huelva\",\r\n\"year\": 2020,\r\n\"rent\": 1,\r\n\"rent_variation\": 3.7,\r\n\"meter\": 100,\r\n\"salary\": 43\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -165,14 +766,14 @@
 			"response": []
 		},
 		{
-			"name": "delete nuevo",
+			"name": "Post a recurso",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
+							"pm.test(\"Status code is 405\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -180,10 +781,19 @@
 				}
 			],
 			"request": {
-				"method": "DELETE",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"autonomous_community\": \"andalucia\",\r\n\"province\": \"huelva\",\r\n\"year\": 2010,\r\n\"rent\": 1,\r\n\"rent_variation\": 3.7,\r\n\"meter\": 100,\r\n\"salary\": 43\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals/castilla-y-leon/2020",
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals/madrid/2020",
 					"protocol": "https",
 					"host": [
 						"sos2021-07",
@@ -194,44 +804,7 @@
 						"api",
 						"v1",
 						"rentals",
-						"castilla-y-leon",
-						"2020"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "comprobar que fue eliminado",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(404);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://sos2021-07.herokuapp.com/api/v1/rentals/castilla-y-leon/2020",
-					"protocol": "https",
-					"host": [
-						"sos2021-07",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"api",
-						"v1",
-						"rentals",
-						"castilla-y-leon",
+						"madrid",
 						"2020"
 					]
 				}
@@ -269,7 +842,8 @@
 						"v1",
 						"rentals"
 					]
-				}
+				},
+				"description": "delete all"
 			},
 			"response": []
 		},
@@ -280,14 +854,11 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Debe estar vacio\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.length).to.eql(0);\r",
-							"});"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -309,7 +880,8 @@
 						"v1",
 						"rentals"
 					]
-				}
+				},
+				"description": "checking it is empty as at the beginning"
 			},
 			"response": []
 		}
