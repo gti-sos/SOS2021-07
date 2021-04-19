@@ -220,7 +220,7 @@ app.delete(BASE_API_PATH + "/rentals/:province/:year", (req, res) => {
         res.sendStatus(500);
       } else {
             if (resource.length == 0) {
-                console.error("No data found");
+                console.error("No data found "+ resource.length);
                 res.sendStatus(404);
             } else {
           
