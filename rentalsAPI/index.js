@@ -270,11 +270,9 @@ app.put(BASE_API_PATH + "/rentals/:province/:year", (req,res) => {
     }
 });
     
-app.post(BASE_API_PATH + "rentals/:autonomous_community", (req, res) => {
-   res.sendStatus(405);
-});
 
-app.post(BASE_API_PATH + "/rentals/:autonomous_community/:year", (req, res) => {
+
+app.post(BASE_API_PATH + "/rentals/:province/:year", (req, res) => {
     res.sendStatus(405);
  });
 
