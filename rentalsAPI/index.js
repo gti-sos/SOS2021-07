@@ -112,7 +112,7 @@ app.get(BASE_API_PATH + "/rentals", (req, res) => {
         res.sendStatus(500);
         } else{
             if(data.length == 0){
-                console.error("There is no data");
+                console.error("There is no data " + data.length);
                 res.sendStatus(404);
             }else{
                 data.forEach(x => { delete x._id; });
