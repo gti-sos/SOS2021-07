@@ -1,7 +1,19 @@
+var path = require('path');
+var Datastore = require('nedb');
+const datafile = path.join(__dirname, 'buy_sell.db');
+const db = new Datastore({ filename: datafile, autoload: true });
+
 var BUY_SELL_API_PATH = "/api/v1";
 var buy_sell = [];
 
-var buy_sell_initial = [
+
+module.exports.register = (app) => {
+	
+	///////////////////////////////////////////////////////////////////////////////////
+	//Carga del conjunto de datos inicial
+    app.get(BUY_SELL_API_PATH + "/buy_sell/loadInitialData", (req, res) => {
+
+        var buy_sell_initial = [
     {
         "autonomous_community":"andalucia",
         "province":"sevilla",
@@ -36,111 +48,206 @@ var buy_sell_initial = [
     }
 ];
 
-module.exports.register = (app) => {
-	
-	app.get(BUY_SELL_API_PATH + "/buy_sell", (req,res) => {    
-    res.send(JSON.stringify(buy_sell,null,2));
-});
-	
-	//5.2 El recurso debe contener una ruta /api/v1/YYYYYY/loadInitialData que al hacer un GET cree 2 o más recursos.
-app.get(BUY_SELL_API_PATH + "/buy_sell/loadInitialData", (req,res) => {    
-    if(buy_sell.length > 0) buy_sell.length = 0;
+        if (db.getAllData().length > 0) res.sendStatus(409);
 
-    buy_sell_initial.forEach(x => buy_sell.push(x));
-    res.sendStatus(201);
-});
-
-//POST a la lista de recursos (p.e. “/api/v1/stats”) crea un nuevo recurso.
-app.post(BUY_SELL_API_PATH + "/buy_sell",(req,res)=>{
-	var newObject = req.body;
-
-    if(
-        newObject.autonomous_community== null||
-        newObject.province== null||
-        newObject.year== null||
-        newObject.surface== null||
-        newObject.annual_variation_percentage== null||
-        newObject.eviction== null||
-        newObject=="")
-    {
-        res.sendStatus(400);
-    }
-    else {
-        console.log(`Nuevo elemento creado: <${JSON.stringify(newObject,null,2)}>`);
-	    buy_sell.push(newObject);
-	    res.sendStatus(201);
-    }
-});
-
-//GET a un recurso (p.e. “/api/v1/stats/sevilla/2013”) devuelve ese recurso (un objeto en JSON) .
-app.get(BUY_SELL_API_PATH + "/buy_sell/:autonomous_community",(req,res) => {
-    var autonomous_community_url = req.params.autonomous_community;
-
-    for (var i of buy_sell){
-        if (i.autonomous_community == autonomous_community_url) {
-            var resultado = buy_sell.filter(x => x.autonomous_community == autonomous_community_url);
-            res.send(JSON.stringify(resultado,null,2));
-            return res.status(200)
+        else {
+            db.insert(buy_sell_initial);
+            res.sendStatus(201);
         }
-    }
-    res.sendStatus(404);
-});
-
-app.get(BUY_SELL_API_PATH + "/buy_sell/:autonomous_community/:year",(req,res) => {
-    var autonomous_community_url = req.params.autonomous_community;
-    var year_url = parseInt( req.params.year);
-
-    for (var i of buy_sell){
-        if (i.autonomous_community == autonomous_community_url && i.year == year_url) {
-            return res.status(200).json(i);
-            
-        }
-    }
-    res.sendStatus(404);
-});
-
-// DELETE a un recurso (p.e. “/api/v1/stats/sevilla/2013”) borra ese recurso (un objeto en JSON).
-app.delete(BUY_SELL_API_PATH + "/buy_sell/:autonomous_community/:year", (req, res) =>{ 
-    var autonomous_community_url = req.params.autonomous_community;
-    var year_url = parseInt(req.params.year);
-
-    for (var i = 0; i <  buy_sell.length; i++){
-		if(buy_sell[i].autonomous_community == autonomous_community_url && buy_sell[i].year == year_url){
-			buy_sell.splice(i,1);
-			return res.sendStatus(200);
-		}
-	}
-	res.sendStatus(404);
-});
-
-// PUT a un recurso (p.e. “/api/v1/stats/sevilla/2013”) actualiza ese recurso. 
-app.put(BUY_SELL_API_PATH + "/buy_sell/:autonomous_community/:year", (req,res)=>{
-    var autonomous_community_url = req.params.autonomous_community;
-    var year_url = parseInt(req.params.year);
+    });
 	
-    for(var i in buy_sell){
-		if(buy_sell[i].autonomous_community == String(autonomous_community_url) && buy_sell[i].year == String(year_url)){
-			var newData = req.body;
-			buy_sell[i] = newData;
-            return res.sendStatus(200);
+	 //Get a lista de recursos /buy_sell con busquedas incluidas
+    app.get(BUY_SELL_API_PATH + '/buy_sell', (req, res) => {
+        var query = req.query;
+
+        if (query.hasOwnProperty("autonomous_community")) {
+            query.autonomous_community = query.autonomous_community;
         }
-    }
-	res.sendStatus(404);
-});
+		if (query.hasOwnProperty("province")) {
+            query.province = query.province;
+        }
+        if (query.hasOwnProperty("year")) {
+            query.year = parseInt(query.year);
+        }
+        if (query.hasOwnProperty("surface")) {
+            query.surface = parseFloat(query.surface);
+        }
+        if (query.hasOwnProperty("annual_variation_percentage")) {
+            query.annual_variation_percentage = parseFloat(query.annual_variation_percentage);
+        }
+        if (query.hasOwnProperty("eviction")) {
+            query.eviction = parseFloat(query.eviction);
+        }
+		//lo del offset y el limit
+        if (query.offset) {
+            var offset = parseInt(query.offset);
+            delete query.offset;
+        }
+        if (query.limit) {
+            var limit = parseInt(query.limit);
+            delete query.limit;
+        }
 
-//POST a un recurso (p.e. “/api/v1/stats/sevilla/2013”) debe dar un error de método no permitido.
-app.post(BUY_SELL_API_PATH + "buy_sell/:autonomous_community", (req, res) => {
-   res.sendStatus(405);
-});
+        db.find(query).skip(offset).limit(limit).exec((error, data) => {
+            if (error) {
+                console.error("ERROR accesing DB in GET" + error);
+                res.sendStatus(500);
+            }
+            else {
+                if (data.length == 0) {
+                    console.error("No data found");
+                    res.send(JSON.stringify(data, null, 2));
+                }
+                else {
+                    data.forEach(x => { delete x._id; });
+                    res.status(200).send(JSON.stringify(data, null, 2));
+                    console.log("GET resource:" + JSON.stringify(data, null, 2));
+                }
+            }
+        });
+    });
+	
+	//Get al recurso /:autonomous_community
+    app.get(BUY_SELL_API_PATH + "/buy_sell/:autonomous_community", (req, res) => {
+        var autonomous_community_url = req.params.autonomous_community;
 
-app.post(BUY_SELL_API_PATH + "/buy_sell/:autonomous_community/:year", (req, res) => {
-    res.sendStatus(405);
-});
+        var resultado = buy_sell.filter(x => x.autonomous_community == autonomous_community_url);
+        res.send(JSON.stringify(resultado, null, 2));
+    });
 
-//PUT a la lista de recursos (p.e. “/api/v1/stats”) debe dar un error de método no permitido.
-app.put(BUY_SELL_API_PATH + "/buy_sell", (req, res) => {
-    res.sendStatus(405);
-});
+    app.get(BUY_SELL_API_PATH + "/buy_sell/:autonomous_community", (req, res) => {
+        var params = req.params;
+
+        db.find({ autonomous_community: params.autonomous_community }, (error, data) => {
+            if (error) {
+                console.error("ERROR accesing DB in GET");
+                res.sendStatus(500);
+            } else {
+                if (data.length == 0) {
+                    console.error("No data found");
+                    res.sendStatus(404);
+                } else {
+                    delete data[0]._id;
+                    res.send(JSON.stringify(data, null, 2));
+                }
+            }
+        });
+    });
+	
+	 //Get al recurso /:autonomous_community/:province/:year
+    app.get(BUY_SELL_API_PATH + "/buy_sell/:autonomous_community/:province/:year", (req, res) => {
+        var params = req.params;
+
+        db.find({ autonomous_community: params.autonomous_community, province: params.province, year: parseInt(params.year) }, (error, data) => {
+            if (error) {
+                console.error("ERROR accesing DB in GET");
+                res.sendStatus(500);
+            } else {
+                if (data.length == 0) {
+                    console.error("No data found");
+                    res.sendStatus(404);
+                } else {
+                    delete data[0]._id;
+                    res.send(JSON.stringify(data, null, 2));
+                }
+            }
+        });
+    });
+	
+	//Post a la lista de recursos 
+    app.post(BUY_SELL_API_PATH + "/buy_sell", (req, res) => {
+        var newData = req.body;
+
+        db.find({ autonomous_community: newData.autonomous_community, year: newData.year, province: newData.province }, (error, data) => {
+            if (error) {
+                console.error("ERROR accesing DB in POST: " + error);
+                res.sendStatus(500);
+            } else {
+                if (data.length == 0) {
+                    if (!newData.autonomous_community
+                        || !newData.province
+                        || !newData.year
+                        || !newData['surface']
+						|| !newData['annual_variation_percentage']
+                        || !newData['eviction']) {
+                        res.sendStatus(400);
+                    } else {
+                        console.log(`New resource added to the database <${JSON.stringify(newData, null, 2)}>`);
+                        db.insert(newData);
+                        res.sendStatus(201);
+                    }
+                } else {
+                    res.sendStatus(409);
+                }
+            }
+        });
+    });
+	
+	//Post al recurso /:autonomous_community => Method Not Allowed
+    app.post(BUY_SELL_API_PATH + "/buy_sell/:autonomous_community", (req, res) => {
+        res.sendStatus(405);
+
+    });
+	
+	//Post al recurso /:autonomous_community/:province/:year => Method Not Allowed
+    app.post(BUY_SELL_API_PATH + "/buy_sell/:autonomous_community/:province/:year", (req, res) => {
+        res.sendStatus(405);
+    });
+	
+	//Put a lista de recursos  => Method Not Allowed
+    app.put(BUY_SELL_API_PATH + "/buy_sell", (req, res) => {
+        res.sendStatus(405);
+    });
+	
+	  //Put al recurso /:autonomous_community/:province/:year
+
+    app.put(BUY_SELL_API_PATH + "/buy_sell/:autonomous_community/:province/:year", (req, res) => {
+        var params = req.params;
+        var newData = req.body;
+
+        if (!newData.autonomous_community
+            || !newData.year
+            || !newData.province
+            || !newData['surface']
+			|| !newData['annual_variation_percentage']
+            || !newData['eviction']) {
+            console.log("Data is missing or incorrect.");
+            return res.sendStatus(400);
+        } else {
+            db.update({ "autonomous_community": params.autonomous_community, "province": params.province, "year": parseInt(params.year) }, newData, (error, data) => {
+                if (error) {
+                    console.error("ERROR accesing DB in GET" + error);
+                    res.sendStatus(500);
+                } else {
+                    if (data.length == 0) {
+                        console.error("No data found");
+                        res.sendStatus(404);
+                    } else {
+                        console.log("Successful PUT");
+                        res.sendStatus(200);
+                    }
+                }
+            });
+        }
+    });
+	
+	//Delete a lista de recursos
+    app.delete(BUY_SELL_API_PATH + "/buy_sell", (req, res) => {
+        db.remove({}, { multi: true }, function (error, numRemoved) {
+            if (error) {
+                console.error("ERROR deleting DB: " + error);
+                res.sendStatus(500);
+            } else {
+                if (numRemoved == 0) {
+                    console.error("ERROR: DB was empty");
+                    res.sendStatus(404);
+                } else {
+                    res.sendStatus(200);
+                }
+            }
+        });
+    });
+	////////////////////////////////////////////////////////////////////////////////////
 
 //DELETE a la lista de recursos (p.e. “/api/v1/stats”) borra todos los recursos.
 app.delete(BUY_SELL_API_PATH + "/buy_sell", (req, res) => {
