@@ -11,7 +11,7 @@ module.exports.register = (app) => {
 	
 	///////////////////////////////////////////////////////////////////////////////////
 	//Carga del conjunto de datos inicial
-    app.get(UNEMPLOYMENT_API_PATH + "/buy_sell/loadInitialData", (req, res) => {
+    app.get(BUY_SELL_API_PATH + "/buy_sell/loadInitialData", (req, res) => {
 
         var buy_sell_initial = [
     {
