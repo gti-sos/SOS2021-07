@@ -132,7 +132,7 @@ module.exports.register = (app) => {
                     res.sendStatus(404);
                 } else {
                     delete data[0]._id;
-                    res.send(JSON.stringify(data, null, 2));
+                    res.send(JSON.stringify(data[0], null, 2));
                 }
             }
         });
@@ -152,7 +152,7 @@ module.exports.register = (app) => {
                     res.sendStatus(404);
                 } else {
                     delete data[0]._id;
-                    res.send(JSON.stringify(data, null, 2));
+                    res.send(JSON.stringify(data[0], null, 2));
                 }
             }
         });
