@@ -82,7 +82,7 @@ app.get(BASE_API_PATH + "/rentals", (req, res) => {
     console.log("New GET .../rentals");
     var query = req.query;
 
-    // Casting 
+     
     for (i in query) {
 
       if (i == 'year') {
@@ -98,14 +98,12 @@ app.get(BASE_API_PATH + "/rentals", (req, res) => {
       }
     }
     console.log(`Query:  ${query}`);
-    // Getting the offset and limit from the url
+    
     var limit = query.limit;
     var offset = query.offset;
-    // Removing extra query field of pagination
     delete query.offset;
     delete query.limit;
 
-    // With skip we make the offset and with the limit we limit
     db.find(query).skip(offset).limit(limit).exec((error, data) => {
       if (error) {
         console.error("ERROR accesing DB: "+ error);
@@ -195,7 +193,6 @@ app.post(BASE_API_PATH + '/rentals',(req,res)=>{
         res.sendStatus(201);
     }
 } else {
-  //El recurso a crear ya existe
   console.log("Conflict detected");
   res.sendStatus(409);
 }
@@ -253,7 +250,7 @@ app.put(BASE_API_PATH + "/rentals/:province/:year", (req,res) => {
                 console.error("ERROR accesing DB: "+ err);
                 res.sendStatus(500);
             } else{
-                if(resource==0){ //no se encuentra el dato en la BD
+                if(resource==0){ 
                     console.error("No data found");
                     res.sendStatus(404);
                 }else {
