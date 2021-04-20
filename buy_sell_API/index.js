@@ -108,12 +108,6 @@ module.exports.register = (app) => {
     });
 	
 	//Get al recurso /:autonomous_community
-    app.get(BUY_SELL_API_PATH + "/buy_sell/:autonomous_community", (req, res) => {
-        var autonomous_community_url = req.params.autonomous_community;
-
-        var resultado = buy_sell.filter(x => x.autonomous_community == autonomous_community_url);
-        res.send(JSON.stringify(resultado, null, 2));
-    });
 
     app.get(BUY_SELL_API_PATH + "/buy_sell/:autonomous_community", (req, res) => {
         var params = req.params;
