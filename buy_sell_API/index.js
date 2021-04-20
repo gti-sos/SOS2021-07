@@ -241,13 +241,33 @@ module.exports.register = (app) => {
             }
         });
     });
+	
+	//Delete al recurso /:autonomous_community/:province/:year
+    app.delete(BUY_SELL_API_PATH + "/buy_sell/:autonomous_community/:province/:year", (req, res) => {
+        var params = req.params;
+
+        db.find({ autonomous_community: params.autonomous_community,  province: params.province, year: parseInt(params.year) }, (error, data) => {
+            if (error) {
+                console.log("ERROR accesing DB" + error);
+                res.sendStatus(500); //Error de servidor
+            }
+            else {
+                if (data.length == 0)
+                    res.sendStatus(404);
+                else {
+                    db.remove({ $and: [{ autonomous_community: params.autonomous_community, province: params.province, year: parseInt(params.year) }] }, { _id: 0 }, function (error, resource) {
+                        if (error) {
+                            console.error("ERROR accesing DB: " + error);
+                            res.sendStatus(500);
+                        } else {
+                            res.sendStatus(200);
+                        }
+                    });
+                }
+            }
+        });
+    });
+	
 	////////////////////////////////////////////////////////////////////////////////////
 
-//DELETE a la lista de recursos (p.e. “/api/v1/stats”) borra todos los recursos.
-app.delete(BUY_SELL_API_PATH + "/buy_sell", (req, res) => {
-    buy_sell.length = 0;
-	console.log("PRUEBA");
-    res.sendStatus(200);
-});
-	
 }
