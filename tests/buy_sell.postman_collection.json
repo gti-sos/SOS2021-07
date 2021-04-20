@@ -7,6 +7,41 @@
 	},
 	"item": [
 		{
+			"name": "GET /api/v1/buy_sell",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"buy_sell"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "GET /api/v1/buy_sell/loadInitialData",
 			"event": [
 				{
@@ -43,14 +78,14 @@
 			"response": []
 		},
 		{
-			"name": "GET /api/v1/buy_sell",
+			"name": "GET loadInitialData ya creado CONFICTO",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -61,7 +96,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell",
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell/loadInitialData",
 					"protocol": "https",
 					"host": [
 						"sos2021-07",
@@ -71,7 +106,8 @@
 					"path": [
 						"api",
 						"v1",
-						"buy_sell"
+						"buy_sell",
+						"loadInitialData"
 					]
 				}
 			},
@@ -96,7 +132,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell/navarra/2020",
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell/navarra/navarra/2020",
 					"protocol": "https",
 					"host": [
 						"sos2021-07",
@@ -108,6 +144,7 @@
 						"v1",
 						"buy_sell",
 						"navarra",
+						"navarra",
 						"2020"
 					]
 				}
@@ -115,7 +152,94 @@
 			"response": []
 		},
 		{
-			"name": "Prueba del POST a la lista",
+			"name": "GET a algo en concreto que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell/navarra/navarra/2043",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"buy_sell",
+						"navarra",
+						"navarra",
+						"2043"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prueba de búsqueda y paginación",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell?offset=1&limit=2&year=2018",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"buy_sell"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "year",
+							"value": "2018"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prueba del POST",
 			"event": [
 				{
 					"listen": "test",
@@ -159,13 +283,26 @@
 			"response": []
 		},
 		{
-			"name": "Prueba del DELETE a recurso",
+			"name": "Prueba del POST a algo que ya existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
-				"method": "DELETE",
+				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "",
+					"raw": "{\r\n\"autonomous_community\": \"andalucia\",\r\n\"province\": \"sevilla\",\r\n\"year\": 2018,\r\n\"surface\": 1594.97,\r\n\"annual_variation_percentage\": 9.22,\r\n\"eviction\": 2.003\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -173,7 +310,86 @@
 					}
 				},
 				"url": {
-					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell/navarra/2020",
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"buy_sell"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prueba del POST datos incorrectos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([400]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"autonomous_community\": \"andalucia\",\r\n\"provincia\": \"granada\",\r\n\"year\": 2018,\r\n\"surface\": 1594.97,\r\n\"annual_variation_percentage\": 9.22,\r\n\"eviction\": 2.003\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"buy_sell"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prueba del DELETE a recurso",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell/navarra/navarra/2020",
 					"protocol": "https",
 					"host": [
 						"sos2021-07",
@@ -185,6 +401,57 @@
 						"v1",
 						"buy_sell",
 						"navarra",
+						"navarra",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET a recurso borrado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell/navarra/navarra/2020",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"buy_sell",
+						"navarra",
+						"navarra",
 						"2020"
 					]
 				}
@@ -193,6 +460,19 @@
 		},
 		{
 			"name": "Prueba del PUT a recurso",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "PUT",
 				"header": [],
@@ -206,7 +486,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell/cataluna/2018",
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell/cataluna/barcelona/2018",
 					"protocol": "https",
 					"host": [
 						"sos2021-07",
@@ -218,6 +498,7 @@
 						"v1",
 						"buy_sell",
 						"cataluna",
+						"barcelona",
 						"2018"
 					]
 				}
@@ -225,12 +506,37 @@
 			"response": []
 		},
 		{
-			"name": "Prueba del POST a un recurso",
+			"name": "Prueba del PUT con GET al recurso modificado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"autonomous_community\":\"cataluna\",\r\n    \"province\":\"barcelona\",\r\n    \"year\":2021,\r\n    \"surface\":3470.8,\r\n    \"annual_variation_percentage\":9.35,\r\n    \"eviction\":2.381\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell/andalucia/2018",
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell/cataluna/barcelona/2021",
 					"protocol": "https",
 					"host": [
 						"sos2021-07",
@@ -241,15 +547,76 @@
 						"api",
 						"v1",
 						"buy_sell",
-						"andalucia",
-						"2018"
+						"cataluna",
+						"barcelona",
+						"2021"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Prueba del PUT a la lista",
+			"name": "Prueba del PUT erróneo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"autonomous_community\":\"cataluna\",\r\n    \"province\":\"barcelona\",\r\n    \"year\":2021,\r\n    \"surface\":3470.8,\r\n    \"annual_variation_percentage\":9.35,\r\n    \"atributo_no_esperado\":2.381\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell/cataluna/barcelona/2021",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"buy_sell",
+						"cataluna",
+						"barcelona",
+						"2021"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prueba del PUT a buy_sell",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "PUT",
 				"header": [],
@@ -271,12 +638,25 @@
 			"response": []
 		},
 		{
-			"name": "Prueba del DELETE a la lista",
+			"name": "Prueba del POST a un recurso",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
-				"method": "DELETE",
+				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell",
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell/andalucia/sevilla/2018",
 					"protocol": "https",
 					"host": [
 						"sos2021-07",
@@ -286,7 +666,46 @@
 					"path": [
 						"api",
 						"v1",
-						"buy_sell"
+						"buy_sell",
+						"andalucia",
+						"sevilla",
+						"2018"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE todo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-07.herokuapp.com/api/v1/buy_sell/",
+					"protocol": "https",
+					"host": [
+						"sos2021-07",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"buy_sell",
+						""
 					]
 				}
 			},
