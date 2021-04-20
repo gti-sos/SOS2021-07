@@ -135,7 +135,7 @@ app.get(BASE_API_PATH + "/rentals", (req, res) => {
     res.sendStatus(404);
 }); */
 
-//GET al recurso /:province/:year/
+//GET al recurso /:province/:year//
 app.get(BASE_API_PATH + "/rentals/:province/:year",(req,res) => {
     var province_url = req.params.province;
     var year_url = parseInt(req.params.year);
