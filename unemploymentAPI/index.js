@@ -113,13 +113,6 @@ module.exports.register = (app) => {
 
     //Get al recurso /:autonomous_community
     app.get(UNEMPLOYMENT_API_PATH + "/unemployment/:autonomous_community", (req, res) => {
-        var autonomous_community_url = req.params.autonomous_community;
-
-        var resultado = unemployment.filter(x => x.autonomous_community == autonomous_community_url);
-        res.send(JSON.stringify(resultado, null, 2));
-    });
-
-    app.get(UNEMPLOYMENT_API_PATH + "/unemployment/:autonomous_community", (req, res) => {
         var params = req.params;
 
         db.find({ autonomous_community: params.autonomous_community }, (error, data) => {
