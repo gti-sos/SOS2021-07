@@ -249,7 +249,7 @@ module.exports.register = (app) => {
 
         db.find({ autonomous_community: params.autonomous_community, year: parseInt(params.year), province: params.province }, (error, data) => {
             if (error) {
-                console.log("ERROR accesing DB" + error);
+                console.log("ERROR accesing DB," + error);
                 res.sendStatus(500); //Error de servidor
             }
             else {
