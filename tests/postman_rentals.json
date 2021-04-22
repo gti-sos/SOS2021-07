@@ -604,9 +604,10 @@
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.length).to.eql(1);\r",
+							"pm.test(\"The data is about huelva in 2020\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.province).to.eql(\"huelva\");\r",
+							"  pm.expect(responseJson.year).to.eql(2020);\r",
 							"});"
 						],
 						"type": "text/javascript"
