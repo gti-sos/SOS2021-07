@@ -16,7 +16,6 @@
 							"pm.test(\"Status code is 404\", function () {\r",
 							"    pm.response.to.have.status(404);\r",
 							"});\r",
-							"\r",
 							""
 						],
 						"type": "text/javascript"
@@ -117,7 +116,7 @@
 						"rentals"
 					]
 				},
-				"description": "verification that the data has been loaded, there must be 6"
+				"description": "verification that the data has been loaded, there must be 4"
 			},
 			"response": []
 		},
@@ -190,7 +189,8 @@
 						"huelva",
 						"2019"
 					]
-				}
+				},
+				"description": "Check no exist resource"
 			},
 			"response": []
 		},
@@ -203,6 +203,12 @@
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The data is about madrid in 2020\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.province).to.eql(\"madrid\");\r",
+							"  pm.expect(responseJson.year).to.eql(2020);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -227,7 +233,8 @@
 						"madrid",
 						"2020"
 					]
-				}
+				},
+				"description": "check to resource"
 			},
 			"response": []
 		},
@@ -281,7 +288,8 @@
 							"value": "2018"
 						}
 					]
-				}
+				},
+				"description": "search and pagination"
 			},
 			"response": []
 		},
@@ -294,6 +302,10 @@
 						"exec": [
 							"pm.test(\"Status code is 201\", function () {\r",
 							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    pm.response.to.have.status(\"Created\");\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -371,7 +383,7 @@
 						"rentals"
 					]
 				},
-				"description": "check that it is possible to create a new resource"
+				"description": "post check conflict"
 			},
 			"response": []
 		},
@@ -416,7 +428,7 @@
 						"rentals"
 					]
 				},
-				"description": "check that it is possible to create a new resource"
+				"description": "check data incorrect in post"
 			},
 			"response": []
 		},
@@ -454,7 +466,7 @@
 						"2010"
 					]
 				},
-				"description": "remove resource"
+				"description": "remove resource that not exist"
 			},
 			"response": []
 		},
@@ -576,7 +588,8 @@
 						"huelva",
 						"2020"
 					]
-				}
+				},
+				"description": "correct put"
 			},
 			"response": []
 		},
@@ -589,6 +602,11 @@
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(1);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -625,7 +643,8 @@
 						"huelva",
 						"2020"
 					]
-				}
+				},
+				"description": "check put with a get"
 			},
 			"response": []
 		},
@@ -671,7 +690,8 @@
 						"huelva",
 						"2020"
 					]
-				}
+				},
+				"description": "put with bad data"
 			},
 			"response": []
 		},
@@ -717,7 +737,8 @@
 						"sevilla",
 						"2020"
 					]
-				}
+				},
+				"description": "Put to resource that not exist"
 			},
 			"response": []
 		},
@@ -761,7 +782,8 @@
 						"v1",
 						"rentals"
 					]
-				}
+				},
+				"description": "Put to rentals, Error"
 			},
 			"response": []
 		},
@@ -807,7 +829,8 @@
 						"madrid",
 						"2020"
 					]
-				}
+				},
+				"description": "Post to resource"
 			},
 			"response": []
 		},
