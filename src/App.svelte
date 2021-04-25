@@ -1,21 +1,23 @@
-<script>
+<script lang="ts">
+  
+	
 
-import Error404 from "./error404.svelte";
-import Init from "./init.svelte";
-import Router from 'svelte-spa-router';
-import RentalsAPI from "./rentalsAPI.svelte";
+	import NotFound from "./NotFound.svelte";
+	import Router from 'svelte-spa-router';
+	import Rentals from "./Rentals.svelte";
+	import Init from "./Init.svelte";
 
-
-	const componentes = {
+	const routes = {
 		"/":Init,
-		"/rentals": RentalsAPI,
-		'*': Error404};
+		"/rentals": Rentals,
+
+		'*': NotFound};
 </script>
 
 <main>
-	<Router {componentes}> </Router>
+	<Router {routes}> </Router>
 </main>
 
 <style>
-	
+
 </style>
