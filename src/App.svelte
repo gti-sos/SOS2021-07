@@ -1,9 +1,9 @@
 <script>
 
-import Error404 from "./Error404.svelte";
-import Init from "./Init.svelte";
+import Error404 from "./error404.svelte";
+import Init from "./init.svelte";
 import Router from 'svelte-spa-router';
-import RentalsAPI from "./RentalsAPI.svelte";
+import RentalsAPI from "./rentalsAPI.svelte";
 
 
 	const componentes = {
