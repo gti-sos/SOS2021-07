@@ -123,7 +123,7 @@
         <ModalBody>Esta acción no se puede deshacer.</ModalBody>
         <ModalFooter>
           <Button color="danger" on:click={toggle2P}>Borrar</Button>
-          <Button color="secondary" on:click={toggle2}>Cancelar</Button>
+          <Button color="secoondary" on:click={toggle2}>Cancelar</Button>
         </ModalFooter>
       </Modal>
       {/if}
