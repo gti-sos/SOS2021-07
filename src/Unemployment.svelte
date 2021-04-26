@@ -115,7 +115,7 @@
     </NavItem>
     <NavItem>
       {#if unemploymentData.length ===0}
-      <NavLink disabled href="#" on:click={toggle2}>Borrar todos los datos</NavLink>
+      <NavLink disabled href="#" on:click={toggle2}><Button color="primary">Borrar Todo</Button></NavLink>
       {:else}
       <NavLink href="#" on:click={toggle2}><Button color="primary">Borrar Todo</Button></NavLink>
       <Modal isOpen={open2} {toggle2}>
