@@ -92,7 +92,7 @@ import {
         <CardBody>
           <CardSubtitle />
           <CardText>
-            (edita tu aqui de que va tu API)
+            (Desempleo: Ratios de desempleo general, desempleo joven y la variación del mismo a lo largo de un año en las diferentes provincias españolas.)
           </CardText>
           <a href="/api/v1/unemployment"
             ><Button color="primary">Backend</Button></a
