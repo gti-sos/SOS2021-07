@@ -31,7 +31,7 @@ import {
 		  <a href="https://github.com/nuresctor">Nuria Escamilla Torres</a>
 		</Col>
 
-    <a href="http://sos2021-07.herokuapp.com/index_static_old.html"><Button color="link">Inicio Antiguo</Button></a>
+    <a href="http://sos2021-07.herokuapp.com/index_static_old.html"><Button color="info">Inicio Antiguo</Button></a>
 
 	  </Container>
 
