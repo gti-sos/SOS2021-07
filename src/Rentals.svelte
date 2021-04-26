@@ -101,7 +101,8 @@
       <NavLink href="/">Volver</NavLink>
     </NavItem>
     <NavItem>
-      <NavLink href="#" on:click={toggle1}>Cargar datos inciales</NavLink>
+      <NavLink href="#" on:click={toggle1}><Button color="primary">Cargar datos inciales</Button></NavLink>
+      
       <Modal isOpen={open1} {toggle1}>
         <ModalHeader {toggle1}>¿Cargar los datos iniciales?</ModalHeader>
         <ModalBody>
