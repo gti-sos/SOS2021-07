@@ -148,7 +148,7 @@ import {
         </CardHeader>
         <CardBody>
           <CardSubtitle />
-          <a href="/#/buy_sell"><Button color="primary">404 Check</Button></a>
+          <a href="/#/NoexisteEstaPagina"><Button color="primary">404 Check</Button></a>
         </CardBody>
         
       </Card>
