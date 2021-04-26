@@ -64,7 +64,7 @@ import {
         <CardBody>
           <CardSubtitle />
           <CardText>
-            Alquileres: Sus precios, aumentos y otros campos dentro de un contesto de tiempo y localización.
+            Alquileres: Sus precios, aumentos y otros campos dentro de un contexto de tiempo y localización.
           </CardText>
           <a href="/api/v1/rentals"
             ><Button color="primary">Backend</Button></a
@@ -120,7 +120,7 @@ import {
         <CardBody>
           <CardSubtitle />
           <CardText>
-            (edita tu aqui de que va tu API.)
+           Compraventa: Datos como la variación anual de la compraventa de viviendas en España o número de deshaucios efectuados entre otros. 
           </CardText>
           <a href="/api/v1/buy_sell"
             ><Button color="primary">Backend</Button></a
