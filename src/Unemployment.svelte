@@ -98,10 +98,10 @@
 <main>
   <Nav>
     <NavItem>
-      <NavLink href="/">Volver</NavLink>
+      <NavLink href="/"><Button color="primary">Volver</Button></NavLink>
     </NavItem>
     <NavItem>
-      <NavLink href="#" on:click={toggle1}>Cargar datos inciales</NavLink>
+      <NavLink href="#" on:click={toggle1}><Button color="primary">Cargar datos inciales</Button></NavLink>
       <Modal isOpen={open1} {toggle1}>
         <ModalHeader {toggle1}>¿Cargar los datos iniciales?</ModalHeader>
         <ModalBody>
@@ -117,7 +117,7 @@
       {#if unemploymentData.length ===0}
       <NavLink disabled href="#" on:click={toggle2}>Borrar todos los datos</NavLink>
       {:else}
-      <NavLink href="#" on:click={toggle2}>Borrar todos los datos</NavLink>
+      <NavLink href="#" on:click={toggle2}><Button color="primary">Borrar Todo</Button></NavLink>
       <Modal isOpen={open2} {toggle2}>
         <ModalHeader {toggle2}>¿Borrar todos los datos?</ModalHeader>
         <ModalBody>Esta acción no se puede deshacer.</ModalBody>
