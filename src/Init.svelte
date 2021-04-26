@@ -120,7 +120,7 @@ import {
         <CardBody>
           <CardSubtitle />
           <CardText>
-            (edita tu aqui de que va tu API)
+            (edita tu aqui de que va tu API.)
           </CardText>
           <a href="/api/v1/buy_sell"
             ><Button color="primary">Backend</Button></a
