@@ -6,10 +6,14 @@
 	import Router from 'svelte-spa-router';
 	import Rentals from "./Rentals.svelte";
 	import Init from "./Init.svelte";
+	import Unemployment from "./Unemployment.svelte";
+	import Buy_sell from "./Buy_sell.svelte";
 
 	const routes = {
 		"/":Init,
 		"/rentals": Rentals,
+		"/unemployment": Unemployment,
+		"/buy_sell": Buy_sell,
 
 		'*': NotFound};
 </script>
