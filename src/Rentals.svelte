@@ -80,7 +80,7 @@
     }).then(function (res) {
       if (res.ok) {
         console.log("OK");
-        natalityStats = [];
+        rentalsData = [];
         error = 0;
       } else if (res.status = 404) {
         error = 404;
