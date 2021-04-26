@@ -173,7 +173,7 @@ app.post(BASE_API_PATH + '/rentals',(req,res)=>{
         { year: newYear }] }, { _id: 0 }, function (err, resource) {
 
     if (err) {
-        console.error("ERROR accesing DB: "+ err);
+        console.error("ERROR accesing DB:  "+ err);
         res.sendStatus(500);
     } else{
         if(resource == 0){
