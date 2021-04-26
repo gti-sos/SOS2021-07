@@ -141,6 +141,20 @@ import {
     </Col>
 
 
+    <Col xs="auto">
+      <Card class="mb-3">
+        <CardHeader>
+        </CardHeader>
+        <CardBody>
+          <CardSubtitle />
+          <a href="/#/buy_sell"><Button color="primary">404 Check</Button></a>
+        </CardBody>
+        <CardFooter>Desarrollador</CardFooter
+        >
+      </Card>
+    </Col>
+
+
   </Container>
 
 
