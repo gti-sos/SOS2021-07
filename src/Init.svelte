@@ -64,7 +64,7 @@ import {
         <CardBody>
           <CardSubtitle />
           <CardText>
-            Alquileres: Sus precios, aumentos y otros campos dentro de un contesto de tiempo y localización.
+            Alquileres: Sus precios, aumentos y otros campos dentro de un contexto de tiempo y localización.
           </CardText>
           <a href="/api/v1/rentals"
             ><Button color="primary">Backend</Button></a
@@ -92,7 +92,7 @@ import {
         <CardBody>
           <CardSubtitle />
           <CardText>
-            (edita tu aqui de que va tu API)
+            Desempleo: Ratios de desempleo general, desempleo joven y la variación del mismo a lo largo de un año en las diferentes provincias españolas.
           </CardText>
           <a href="/api/v1/unemployment"
             ><Button color="primary">Backend</Button></a
@@ -120,7 +120,7 @@ import {
         <CardBody>
           <CardSubtitle />
           <CardText>
-            (edita tu aqui de que va tu API.)
+           Compraventa: Datos como la variación anual de la compraventa de viviendas en España o número de deshaucios efectuados entre otros. 
           </CardText>
           <a href="/api/v1/buy_sell"
             ><Button color="primary">Backend</Button></a
@@ -128,7 +128,7 @@ import {
           <a href="/#/buy_sell"
             ><Button color="primary">Interfaz</Button></a
           >
-          <a href="https://documenter.getpostman.com/view/14952576/TzJoELSU"
+          <a href="https://documenter.getpostman.com/view/14952576/TzJydbQv"
             ><Button color="info">Documentación Postman</Button></a
           >
         </CardBody>
