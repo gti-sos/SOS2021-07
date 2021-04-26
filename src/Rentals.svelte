@@ -163,13 +163,13 @@
     <Table borderer>
       <thead>
         <tr>
-          <th> autonomous_community </th>
-          <th>province </th>
-          <th>year </th>
-          <th>rent </th>
-          <th>rent_variation </th>
-          <th>meter </th>
-          <th>salary </th>
+          <th> Comunidad Autónoma </th>
+          <th>Provincia </th>
+          <th>Año </th>
+          <th>Renta </th>
+          <th>Variación Renta </th>
+          <th>Metros </th>
+          <th>Salario </th>
         </tr>
       </thead>
       <tbody>

@@ -42,7 +42,7 @@ import {
   <Container>
     <Col>
       <a href="http://github.com/gti-sos/SOS2021-07"
-        ><b>Repository: </b>http://github.com/gti-sos/SOS2021-07</a
+        ><b>Repositorio: </b>http://github.com/gti-sos/SOS2021-07</a
       >
     </Col>
     <Col>
@@ -59,7 +59,7 @@ import {
     <Col xs="auto">
       <Card class="mb-3">
         <CardHeader>
-          <CardTitle><h5>Rentals</h5></CardTitle>
+          <CardTitle><h5>Alquileres</h5></CardTitle>
         </CardHeader>
         <CardBody>
           <CardSubtitle />
@@ -70,10 +70,10 @@ import {
             ><Button color="primary">Backend</Button></a
           >
           <a href="/#/rentals"
-            ><Button color="primary">Frontend</Button></a
+            ><Button color="primary">Interfaz</Button></a
           >
           <a href="https://documenter.getpostman.com/view/14949877/TzJu8wZf"
-            ><Button color="info">Documentacion Postman</Button></a
+            ><Button color="info">Documentación Postman</Button></a
           >
         </CardBody>
         <CardFooter
@@ -87,7 +87,7 @@ import {
     <Col xs="auto">
       <Card class="mb-3">
         <CardHeader>
-          <CardTitle><h5>Unemployment</h5></CardTitle>
+          <CardTitle><h5>Desempleo</h5></CardTitle>
         </CardHeader>
         <CardBody>
           <CardSubtitle />
@@ -98,10 +98,10 @@ import {
             ><Button color="primary">Backend</Button></a
           >
           <a href="/#/unemployment"
-            ><Button color="primary">Frontend</Button></a
+            ><Button color="primary">Interfaz</Button></a
           >
           <a href="https://documenter.getpostman.com/view/15352819/TzJoE1VM"
-            ><Button color="info">Documentacion Postman</Button></a
+            ><Button color="info">Documentación Postman</Button></a
           >
         </CardBody>
         <CardFooter
@@ -115,7 +115,7 @@ import {
     <Col xs="auto">
       <Card class="mb-3">
         <CardHeader>
-          <CardTitle><h5>Buy sell</h5></CardTitle>
+          <CardTitle><h5>Compraventa</h5></CardTitle>
         </CardHeader>
         <CardBody>
           <CardSubtitle />
@@ -126,10 +126,10 @@ import {
             ><Button color="primary">Backend</Button></a
           >
           <a href="/#/buy_sell"
-            ><Button color="primary">Frontend</Button></a
+            ><Button color="primary">Interfaz</Button></a
           >
           <a href="https://documenter.getpostman.com/view/14952576/TzJoELSU"
-            ><Button color="info">Documentacion Postman</Button></a
+            ><Button color="info">Documentación Postman</Button></a
           >
         </CardBody>
         <CardFooter
