@@ -83,6 +83,64 @@ import {
         >
       </Card>
     </Col>
+
+    <Col xs="auto">
+      <Card class="mb-3">
+        <CardHeader>
+          <CardTitle><h5>Unemployment</h5></CardTitle>
+        </CardHeader>
+        <CardBody>
+          <CardSubtitle />
+          <CardText>
+            (edita tu aqui de que va tu API)
+          </CardText>
+          <a href="/api/v1/unemployment"
+            ><Button color="primary">Backend</Button></a
+          >
+          <a href="/#/unemployment"
+            ><Button color="primary">Frontend</Button></a
+          >
+          <a href="https://documenter.getpostman.com/view/15352819/TzJoE1VM"
+            ><Button color="info">Documentacion Postman</Button></a
+          >
+        </CardBody>
+        <CardFooter
+          >Desarrollador
+          <a href="https://github.com/RoundPegInASquareHole">Alejandro Pariente Migoya</a
+          ></CardFooter
+        >
+      </Card>
+    </Col>
+
+    <Col xs="auto">
+      <Card class="mb-3">
+        <CardHeader>
+          <CardTitle><h5>Buy sell</h5></CardTitle>
+        </CardHeader>
+        <CardBody>
+          <CardSubtitle />
+          <CardText>
+            (edita tu aqui de que va tu API)
+          </CardText>
+          <a href="/api/v1/buy_sell"
+            ><Button color="primary">Backend</Button></a
+          >
+          <a href="/#/buy_sell"
+            ><Button color="primary">Frontend</Button></a
+          >
+          <a href="https://documenter.getpostman.com/view/14952576/TzJoELSU"
+            ><Button color="info">Documentacion Postman</Button></a
+          >
+        </CardBody>
+        <CardFooter
+          >Desarrollador
+          <a href="https://github.com/nuresctor">Nuria Escamilla Torres</a
+          ></CardFooter
+        >
+      </Card>
+    </Col>
+
+
   </Container>
 
 
