@@ -129,7 +129,7 @@
       {/if}
     </NavItem>
   </Nav>
-  <h2>Buy Sell Data</h2>
+  <h2>Datos Compraventa</h2>
 
  
   <!-- Alerts -->
@@ -163,12 +163,12 @@
     <Table borderer>
       <thead>
         <tr>
-          <th> autonomous_community </th>
-          <th>province </th>
-          <th>year </th>
-          <th>surface </th>
-          <th>annual_variation_percentage </th>
-          <th>eviction </th>
+          <th> Comunidad Autónoma </th>
+          <th>Provincia </th>
+          <th>Año </th>
+          <th>Superficie </th>
+          <th>Porcentaje de variación anual </th>
+          <th>Desalojo </th>
         </tr>
       </thead>
       <tbody>

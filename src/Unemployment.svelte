@@ -129,7 +129,7 @@
       {/if}
     </NavItem>
   </Nav>
-  <h2>Unemployment Data</h2>
+  <h2>Datos Desempleo</h2>
 
  
   <!-- Alerts -->
@@ -163,12 +163,12 @@
     <Table borderer>
       <thead>
         <tr>
-          <th> autonomous_community </th>
-          <th>youth_unemployment_rate </th>
-          <th>province </th>
-          <th>year </th>
-          <th>unemployment_rate </th>
-          <th>occupation_variation </th>
+          <th> Comunidad Autónoma </th>
+          <th>Tasa de desempleo juvenil </th>
+          <th>Provincia </th>
+          <th>Año </th>
+          <th>Tasa de desempleo </th>
+          <th>Variación de ocupación </th>
         </tr>
       </thead>
       <tbody>

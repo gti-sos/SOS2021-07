@@ -129,7 +129,7 @@
       {/if}
     </NavItem>
   </Nav>
-  <h2>Rentals Data</h2>
+  <h2>Datos Alquileres</h2>
 
  
   <!-- Alerts -->
