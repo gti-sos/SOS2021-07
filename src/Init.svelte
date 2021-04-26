@@ -30,6 +30,9 @@ import {
 		<Col>
 		  <a href="https://github.com/nuresctor">Nuria Escamilla Torres</a>
 		</Col>
+
+    <a href="http://sos2021-07.herokuapp.com/index_static_old.html"><Button color="primary">Inicio Antiguo</Button></a>
+
 	  </Container>
 
     <h2>Descripción del proyecto</h2>
