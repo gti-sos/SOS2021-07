@@ -10,7 +10,7 @@
 	import Buy_sell from "./Buy_sell.svelte";
 
 	const routes = {
-		"/info ":Init,
+		"/":Init,
 		"/rentals": Rentals,
 		"/unemployment": Unemployment,
 		"/buy_sell": Buy_sell,
