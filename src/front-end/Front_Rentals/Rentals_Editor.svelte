@@ -26,7 +26,7 @@
       console.log("Ok:");
       const json = await res.json();
       data = json;
-      updateComunity = data["autonomous_community"];
+      updateComunity = data.autonomous_community;
       updateProvince = data.province;
       updateYear = data.year;
       updateRent = data["rent"];
@@ -62,7 +62,7 @@
       {
         method: "PUT",
         body: JSON.stringify({
-          "autonomous_community": updateComunity,
+          "autonomous_community": body.autonomous_community,
           "province": params.province,
           "year": params.year,
           "rent": parseFloat(updateRent),
