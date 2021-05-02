@@ -62,7 +62,7 @@
       {
         method: "PUT",
         body: JSON.stringify({
-          "autonomous_community": updateComunity,
+          "autonomous_community": params.autonomous_community,
           "province": params.province,
           "year": params.year,
           "rent": parseFloat(updateRent),
@@ -106,7 +106,7 @@
   </Nav>
 
   <h2>
-    Editar campo 
+    Editar campo <strong>{params.autonomous_community}</strong>
     <strong>{params.province}</strong>
     <strong>{params.year}</strong>
   </h2>
@@ -124,7 +124,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><input type="text" placeholder="" min="1"   bind:value={updateComunity} /></td>
+        <td>{updateComunity}</td>
         <td>{updateProvince}</td>
         <td>{updateYear}</td>
         <td><input type="number" placeholder="500.0" min="1"   bind:value={updateRent} /></td>
