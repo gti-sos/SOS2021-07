@@ -32,7 +32,7 @@ import {
 		</Col>
 
     <a href="http://sos2021-07.herokuapp.com/index_static_old.html"><Button color="info">Inicio Antiguo</Button></a>
-    <a href="/#/info"><Button color="info">Inicio Antiguo</Button></a>
+    <a href="/#/info"><Button color="info">Información</Button></a>
 
 	  </Container>
 
