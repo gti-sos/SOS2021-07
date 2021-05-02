@@ -4,9 +4,9 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
 
-var rentalsAPI = require("./rentalsAPI");
-var unemploymentAPI = require("./unemploymentAPI");
-var buy_sell_API = require("./buy_sell_API");
+var rentalsAPI = require("./src/back-end/rentalsAPI");
+var unemploymentAPI = require("./src/back-end/unemploymentAPI");
+var buy_sell_API = require("./src/back-end/buy_sell_API");
 
 var app = express();
 app.use(bodyParser.json());
