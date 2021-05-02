@@ -130,18 +130,7 @@ import {
     </Col>
 
 
-    <Col xs="auto">
-      <Card class="mb-3">
-        <CardHeader>
-          Comprobacion Página no encontrada, ERROR 404
-        </CardHeader>
-        <CardBody>
-          <CardSubtitle />
-          <a href="/#/NoexisteEstaPagina"><Button color="primary">404</Button></a>
-        </CardBody>
-        
-      </Card>
-    </Col>
+    
 
 
   </Container>
