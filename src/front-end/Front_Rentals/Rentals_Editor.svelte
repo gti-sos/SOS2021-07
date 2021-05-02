@@ -26,7 +26,7 @@
       console.log("Ok:");
       const json = await res.json();
       data = json;
-      updateComunity = data.autonomous_community;
+      updateComunity = data["autonomous_community"];
       updateProvince = data.province;
       updateYear = data.year;
       updateRent = data["rent"];
@@ -62,7 +62,7 @@
       {
         method: "PUT",
         body: JSON.stringify({
-          "autonomous_community": body.autonomous_community,
+          "autonomous_community": data["autonomous_community"],
           "province": params.province,
           "year": params.year,
           "rent": parseFloat(updateRent),
@@ -124,7 +124,7 @@
     </thead>
     <tbody>
       <tr>
-        <td>{updateComunity}</td>
+        <td>{data["autonomous_community"]}</td>
         <td>{updateProvince}</td>
         <td>{updateYear}</td>
         <td><input type="number" placeholder="500.0" min="1"   bind:value={updateRent} /></td>
