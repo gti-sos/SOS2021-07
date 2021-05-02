@@ -26,7 +26,7 @@
       console.log("Ok:");
       const json = await res.json();
       data = json;
-      updateComunity = data.autonomous_community;
+      updateComunity = data["autonomous_community"];
       updateProvince = data.province;
       updateYear = data.year;
       updateRent = data["rent"];
@@ -62,7 +62,7 @@
       {
         method: "PUT",
         body: JSON.stringify({
-          "autonomous_community": params.autonomous_community,
+          "autonomous_community": updateComunity,
           "province": params.province,
           "year": params.year,
           "rent": parseFloat(updateRent),
@@ -106,7 +106,7 @@
   </Nav>
 
   <h2>
-    Editar campo <strong>{params.autonomous_community}</strong>
+    Editar campo 
     <strong>{params.province}</strong>
     <strong>{params.year}</strong>
   </h2>
