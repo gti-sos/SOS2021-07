@@ -124,7 +124,7 @@
     </thead>
     <tbody>
       <tr>
-        <td>{updateComunity}</td>
+        <td><input type="text" placeholder="" min="1"   bind:value={updateComunity} /></td>
         <td>{updateProvince}</td>
         <td>{updateYear}</td>
         <td><input type="number" placeholder="500.0" min="1"   bind:value={updateRent} /></td>
