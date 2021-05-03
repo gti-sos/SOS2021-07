@@ -5,13 +5,13 @@
 
   const BASE_CONTACT_API_PATH = "/api/v1";
   export let params = {};
-  let data = {};
+  let stat = {};
   let updateComunity = "";
   let updateProvince = "";
   let updateYear = 0;
-  let updateRent = 0.0;
-  let updateRent_V = 0.0;
-  let updateMeter = 0.0;
+  let updateRent = 0;
+  let updateRent_V = 0;
+  let updateMeter = 0;
   let updateSalary = 0.0;
   let errorMsg = "";
   let okMsg = "";
@@ -25,14 +25,14 @@
     if (res.ok) {
       console.log("Ok:");
       const json = await res.json();
-      data = json;
-      updateComunity = data["autonomous_community"];
-      updateProvince = data.province;
-      updateYear = data.year;
-      updateRent = data["rent"];
-      updateRent_V = data["rent_variation"];
-      updateMeter = data["meter"];
-      updateSalary = data["salary"];
+      stat = json;
+      updateComunity = stat['autonomous_community'];
+      updateProvince = stat.province;
+      updateYear = stat.year;
+      updateRent = stat['rent'];
+      updateRent_V = stat['rent_variation'];
+      updateMeter = stat['meter'];
+      updateSalary = stat['salary'];
       console.log("Received stat.");
       
     } else {
@@ -46,7 +46,7 @@
     }
   }
 
-  async function updateData() {
+  async function updateStat() {
     console.log(
       "Updating stat..." +
         JSON.stringify(params.province) +
@@ -55,16 +55,16 @@
 
     const res = await fetch(
       BASE_CONTACT_API_PATH +
-        "/rentals/" +
+        "/natality-stats/" +
         params.province +
         "/" +
         params.year,
       {
         method: "PUT",
         body: JSON.stringify({
-          "autonomous_community": data["autonomous_community"],
-          "province": params.province,
-          "year": params.year,
+          "autonomous_community": updateComunity,
+          "province": updateProvince,
+          "year": parseInt(updateYear),
           "rent": parseFloat(updateRent),
           "rent_variation": parseFloat(updateRent_V),
           "meter": parseFloat(updateMeter),
@@ -79,11 +79,9 @@
         console.log("OK");
         getStat();
         errorMsg = "";
-        okMsg = "Operación realizada correctamente";
+        okMsg = `${params.province} ${params.year} ha sido actualizado correctamente`;
       } else {
-        if(res.status===409){
-          errorMsg = "El dato ya se encuentra cargado";
-        }else if(res.status ===500){
+         if(res.status ===500){
           errorMsg = "No se han podido acceder a la base de datos";
         }else if(res.status ===404){
           errorMsg = "No se han encontrado el dato solicitado";
@@ -106,8 +104,7 @@
   </Nav>
 
   <h2>
-    Editar campo 
-    <strong>{params.province}</strong>
+    Editar campo <strong>{params.province}</strong>
     <strong>{params.year}</strong>
   </h2>
   <Table bordered>
@@ -124,16 +121,15 @@
     </thead>
     <tbody>
       <tr>
-        <td>{data["autonomous_community"]}</td>
-        <td>{updateProvince}</td>
-        <td>{updateYear}</td>
+        <td><input type="text" placeholder="andalucia" min="1"   bind:value={updateComunity} /></td>
+        <td><input type="text" placeholder="sevilla" min="1"   bind:value={updateProvince} /></td>
+        <td><input type="number" placeholder="2017" min="1"   bind:value={updateYear} /></td>
         <td><input type="number" placeholder="500.0" min="1"   bind:value={updateRent} /></td>
-        <td><input type="number" placeholder="10.5" min="1"   bind:value={updateRent_V} /></td>
-        <td><input type="number" placeholder="100.0" min="1"   bind:value={updateMeter} /></td>
-        <td><input type="number" placeholder="900.4" min="1.0" bind:value={updateSalary} /></td>
-        
+        <td><input type="number" placeholder="40.5" min="1"   bind:value={updateRent_V} /></td>
+        <td><input type="number" placeholder="10.5" min="1.0" bind:value={updateMeter} /></td>
+        <td><input type="number" placeholder="14.8" min="1.0"  bind:value={updateSalary} /></td>
         <td>
-          <Button outline color="primary" on:click={updateData}>Actualizar</Button>
+          <Button outline color="primary" on:click={updateStat}>Actualizar</Button>
         </td>
       </tr>
     </tbody>
