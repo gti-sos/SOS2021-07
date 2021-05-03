@@ -101,7 +101,7 @@
 
     if (fullQuery != "") {
       const res = await fetch(
-        "/api/v1/unemployment/" + fullQuery
+        BASE_CONTACT_API_PATH + "/unemployment/" + fullQuery
       );
       if (res.ok) {
         console.log("OK");
