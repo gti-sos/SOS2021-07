@@ -16,6 +16,11 @@
   } from "sveltestrap";
   import { onMount } from "svelte";
 
+  //Alertas
+  let errorMsg = "";
+  let okMsg = "";
+  let errorStatus = 0;
+  
   let fullQuery = "";
 
   //Pagination
@@ -25,6 +30,15 @@
   let current_page = 1;
   let last_page = 1;
   let total = 0;
+
+  let newData = {
+    autonomous_community: "",
+    "youth_unemployment_rate": "",
+    province: "",
+    year: "",
+    "unemployment_rate": "",
+    "occupation_variation": ""
+  };
 
   // Nav
 
@@ -54,7 +68,7 @@
 
   async function loadStats() {
     console.log("Loading data...");
-    const res = await fetch("api/v1/unemployment/loadInitialData").then(
+    const res = await fetch("/api/v1/unemployment/loadInitialData").then(
       function (res) {
         if (res.ok) {
           console.log("OK");
@@ -71,7 +85,7 @@
     );
   }
 
-    async function searchStat() {
+  async function searchStat() {
     console.log("Searching stat...");
 
     var campos = new Map(
@@ -87,7 +101,7 @@
 
     if (fullQuery != "") {
       const res = await fetch(
-        "api/v1/unemployment/" + fullQuery
+        "/api/v1/unemployment/" + fullQuery
       );
       if (res.ok) {
         console.log("OK");
@@ -114,7 +128,7 @@
     //Total de datos en la BD
   async function getNumTotal() {
     const res = await fetch(
-      "api/v1/unemployment");
+      "/api/v1/unemployment");
     if (res.ok) {
       const json = await res.json();
       total = json.length;
@@ -150,13 +164,18 @@
   async function getStats() {
     console.log("Fetching data...");
 
-    const res = await fetch("api/v1/unemployment/");
+    const res = await fetch("/api/v1/unemployment?limit=" +
+      limit + 
+      "&offset=" +
+      current_offset
+    );
 
     if (res.ok) {
       console.log("Ok");
       const json = await res.json();
       unemploymentData = json;
-      console.log(`We have received ${unemploymentData.length} contacs.`);
+      console.log(`We have received ${unemploymentData.length} stats.`);
+      getNumTotal();
     } else {
       console.log("Error");
     }
@@ -166,7 +185,7 @@
   async function deleteStats() {
     console.log("Deleting data...");
 
-    const res = await fetch("api/v1/unemployment/", {
+    const res = await fetch("/api/v1/unemployment/", {
       method: "DELETE",
     }).then(function (res) {
       if (res.ok) {
@@ -187,7 +206,7 @@
     console.log(`Deleting data with name ${autonomous_community}, ${province} and date ${year}`);
 
     const res = await fetch(
-      "api/v1/unemployment/" +autonomous_community + "/" + province + "/" + year,
+      "/api/v1/unemployment/" + autonomous_community + "/" + province + "/" + year,
       {
         method: "DELETE",
       }
@@ -223,7 +242,7 @@
     newData["occupation_variation"] = parseFloat(newData["occupation_variation"]);
 
     const res = await fetch(
-      "api/v1/unemployment/", {
+      "/api/v1/unemployment/", {
       method: "POST",
       body: JSON.stringify(newData),
       headers: {
@@ -314,7 +333,71 @@
   
 <!-- Table -->
   {#if unemploymentData.length === 0}
-    <p>No se han encontrado datos, por favor carga los datos iniciales.</p>
+    <p>No se han encontrado datos, por favor carga los datos iniciales o inserte uno usted mismo/a.</p>
+    <Table borderer>
+      <thead>
+        <tr>
+          <th>Comunidad Autónoma </th>
+          <th>Tasa de desempleo juvenil </th>
+          <th>Provincia </th>
+          <th>Año </th>
+          <th>Tasa de desempleo </th>
+          <th>Variación de ocupación </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+        <td
+          ><input
+            type="text"
+            placeholder="andalucia"
+            bind:value={newData.autonomous_community}
+          /></td
+        >
+        <td
+          ><input
+            type="number"
+            placeholder="52.1912"
+            min="1"
+            bind:value={newData["youth_unemployment_rate"]}
+          /></td
+        >
+        <td
+          ><input
+            type="text"
+            placeholder="malaga"
+            bind:value={newData.province}
+          /></td
+        >
+        <td
+          ><input
+            type="number"
+            placeholder="2020"
+            min="1900"
+            bind:value={newData.year}
+          /></td
+        >
+        <td
+          ><input
+            type="number"
+            placeholder="19.3225"
+            min="1"
+            bind:value={newData["unemployment_rate"]}
+          /></td
+        >
+        <td
+          ><input
+            type="number"
+            placeholder="32.79998"
+            min="1.0"
+            bind:value={newData["occupation_variation"]}
+          /></td
+        >   
+        <td><Button color="primary" on:click={insertStat}>Insertar</Button></td>
+        </tr>
+        </tbody>
+        </Table>
+
   {:else}
     <Table borderer>
       <thead>
@@ -332,7 +415,7 @@
         <td
           ><input
             type="text"
-            placeholder="Andalucía"
+            placeholder="andalucia"
             bind:value={newData.autonomous_community}
           /></td
         >
@@ -347,7 +430,7 @@
         <td
           ><input
             type="text"
-            placeholder="Malaga"
+            placeholder="malaga"
             bind:value={newData.province}
           /></td
         >
@@ -390,19 +473,19 @@
             <td>{stat['unemployment_rate']}</td>
             <td>{stat['occupation_variation']}</td>
             <td>
-            <a href="#/unemployment_rate/{data.autonomous_community}/{data.province}/{data.year}">
+            <a href="#/unemployment/{stat.autonomous_community}/{stat.province}/{stat.year}">
               <Button color="primary">Editar</Button>
             </a></td
           >
           <td
             ><Button
               color="danger"
-              on:click={deleteStat(data.autonomous_community, data.province, data.year)}>Borrar</Button
+              on:click={deleteStat(stat.autonomous_community, stat.province, stat.year)}>Borrar</Button
             ></td
           >
           </tr>
         {/each}
-      </tbody><tbody />
+      </tbody>
     </Table>
 
     <!-- Pagination -->
@@ -432,6 +515,7 @@
       />
     </PaginationItem>
   </Pagination>
+  {/if}
 </main>
 
 <style>
