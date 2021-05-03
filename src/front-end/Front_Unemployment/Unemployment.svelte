@@ -164,10 +164,12 @@
   async function getStats() {
     console.log("Fetching data...");
 
-    const res = await fetch("/api/v1/unemployment?limit=" +
-      limit + 
-      "&offset=" +
-      current_offset
+    const res = await fetch(
+      BASE_CONTACT_API_PATH +
+        "/unemployment?limit=" +
+        limit +
+        "&offset=" +
+        current_offset
     );
 
     if (res.ok) {
