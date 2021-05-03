@@ -58,7 +58,7 @@
         "/rentals/" +
         updateProvince +
         "/" +
-        updateComunity,
+        updateYear,
       {
         method: "PUT",
         body: JSON.stringify({
