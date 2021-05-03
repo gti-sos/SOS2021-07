@@ -55,7 +55,7 @@
 
     const res = await fetch(
       BASE_CONTACT_API_PATH +
-        "/natality-stats/" +
+        "/rentals/" +
         params.province +
         "/" +
         params.year,
