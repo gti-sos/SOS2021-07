@@ -101,7 +101,7 @@
 <main>
   <Nav>
     <NavItem>
-      <NavLink href="/"><Button color="primary">Volver</Button></NavLink>
+      <NavLink href="/#/rentals"><Button color="primary">Volver</Button></NavLink>
     </NavItem>
   </Nav>
 
