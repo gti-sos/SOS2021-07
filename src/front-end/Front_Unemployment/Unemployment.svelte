@@ -9,8 +9,36 @@
     NavLink,
     Button,
     Table,
+    Pagination,
+    PaginationItem,
+    PaginationLink,
     UncontrolledAlert ,
   } from "sveltestrap";
+  import { onMount } from "svelte";
+
+  //Alertas
+  let errorMsg = "";
+  let okMsg = "";
+  let errorStatus = 0;
+  
+  let fullQuery = "";
+
+  //Pagination
+  let current_offset = 0;
+  let limit = 10;
+
+  let current_page = 1;
+  let last_page = 1;
+  let total = 0;
+
+  let newData = {
+    autonomous_community: "",
+    "youth_unemployment_rate": "",
+    province: "",
+    year: "",
+    "unemployment_rate": "",
+    "occupation_variation": ""
+  };
 
   // Nav
 
@@ -37,9 +65,10 @@
   let error = null;
 
   //Functions
+
   async function loadStats() {
     console.log("Loading data...");
-    const res = await fetch("api/v1/unemployment/loadInitialData").then(
+    const res = await fetch("/api/v1/unemployment/loadInitialData").then(
       function (res) {
         if (res.ok) {
           console.log("OK");
@@ -56,16 +85,97 @@
     );
   }
 
+  async function searchStat() {
+    console.log("Searching stat...");
+
+    var campos = new Map(
+      Object.entries(newData).filter((o) => {
+        return o[1] != "";
+      })
+    );
+    let querySymbol = "?";
+    for (var [clave, valor] of campos.entries()) {
+      querySymbol += clave + "=" + valor + "&";
+    }
+    fullQuery = querySymbol.slice(0, -1);
+
+    if (fullQuery != "") {
+      const res = await fetch(
+        "/api/v1/unemployment/" + fullQuery
+      );
+      if (res.ok) {
+        console.log("OK");
+        const json = await res.json();
+        rentalsData = json;
+        okMsg="Búsqueda realizada correctamente"
+      } else {
+        unemploymentData = [];
+        if (res.status === 404) {
+          errorMsg = "No se encuentra el dato solicitado";
+        } else if (res.status === 500) {
+          errorMsg = "No se han podido acceder a la base de datos";
+        }
+        okMsg = "";
+        console.log("ERROR!" + errorMsg);
+      }
+    } else {
+      errorMsg = "";
+      okMsg = "Búsqueda realizada correctamente";
+      getStats();
+    }
+  }
+
+    //Total de datos en la BD
+  async function getNumTotal() {
+    const res = await fetch(
+      "/api/v1/unemployment");
+    if (res.ok) {
+      const json = await res.json();
+      total = json.length;
+      console.log("getTOAL: " + total);
+      changePage(current_page, current_offset);
+    } else {
+      errorMsg = "No se han encontrado datos.";
+    }
+  }
+  //Calcula el rango entre ods valores
+  function range(size, startAt = 0) {
+    return [...Array(size).keys()].map((i) => i + startAt);
+  }
+
+    //Cambio de pagina
+  function changePage(page, offset) {
+    console.log("------Change page------");
+    console.log("Params page: " + page + " offset: " + offset);
+    last_page = Math.ceil(total / 10);
+    console.log("new last page: " + last_page);
+    if (page !== current_page) {
+      console.log("enter if");
+      current_offset = offset;
+      current_page = page;
+      console.log("page: " + page);
+      console.log("current_offset: " + current_offset);
+      console.log("current_page: " + current_page);
+      getStats();
+    }
+    console.log("---------Exit change page-------");
+  }
+
   async function getStats() {
     console.log("Fetching data...");
 
-    const res = await fetch("api/v1/unemployment/");
+    const res = await fetch("/api/v1/unemployment?limit=" +
+      limit + 
+      "&offset=" +
+      current_offset
+    );
 
     if (res.ok) {
       console.log("Ok");
       const json = await res.json();
       unemploymentData = json;
-      console.log(`We have received ${unemploymentData.length} contacs.`);
+      console.log(`We have received ${unemploymentData.length} stats.`);
+      getNumTotal();
     } else {
       console.log("Error");
     }
@@ -75,7 +185,7 @@
   async function deleteStats() {
     console.log("Deleting data...");
 
-    const res = await fetch("api/v1/unemployment/", {
+    const res = await fetch("/api/v1/unemployment/", {
       method: "DELETE",
     }).then(function (res) {
       if (res.ok) {
@@ -92,7 +202,72 @@
     });
   }
 
-  getStats();
+  async function deleteStat(autonomous_community, province, year) {
+    console.log(`Deleting data with name ${autonomous_community}, ${province} and date ${year}`);
+
+    const res = await fetch(
+      "/api/v1/unemployment/" + autonomous_community + "/" + province + "/" + year,
+      {
+        method: "DELETE",
+      }
+    ).then(function (res) {
+      if (res.ok) {
+        console.log("OK");
+        if (unemploymentData.length == 1) {
+          unemploymentData = [];
+          currentPage = 1;
+        }
+        errorMsg = "";
+        okMsg = "Operación realizada correctamente";
+        getStats();
+      } else {
+        if(res.status==404){
+          errorMsg = "No existe el dato a borrar";
+        }else if(res.status ==500){
+          errorMsg = "No se han podido acceder a la base de datos";
+        }        
+        okMsg = "";
+        console.log("ERROR!" + errorMsg);
+      }
+    });
+  }
+
+  async function insertStat() {
+    console.log("Inserting stat: " + JSON.stringify(newData));
+
+    newData.autonomous_community = newData.autonomous_community;
+    newData.province = newData.province;
+    newData.year = parseInt(newData.year);
+    newData["unemployment_rate"] = parseFloat(newData["unemployment_rate"]);
+    newData["occupation_variation"] = parseFloat(newData["occupation_variation"]);
+
+    const res = await fetch(
+      "/api/v1/unemployment/", {
+      method: "POST",
+      body: JSON.stringify(newData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(function (res) {
+      if (res.ok) {
+        console.log("OK");
+        getStats();
+        errorMsg = "";
+        okMsg = "Operación realizada correctamente";
+      } else {
+        if(res.status===404){
+          errorMsg = "No se encuentra el dato a borrar";
+        }else if(res.status ===500){
+          errorMsg = "No se han podido acceder a la base de datos";
+        }        
+        okMsg = "";
+        console.log("ERROR!" + errorMsg);
+      }
+    });
+  }
+
+  onMount(getStats);
+  getNumTotal();
 </script>
 
 <main>
@@ -158,12 +333,11 @@
   
 <!-- Table -->
   {#if unemploymentData.length === 0}
-    <p>No se han encontrado datos, por favor carga los datos iniciales.</p>
-  {:else}
+    <p>No se han encontrado datos, por favor carga los datos iniciales o inserte uno usted mismo/a.</p>
     <Table borderer>
       <thead>
         <tr>
-          <th> Comunidad Autónoma </th>
+          <th>Comunidad Autónoma </th>
           <th>Tasa de desempleo juvenil </th>
           <th>Provincia </th>
           <th>Año </th>
@@ -172,6 +346,124 @@
         </tr>
       </thead>
       <tbody>
+        <tr>
+        <td
+          ><input
+            type="text"
+            placeholder="andalucia"
+            bind:value={newData.autonomous_community}
+          /></td
+        >
+        <td
+          ><input
+            type="number"
+            placeholder="52.1912"
+            min="1"
+            bind:value={newData["youth_unemployment_rate"]}
+          /></td
+        >
+        <td
+          ><input
+            type="text"
+            placeholder="malaga"
+            bind:value={newData.province}
+          /></td
+        >
+        <td
+          ><input
+            type="number"
+            placeholder="2020"
+            min="1900"
+            bind:value={newData.year}
+          /></td
+        >
+        <td
+          ><input
+            type="number"
+            placeholder="19.3225"
+            min="1"
+            bind:value={newData["unemployment_rate"]}
+          /></td
+        >
+        <td
+          ><input
+            type="number"
+            placeholder="32.79998"
+            min="1.0"
+            bind:value={newData["occupation_variation"]}
+          /></td
+        >   
+        <td><Button color="primary" on:click={insertStat}>Insertar</Button></td>
+        </tr>
+        </tbody>
+        </Table>
+
+  {:else}
+    <Table borderer>
+      <thead>
+        <tr>
+          <th>Comunidad Autónoma </th>
+          <th>Tasa de desempleo juvenil </th>
+          <th>Provincia </th>
+          <th>Año </th>
+          <th>Tasa de desempleo </th>
+          <th>Variación de ocupación </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+        <td
+          ><input
+            type="text"
+            placeholder="andalucia"
+            bind:value={newData.autonomous_community}
+          /></td
+        >
+        <td
+          ><input
+            type="number"
+            placeholder="52.1912"
+            min="1"
+            bind:value={newData["youth_unemployment_rate"]}
+          /></td
+        >
+        <td
+          ><input
+            type="text"
+            placeholder="malaga"
+            bind:value={newData.province}
+          /></td
+        >
+        <td
+          ><input
+            type="number"
+            placeholder="2020"
+            min="1900"
+            bind:value={newData.year}
+          /></td
+        >
+        <td
+          ><input
+            type="number"
+            placeholder="19.3225"
+            min="1"
+            bind:value={newData["unemployment_rate"]}
+          /></td
+        >
+        <td
+          ><input
+            type="number"
+            placeholder="32.79998"
+            min="1.0"
+            bind:value={newData["occupation_variation"]}
+          /></td
+        >   
+        <td><Button color="primary" on:click={insertStat}>Insertar</Button></td>
+        <td>
+          <Button color="secondary" on:click={searchStat}>Buscar</Button>
+        </td>
+      </tr>
+      
         {#each unemploymentData as stat}
           <tr>
             <td>{stat.autonomous_community}</td>
@@ -180,10 +472,49 @@
             <td>{stat.year}</td>
             <td>{stat['unemployment_rate']}</td>
             <td>{stat['occupation_variation']}</td>
+            <td>
+            <a href="#/unemployment/{stat.autonomous_community}/{stat.province}/{stat.year}">
+              <Button color="primary">Editar</Button>
+            </a></td
+          >
+          <td
+            ><Button
+              color="danger"
+              on:click={deleteStat(stat.autonomous_community, stat.province, stat.year)}>Borrar</Button
+            ></td
+          >
           </tr>
         {/each}
-      </tbody><tbody />
+      </tbody>
     </Table>
+
+    <!-- Pagination -->
+  <Pagination ariaLabel="Web pagination">
+    <PaginationItem class={current_page === 1 ? "disabled" : ""}>
+      <PaginationLink
+        previous
+        href="#/unemployment"
+        on:click={() => changePage(current_page - 1, current_offset - 10)}
+      />
+    </PaginationItem>
+    {#each range(last_page, 1) as page}
+      <PaginationItem class={current_page === page ? "active" : ""}>
+        <PaginationLink
+          previous
+          href="#/unemployment"
+          on:click={() => changePage(page, (page - 1) * 10)}
+          >{page}</PaginationLink
+        >
+      </PaginationItem>
+    {/each}
+    <PaginationItem class={current_page === last_page ? "disabled" : ""}>
+      <PaginationLink
+        next
+        href="#/unemployment"
+        on:click={() => changePage(current_page + 1, current_offset + 10)}
+      />
+    </PaginationItem>
+  </Pagination>
   {/if}
 </main>
 
