@@ -120,7 +120,7 @@
       }
     } else {
       errorMsg = "";
-      okMsg = "Búsqueda realizada correctamentee";
+      okMsg = "Búsqueda realizada correctamente";
       getStats();
     }
   }
