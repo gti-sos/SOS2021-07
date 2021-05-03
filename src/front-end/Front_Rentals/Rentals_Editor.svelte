@@ -56,9 +56,9 @@
     const res = await fetch(
       BASE_CONTACT_API_PATH +
         "/rentals/" +
-        updateProvince +
+        params.province +
         "/" +
-        updateYear,
+        params.year,
       {
         method: "PUT",
         body: JSON.stringify({
@@ -91,6 +91,8 @@
         console.log("ERROR!" + errorMsg);
       }
     });
+
+    
   }
 
   onMount(getStat);
@@ -129,8 +131,9 @@
         <td><input type="number" placeholder="10.5" min="1.0" bind:value={updateMeter} /></td>
         <td><input type="number" placeholder="14.8" min="1.0"  bind:value={updateSalary} /></td>
         <td>
+          <a href="#/rentals/">
           <Button outline color="primary" on:click={updateStat}>Actualizar</Button>
-        </td>
+        </a></td>
       </tr>
     </tbody>
   </Table>
