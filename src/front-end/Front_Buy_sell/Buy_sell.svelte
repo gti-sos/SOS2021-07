@@ -219,18 +219,18 @@
     });
   }
 
-  async function deleteStat(province, year) {
-    console.log(`Deleting data with name ${province} and date ${year}`);
+ async function deleteStat(autonomous_community, province, year) {
+    console.log(`Deleting data with name ${autonomous_community}, ${province} and date ${year}`);
 
     const res = await fetch(
-      BASE_CONTACT_API_PATH + "/buy_sell/" + province + "/" + year,
+      "/api/v1/buy_sell/" + autonomous_community + "/" + province + "/" + year,
       {
         method: "DELETE",
       }
     ).then(function (res) {
       if (res.ok) {
         console.log("OK");
-        if (buy_sell_Data.length === 1) {
+        if (buy_sell_Data.length == 1) {
           buy_sell_Data = [];
           currentPage = 1;
         }
@@ -238,9 +238,9 @@
         okMsg = "Operación realizada correctamente";
         getStats();
       } else {
-        if(res.status===404){
+        if(res.status==404){
           errorMsg = "No existe el dato a borrar";
-        }else if(res.status ===500){
+        }else if(res.status ==500){
           errorMsg = "No se han podido acceder a la base de datos";
         }        
         okMsg = "";
