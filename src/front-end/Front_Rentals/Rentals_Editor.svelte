@@ -56,9 +56,9 @@
     const res = await fetch(
       BASE_CONTACT_API_PATH +
         "/rentals/" +
-        params.province +
+        updateProvince +
         "/" +
-        params.year,
+        updateComunity,
       {
         method: "PUT",
         body: JSON.stringify({
