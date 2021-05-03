@@ -109,7 +109,7 @@
         rentalsData = json;
         okMsg="Búsqueda realizada correctamente"
       } else {
-        unemploymentData = [];
+        rentalsData = [];
         if (res.status === 404) {
           errorMsg = "No se encuentra el dato solicitado";
         } else if (res.status === 500) {
