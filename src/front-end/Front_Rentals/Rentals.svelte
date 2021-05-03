@@ -304,9 +304,9 @@
       </Modal>
     </NavItem>
     <NavItem>
-      
+      {#if rentalsData.length ===0}
       <NavLink disabled href="#" on:click={toggle2}><Button color="primary">Borrar Todo</Button></NavLink>
-      
+      {:else}
       <NavLink href="#" on:click={toggle2}><Button color="primary">Borrar Todo</Button></NavLink>
       <Modal isOpen={open2} {toggle2}>
         <ModalHeader {toggle2}>¿Borrar todos los datos?</ModalHeader>
@@ -316,7 +316,7 @@
           <Button color="secoondary" on:click={toggle2}>Cancelar</Button>
         </ModalFooter>
       </Modal>
-      
+      {/if}
     </NavItem>
   </Nav>
   <h2>Alquileres</h2>
