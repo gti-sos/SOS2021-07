@@ -15,7 +15,7 @@
   } from "sveltestrap";
   import { onMount } from "svelte";
 
-  //------------------Nav-----------------------
+  //------------------Nav------------------------------------------------
 
   //Load stats
   let open1 = false;
