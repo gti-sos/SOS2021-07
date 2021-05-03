@@ -22,13 +22,13 @@ import {
   <h2>Team</h2>
   <Container>
     <Col>
-      <a href="https://github.com/frankys99">Francisco Miguel Tristán Clavijo</a>
+      <a href="https://github.com/frankys99">Francisco Miguel Tristán Clavijo, Fuente ->Rentals(Alquileres)</a>
     </Col>
     <Col>
-		  <a href="https://github.com/RoundPegInASquareHole">Alejandro Pariente Migoya</a>
+		  <a href="https://github.com/RoundPegInASquareHole">Alejandro Pariente Migoya, Fuente ->Unemployment(Desempleo)</a>
 		</Col>
 		<Col>
-		  <a href="https://github.com/nuresctor">Nuria Escamilla Torres</a>
+		  <a href="https://github.com/nuresctor">Nuria Escamilla Torres, Fuente ->Buy_sell(Compraventa)</a>
 		</Col>
 	  </Container>
 
