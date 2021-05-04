@@ -3,22 +3,22 @@
 
   import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
 
-  const BASE_CONTACT_API_PATH = "/api/v1";
+  const BASE_API_PATH = "/api/v1";
   export let params = {};
   let stat = {};
   let updateComunity = "";
   let updateProvince = "";
   let updateYear = 0;
-  let updateSurface = 0.0;
-  let updateAnnual = 0.0;
-  let updateEviction = 0.0;
+  let updateSurface  = 0.0;
+  let updateAnnual  = 0.0;
+  let updateEviction  = 0.0;
   let errorMsg = "";
   let okMsg = "";
   
   async function getStat() {
-    console.log("Fetching stat..." + params.province + " " + params.year);
+    console.log("Fetching stat..." + params.autonomous_community + " " + params.province + " " + params.year);
     const res = await fetch(
-      BASE_CONTACT_API_PATH +"/buy_sell/" + params.province +"/" + params.year
+      BASE_API_PATH +"/buy_sell/" + params.autonomous_community + "/" + params.province + "/" + params.year
     );
 
     if (res.ok) {
@@ -28,9 +28,9 @@
       updateComunity = stat.autonomous_community;
       updateProvince = stat.province;
       updateYear = stat.year;
-      updateSurface = stat.surface;
-      updateAnnual = stat.annual_variation_percentage;
-      updateEviction = stat.eviction;
+      updateSurface  = stat['surface'];
+      updateAnnual  = stat['annual_variation_percentage'];
+      updateEviction  = stat['eviction'];
       console.log("Received stat.");
       
     } else {
@@ -47,13 +47,16 @@
   async function updateStat() {
     console.log(
       "Updating stat..." +
+        JSON.stringify(params.autonomous_community) +
         JSON.stringify(params.province) +
         JSON.stringify(params.year)
     );
 
     const res = await fetch(
-      BASE_CONTACT_API_PATH +
+      BASE_API_PATH +
         "/buy_sell/" +
+        params.autonomous_community +
+        "/" +
         params.province +
         "/" +
         params.year,
@@ -65,7 +68,7 @@
           "year": parseInt(updateYear),
           "surface": parseFloat(updateSurface),
           "annual_variation_percentage": parseFloat(updateAnnual),
-          "eviction": parseFloat(updateEviction),
+          "eviction": parseFloat(updateEviction)
         }),
         headers: {
           "Content-Type": "application/json",
@@ -76,12 +79,12 @@
         console.log("OK");
         getStat();
         errorMsg = "";
-        okMsg = `${params.province} ${params.year} ha sido actualizado correctamente`;
+        okMsg = `${params.autonomous_community} ${params.province} ${params.year} han sido actualizados correctamente`;
       } else {
          if(res.status ===500){
-          errorMsg = "No se han podido acceder a la base de datos";
+          errorMsg = "No se ha podido acceder a la base de datos";
         }else if(res.status ===404){
-          errorMsg = "No se han encontrado el dato solicitado";
+          errorMsg = "No se ha encontrado el dato solicitado";
         }        
         okMsg = "";
         getStat();
@@ -103,7 +106,8 @@
   </Nav>
 
   <h2>
-    Editar campo <strong>{params.province}</strong>
+    Editar campo <strong>{params.autonomous_community}</strong>
+    <strong>{params.province}</strong>
     <strong>{params.year}</strong>
   </h2>
   <Table bordered>
@@ -125,7 +129,6 @@
         <td><input type="number" placeholder=""   bind:value={updateSurface} /></td>
         <td><input type="number" placeholder=""  bind:value={updateAnnual} /></td>
         <td><input type="number" placeholder="" bind:value={updateEviction} /></td>
-    
         <td>
           <a href="#/buy_sell/">
           <Button outline color="primary" on:click={updateStat}>Actualizar</Button>
