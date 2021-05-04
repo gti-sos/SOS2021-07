@@ -14,7 +14,7 @@
   let updateEviction  = 0.0;
   let errorMsg = "";
   let okMsg = "";
-  
+  ////
   async function getStat() {
     console.log("Fetching stat..." + params.autonomous_community + " " + params.province + " " + params.year);
     const res = await fetch(
