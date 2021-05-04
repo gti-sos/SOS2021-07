@@ -25,12 +25,12 @@
       console.log("Ok:");
       const json = await res.json();
       stat = json;
-      updateComunity = stat['autonomous_community'];
+      updateComunity = stat.autonomous_community;
       updateProvince = stat.province;
       updateYear = stat.year;
-      updateSurface = stat['surface'];
-      updateAnnual = stat['annual_variation_percentage'];
-      updateEviction = stat['eviction'];
+      updateSurface = stat.surface;
+      updateAnnual = stat.annual_variation_percentage;
+      updateEviction = stat.eviction;
       console.log("Received stat.");
       
     } else {
