@@ -9,6 +9,7 @@
 	import UnemploymentEdit from "./front-end/Front_Unemployment/Unemployment_Editor.svelte";
 	import RentalsEdit from "./front-end/Front_Rentals/Rentals_Editor.svelte";
 	import Buy_sell from "./front-end/Front_Buy_sell/Buy_sell.svelte";
+	import Buy_sellEdit from "./front-end/Front_Buy_sell/Buy_sell_Editor.svelte";
 	import Info from "./front-end/complementos/info.svelte";
 	const routes = {
 		"/":Init,
@@ -18,6 +19,7 @@
 		"/unemployment": Unemployment,
 		"/unemployment/:autonomous_community/:province/:year":UnemploymentEdit,
 		"/buy_sell": Buy_sell,
+		"/buy_sell/:autonomous_community/:province/:year":Buy_sellEdit,
 		'*': NotFound};
 </script>
 
