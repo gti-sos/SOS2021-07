@@ -130,9 +130,9 @@
         <td><input type="number" placeholder="19.3225" min="1"   bind:value={updateUnempRate} /></td>
         <td><input type="number" placeholder="32.79998" min="1.0" bind:value={updateOcupVariation} /></td>
         <td>
-          <a href="#/unemployment/">
+          
           <Button outline color="primary" on:click={updateStat}>Actualizar</Button>
-        </a></td>
+        </td>
       </tr>
     </tbody>
   </Table>
