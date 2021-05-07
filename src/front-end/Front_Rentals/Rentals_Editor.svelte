@@ -131,9 +131,9 @@
         <td><input type="number" placeholder="10.5" min="1.0" bind:value={updateMeter} /></td>
         <td><input type="number" placeholder="14.8" min="1.0"  bind:value={updateSalary} /></td>
         <td>
-          <a href="#/rentals/">
+          
           <Button outline color="primary" on:click={updateStat}>Actualizar</Button>
-        </a></td>
+        </td>
       </tr>
     </tbody>
   </Table>
