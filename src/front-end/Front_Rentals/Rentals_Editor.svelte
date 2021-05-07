@@ -4,7 +4,6 @@
   import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
 
   const BASE_CONTACT_API_PATH = "/api/v1";
-  const pepe = "#/rentals/"+body.province+"/"+body.year;
   export let params = {};
   let stat = {};
   let updateComunity = "";
@@ -124,19 +123,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><input type="text" placeholder="andalucia" min="1"   bind:value={updateComunity} /></td>
-        <td><input type="text" placeholder="sevilla" min="1"   bind:value={updateProvince} /></td>
-        <td><input type="number" placeholder="2017" min="1"   bind:value={updateYear} /></td>
+        <td>{updateComunity}</td>
+        <td>{updateProvince}</td>
+        <td>{updateYear}</td>
         <td><input type="number" placeholder="500.0" min="1"   bind:value={updateRent} /></td>
         <td><input type="number" placeholder="40.5" min="1"   bind:value={updateRent_V} /></td>
         <td><input type="number" placeholder="10.5" min="1.0" bind:value={updateMeter} /></td>
         <td><input type="number" placeholder="14.8" min="1.0"  bind:value={updateSalary} /></td>
         <td>
           
-          <a href=pepe>
           <Button outline color="primary" on:click={updateStat}>Actualizar</Button>
-        </a></td>
-
+        </td>
       </tr>
     </tbody>
   </Table>
