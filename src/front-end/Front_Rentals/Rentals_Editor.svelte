@@ -85,7 +85,7 @@
           errorMsg = "No se han podido acceder a la base de datos";
         }else if(res.status ===404){
           errorMsg = "No se han encontrado el dato solicitado";
-        }        
+        } else if(res.status ===400){ errorMsg = "Actualizacion incorrecta, se introdujo algun dato mal.";}
         okMsg = "";
         getStat();
         console.log("ERROR!" + errorMsg);
@@ -126,10 +126,10 @@
         <td>{updateComunity}</td>
         <td>{updateProvince}</td>
         <td>{updateYear}</td>
-        <td><input type="number" placeholder="500.0" min="1"   bind:value={updateRent} /></td>
-        <td><input type="number" placeholder="40.5" min="1"   bind:value={updateRent_V} /></td>
-        <td><input type="number" placeholder="10.5" min="1.0" bind:value={updateMeter} /></td>
-        <td><input type="number" placeholder="14.8" min="1.0"  bind:value={updateSalary} /></td>
+        <td><input  placeholder="500.0" min="1"   bind:value={updateRent} /></td>
+        <td><input  placeholder="40.5" min="1"   bind:value={updateRent_V} /></td>
+        <td><input  placeholder="10.5" min="1.0" bind:value={updateMeter} /></td>
+        <td><input  placeholder="14.8" min="1.0"  bind:value={updateSalary} /></td>
         <td>
           
           <Button outline color="primary" on:click={updateStat}>Actualizar</Button>
