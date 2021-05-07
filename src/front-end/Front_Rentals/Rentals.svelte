@@ -362,7 +362,7 @@
         >
         <td
           ><input
-            type="number"
+            
             placeholder="2018"
             min="1900"
             bind:value={newData.year}
@@ -370,7 +370,7 @@
         >
         <td
           ><input
-            type="number"
+            
             placeholder="600.0"
             min="1"
             bind:value={newData["rent"]}
@@ -378,7 +378,7 @@
         >
         <td
           ><input
-            type="number"
+            
             placeholder="6.0"
             min="1.0"
             bind:value={newData["rent_variation"]}
@@ -386,7 +386,7 @@
         >
         <td
           ><input
-            type="number"
+            
             placeholder="100.6"
             min="1.0"
             bind:value={newData["meter"]}
@@ -394,7 +394,7 @@
         >
         <td
           ><input
-            type="number"
+            
             placeholder="42.1"
             min="1.0"
             bind:value={newData["salary"]}
