@@ -147,7 +147,7 @@
   function changePage(page, offset) {
     console.log("------Change page------");
     console.log("Params page: " + page + " offset: " + offset);
-    last_page = Math.ceil(total / 10);
+    last_page = Math.ceil(total / limit);
     console.log("new last page: " + last_page);
     if (page !== current_page) {
       console.log("enter if");
