@@ -21,7 +21,7 @@
   let okMsg = "";
   let errorStatus = 0;
   
-  let fullQuery = "";
+  let fullQuery = ""; 
 
   //Pagination
   let current_offset = 0;
