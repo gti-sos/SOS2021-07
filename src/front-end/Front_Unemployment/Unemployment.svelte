@@ -25,7 +25,7 @@
 
   //Pagination
   let current_offset = 0;
-  let limit = 10;
+  let limit = 2;
 
   let current_page = 1;
   let last_page = 1;
@@ -494,7 +494,7 @@
       <PaginationLink
         previous
         href="#/unemployment"
-        on:click={() => changePage(current_page - 1, current_offset - 10)}
+        on:click={() => changePage(current_page - 1, current_offset - 2)}
       />
     </PaginationItem>
     {#each range(last_page, 1) as page}
@@ -502,16 +502,17 @@
         <PaginationLink
           previous
           href="#/unemployment"
-          on:click={() => changePage(page, (page - 1) * 10)}
-          >{page}</PaginationLink
+          on:click={() => changePage(page, (page - 1) * 2)}
         >
+        {page}
+        </PaginationLink>
       </PaginationItem>
     {/each}
     <PaginationItem class={current_page === last_page ? "disabled" : ""}>
       <PaginationLink
         next
         href="#/unemployment"
-        on:click={() => changePage(current_page + 1, current_offset + 10)}
+        on:click={() => changePage(current_page + 1, current_offset + 2)}
       />
     </PaginationItem>
   </Pagination>
