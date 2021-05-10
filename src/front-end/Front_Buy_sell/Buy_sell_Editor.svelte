@@ -126,9 +126,9 @@
         <td><input type="text" placeholder="" bind:value={updateComunity} /></td>
         <td><input type="text" placeholder="" bind:value={updateProvince} /></td>
         <td><input type="number" placeholder=""   bind:value={updateYear} /></td>
-        <td><input type="number" placeholder=${params.surface}   bind:value={updateSurface} /></td>
-        <td><input type="number" placeholder="12"  bind:value={updateAnnual} /></td>
-        <td><input type="number" placeholder="params.eviction" bind:value={updateEviction} /></td>
+        <td><input type="number" placeholder=${params.year}   bind:value={updateSurface} /></td>
+        <td><input type="number" placeholder="params['annual_variation_percentage']"  bind:value={updateAnnual} /></td>
+        <td><input type="number" placeholder=stat['eviction'] bind:value={updateEviction} /></td>
         <td>
           <a href="#/buy_sell/">
           <Button outline color="primary" on:click={updateStat}>Actualizar</Button>
@@ -152,4 +152,4 @@
     margin: 0 auto;
   }
 </style>
-//
+////
