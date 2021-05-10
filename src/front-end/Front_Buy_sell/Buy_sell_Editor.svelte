@@ -126,7 +126,7 @@
         <td><input type="text" placeholder="" bind:value={updateComunity} /></td>
         <td><input type="text" placeholder="" bind:value={updateProvince} /></td>
         <td><input type="number" placeholder=""   bind:value={updateYear} /></td>
-        <td><input type="number" placeholder={params.surface}   bind:value={updateSurface} /></td>
+        <td><input type="number" placeholder=${params.surface}   bind:value={updateSurface} /></td>
         <td><input type="number" placeholder="12"  bind:value={updateAnnual} /></td>
         <td><input type="number" placeholder="params.eviction" bind:value={updateEviction} /></td>
         <td>
