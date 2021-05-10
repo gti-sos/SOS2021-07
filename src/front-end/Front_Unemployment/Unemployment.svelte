@@ -101,26 +101,28 @@
 
     if (fullQuery != "") {
       const res = await fetch(
-        BASE_CONTACT_API_PATH + "/unemployment/" + fullQuery
+        "/api/v1/unemployment" + fullQuery
       );
       if (res.ok) {
         console.log("OK");
         const json = await res.json();
         rentalsData = json;
-        okMsg="Búsqueda realizada correctamente"
+        error = 0;
       } else {
         rentalsData = [];
         if (res.status === 404) {
           errorMsg = "No se encuentra el dato solicitado";
+          error = 404;
         } else if (res.status === 500) {
           errorMsg = "No se han podido acceder a la base de datos";
+          error = 1000;
         }
         okMsg = "";
         console.log("ERROR!" + errorMsg);
       }
     } else {
       errorMsg = "";
-      okMsg = "Búsqueda realizada correctamente";
+      error = 1005;
       getStats();
     }
   }
@@ -145,7 +147,7 @@
 
     //Cambio de pagina
   function changePage(page, offset) {
-    console.log("------Change page------");
+    console.log("Change page...");
     console.log("Params page: " + page + " offset: " + offset);
     last_page = Math.ceil(total / limit);
     console.log("new last page: " + last_page);
@@ -158,7 +160,7 @@
       console.log("current_page: " + current_page);
       getStats();
     }
-    console.log("---------Exit change page-------");
+    console.log("Exit change page...");
   }
 
   async function getStats() {
@@ -218,7 +220,7 @@
           currentPage = 1;
         }
         errorMsg = "";
-        okMsg = "Operación realizada correctamente";
+        error = 0;
         getStats();
       } else {
         if(res.status==404){
@@ -253,7 +255,7 @@
         console.log("OK");
         getStats();
         errorMsg = "";
-        okMsg = "Operación realizada correctamente";
+        error = 0;
       } else {
         if(res.status===404){
           errorMsg = "No se encuentra el dato a borrar";
@@ -328,6 +330,11 @@
     {:else if error ===1000}
       <UncontrolledAlert  color="danger" >
        Error desconocido.
+      </UncontrolledAlert>
+
+    {:else if error ===1005}
+      <UncontrolledAlert  color="danger" >
+       Búsqueda vacía.
       </UncontrolledAlert>
     {/if}
   
