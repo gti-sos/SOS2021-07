@@ -208,46 +208,39 @@ module.exports.register = (app) => {
         });
     });
 
-    //PUT a un recurso  (actualizar recurso)
-    app.put(BASE_API_PATH + "/buy_sell/:autonomous_community/:province/:year", (req, res) => {
+   //Put al recurso /:autonomous_community/:province/:year
 
-		var newData = req.body;
+    app.put(UNEMPLOYMENT_API_PATH + "/buy_sell/:autonomous_community/:province/:year", (req, res) => {
+        var params = req.params;
+        var newData = req.body;
 
-        var ComunitySelected = req.params.autonomous_community;
-		var ProvinceSelected = req.params.province;
-        var YearSelected = parseInt(req.params.year);
-
-        //Comprobamos los parametros del recurso a insertar
         if (!newData.autonomous_community
             || !newData.province
             || !newData.year
             || !newData['surface']
             || !newData['annual_variation_percentage']
-            || !newData['eviction']
-            || newData.autonomous_community != ComunitySelected
-            || newData.province != ProvinceSelected
-			|| newData.year != YearSelected
-            || Object.keys(newData).length != 6) {
-
-            console.log("Actualizacion de campos no valida")
-            res.sendStatus(400);
+			|| !newData['eviction']
+		   ) {
+            console.log("Data is missing or incorrect.");
+            return res.sendStatus(400);
         } else {
-            db.update({ $and: [{ autonomous_community: ComunitySelected }, { province: ProvinceSelected }, { year: YearSelected }] }, { $set: newData }, {}, function (err, numReplaced) {
-                if (err) {
-                    console.error("ERROR accesing DB in PUT");
+            db.update({ "autonomous_community": params.autonomous_community, "province": params.province, "year": parseInt(params.year) }, newData, (error, data) => {
+                if (error) {
+                    console.error("ERROR accesing DB in GET" + error);
                     res.sendStatus(500);
                 } else {
-                    if (numReplaced == 0) {
+                    if (data.length == 0) {
                         console.error("No data found");
                         res.sendStatus(404);
                     } else {
-                        console.log("Campos actualizados")
+                        console.log("Successful PUT");
                         res.sendStatus(200);
                     }
                 }
             });
         }
     });
+
 
     //POST a un recurso (ERROR)
     app.post(BASE_API_PATH + "/buy_sell/:autonomous_community/:province/:year", (req, res) => {
