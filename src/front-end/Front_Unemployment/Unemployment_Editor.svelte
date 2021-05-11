@@ -89,6 +89,8 @@
           error = 404;
           errorMsg = "No se ha encontrado el dato solicitado";
         }        
+        else if(res.status == 201)
+          error = 0;
         okMsg = "";
         getStat();
         console.log("ERROR!" + errorMsg);
@@ -110,7 +112,8 @@
   </Nav>
 
   <h2>
-    Editar campo <strong>{params.autonomous_community}</strong>
+    Editar campo 
+    <strong>{params.autonomous_community}</strong>
     <strong>{params.province}</strong>
     <strong>{params.year}</strong>
   </h2>
