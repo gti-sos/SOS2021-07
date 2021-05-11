@@ -12,7 +12,7 @@ var db = new Datastore({ filename: datafile, autoload: true});
 //implementation
 module.exports.register = (app) => {
 	
-    //Crea 2 o más recursos.
+    //Crea 2 o mรกs recursos.
     app.get(BASE_API_PATH + "/buy_sell/loadInitialData", (req, res) => {
         
         db.find({ $or: [{ autonomous_community: "cantabria" }, { autonomous_community: "andalucia" }] }, { _id: 0 }, function (err, data) {
@@ -303,3 +303,4 @@ module.exports.register = (app) => {
 
     })
 }
+//
