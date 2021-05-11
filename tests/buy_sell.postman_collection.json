@@ -755,44 +755,6 @@
 			"response": []
 		},
 		{
-			"name": "Prueba del POST a un recurso",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 405\", function () {\r",
-							"    pm.response.to.have.status(405);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "https://sos2021-07.herokuapp.com/api/v2/buy_sell/andalucia/sevilla/2018",
-					"protocol": "https",
-					"host": [
-						"sos2021-07",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"api",
-						"v2",
-						"buy_sell",
-						"andalucia",
-						"sevilla",
-						"2018"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "DELETE todo",
 			"event": [
 				{
