@@ -120,7 +120,7 @@
   async function getNumTotal(fullQuery = "") {
     console.log("Fetching total entries");
     const res = await fetch(
-      BASE_CONTACT_API_PATH + "/buy-sell" + fullQuery
+      BASE_CONTACT_API_PATH + "/buy_sell" + fullQuery
     );
     if (res.ok) {
       const json = await res.json();
@@ -196,7 +196,7 @@
   async function loadStats() {
     console.log("Loading data...");
     const res = await fetch(
-      BASE_CONTACT_API_PATH + "/buy-sell/loadInitialData"
+      BASE_CONTACT_API_PATH + "/buy_sell/loadInitialData"
     ).then(function (res) {
       if (res.ok) {
         getStats();
@@ -222,7 +222,7 @@
     console.log("Fetching data...");
     const res = await fetch(
       BASE_CONTACT_API_PATH +
-        "/buy-sell?limit=" +
+        "/buy_sell?limit=" +
         limit +
         "&offset=" +
         current_offset
@@ -281,7 +281,7 @@
     if (fullQuery != "") {
       const res = await fetch(
         BASE_CONTACT_API_PATH +
-          "/buy-sell/" +
+          "/buy_sell/" +
           fullQuery +
           "&limit=" +
           limit +
@@ -325,7 +325,7 @@
     insertStatInput["annual_variation_percentage"] = parseFloat(insertStatInput["annual_variation_percentage"]);
     insertStatInput["eviction"] = parseFloat(insertStatInput["eviction"]);
     
-    const res = await fetch(BASE_CONTACT_API_PATH + "/buy-sell/", {
+    const res = await fetch(BASE_CONTACT_API_PATH + "/buy_sell/", {
       method: "POST",
       body: JSON.stringify(insertStatInput),
       headers: {
@@ -362,7 +362,7 @@
   async function deleteStat(autonomous_community, province, year) {
     console.log(`Deleting data with name ${autonomous_community} and province ${province} and year ${year}`);
     const res = await fetch(
-      BASE_CONTACT_API_PATH + "/buy-sell/" + autonomous_community + "/" + province + "/" + year,
+      BASE_CONTACT_API_PATH + "/buy_sell/" + autonomous_community + "/" + province + "/" + year,
       {
         method: "DELETE",
       }
@@ -398,7 +398,7 @@
   
    async function deleteAllStats() {
     console.log("Deleting data...");
-    const res = await fetch(BASE_CONTACT_API_PATH + "/buy-sell/", {
+    const res = await fetch(BASE_CONTACT_API_PATH + "/buy_sell/", {
       method: "DELETE",
     }).then(function (res) {
       if (res.ok) {
@@ -613,7 +613,7 @@
             <td>{stat["annual_variation_percentage"]}%</td>
             <td>{stat["eviction"]}</td>
             <td>
-              <a href="#/buy-sell/{stat.autonomous_community}/{stat.province}/{stat.year}">
+              <a href="#/buy_sell/{stat.autonomous_community}/{stat.province}/{stat.year}">
                 <Button color="primary">Editar</Button>
               </a></td
             >
@@ -637,7 +637,7 @@
       <PaginationItem class={current_page === 1 ? "disabled" : ""}>
         <PaginationLink
           previous
-          href="#/buy-sell"
+          href="#/buy_sell"
           on:click={() =>
             changePage(current_page - 1, current_offset - 10, isASearch)}
         />
@@ -646,7 +646,7 @@
         <PaginationItem class={current_page === page ? "active" : ""}>
           <PaginationLink
             previous
-            href="#/buy-sell"
+            href="#/buy_sell"
             on:click={() => changePage(page, (page - 1) * 10, isASearch)}
             >{page}</PaginationLink
           >
@@ -655,7 +655,7 @@
       <PaginationItem class={current_page === last_page ? "disabled" : ""}>
         <PaginationLink
           next
-          href="#/buy-sell"
+          href="#/buy_sell"
           on:click={() =>
             changePage(current_page + 1, current_offset + 10, isASearch)}
         />
