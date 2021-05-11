@@ -317,8 +317,8 @@
   async function insertStat() {
     console.log("Inserting stat: " + JSON.stringify(insertStatInput));
 	
-    //insertStatInput.autonomous_community = insertStatInput.autonomous_community;
-    //insertStatInput.province = insertStatInput.province;
+    insertStatInput.autonomous_community = insertStatInput.autonomous_community;
+    insertStatInput.province = insertStatInput.province;
 	
 	insertStatInput.year = parseInt(insertStatInput.year);
 	insertStatInput["surface"] = parseFloat(insertStatInput["surface"]);
