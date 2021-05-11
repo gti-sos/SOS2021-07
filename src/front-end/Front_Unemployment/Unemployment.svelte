@@ -106,7 +106,7 @@
       if (res.ok) {
         console.log("OK");
         const json = await res.json();
-        rentalsData = json;
+        unemploymentData = json;
         error = 0;
       } else {
         unemploymentData = [];
