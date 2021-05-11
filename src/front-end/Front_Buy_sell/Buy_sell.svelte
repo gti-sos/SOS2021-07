@@ -315,43 +315,34 @@
   // inserta
   
   async function insertStat() {
-    console.log("Inserting stat: " + JSON.stringify(insertStatInput));
-	
-    insertStatInput.autonomous_community = insertStatInput.autonomous_community;
-    insertStatInput.province = insertStatInput.province;
-	
-	insertStatInput.year = parseInt(insertStatInput.year);
-	insertStatInput["surface"] = parseFloat(insertStatInput["surface"]);
-    insertStatInput["annual_variation_percentage"] = parseFloat(insertStatInput["annual_variation_percentage"]);
-    insertStatInput["eviction"] = parseFloat(insertStatInput["eviction"]);
-    
+    console.log("Inserting stat: " + JSON.stringify(newData));
+
+    newData.autonomous_community = newData.autonomous_community;
+	newData.province = newData.province;
+    newData.year = parseInt(newData.year);
+    newData["surface"] = parseFloat(newData["surface"]);
+    newData["annual_variation_percentage"] = parseFloat(newData["annual_variation_percentage"]);
+    newData["eviction"] = parseFloat(newData["eviction"]);
+
     const res = await fetch(BASE_CONTACT_API_PATH + "/buy_sell/", {
       method: "POST",
-      body: JSON.stringify(insertStatInput),
+      body: JSON.stringify(newData),
       headers: {
         "Content-Type": "application/json",
       },
     }).then(function (res) {
       if (res.ok) {
         console.log("OK");
+        getStats();
         errorMsg = "";
-        okMsg = `La entrada ${insertStatInput.autonomous_community} ${insertStatInput.province} ${insertStatInput.year} ha sido insertada correctamente`;
-        resetInputs("insert");
-        if (isASearch) {
-          searchStat();
-        } else {
-          getStats();
-        }
+        okMsg = "Operación realizada correctamente";
       } else {
-        if (res.status === 409) {
-          errorMsg = `${insertStatInput.autonomous_community} ${insertStatInput.province} ${insertStatInput.year} ya se encuentra cargado`;
-        } else if (res.status === 500) {
-          errorMsg = "No se ha podido acceder a la base de datos";
-        } else {
-          errorMsg = "Todos los campos deben estar rellenados correctamente";
-        }
+        if(res.status===409){
+          errorMsg = "conflicto";
+        }else if(res.status ===500){
+          errorMsg = "No se han podido acceder a la base de datos";
+        } else if(res.status ===400){ errorMsg = "Actualizacion incorrecta, se introdujo algun dato mal.";}
         okMsg = "";
-        resetInputs("insert");
         console.log("ERROR!" + errorMsg);
       }
     });
