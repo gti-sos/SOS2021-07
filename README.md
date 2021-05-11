@@ -35,7 +35,7 @@
 <p><a href="https://sos2021-07.herokuapp.com/api/v1/unemployment" target="_blank">API UNEMPLOYMENT</a> (developed by [Alejandro Pariente Migoya](https://github.com/RoundPegInASquareHole))</p>
 <p><a href="https://sos2021-07.herokuapp.com/#/unemployment" target="_blank">API UNEMPLOYMENT FRONT-END</a> (developed by [Alejandro Pariente Migoya](https://github.com/RoundPegInASquareHole))</p>
 
-<p><a href="https://sos2021-07.herokuapp.com/api/v1/buy_sell" target="_blank">API BUY_SELL</a> (developed by [Nuria Escamilla Torres](https://github.com/nuresctor))</p>
+<p><a href="https://sos2021-07.herokuapp.com/api/v2/buy_sell" target="_blank">API BUY_SELL</a> (developed by [Nuria Escamilla Torres](https://github.com/nuresctor))</p>
 <p><a href="https://sos2021-07.herokuapp.com/#/buy_sell" target="_blank">API BUY_SELL FRONT-END</a> (developed by [Nuria Escamilla Torres](https://github.com/nuresctor))</p>
 
 

@@ -25,7 +25,7 @@
 
   //Pagination
   let current_offset = 0;
-  let limit = 2;
+  let limit = 10;
 
   let current_page = 1;
   let last_page = 1;
@@ -56,9 +56,6 @@
     open2 = !open2;
     deleteStats();
   };
-
-  //Alerts
-  let visible = true;
 
   //API
   let unemploymentData = [];
@@ -258,10 +255,14 @@
         error = 0;
       } else {
         if(res.status===404){
-          errorMsg = "No se encuentra el dato a borrar";
+          errorMsg = "No se encuentra el dato a insertar";
+          error = 404;
         }else if(res.status ===500){
           errorMsg = "No se han podido acceder a la base de datos";
-        }        
+        }
+        else if(res.status == 409){
+          error = 409;
+        }    
         okMsg = "";
         console.log("ERROR!" + errorMsg);
       }

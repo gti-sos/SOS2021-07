@@ -38,7 +38,7 @@
   /////////////////////////////// API //////////////////////////////////////////////////////////
   
   let buy_sell_Data = [];
-  const BASE_CONTACT_API_PATH = "/api/v1";
+  const BASE_CONTACT_API_PATH = "/api/v2";
   
   var insertStatInput = {
     autonomous_community: "",

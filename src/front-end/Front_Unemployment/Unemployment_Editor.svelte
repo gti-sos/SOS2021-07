@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
 
-  import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
+  import { Table, Button, Nav, NavItem, NavLink, UncontrolledAlert } from "sveltestrap";
 
   const BASE_API_PATH = "/api/v1";
   export let params = {};
@@ -14,6 +14,7 @@
   let updateOcupVariation = 0.0;
   let errorMsg = "";
   let okMsg = "";
+  let error = null;
   
   async function getStat() {
     console.log("Fetching stat..." + params.autonomous_community + " " + params.province + " " + params.year);
@@ -77,19 +78,24 @@
     ).then(function (res) {
       if (res.ok) {
         console.log("OK");
+        error = 0;
         getStat();
         errorMsg = "";
         okMsg = `${params.autonomous_community} ${params.province} ${params.year} han sido actualizados correctamente`;
       } else {
-         if(res.status ===500){
+         if(res.status == 500){
           errorMsg = "No se ha podido acceder a la base de datos";
-        }else if(res.status ===404){
+        }else if(res.status == 404){
+          error = 404;
           errorMsg = "No se ha encontrado el dato solicitado";
         }        
+        else if(res.status == 201)
+          error = 0;
         okMsg = "";
         getStat();
         console.log("ERROR!" + errorMsg);
       }
+      console.log(okMsg);
     });
 
     
@@ -106,10 +112,12 @@
   </Nav>
 
   <h2>
-    Editar campo <strong>{params.autonomous_community}</strong>
+    Editar campo 
+    <strong>{params.autonomous_community}</strong>
     <strong>{params.province}</strong>
     <strong>{params.year}</strong>
   </h2>
+
   <Table bordered>
     <thead>
       <tr>
@@ -136,12 +144,35 @@
       </tr>
     </tbody>
   </Table>
-  {#if errorMsg}
-    <p style="color: red">ERROR: {errorMsg}</p>
-  {/if}
-  {#if okMsg}
-  <p style="color: green">{okMsg}</p>
-  {/if}
+
+  <!-- Alerts -->
+    {#if error === 0}
+      <UncontrolledAlert  color="success" >
+          Operación realizada correctamente.
+        
+      </UncontrolledAlert>
+    {/if}
+
+    {#if error === 409}
+      <UncontrolledAlert  color="warning" >
+          Los datos ya se encuentran cargados.
+        
+      </UncontrolledAlert>
+    {:else if error === 404}
+      <UncontrolledAlert  color="danger">
+          No se encuentra en la base de datos.
+        
+      </UncontrolledAlert>
+    {:else if error ===1000}
+      <UncontrolledAlert  color="danger" >
+       Error desconocido.
+      </UncontrolledAlert>
+
+    {:else if error ===1005}
+      <UncontrolledAlert  color="danger" >
+       Búsqueda vacía.
+      </UncontrolledAlert>
+    {/if}
 
 </main>
 
