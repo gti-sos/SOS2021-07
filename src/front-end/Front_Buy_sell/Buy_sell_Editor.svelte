@@ -129,7 +129,7 @@
         <td><input type="number" placeholder={updateSurface}   bind:value={updateSurface} /></td>
         <td><input type="number" placeholder=""  bind:value={updateAnnual} /></td>
         <td><input type="number" placeholder="" bind:value={updateEviction} /></td>
-        </td>
+        <td>
           <a href="#/buy_sell/">
           <Button outline color="primary" on:click={updateStat}>Actualizar</Button>
         </a></td>
@@ -152,4 +152,4 @@
     margin: 0 auto;
   }
 </style>
-////
+//
