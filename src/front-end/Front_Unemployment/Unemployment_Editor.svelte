@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
 
-  import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
+  import { Table, Button, Nav, NavItem, NavLink, UncontrolledAlert } from "sveltestrap";
 
   const BASE_API_PATH = "/api/v1";
   export let params = {};
@@ -83,9 +83,9 @@
         errorMsg = "";
         okMsg = `${params.autonomous_community} ${params.province} ${params.year} han sido actualizados correctamente`;
       } else {
-         if(res.status ===500){
+         if(res.status == 500){
           errorMsg = "No se ha podido acceder a la base de datos";
-        }else if(res.status ===404){
+        }else if(res.status == 404){
           error = 404;
           errorMsg = "No se ha encontrado el dato solicitado";
         }        
@@ -118,6 +118,33 @@
     <strong>{params.year}</strong>
   </h2>
 
+  <Table bordered>
+    <thead>
+      <tr>
+        <th> Comunidad Autónoma </th>
+        <th>Tasa de desempleo juvenil </th>
+        <th>Provincia </th>
+        <th>Año </th>
+        <th>Tasa de desempleo	</th>
+        <th>Variación de ocupación </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="text" placeholder="andalucia" min="1"   bind:value={updateComunity} /></td>
+        <td><input type="number" placeholder="52.1912" min="1"   bind:value={updateYouthUnempRate} /></td>
+        <td><input type="text" placeholder="malaga" min="1"   bind:value={updateProvince} /></td>
+        <td><input type="number" placeholder="2020" min="1"   bind:value={updateYear} /></td>
+        <td><input type="number" placeholder="19.3225" min="1"   bind:value={updateUnempRate} /></td>
+        <td><input type="number" placeholder="32.79998" min="1.0" bind:value={updateOcupVariation} /></td>
+        <td>
+          <a href="#/unemployment/">
+          <Button outline color="primary" on:click={updateStat}>Actualizar</Button>
+        </a></td>
+      </tr>
+    </tbody>
+  </Table>
+
   <!-- Alerts -->
     {#if error === 0}
       <UncontrolledAlert  color="success" >
@@ -146,39 +173,6 @@
        Búsqueda vacía.
       </UncontrolledAlert>
     {/if}
-
-  <Table bordered>
-    <thead>
-      <tr>
-        <th> Comunidad Autónoma </th>
-        <th>Tasa de desempleo juvenil </th>
-        <th>Provincia </th>
-        <th>Año </th>
-        <th>Tasa de desempleo	</th>
-        <th>Variación de ocupación </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><input type="text" placeholder="andalucia" min="1"   bind:value={updateComunity} /></td>
-        <td><input type="number" placeholder="52.1912" min="1"   bind:value={updateYouthUnempRate} /></td>
-        <td><input type="text" placeholder="malaga" min="1"   bind:value={updateProvince} /></td>
-        <td><input type="number" placeholder="2020" min="1"   bind:value={updateYear} /></td>
-        <td><input type="number" placeholder="19.3225" min="1"   bind:value={updateUnempRate} /></td>
-        <td><input type="number" placeholder="32.79998" min="1.0" bind:value={updateOcupVariation} /></td>
-        <td>
-          <a href="#/unemployment/">
-          <Button outline color="primary" on:click={updateStat}>Actualizar</Button>
-        </a></td>
-      </tr>
-    </tbody>
-  </Table>
-  {#if errorMsg}
-    <p style="color: red">ERROR: {errorMsg}</p>
-  {/if}
-  {#if okMsg}
-  <p style="color: green">{okMsg}</p>
-  {/if}
 
 </main>
 
