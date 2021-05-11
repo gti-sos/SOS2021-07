@@ -14,8 +14,10 @@
     PaginationLink,
     UncontrolledAlert ,
   } from "sveltestrap";
+  
   import { onMount } from "svelte";
-
+  import { querystring } from "svelte-spa-router";
+  
   //Alertas
   let errorMsg = "";
   let okMsg = "";
