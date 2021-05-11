@@ -336,12 +336,10 @@
         console.log("OK");
         errorMsg = "";
         okMsg = `La entrada ${insertStatInput.autonomous_community} ${insertStatInput.province} ${insertStatInput.year} ha sido insertada correctamente`;
-        resetInputs("insert");
+        getStats();
         if (isASearch) {
           searchStat();
-        } else {
-          getStats();
-        }
+        } 
       } else {
         if (res.status === 409) {
           errorMsg = `${insertStatInput.autonomous_community} ${insertStatInput.province} ${insertStatInput.year} ya se encuentra cargado`;
