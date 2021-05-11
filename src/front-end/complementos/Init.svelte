@@ -126,7 +126,7 @@ import {
           <CardText>
            Compraventa: Datos como la variación anual de la compraventa de viviendas en España o número de deshaucios efectuados entre otros. 
           </CardText>
-          <a href="/api/v1/buy_sell"
+          <a href="/api/v2/buy_sell"
             ><Button color="primary">Backend</Button></a
           >
           <a href="/#/buy_sell"
