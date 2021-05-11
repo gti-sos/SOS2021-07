@@ -252,6 +252,17 @@ module.exports.register = (app) => {
         return res.sendStatus(405);
 
     });
+	
+	//Post al recurso /:autonomous_community => Method Not Allowed
+    app.post(BASE_API_PATH + "/buy_sell/:autonomous_community", (req, res) => {
+        res.sendStatus(405);
+
+    });
+
+    //Post al recurso /:autonomous_community/:province/:year => Method Not Allowed
+    app.post(BASE_API_PATH + "/buy_sell/:autonomous_community/:province/:year", (req, res) => {
+        res.sendStatus(405);
+    });
 
     //DELETE /
     app.delete(BASE_API_PATH + "/buy_sell/:autonomous_community/:province/:year", (req, res) => {
