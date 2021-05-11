@@ -179,7 +179,7 @@
       const json = await res.json();
       rentalsData = json;
       console.log(`We have received ${rentalsData.length} stats.`);
-      okMsg="Pagina Cargada con éxito";
+      okMsg="";
       getNumTotal();
     } else {
       if (rentalsData.length != 0) {
@@ -207,7 +207,7 @@
         okMsg = "Operación realizada correctamente";
       } else {
         if(res.status===404){
-          errorMsg = "No existen datos que borrar";
+          errorMsg = "No existen datos que borrarr";
         }else if(res.status ===500){
           errorMsg = "No se han podido acceder a la base de datos";
         }        
