@@ -210,7 +210,7 @@ module.exports.register = (app) => {
 
    //Put al recurso /:autonomous_community/:province/:year
 
-    app.put(UNEMPLOYMENT_API_PATH + "/buy_sell/:autonomous_community/:province/:year", (req, res) => {
+    app.put(BASE_API_PATH + "/buy_sell/:autonomous_community/:province/:year", (req, res) => {
         var params = req.params;
         var newData = req.body;
 
