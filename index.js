@@ -6,7 +6,7 @@ var path = require("path");
 
 var rentalsAPI = require("./src/back-end/rentalsAPI");
 var unemploymentAPI = require("./src/back-end/unemploymentAPI");
-var buy_sell_API = require("./src/back-end/buy_sell_API");
+var buy_sell_API = require("./src/back-end/buy_sell_API/v2");
 
 var app = express();
 app.use(bodyParser.json());
