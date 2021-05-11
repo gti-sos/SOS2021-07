@@ -18,6 +18,23 @@
   import { onMount } from "svelte";
   import { querystring } from "svelte-spa-router";
   
+  ////////////////////////////////////// Nav /////////////////////////////////////////////////////////////
+
+  //Load
+  let open1 = false;
+  const toggle1 = () => (open1 = !open1);
+  const toggle1P = () => {
+    open1 = !open1;
+    loadStats();
+  };
+  //Delete
+  let open2 = false;
+  const toggle2 = () => (open2 = !open2);
+  const toggle2P = () => {
+    open2 = !open2;
+    deleteStats();
+  };
+  
   //Alertas
   let errorMsg = "";
   let okMsg = "";
@@ -42,22 +59,6 @@
     "eviction": ""
   };
 
-  // Nav
-
-  //Load
-  let open1 = false;
-  const toggle1 = () => (open1 = !open1);
-  const toggle1P = () => {
-    open1 = !open1;
-    loadStats();
-  };
-  //Delete
-  let open2 = false;
-  const toggle2 = () => (open2 = !open2);
-  const toggle2P = () => {
-    open2 = !open2;
-    deleteStats();
-  };
 
   //Alerts
   let visible = true;
