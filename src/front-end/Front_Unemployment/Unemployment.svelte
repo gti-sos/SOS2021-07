@@ -129,7 +129,7 @@
 
     //Total de datos en la BD
   async function getNumTotal() {
-    const res = await fetch(
+    const res = await fetch( 
       "/api/v1/unemployment");
     if (res.ok) {
       const json = await res.json();
