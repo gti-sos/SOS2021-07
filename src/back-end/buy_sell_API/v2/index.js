@@ -294,4 +294,3 @@ module.exports.register = (app) => {
 
     })
 }
-//
