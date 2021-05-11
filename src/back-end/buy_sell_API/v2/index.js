@@ -208,43 +208,43 @@ module.exports.register = (app) => {
         });
     });
 
-  //PUT a un recurso  (actualizar recurso)
-    app.put(BASE_API_PATH + "/buy_sell/:autonomous_community/:province/:year", (req, res) => {
-
-		var newData = req.body;
-
-        var ComunitySelected = req.params.autonomous_community;
-		var ProvinceSelected = req.params.province;
-        var YearSelected = parseInt(req.params.year);
-
-        //Comprobamos los parametros del recurso a insertar
-        if (!newData.autonomous_community
-            || !newData.province
-            || !newData.year
-            || !newData['surface']
-            || !newData['annual_variation_percentage']
-            || !newData['eviction']
-            || Object.keys(newData).length != 6) {
-
-            console.log("Actualizacion de campos no valida")
-            res.sendStatus(400);
-        } else {
-            db.update({ $and: [{ autonomous_community: ComunitySelected }, { province: ProvinceSelected }, { year: YearSelected }] }, { $set: newData }, {}, function (err, numReplaced) {
-                if (err) {
-                    console.error("ERROR accesing DB in PUT");
-                    res.sendStatus(500);
-                } else {
-                    if (numReplaced == 0) {
-                        console.error("No data found");
-                        res.sendStatus(404);
-                    } else {
-                        console.log("Campos actualizados")
-                        res.sendStatus(200);
-                    }
+  app.put(BASE_API_PATH + "/buy_sell/:autonomous_community/:province/:year", (req,res) => {
+    var oldObject = req.params;
+    var newObject = req.body;
+    var autonomous_community_url = req.body.autonomous_community;
+    var province_url = req.body.province;
+    var year_url = parseInt(req.body.year);
+    var surface_url = parseFloat(req.body.surface);
+    var annual_variation_percentage_url = parseFloat(req.body.annual_variation_percentage);
+    var eviction_url = parseFloat(req.body.eviction);
+    
+    if (!newObject.autonomous_community
+        || !newObject.province
+        || !newObject.year
+        || !newObject['surface']  
+        || !newObject['annual_variation_percentage']
+        || !newObject['eviction']
+        || Object.keys(newObject).length != 6) {
+            console.log("invalid update, incorrect or empty data");
+        res.sendStatus(400);
+    } else {
+        
+        db.update({"autonomous_community": oldObject.autonomous_community, "province": oldObject.province, "year": parseInt(oldObject.year)}, newObject, (err, resource) => {
+            if (err) {
+                console.error("ERROR accesing DB: "+ err);
+                res.sendStatus(500);
+            } else{
+                if(resource==0){ 
+                    console.error("No data found");
+                    res.sendStatus(404);
+                }else {
+                    console.log("Put done successfully");
+                    res.sendStatus(200);
                 }
-            });
-        }
-    });
+            }
+        });
+    }
+});
 
     //PUT a la lista de recursos (ERROR)
     app.put(BASE_API_PATH + "/buy_sell", (req, res) => {
