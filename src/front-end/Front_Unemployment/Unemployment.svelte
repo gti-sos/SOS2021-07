@@ -101,7 +101,7 @@
 
     if (fullQuery != "") {
       const res = await fetch(
-        "/api/v1/unemployment" + fullQuery
+        "/api/v1/unemployment/" + fullQuery
       );
       if (res.ok) {
         console.log("OK");
@@ -109,7 +109,7 @@
         rentalsData = json;
         error = 0;
       } else {
-        rentalsData = [];
+        unemploymentData = [];
         if (res.status === 404) {
           errorMsg = "No se encuentra el dato solicitado";
           error = 404;
