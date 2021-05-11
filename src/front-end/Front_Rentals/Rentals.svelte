@@ -270,8 +270,8 @@
         errorMsg = "";
         okMsg = "Operación realizada correctamente";
       } else {
-        if(res.status===404){
-          errorMsg = "No se encuentra el dato a borrar";
+        if(res.status===409){
+          errorMsg = "conflicto";
         }else if(res.status ===500){
           errorMsg = "No se han podido acceder a la base de datos";
         } else if(res.status ===400){ errorMsg = "Actualizacion incorrecta, se introdujo algun dato mal.";}
