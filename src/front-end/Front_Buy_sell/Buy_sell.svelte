@@ -348,7 +348,7 @@
         } else if (res.status === 500) {
           errorMsg = "No se ha podido acceder a la base de datos";
         } else {
-          errorMsg = "Todos los campos deben estar rellenados correctamene";
+          errorMsg = "Todos los campos deben estar rellenados correctamente";
         }
         okMsg = "";
         resetInputs("insert");

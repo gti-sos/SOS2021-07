@@ -7,12 +7,12 @@
   export let params = {};
   
   let stat = {};
-  let updateComunity = "XXXX";
-  let updateProvince = "XXXX";
-  let updateYear = 9999;
-  let updateSurface  = 9999.9;
-  let updateAnnual  = 9999.9;
-  let updateEviction  =9999.9;
+  let updateComunity = "";
+  let updateProvince = "";
+  let updateYear = "";
+  let updateSurface  = "";
+  let updateAnnual  = "";
+  let updateEviction  ="";
   let errorMsg = "";
   let okMsg = "";
   
@@ -20,7 +20,7 @@
     console.log("Fetching stat..." + params.autonomous_community + " " + params.province + " " + params.year);
     const res = await fetch(
       BASE_CONTACT_API_PATH +
-        "/buy-sell/" +
+        "/buy_sell/" +
         params.autonomous_community +
         "/" +
         params.province +
@@ -104,7 +104,7 @@
 <main>
   <Nav>
     <NavItem>
-      <NavLink href="#/buy-sell">Volver</NavLink>
+      <NavLink href="#/buy_sell">Volver</NavLink>
     </NavItem>
   </Nav>
 
