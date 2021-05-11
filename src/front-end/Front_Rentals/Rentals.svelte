@@ -179,7 +179,7 @@
       const json = await res.json();
       rentalsData = json;
       console.log(`We have received ${rentalsData.length} stats.`);
-      errorMsg = "";
+      okMsg="Pagina Cargada con éxito";
       getNumTotal();
     } else {
       if (rentalsData.length != 0) {
