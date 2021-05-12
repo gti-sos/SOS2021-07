@@ -317,13 +317,13 @@
   async function insertStat() {
     console.log("Inserting stat: " + JSON.stringify(insertStatInput));
 	
-    insertStatInput.autonomous_community = insertStatInput.autonomous_community;
-    insertStatInput.province = insertStatInput.province;
+    insertStatInput.autonomous_community = queryStatInput.autonomous_community;
+    insertStatInput.province = queryStatInput.province;
 	
-	insertStatInput.year = parseInt(insertStatInput.year);
-	insertStatInput["surface"] = parseFloat(insertStatInput["surface"]);
-    insertStatInput["annual_variation_percentage"] = parseFloat(insertStatInput["annual_variation_percentage"]);
-    insertStatInput["eviction"] = parseFloat(insertStatInput["eviction"]);
+	insertStatInput.year = parseInt(queryStatInput.year);
+	insertStatInput["surface"] = parseFloat(queryStatInput["surface"]);
+    insertStatInput["annual_variation_percentage"] = parseFloat(queryStatInput["annual_variation_percentage"]);
+    insertStatInput["eviction"] = parseFloat(queryStatInput["eviction"]);
     
     const res = await fetch(BASE_CONTACT_API_PATH + "/buy_sell/", {
       method: "POST",
