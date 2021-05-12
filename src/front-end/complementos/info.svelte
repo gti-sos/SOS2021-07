@@ -117,7 +117,7 @@ import {
           <a href="/#/buy_sell"
             ><Button color="primary">Interfaz</Button></a
           >
-          <a href="https://documenter.getpostman.com/view/14952576/TzJydbQv"
+          <a href="https://documenter.getpostman.com/view/14952576/TzRUA75V"
             ><Button color="info">Documentación Postman</Button></a
           >
         </CardBody>

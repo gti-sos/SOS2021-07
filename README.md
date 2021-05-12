@@ -42,7 +42,7 @@
 <h2>Postman documentations</h2>
 <p><a href="https://documenter.getpostman.com/view/15352819/TzJoE1VM" target="_blank">POSTMAN DOCUMENTATION FOR API UNEMPLOYMENT</a></p>
 <p><a href="https://documenter.getpostman.com/view/14949877/TzJu8wZf" target="_blank">POSTMAN DOCUMENTATION FOR API RENTALS</a></p>
-<p><a href="https://documenter.getpostman.com/view/14952576/TzJoELSU" target="_blank">POSTMAN DOCUMENTATION FOR API BUY_SELL</a></p>
+<p><a href="https://documenter.getpostman.com/view/14952576/TzRUA75V" target="_blank">POSTMAN DOCUMENTATION FOR API BUY_SELL</a></p>
 
     </body>
   </html>
