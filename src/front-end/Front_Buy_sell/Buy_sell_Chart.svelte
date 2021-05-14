@@ -36,7 +36,7 @@ let buy_sell_Chart_eviction_Data = [];
       });
     }
     
-    console.log("BUY SELL Chart DaTa: " + buy_sell_Data);
+    console.log("BUY SELL Chart DaTa: " + buy_sell_Chart_Data);
     Highcharts.chart("container", {
       title: {
         text: "buy sell stats",
@@ -75,15 +75,15 @@ let buy_sell_Chart_eviction_Data = [];
       series: [
         {
           name: "Superficie",
-          data: natalityChartBornData,
+          data: buy_sell_Chart_surface_Data,
         },
         {
           name: "Porcentaje de variación anual (%)",
-          data: natalityChartMenBornData,
+          data: buy_sell_Chart_annual_variation_percentage_Data,
         },
         {
           name: "Desalojo",
-          data: natalityChartWomenBornData,
+          data: buy_sell_Chart_eviction_Data,
         }
         
       ],
