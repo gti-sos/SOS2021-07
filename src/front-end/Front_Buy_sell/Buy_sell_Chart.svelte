@@ -36,7 +36,7 @@ let buy_sell_Chart_eviction_Data = [];
       });
     }
     
-    console.log("BUY SELL Chart DaTa: " + buy_sell_Chart_Data);
+    console.log("BUY SELL Chart DaTa: " + buy_sell_Data);
     Highcharts.chart("container", {
       title: {
         text: "buy sell stats",
