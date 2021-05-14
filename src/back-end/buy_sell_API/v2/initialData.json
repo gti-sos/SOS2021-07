@@ -5,7 +5,7 @@
         "year":2018,
         "surface":1594.97,
         "annual_variation_percentage":9.22,
-        "eviction":2.003
+        "eviction":2003
     },
     {
         "autonomous_community":"comunidad_de_madrid",
@@ -13,7 +13,7 @@
         "year":2020,
         "surface":2357.05,
         "annual_variation_percentage":6.25,
-        "eviction":2.872
+        "eviction":2872
     },
     {
         "autonomous_community":"cataluna",
@@ -21,7 +21,7 @@
         "year":2018,
         "surface":3470.8,
         "annual_variation_percentage":9.35,
-        "eviction":2.381
+        "eviction":2381
     },
 	{
         "autonomous_community":"navarra",
@@ -29,7 +29,7 @@
         "year":2020,
         "surface":1400.22,
         "annual_variation_percentage":10.22,
-        "eviction":1.057
+        "eviction":1057
     },
 	{
         "autonomous_community":"region_de_murcia",
@@ -37,7 +37,7 @@
         "year":2020,
         "surface":876.64,
         "annual_variation_percentage":4.32,
-        "eviction":1.504
+        "eviction":1504
     },
 	{
         "autonomous_community":"andalucia",
@@ -45,7 +45,7 @@
         "year":2018,
         "surface":1496.23,
         "annual_variation_percentage":14.02,
-        "eviction":2.636
+        "eviction":2636
     },
 	{
         "autonomous_community":"cantabria",
@@ -61,7 +61,7 @@
         "year":2017,
         "surface":1169.92,
         "annual_variation_percentage":6.23,
-        "eviction":2.358
+        "eviction":2358
     },
 	{
         "autonomous_community":"andalucia",
@@ -69,6 +69,6 @@
         "year":2017,
         "surface":1250.99,
         "annual_variation_percentage":1.54,
-        "eviction":1.013
+        "eviction":1013
     }
 ]
