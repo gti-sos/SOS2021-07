@@ -429,6 +429,9 @@
     <NavItem>
       <NavLink href="/">Página Principal</NavLink>
     </NavItem>
+	 <NavItem>
+      <NavLink href="/#/buy_sell/buy_sell_Charts">Análiticas</NavLink>
+    </NavItem>
   </Nav>
 
   <h2>COMPRA-VENTA</h2>
