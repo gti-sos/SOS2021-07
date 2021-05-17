@@ -12,6 +12,7 @@
 	import Buy_sellEdit from "./front-end/Front_Buy_sell/Buy_sell_Editor.svelte";
 	import Buy_sell_Chart from "./front-end/Front_Buy_sell/Buy_sell_Chart.svelte";
 	import Rentals_Graphic from "./front-end/Front_Rentals/graficos.svelte";
+	import Unemployment_Chart from "./front-end/Front_Unemployment/Unemployment_Chart.svelte";
 	import Info from "./front-end/complementos/info.svelte";
 	import Grafico_Comun from "./front-end/complementos/Grafico_Comun.svelte";
 
@@ -27,6 +28,7 @@
 		"/buy_sell/:autonomous_community/:province/:year":Buy_sellEdit,
 		"/buy_sell/buy_sell_Charts":Buy_sell_Chart,
 		"/rentals/rentals_graphic":Rentals_Graphic,
+		"/unemployment/unemployment_graphic":Unemployment_Chart,
 		'*': NotFound};
 </script>
 

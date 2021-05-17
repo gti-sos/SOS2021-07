@@ -105,6 +105,11 @@ import {
           <a href="/api/v1/unemployment"
             ><Button color="primary">Backend</Button></a
           >
+
+          <a href="/#/unemployment/unemployment_graphic"
+            ><Button color="primary">Gráfico</Button></a
+          >
+
           <a href="/#/unemployment"
             ><Button color="primary">Interfaz</Button></a
           >
