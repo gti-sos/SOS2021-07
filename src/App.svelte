@@ -23,7 +23,7 @@
 		"/buy_sell": Buy_sell,
 		"/buy_sell/:autonomous_community/:province/:year":Buy_sellEdit,
 		"/buy_sell/buy_sell_Charts":Buy_sell_Chart,
-		"/rentals_graphic":Rentals_Graphic,
+		"/rentals/rentals_graphic":Rentals_Graphic,
 		'*': NotFound};
 </script>
 
