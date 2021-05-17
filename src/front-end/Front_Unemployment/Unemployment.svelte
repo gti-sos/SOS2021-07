@@ -274,10 +274,17 @@
 </script>
 
 <main>
+
   <Nav>
+
     <NavItem>
       <NavLink href="/"><Button color="primary">Volver</Button></NavLink>
     </NavItem>
+
+    <NavItem>
+      <NavLink href="/#/unemployment/unemployment_graphic"><Button color="primary">Gráficos</Button></NavLink>
+    </NavItem>
+
     <NavItem>
       <NavLink href="#" on:click={toggle1}><Button color="primary">Cargar datos inciales</Button></NavLink>
       <Modal isOpen={open1} {toggle1}>
@@ -291,6 +298,7 @@
         </ModalFooter>
       </Modal>
     </NavItem>
+
     <NavItem>
       {#if unemploymentData.length ===0}
       <NavLink disabled href="#" on:click={toggle2}><Button color="primary">Borrar Todo</Button></NavLink>
@@ -306,9 +314,10 @@
       </Modal>
       {/if}
     </NavItem>
-  </Nav>
-  <h2>Datos Desempleo</h2>
 
+  </Nav>
+
+  <h2>Datos Desempleo</h2>
  
   <!-- Alerts -->
     {#if error === 0}
