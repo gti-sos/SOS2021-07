@@ -6,12 +6,12 @@
   
     let Rentals_Data = [];
     let Rentals_Chart_Data = [];
-    //let Buy_Sell_Data = [];
-    //let Buy_Sell_Chart_Data = [];
-    //let Unemployment_Data=[];
-    //let Unemployment_Chart_Data = [];
+    let Buy_Sell_Data = [];
+    let Buy_sell_Chart = [];
+    let Unemployment_Data=[];
+    let Unemployment_Chart = [];
   
-    var years = [];
+    var dates = [];
     let msg = "";
   
     function distinctRecords(MYJSON, prop) {
@@ -24,60 +24,61 @@
       console.log("Fetching data...");
   
       const res = await fetch(BASE_CONTACT_API_PATH_v1 + "/rentals");
-      //const res1 = await fetch(BASE_CONTACT_API_PATH_v2 + "/buy_sell");
-      //const res2 = await fetch(BASE_CONTACT_API_PATH_v1 + "/unemployment");
+      const res1 = await fetch(BASE_CONTACT_API_PATH_v2 + "/buy_sell");
+      const res2 = await fetch(BASE_CONTACT_API_PATH_v2 + "/unemployment");
   
-      if (res.ok && res1.ok /*&& res2.ok */) {
-        /*console.log("procesing Buy Sell data....");
+      if (res.ok && res1.ok && res2.ok) {
+        console.log("procesing Buy Sell data....");
         if (res1.ok) {
           Buy_Sell_Data = await res1.json();
           console.log("RES OK");
           //Quitamos fechas repetidas y las ordenamos
-          var distinctDates1 = distinctRecords(Buy_Sell_Data, "year");
+          var distinctDates1 = distinctRecords(Buy_Sell_Data, "date");
           distinctDates1.sort(function (a, b) {
-            return a.year - b.year;
+            return a.date - b.date;
           });
           distinctDates1.forEach((element) => {
-            years.push(element.year);
-            console.log("years: " + element.year);
+            dates.push(element.date);
+            console.log("dates: " + element.date);
           });
-          console.log("Distinct years: " + year);
+          console.log("Distinct dates: " + dates);
   
           //Sumamos los valores para las fechas iguales
          
-          years.forEach((e) => {
+          dates.forEach((e) => {
             var yAxis = Buy_Sell_Data
-              .filter((d) => d.year === e)
+              .filter((d) => d.date === e)
               .map((dr) => dr["annual_variation_percentage"])
               .reduce((acc, dr) => dr + acc);
             console.log("YAxis: " + yAxis);
-            Buy_Sell_Chart_Data.push(Math.round(yAxis));
+            Buy_sell_Chart.push(Math.round(yAxis));
           });
           msg = "";
-        }*/
+        }
         console.log("procesing Rentals data....");
         if (res.ok) {
           Rentals_Data = await res.json();
           console.log("RES OK");
           //Quitamos fechas repetidas y las ordenamos
-          var distinctDates = distinctRecords(Rentals_Data, "year");
+          var distinctDates = distinctRecords(Rentals_Data, "date");
           distinctDates.sort(function (a, b) {
-            return a.year - b.year;
+            return a.date - b.date;
           });
           distinctDates.forEach((element) => {
-            if (!years.includes(element.year)) {
-              years.push(element.year);
-              console.log("years: " + element.year);
+            if (!dates.includes(element.date)) {
+              dates.push(element.date);
+              console.log("dates: " + element.date);
             }
           });
-          console.log("Distinct years: " + years);
+          console.log("Distinct dates: " + dates);
   
           //Sumamos los valores para las fechas iguales
           
           
-          years.forEach((e) => {
+          
+          dates.forEach((e) => {
             var yAxis = Rentals_Data
-              .filter((d) => d.year === e)
+              .filter((d) => d.date === e)
               .map((nr) => nr["rent_variation"])
               .reduce((acc, nr) => nr + acc,0);
             console.log("YAxis: " + yAxis);
@@ -87,46 +88,46 @@
           msg = "";
         }
   
-       /* if(res2.ok){
+        if(res2.ok){
           Unemployment_Data = await res2.json();
           console.log("RES2 OK");
           //Quitamos fechas repetidas y las ordenamos
-          var distinctDates = distinctRecords(Unemployment_Data, "year");
+          var distinctDates = distinctRecords(Unemployment_Data, "date");
           distinctDates.sort(function (a, b) {
-            return a.year - b.year;
+            return a.date - b.date;
           });
           distinctDates.forEach((element) => {
-            if (!years.includes(element.year)) {
-              years.push(element.year);
-              console.log("years: " + element.year);
+            if (!dates.includes(element.date)) {
+              dates.push(element.date);
+              console.log("dates: " + element.date);
             }
           });
-          console.log("Distinct years: " + year);
+          console.log("Distinct dates: " + dates);
   
           //Sumamos los valores para las fechas iguales         
-          years.forEach((e) => {
+          dates.forEach((e) => {
             var yAxis = Unemployment_Data
               .filter((d) => d.date === e)
               .map((qli) => qli["unemployment_rate"])
               .reduce((acc, qli) => qli + acc,0);
             console.log("YAxis: " + yAxis);
-            Unemployment_Chart_Data.push(Math.round(yAxis));
+            Unemployment_Chart.push(Math.round(yAxis));
             
           });
           msg = "";
-        } */
+        }
       } else {
         console.log("ERROR MSG");
         msg = "Por favor primero cargue los datos en todas las APIs";
       }
   
-      //console.log("Buy Sell Chart DaTa: " + Buy_Sell_Chart_Data);
+      console.log("Buy Sell Chart DaTa: " + Buy_sell_Chart);
       console.log("Rentals Chart DaTa: " + Rentals_Chart_Data);
-      //console.log("Unemployment Chart Data: " + Unemployment_Chart_Data);
+      console.log("Unemployment Chart Data: " + Unemployment_Chart);
   
       Highcharts.chart("container", {
         title: {
-          text: "Alquileres / CompraVenta / Desempleo",
+          text: "Rentals / Buy Sell / Unemployment",
         },
         yAxis: {
           title: {
@@ -137,7 +138,7 @@
           title: {
             text: "Años",
           },
-          categories: years,
+          categories: dates,
         },
         legend: {
           layout: "vertical",
@@ -148,7 +149,7 @@
           {
             labels: [
               {
-                point: "year",
+                point: "date",
                 text: "",
               },
               {
@@ -161,17 +162,17 @@
         ],
         series: [
           {
-            name: "Variación de la renta (%)",
+            name: "Variación Alquileres (%)",
             data: Rentals_Chart_Data,
-          } /*,
+          },
           {
-            name: "Ratio de compraVenta (%)",
-            data: Buy_Sell_Chart_Data,
-          }*/ /* ,
+            name: "Variación Compraventa (%)",
+            data: Buy_sell_Chart,
+          },
           {
-            name: "Ratio desempleo",
-            data: Unemployment_Chart_Data,
-          } */
+            name: "Tasa Desempleo",
+            data: Unemployment_Chart,
+          }
         ],
         responsive: {
           rules: [
@@ -220,7 +221,7 @@
       <figure class="highcharts-figure">
         <div id="container" />
         <p class="highcharts-description">
-          Gráfico que muestra la relación del desempleo y como afecta al alquiler y compraventa de casa/pisos.
+            Gráfico que muestra la relación del desempleo y como afecta al alquiler y compraventa de casa/pisos.
         </p>
       </figure>
     {/if}
