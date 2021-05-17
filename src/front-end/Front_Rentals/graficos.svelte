@@ -33,7 +33,7 @@ let Rentals_Chart_Salary_Data = [];
       });
     }
     
-    console.log("Rentals Chart DaTa: " + Rentals_Chart_Data);
+    console.log("Rentals Graphic DaTa: " + Rentals_Chart_Data);
     Highcharts.chart("container", {
       title: {
         text: "Datos Alquileres",
