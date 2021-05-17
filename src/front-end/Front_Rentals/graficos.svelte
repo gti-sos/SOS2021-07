@@ -20,7 +20,7 @@ let Rentals_Chart_Salary_Data = [];
   
   async function loadChart() {
     console.log("Fetching data...");
-    const res = await fetch(BASE_CONTACT_API_PATH + "/buy_sell");
+    const res = await fetch(BASE_CONTACT_API_PATH + "/rentals");
     buy_sell_Data = await res.json();
     if (res.ok) {
       Rentals_Data.forEach(stat => {
