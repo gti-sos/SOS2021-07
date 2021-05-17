@@ -6,8 +6,8 @@
   
     let Rentals_Data = [];
     let Rentals_Chart_Data = [];
-    let Buy_Sell_Data = [];
-    let Buy_Sell_Chart_Data = [];
+    //let Buy_Sell_Data = [];
+    //let Buy_Sell_Chart_Data = [];
     //let Unemployment_Data=[];
     //let Unemployment_Chart_Data = [];
   
@@ -24,11 +24,11 @@
       console.log("Fetching data...");
   
       const res = await fetch(BASE_CONTACT_API_PATH_v1 + "/rentals");
-      const res1 = await fetch(BASE_CONTACT_API_PATH_v2 + "/buy_sell");
+      //const res1 = await fetch(BASE_CONTACT_API_PATH_v2 + "/buy_sell");
       //const res2 = await fetch(BASE_CONTACT_API_PATH_v1 + "/unemployment");
   
       if (res.ok && res1.ok /*&& res2.ok */) {
-        console.log("procesing Buy Sell data....");
+        /*console.log("procesing Buy Sell data....");
         if (res1.ok) {
           Buy_Sell_Data = await res1.json();
           console.log("RES OK");
@@ -54,7 +54,7 @@
             Buy_Sell_Chart_Data.push(Math.round(yAxis));
           });
           msg = "";
-        }
+        }*/
         console.log("procesing Rentals data....");
         if (res.ok) {
           Rentals_Data = await res.json();
@@ -120,7 +120,7 @@
         msg = "Por favor primero cargue los datos en todas las APIs";
       }
   
-      console.log("Buy Sell Chart DaTa: " + Buy_Sell_Chart_Data);
+      //console.log("Buy Sell Chart DaTa: " + Buy_Sell_Chart_Data);
       console.log("Rentals Chart DaTa: " + Rentals_Chart_Data);
       //console.log("Unemployment Chart Data: " + Unemployment_Chart_Data);
   
@@ -163,11 +163,11 @@
           {
             name: "Variación de la renta (%)",
             data: Rentals_Chart_Data,
-          },
+          } /*,
           {
             name: "Ratio de compraVenta (%)",
             data: Buy_Sell_Chart_Data,
-          } /* ,
+          }*/ /* ,
           {
             name: "Ratio desempleo",
             data: Unemployment_Chart_Data,
