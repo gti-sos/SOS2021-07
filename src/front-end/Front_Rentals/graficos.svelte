@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
-  const BASE_CONTACT_API_PATH = "/api/v2";
+  const BASE_CONTACT_API_PATH = "/api/v1";
 let Rentals_Data = [];
 let Rentals_Chart_Data = [];
 let Rentals_Chart_ProvinceYear_Data = [];
