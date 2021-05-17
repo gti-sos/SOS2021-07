@@ -11,6 +11,7 @@
 	import Buy_sell from "./front-end/Front_Buy_sell/Buy_sell.svelte";
 	import Buy_sellEdit from "./front-end/Front_Buy_sell/Buy_sell_Editor.svelte";
 	import Buy_sell_Chart from "./front-end/Front_Buy_sell/Buy_sell_Chart.svelte";
+	import Rentals_Graphic from "./front-end/Front_Rentals/graficos.svelte";
 	import Info from "./front-end/complementos/info.svelte";
 	const routes = {
 		"/":Init,
@@ -22,6 +23,7 @@
 		"/buy_sell": Buy_sell,
 		"/buy_sell/:autonomous_community/:province/:year":Buy_sellEdit,
 		"/buy_sell/buy_sell_Charts":Buy_sell_Chart,
+		"/rentals_graphic":Rentals_Graphic,
 		'*': NotFound};
 </script>
 
