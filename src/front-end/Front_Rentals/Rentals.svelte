@@ -291,7 +291,7 @@
       <NavLink href="/"><Button color="primary">Volver</Button></NavLink>
     </NavItem>
     <NavItem>
-      <NavLink href="/rentals_graphic"><Button color="primary">Gráficos</Button></NavLink>
+      <NavLink href="/#/rentals/rentals_graphic"><Button color="primary">Gráficos</Button></NavLink>
     </NavItem>
     <NavItem>
       <NavLink href="#" on:click={toggle1}><Button color="primary">Cargar datos inciales</Button></NavLink>

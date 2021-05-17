@@ -73,7 +73,7 @@ import {
           <a href="/api/v1/rentals"
             ><Button color="primary">Backend</Button></a
           >
-          <a href="/rentals_graphic"
+          <a href="/#/rentals/rentals_graphic"
             ><Button color="primary">Gráfico</Button></a
           >
           <a href="/#/rentals"
