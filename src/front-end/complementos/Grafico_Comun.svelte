@@ -25,7 +25,7 @@
   
       const res = await fetch(BASE_CONTACT_API_PATH_v1 + "/rentals");
       const res1 = await fetch(BASE_CONTACT_API_PATH_v2 + "/buy_sell");
-      const res2 = await fetch(BASE_CONTACT_API_PATH_v2 + "/unemployment");
+      const res2 = await fetch(BASE_CONTACT_API_PATH_v1 + "/unemployment");
   
       if (res.ok && res1.ok && res2.ok) {
         console.log("procesing Buy Sell data....");
