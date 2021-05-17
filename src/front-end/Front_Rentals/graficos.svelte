@@ -118,10 +118,10 @@ let Rentals_Chart_Salary_Data = [];
 <main>
   <Nav>
     <NavItem>
-      <NavLink href="/">Página Principal</NavLink>
+      <NavLink href="/"><Button color="primary">Página Inicial</Button></NavLink>
     </NavItem>
     <NavItem>
-      <NavLink href="#/rentals">Datos</NavLink>
+      <NavLink href="/#/rentals/rentals_graphic"><Button color="primary">Datos</Button></NavLink>
     </NavItem>
   </Nav>
 
