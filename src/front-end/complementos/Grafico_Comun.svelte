@@ -33,13 +33,13 @@
           Buy_Sell_Data = await res1.json();
           console.log("RES OK");
           //Quitamos fechas repetidas y las ordenamos
-          var distinctDates1 = distinctRecords(Buy_Sell_Data, "date");
+          var distinctDates1 = distinctRecords(Buy_Sell_Data, "year");
           distinctDates1.sort(function (a, b) {
-            return a.date - b.date;
+            return a.year - b.year;
           });
           distinctDates1.forEach((element) => {
-            dates.push(element.date);
-            console.log("dates: " + element.date);
+            dates.push(element.year);
+            console.log("dates: " + element.year);
           });
           console.log("Distinct dates: " + dates);
   
@@ -47,7 +47,7 @@
          
           dates.forEach((e) => {
             var yAxis = Buy_Sell_Data
-              .filter((d) => d.date === e)
+              .filter((d) => d.year === e)
               .map((dr) => dr["annual_variation_percentage"])
               .reduce((acc, dr) => dr + acc);
             console.log("YAxis: " + yAxis);
@@ -60,14 +60,14 @@
           Rentals_Data = await res.json();
           console.log("RES OK");
           //Quitamos fechas repetidas y las ordenamos
-          var distinctDates = distinctRecords(Rentals_Data, "date");
+          var distinctDates = distinctRecords(Rentals_Data, "year");
           distinctDates.sort(function (a, b) {
-            return a.date - b.date;
+            return a.year - b.year;
           });
           distinctDates.forEach((element) => {
-            if (!dates.includes(element.date)) {
-              dates.push(element.date);
-              console.log("dates: " + element.date);
+            if (!dates.includes(element.year)) {
+              dates.push(element.year);
+              console.log("dates: " + element.year);
             }
           });
           console.log("Distinct dates: " + dates);
@@ -78,7 +78,7 @@
           
           dates.forEach((e) => {
             var yAxis = Rentals_Data
-              .filter((d) => d.date === e)
+              .filter((d) => d.year === e)
               .map((nr) => nr["rent_variation"])
               .reduce((acc, nr) => nr + acc,0);
             console.log("YAxis: " + yAxis);
@@ -92,14 +92,14 @@
           Unemployment_Data = await res2.json();
           console.log("RES2 OK");
           //Quitamos fechas repetidas y las ordenamos
-          var distinctDates = distinctRecords(Unemployment_Data, "date");
+          var distinctDates = distinctRecords(Unemployment_Data, "year");
           distinctDates.sort(function (a, b) {
-            return a.date - b.date;
+            return a.year - b.year;
           });
           distinctDates.forEach((element) => {
-            if (!dates.includes(element.date)) {
-              dates.push(element.date);
-              console.log("dates: " + element.date);
+            if (!dates.includes(element.year)) {
+              dates.push(element.year);
+              console.log("dates: " + element.year);
             }
           });
           console.log("Distinct dates: " + dates);
@@ -107,7 +107,7 @@
           //Sumamos los valores para las fechas iguales         
           dates.forEach((e) => {
             var yAxis = Unemployment_Data
-              .filter((d) => d.date === e)
+              .filter((d) => d.year === e)
               .map((qli) => qli["unemployment_rate"])
               .reduce((acc, qli) => qli + acc,0);
             console.log("YAxis: " + yAxis);
@@ -149,7 +149,7 @@
           {
             labels: [
               {
-                point: "date",
+                point: "year",
                 text: "",
               },
               {
