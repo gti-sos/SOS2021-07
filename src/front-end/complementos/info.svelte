@@ -120,7 +120,7 @@ import {
 		  <a href="/#/buy_sell/buy_sell_Charts"
             ><Button color="info">Analíticas</Button></a
           >
-          <a href="https://documenter.getpostman.com/view/14952576/TzJoELSU"
+          <a href="https://documenter.getpostman.com/view/14952576/TzJydbQv"
             ><Button color="info">Documentación Postman v1</Button></a
           >
 		  <a href="https://documenter.getpostman.com/view/14952576/TzRUA75V"
