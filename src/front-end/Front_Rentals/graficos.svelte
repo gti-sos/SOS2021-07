@@ -21,11 +21,11 @@ let Rentals_Chart_Salary_Data = [];
   async function loadChart() {
     console.log("Fetching data...");
     const res = await fetch(BASE_CONTACT_API_PATH + "/rentals");
-    buy_sell_Data = await res.json();
+    Rentals_Data = await res.json();
     if (res.ok) {
       Rentals_Data.forEach(stat => {
       
-	  Rentals_Chart_ProvinceYear_Data.push(stat.province+"-"+stat.year);
+	  Rentals_Chart_ProvinceYear_Data.push(stat.autonomous_community+"-"+stat.province+"-"+stat.year);
       Rentals_Chart_Rent_Data.push(stat["rent"]);
       Rentals_Chart_Variation_Rent_Data.push(stat["rent_variation"]);
       Rentals_Chart_Meter_Data.push(stat["meter"]);
