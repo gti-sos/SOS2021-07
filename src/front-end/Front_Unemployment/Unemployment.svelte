@@ -282,7 +282,7 @@
     </NavItem>
 
     <NavItem>
-      <NavLink href="/#/unemployment/unemployment_graphic"><Button color="primary">Gráficos</Button></NavLink>
+      <NavLink href="/#/unemployment/unemployment_graphic"><Button color="primary">Gráfico</Button></NavLink>
     </NavItem>
 
     <NavItem>

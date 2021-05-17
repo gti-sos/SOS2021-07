@@ -115,7 +115,7 @@ let Uneployment_Chart_Occupation_Variation_Data = [];
       <NavLink href="/"><Button color="primary">Página Inicial</Button></NavLink>
     </NavItem>
     <NavItem>
-      <NavLink href="/#/unemployment/unemployment_graphic"><Button color="primary">Datos</Button></NavLink>
+      <NavLink href="/#/unemployment"><Button color="primary">Datos</Button></NavLink>
     </NavItem>
   </Nav>
 

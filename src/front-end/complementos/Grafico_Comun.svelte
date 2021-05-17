@@ -108,7 +108,7 @@
           dates.forEach((e) => {
             var yAxis = Unemployment_Data
               .filter((d) => d.year === e)
-              .map((qli) => qli["unemployment_rate"])
+              .map((qli) => qli["occupation_variation"])
               .reduce((acc, qli) => qli + acc,0);
             console.log("YAxis: " + yAxis);
             Unemployment_Chart.push(Math.round(yAxis));
@@ -127,7 +127,7 @@
   
       Highcharts.chart("container", {
         title: {
-          text: "Rentals / Buy Sell / Unemployment",
+          text: "Alquileres / Compraventa / Desempleo",
         },
         yAxis: {
           title: {
@@ -170,7 +170,7 @@
             data: Buy_sell_Chart,
           },
           {
-            name: "Tasa Desempleo",
+            name: "Variación Ocupación (%)",
             data: Unemployment_Chart,
           }
         ],
