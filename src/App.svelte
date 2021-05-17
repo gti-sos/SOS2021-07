@@ -13,9 +13,12 @@
 	import Buy_sell_Chart from "./front-end/Front_Buy_sell/Buy_sell_Chart.svelte";
 	import Rentals_Graphic from "./front-end/Front_Rentals/graficos.svelte";
 	import Info from "./front-end/complementos/info.svelte";
+	import Grafico_Comun from "./front-end/complementos/Grafico_Comun.svelte";
+
 	const routes = {
 		"/":Init,
 		"/info": Info,
+		"/common-graphic":Grafico_Comun,
 		"/rentals": Rentals,
 		"/rentals/:province/:year":RentalsEdit,
 		"/unemployment": Unemployment,
