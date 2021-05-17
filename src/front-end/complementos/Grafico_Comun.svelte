@@ -21,7 +21,7 @@
     }
   
     async function loadChart() {
-      console.log("Fetching data...");
+      console.log("Fetching data....");
   
       const res = await fetch(BASE_CONTACT_API_PATH_v1 + "/rentals");
       const res1 = await fetch(BASE_CONTACT_API_PATH_v2 + "/buy_sell");
