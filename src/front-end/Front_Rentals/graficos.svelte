@@ -45,7 +45,7 @@ let Rentals_Chart_Salary_Data = [];
       },
       xAxis: {
         title: {
-          text: "Provincia-Años",
+          text: "Provincia-Año",
         },
         categories: Rentals_Chart_ProvinceYear_Data,
       },
