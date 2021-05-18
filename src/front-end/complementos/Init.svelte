@@ -141,8 +141,14 @@ import {
           <a href="/#/buy_sell"
             ><Button color="primary">Interfaz</Button></a
           >
-          <a href="https://documenter.getpostman.com/view/14952576/TzRUA75V"
-            ><Button color="info">Documentación Postman</Button></a
+		  <a href="/#/buy_sell/buy_sell_Charts"
+            ><Button color="info">Analíticas</Button></a
+          >
+          <a href="https://documenter.getpostman.com/view/14952576/TzJydbQv"
+            ><Button color="info">Documentación Postman v1</Button></a
+          >
+		  <a href="https://documenter.getpostman.com/view/14952576/TzRUA75V"
+            ><Button color="info">Documentación Postman v2</Button></a
           >
         </CardBody>
         <CardFooter
