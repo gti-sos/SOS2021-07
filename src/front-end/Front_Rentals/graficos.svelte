@@ -10,9 +10,9 @@
         const resData = await fetch(BASE_CONTACT_API_PATH + "/rentals");
         MyData = await resData.json();
         MyData.forEach( (x) => {
-                console.log("AQUI: "+x+" , "+ x.autonomous_community+ ", "+ x.province);
-                MyDataGraph.push({name: x.autonomous_community+", "+x.province + " (" + x.year + ") ", data: 
-                [parseFloat(x.rent), parseFloat(x.rent_variation), parseFloat(x.meter),parseFloat(x.salary)]});
+               
+                MyDataGraph.push({name: x.autonomous_community+", "+x.province + " (" + x.year + ") ", 
+                data: [parseFloat(x.rent), parseFloat(x.rent_variation), parseFloat(x.meter),parseFloat(x.salary)]});
             });
             Highcharts.chart('container', {
         chart: {
@@ -32,7 +32,7 @@
         },
         yAxis: {
             min: -2,
-            max: 150,
+            max: 1000,
             title: {
                     text: 'Valor'
             }
