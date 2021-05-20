@@ -1,209 +1,125 @@
 <script>
-  import { onMount } from "svelte";
-  import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
-  const BASE_CONTACT_API_PATH = "/api/v1";
-let Rentals_Data = [];
-let Rentals_Chart_Data = [];
-let Rentals_Chart_ProvinceYear_Data = [];
-let Rentals_Chart_Rent_Data = [];
-let Rentals_Chart_Variation_Rent_Data = [];
-let Rentals_Chart_Meter_Data = [];
-let Rentals_Chart_Salary_Data = [];
-  let errorMsg = "";
-  let okMsg = "";
-  
-  function distinctRecords(MYJSON, prop) {
-    return MYJSON.filter((obj, pos, arr) => {
-      return arr.map((mapObj) => mapObj[prop]).indexOf(obj[prop]) === pos;
+    import { onMount } from "svelte";
+    import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
+    const BASE_CONTACT_API_PATH = "/api/v1";
+    async function loadGraph() {
+        
+        let MyData = [];
+        let MyDataGraph = [];
+        
+        const resData = await fetch(BASE_CONTACT_API_PATH + "/rentals");
+        MyData = await resData.json();
+        MyData.forEach( (x) => {
+                MyDataGraph.push({name: x.Comunity+", "+x.Province + " (" + x.year + ") ", data: 
+                [parseFloat(x.rent), parseFloat(x.rent_variation), parseFloat(x.meter),parseFloat(x.salary)]});
+            });
+            Highcharts.chart('container', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Alquileres'
+        },
+        xAxis: {
+            categories: [
+                "Renta",
+                "Variación",
+                "Metros",
+                "Salarios"
+            ],
+            crosshair: true
+        },
+        yAxis: {
+            min: -2,
+            max: 85,
+            title: {
+                    text: 'Valor'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.1,
+                borderWidth: 0
+            }
+        },
+        series: MyDataGraph
     });
-  }
-  
-  async function loadChart() {
-    console.log("Fetching data...");
-    const res = await fetch(BASE_CONTACT_API_PATH + "/rentals");
-    Rentals_Data = await res.json();
-    if (res.ok) {
-      Rentals_Data.forEach(stat => {
-      
-	  Rentals_Chart_ProvinceYear_Data.push(stat.autonomous_community+"-"+stat.province+"-"+stat.year);
-      Rentals_Chart_Rent_Data.push(stat["rent"]);
-      Rentals_Chart_Variation_Rent_Data.push(stat["rent_variation"]);
-      Rentals_Chart_Meter_Data.push(stat["meter"]);
-      Rentals_Chart_Salary_Data.push(stat["salary"]);
-      });
     }
+    loadGraph();
+    </script>
     
-    console.log("Rentals Graphic DaTa: " + Rentals_Chart_Data);
-    Highcharts.chart("container", {
-      title: {
-        text: "Datos Alquileres",
-      },
-      yAxis: {
-        title: {
-          text: "Valor",
-        },
-      },
-      xAxis: {
-        title: {
-          text: "Comunidad-Provincia-Año",
-        },
-        categories: Rentals_Chart_ProvinceYear_Data,
-      },
-      legend: {
-        layout: "vertical",
-        align: "right",
-        verticalAlign: "middle",
-      },
-      annotations: [
-        {
-          labels: [
-            {
-              point: "date",
-              text: "",
-            },
-            {
-              point: "min",
-              text: "Min",
-              backgroundColor: "white",
-            },
-          ],
-        },
-      ],
-      series: [
-        {
-          name: "Renta",
-          data: Rentals_Chart_Rent_Data,
-        },
-        {
-          name: "Variación de la Renta (%)",
-          data: Rentals_Chart_Variation_Rent_Data,
-        },
-        {
-          name: "Metros",
-          data: Rentals_Chart_Meter_Data,
-        },{
-          name: "Salario",
-          data: Rentals_Chart_Salary_Data,
+    <svelte:head>
+        <script src="https://code.highcharts.com/highcharts.js" on:load="{loadGraph}"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js" on:load="{loadGraph}"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js" on:load="{loadGraph}"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>
+        
+    </svelte:head>
+    
+    <body style="background-color:#082EFF;">
+    </body>
+    
+    <main>
+        <Nav>
+            <NavItem>
+              <NavLink href="/"><Button color="primary">Página Inicial</Button></NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/#/rentals"><Button color="primary">Datos</Button></NavLink>
+            </NavItem>
+        </Nav>
+        
+        <figure class="highcharts-figure">
+            <div id="container"></div>
+            <p class="highcharts-description">
+                El grafico nos muestra distintos datos sobre la renta en España
+            </p>
+        </figure>
+    
+    </main>
+    <style>
+        #container {
+            height: 400px;
+        }
+        .highcharts-figure, .highcharts-data-table table {
+            min-width: 310px; 
+            max-width: 800px;
+            margin: 1em auto;
         }
         
-      ],
-      responsive: {
-        rules: [
-          {
-            condition: {
-              maxWidth: 500,
-            },
-            chartOptions: {
-              legend: {
-                layout: "horizontal",
-                align: "center",
-                verticalAlign: "bottom",
-              },
-            },
-          },
-        ],
-      },
-    });
-  }
-</script>
-<svelte:head>
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="https://code.highcharts.com/modules/series-label.js"></script>
-  <script src="https://code.highcharts.com/modules/exporting.js"></script>
-  <script src="https://code.highcharts.com/modules/export-data.js"></script>
-  <script
-    src="https://code.highcharts.com/modules/accessibility.js"
-    on:load={loadChart}></script>
-</svelte:head>
-<main>
-  <Nav>
-    <NavItem>
-      <NavLink href="/"><Button color="primary">Página Inicial</Button></NavLink>
-    </NavItem>
-    <NavItem>
-      <NavLink href="/#/rentals"><Button color="primary">Datos</Button></NavLink>
-    </NavItem>
-  </Nav>
-
-  <div>
-    <h2>
-      Análiticas
-    </h2>
-  </div>
-
-  <div>
-    {#if errorMsg}
-      <p class="msgRed" style="color: #9d1c24">ERROR: {errorMsg}</p>
-    {/if}
-    {#if okMsg}
-      <p class="msgGreen" style="color: #155724">{okMsg}</p>
-    {/if}
-  </div>
-
-  <div>
-    <figure class="highcharts-figure">
-      <div id="container" />
-      <p class="highcharts-description">
-        Gráfico de líneas básico que muestra los diferentes valores para los campos de Alquileres.
-      </p>
-    </figure>
-  </div>
-</main>
-
-<style>
-  main {
-    text-align: center;
-    padding: 1em;
-    margin: 0 auto;
-  }
-  div{
-    margin-bottom: 15px;
-  }
-  p {
-    display: inline;
-  }
-  .msgRed {
-    padding: 8px;
-    background-color: #f8d7da;
-  }
-  .msgGreen {
-    padding: 8px;
-    background-color: #d4edda;
-  }
-  .highcharts-figure,
-  .highcharts-data-table table {
-    min-width: 360px;
-    max-width: 800px;
-    margin: 1em auto;
-  }
-  .highcharts-data-table table {
-    font-family: Verdana, sans-serif;
-    border-collapse: collapse;
-    border: 1px solid #ebebeb;
-    margin: 10px auto;
-    text-align: center;
-    width: 100%;
-    max-width: 500px;
-  }
-  .highcharts-data-table caption {
-    padding: 1em 0;
-    font-size: 1.2em;
-    color: #555;
-  }
-  .highcharts-data-table th {
-    font-weight: 600;
-    padding: 0.5em;
-  }
-  .highcharts-data-table td,
-  .highcharts-data-table th,
-  .highcharts-data-table caption {
-    padding: 0.5em;
-  }
-  .highcharts-data-table thead tr,
-  .highcharts-data-table tr:nth-child(even) {
-    background: #f8f8f8;
-  }
-  .highcharts-data-table tr:hover {
-    background: #f1f7ff;
-  }
-</style>
+        .highcharts-data-table table {
+            font-family: Verdana, sans-serif;
+            border-collapse: collapse;
+            border: 1px solid rgb(235, 235, 235);
+            margin: 10px auto;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+        .highcharts-data-table caption {
+            padding: 1em 0;
+            font-size: 1.2em;
+            color: #555;
+        }
+        .highcharts-data-table th {
+            font-weight: 600;
+            padding: 0.5em;
+        }
+        .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+            padding: 0.5em;
+        }
+        .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+            background: #f8f8f8;
+        }
+        .highcharts-data-table tr:hover {
+            background: #f1f7ff;
+        }
+    </style>
