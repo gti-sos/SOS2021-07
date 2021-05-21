@@ -77,10 +77,6 @@
                   method: 'restyle',
                   args: ['visible', [false, false, true, false, false]],
                   label: 'Metros'
-              }, {
-                  method: 'restyle',
-                  args: ['visible', [false, false, false, true, true]],
-                  label: 'Salario'
               }]
           }],
       });
