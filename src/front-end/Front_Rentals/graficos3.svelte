@@ -41,7 +41,7 @@
                       color: 'red'
                   },
                   visible: i === 0,
-                  name: 'Metrosss',
+                  name: 'Metros',
               };
           }else if (i == 3) {
               return {
@@ -79,7 +79,7 @@
                   label: 'Metros'
               }, {
                   method: 'restyle',
-                  args: ['visible', [false, false, true, false]],
+                  args: ['visible', [false, false, false, true]],
                   label: 'Salario'
               }]
           }],
