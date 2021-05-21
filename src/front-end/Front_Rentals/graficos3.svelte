@@ -75,8 +75,12 @@
                   label: 'Variacion'
               }, {
                   method: 'restyle',
-                  args: ['visible', [false, false, false, true, false]],
+                  args: ['visible', [false, false, true, false, false]],
                   label: 'Metros'
+              },{
+                  method: 'restyle',
+                  args: ['visible', [false, false, false, true, false]],
+                  label: 'Salario'
               }]
           }],
       });
