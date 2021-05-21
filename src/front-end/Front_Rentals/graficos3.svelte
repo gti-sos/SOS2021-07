@@ -67,19 +67,19 @@
               yanchor: 'top',
               buttons: [{
                   method: 'restyle',
-                  args: ['visible', [true, false, false, false]],
+                  args: ['visible', [true, false, false, false, false]],
                   label: 'Renta'
               }, {
                   method: 'restyle',
-                  args: ['visible', [false, true, false, false]],
+                  args: ['visible', [false, true, false, false, false]],
                   label: 'Variacion'
               }, {
                   method: 'restyle',
-                  args: ['visible', [false, false, true, false]],
+                  args: ['visible', [false, false, true, false, false]],
                   label: 'Metros'
               }, {
                   method: 'restyle',
-                  args: ['visible', [false, false, false, true]],
+                  args: ['visible', [false, false, false, true,false]],
                   label: 'Salario'
               }]
           }],
