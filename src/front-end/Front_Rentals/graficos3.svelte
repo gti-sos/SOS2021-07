@@ -4,7 +4,7 @@
   async function loadGraph() {
       const res = await fetch("api/v1/rentals");
       let datos = await res.json();
-      let comunidad = datos.filter((datos)=> datos.year).map((datos) => datos.autonomous_community +", "+datos.province);
+      let comunidad = datos.filter((datos)=> datos.year).map((datos) => datos.autonomous_community +", "+datos.province+ "("+datos.year+")");
       let Renta = datos.filter((datos) => datos.year).map((datos) => datos.rent);
       let Variacion = datos.filter((datos) => datos.year).map((datos) => datos.rent_variation);
       let Metros = datos.filter((datos) => datos.year).map((datos) => datos.meter);
