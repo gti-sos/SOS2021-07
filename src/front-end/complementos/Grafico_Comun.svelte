@@ -1,274 +1,109 @@
 <script>
-    import { Button, Nav, NavItem, NavLink } from "sveltestrap";
-  
-    const BASE_CONTACT_API_PATH_v1 = "/api/v1";
-    const BASE_CONTACT_API_PATH_v2 = "/api/v2";
-  
-    let Rentals_Data = [];
-    let Rentals_Chart_Data = [];
-    let Buy_Sell_Data = [];
-    let Buy_sell_Chart = [];
-    let Unemployment_Data=[];
-    let Unemployment_Chart = [];
-  
-    var dates = [];
-    let msg = "";
-  
-    function distinctRecords(MYJSON, prop) {
-      return MYJSON.filter((obj, pos, arr) => {
-        return arr.map((mapObj) => mapObj[prop]).indexOf(obj[prop]) === pos;
+  import { onMount } from "svelte";
+  import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
+  async function loadGraph() {
+      const rentalsData = await fetch("/api/v1/rentals");
+      const buy_sellData = await fetch("/api/v2/buy_sell");
+      const unemploymentData = await fetch("/api/v1/unemployment");
+      let Data = await rentalsData.json();
+      let Data1 = await buy_sellData.json();
+      let Data2 = await unemploymentData.json();
+      let data_rentals = Data.map((x) => {
+          let res = {
+              name: x.autonomous_community+", "+ x.province + " - " + x.year,
+              value: x["rent_variation"]
+          };
+          return res;
       });
-    }
-  
-    async function loadChart() {
-      console.log("Fetching data....");
-  
-      const res = await fetch(BASE_CONTACT_API_PATH_v1 + "/rentals");
-      const res1 = await fetch(BASE_CONTACT_API_PATH_v2 + "/buy_sell");
-      const res2 = await fetch(BASE_CONTACT_API_PATH_v1 + "/unemployment");
-  
-      if (res.ok && res1.ok && res2.ok) {
-        console.log("procesing Buy Sell data....");
-        if (res1.ok) {
-          Buy_Sell_Data = await res1.json();
-          console.log("RES OK");
-          //Quitamos fechas repetidas y las ordenamos
-          var distinctDates1 = distinctRecords(Buy_Sell_Data, "year");
-          distinctDates1.sort(function (a, b) {
-            return a.year - b.year;
-          });
-          distinctDates1.forEach((element) => {
-            dates.push(element.year);
-            console.log("dates: " + element.year);
-          });
-          console.log("Distinct dates: " + dates);
-  
-          //Sumamos los valores para las fechas iguales
-         
-          dates.forEach((e) => {
-            var yAxis = Buy_Sell_Data
-              .filter((d) => d.year === e)
-              .map((dr) => dr["annual_variation_percentage"])
-              .reduce((acc, dr) => dr + acc);
-            console.log("YAxis: " + yAxis);
-            Buy_sell_Chart.push(Math.round(yAxis));
-          });
-          msg = "";
-        }
-        console.log("procesing Rentals data....");
-        if (res.ok) {
-          Rentals_Data = await res.json();
-          console.log("RES OK");
-          //Quitamos fechas repetidas y las ordenamos
-          var distinctDates = distinctRecords(Rentals_Data, "year");
-          distinctDates.sort(function (a, b) {
-            return a.year - b.year;
-          });
-          distinctDates.forEach((element) => {
-            if (!dates.includes(element.year)) {
-              dates.push(element.year);
-              console.log("dates: " + element.year);
-            }
-          });
-          console.log("Distinct dates: " + dates);
-  
-          //Sumamos los valores para las fechas iguales
-          
-          
-          
-          dates.forEach((e) => {
-            var yAxis = Rentals_Data
-              .filter((d) => d.year === e)
-              .map((nr) => nr["rent_variation"])
-              .reduce((acc, nr) => nr + acc,0);
-            console.log("YAxis: " + yAxis);
-            Rentals_Chart_Data.push(Math.round(yAxis));
-            
-          });
-          msg = "";
-        }
-  
-        if(res2.ok){
-          Unemployment_Data = await res2.json();
-          console.log("RES2 OK");
-          //Quitamos fechas repetidas y las ordenamos
-          var distinctDates = distinctRecords(Unemployment_Data, "year");
-          distinctDates.sort(function (a, b) {
-            return a.year - b.year;
-          });
-          distinctDates.forEach((element) => {
-            if (!dates.includes(element.year)) {
-              dates.push(element.year);
-              console.log("dates: " + element.year);
-            }
-          });
-          console.log("Distinct dates: " + dates);
-  
-          //Sumamos los valores para las fechas iguales         
-          dates.forEach((e) => {
-            var yAxis = Unemployment_Data
-              .filter((d) => d.year === e)
-              .map((qli) => qli["occupation_variation"])
-              .reduce((acc, qli) => qli + acc,0);
-            console.log("YAxis: " + yAxis);
-            Unemployment_Chart.push(Math.round(yAxis));
-            
-          });
-          msg = "";
-        }
-      } else {
-        console.log("ERROR MSG");
-        msg = "Por favor primero cargue los datos en todas las APIs";
-      }
-  
-      console.log("Buy Sell Chart DaTa: " + Buy_sell_Chart);
-      console.log("Rentals Chart DaTa: " + Rentals_Chart_Data);
-      console.log("Unemployment Chart Data: " + Unemployment_Chart);
-  
-      Highcharts.chart("container", {
-        title: {
-          text: "Alquileres / Compraventa / Desempleo",
-        },
-        yAxis: {
-          title: {
-            text: "Ratio",
-          },
-        },
-        xAxis: {
-          title: {
-            text: "Años",
-          },
-          categories: dates,
-        },
-        legend: {
-          layout: "vertical",
-          align: "right",
-          verticalAlign: "middle",
-        },
-        annotations: [
-          {
-            labels: [
+      let data_buy_sell = Data1.map((x) => {
+          let res = {
+              name: x.autonomous_community+", "+ x.province + " - " + x.year,
+              value: x["annual_variation_percentage"]
+          };
+          return res;
+      });
+      let data_unemployment = Data2.map((x) => {
+          let res = {
+              name: x.autonomous_community+", "+ x.province + " - " + x.year,
+              value: x["occupation_variation"]
+          };
+          return res;
+      });
+      let dataTotal =
+          [
               {
-                point: "year",
-                text: "",
+                  name: "Ratio alquileres",
+                  data: data_rentals
               },
               {
-                point: "min",
-                text: "Min",
-                backgroundColor: "white",
+                  name: "Ratio de Compraventa anual",
+                  data: data_buy_sell
               },
-            ],
+              {
+                  name: "Ratio de ocupación",
+                  data: data_unemployment
+              }
+          ];
+      Highcharts.chart('container', {
+          chart: {
+              type: 'packedbubble',
+              height: '40%'
           },
-        ],
-        series: [
-          {
-            name: "Variación Alquileres (%)",
-            data: Rentals_Chart_Data,
+          title: {
+              text: 'Mezcla de APIs'
           },
-          {
-            name: "Variación Compraventa (%)",
-            data: Buy_sell_Chart,
+          tooltip: {
+              useHTML: true,
+              pointFormat: '<b>{point.name}:</b> {point.value}'
           },
-          {
-            name: "Variación Ocupación (%)",
-            data: Unemployment_Chart,
-          }
-        ],
-        responsive: {
-          rules: [
-            {
-              condition: {
-                maxWidth: 500,
-              },
-              chartOptions: {
-                legend: {
-                  layout: "horizontal",
-                  align: "center",
-                  verticalAlign: "bottom",
-                },
-              },
-            },
-          ],
-        },
+          plotOptions: {
+              packedbubble: {
+                  minSize: '30%',
+                  maxSize: '120%',
+                  zMin: 0,
+                  zMax: 500,
+                  layoutAlgorithm: {
+                      splitSeries: false,
+                      gravitationalConstant: 0.02
+                  },
+                  dataLabels: {
+                      enabled: true,
+                      format: '{point.name}',
+                      filter: {
+                          property: 'y',
+                          operator: '>',
+                          value: 250
+                      },
+                      style: {
+                          color: 'black',
+                          textOutline: 'none',
+                          fontWeight: 'normal'
+                      }
+                  }
+              }
+          },
+          series: dataTotal
       });
-    }
-  </script>
-  
-  <svelte:head>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/series-label.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script
-      src="https://code.highcharts.com/modules/accessibility.js"
-      on:load={loadChart}></script>
-  </svelte:head>
-  
-  <main>
-    <Nav>
-      <NavItem>
-        <NavLink href="/">Volver</NavLink>
-      </NavItem>
-    </Nav>
-  
-    <div>
-      <h2>Análiticas</h2>
-    </div>
-  
-    {#if msg}
-      <p>{msg}</p>
-    {:else}
-      <figure class="highcharts-figure">
-        <div id="container" />
-        <p class="highcharts-description">
-            Gráfico que muestra la relación del desempleo y como afecta al alquiler y compraventa de casa/pisos.
-        </p>
-      </figure>
-    {/if}
-  </main>
-  
-  <style>
-    main {
-      text-align: center;
-      padding: 1em;
-      margin: 0 auto;
-    }
-    .highcharts-figure,
-    .highcharts-data-table table {
-      min-width: 360px;
-      max-width: 800px;
-      margin: 1em auto;
-    }
-  
-    .highcharts-data-table table {
-      font-family: Verdana, sans-serif;
-      border-collapse: collapse;
-      border: 1px solid #ebebeb;
-      margin: 10px auto;
-      text-align: center;
-      width: 100%;
-      max-width: 500px;
-    }
-    .highcharts-data-table caption {
-      padding: 1em 0;
-      font-size: 1.2em;
-      color: #555;
-    }
-    .highcharts-data-table th {
-      font-weight: 600;
-      padding: 0.5em;
-    }
-    .highcharts-data-table td,
-    .highcharts-data-table th,
-    .highcharts-data-table caption {
-      padding: 0.5em;
-    }
-    .highcharts-data-table thead tr,
-    .highcharts-data-table tr:nth-child(even) {
-      background: #f8f8f8;
-    }
-    .highcharts-data-table tr:hover {
-      background: #f1f7ff;
-    }
-  </style>
-  
+  }
+  loadGraph();
+</script>
+
+<svelte:head>
+
+  <script src="https://code.highcharts.com/highcharts.js" on:load={loadGraph}></script>
+  <script src="https://code.highcharts.com/highcharts-more.js" on:load={loadGraph}></script>
+  <script src="https://code.highcharts.com/modules/exporting.js" on:load={loadGraph}></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadGraph}></script>
+
+</svelte:head>
+
+<main>
+
+  <figure class="highcharts-figure">
+      <div id="container"></div>
+      <p class="highcharts-description" align ="center">
+          Gráfica que muestra los datos de las 3 APIs. La variacion de las diversas APIs
+      </p>
+  </figure>
+
+</main>
