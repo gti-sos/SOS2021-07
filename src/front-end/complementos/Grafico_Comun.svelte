@@ -36,7 +36,7 @@
                   data: data_rentals
               },
               {
-                  name: "Ratio de Compraventa anual",
+                  name: "Ratio de Compraventa",
                   data: data_buy_sell
               },
               {
