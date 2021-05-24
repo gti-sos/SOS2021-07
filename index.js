@@ -4,7 +4,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
 
-var rentalsAPI = require("./src/back-end/rentalsAPI");
+
 
 var buy_sell_API = require("./src/back-end/buy_sell_API/v2");
 

@@ -3,7 +3,7 @@ var Datastore = require('nedb');
 
 //required vars and cons
 
-const BASE_API_PATH = "/api/v1";
+const BASE_API_PATH = "/api/v1/integration";
 const datafile = path.join(__dirname, 'rentals_integration.db');
 const db = new Datastore({ filename: datafile, autoload: true });
 
