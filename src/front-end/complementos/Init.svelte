@@ -150,6 +150,9 @@ import {
 		  <a href="https://documenter.getpostman.com/view/14952576/TzRUA75V"
             ><Button color="info">Documentación Postman v2</Button></a
           >
+		  <a href="/#/buy_sell/buy_sell_Integraciones"
+            ><Button color="info">Integraciones</Button></a
+          >
         </CardBody>
         <CardFooter
           >Desarrollador
