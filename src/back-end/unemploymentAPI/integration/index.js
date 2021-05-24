@@ -22,7 +22,7 @@ module.exports.register = (app) => {
                 "year": 2020,
                 "unemployment_rate": 22.8954,
                 "occupation_variation": -1.09999
-            },
+            }, 
             {
                 "autonomous_community": "extremadura",
                 "youth_unemployment_rate": null,
