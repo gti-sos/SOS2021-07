@@ -12,6 +12,10 @@ var buy_sell_API = require("./src/back-end/buy_sell_API/v2");
 var unemploymentAPI = require("./src/back-end/unemploymentAPI/v1"); //api v1
 var unemploymentAPI_Integration = require("./src/back-end/unemploymentAPI/integration"); //integracion
 
+//Tristan
+var rentalsAPI = require("./src/back-end/rentalsAPI");
+var unemploymentAPI_Integration = require("./src/back-end/rentalsAPI/integration"); //integracion
+
 var app = express();
 app.use(bodyParser.json());
 
@@ -25,6 +29,21 @@ buy_sell_API.register(app);
 //Alejandro
 unemploymentAPI.register(app); //importamos api declarada arriba
 unemploymentAPI_Integration.register(app); //importamos integration declarado arriba
+
+
+//integraciones proxys
+
+//proxys Tristan
+//Grupo 27: province-budget-and-investment-in-social-promotion
+
+var apiServerHostG27 = "https://sos2021-27.herokuapp.com";
+var path_province_budget_and_investment_in_social_promotion = "/api/v2/province-budget-and-investment-in-social-promotion";
+
+app.use(path_province_budget_and_investment_in_social_promotion, function(req, res) {
+  var url = apiServerHostG27 + req.baseUrl + req.url;
+  console.log('piped: ' + req.baseUrl + req.url);
+  req.pipe(request(url)).pipe(res);
+});
 
 //Mostrar directamente el contenido de /public
 app.use("/", express.static(path.join(__dirname, "public")));
