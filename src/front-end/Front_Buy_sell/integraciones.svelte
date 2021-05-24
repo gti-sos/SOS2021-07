@@ -26,7 +26,7 @@
   </Nav>
 
   <div>
-  <h1>Integrations</h1>
+  <h1>INTEGRACIONES</h1>
 </div>
 <div>
   <Card class="mb-3">
@@ -36,16 +36,16 @@
     <CardBody>
       <CardSubtitle />
       <CardText />
-      <a href="/#/integrations/restcountries"
+      <a href=""
         ><Button color="primary">API1</Button></a
       >
-      <a href="/#/integrations/coinCap"
+      <a href=""
         ><Button color="primary">API2</Button></a
       >
-      <a href="/#/integrations/sanityStats">
+      <a href="">
         <Button color="primary">API3</Button></a
       >
-      <a href="/#/integrations/platformsStats">
+      <a href="">
         <Button color="primary">API4</Button></a
       >
     </CardBody>
