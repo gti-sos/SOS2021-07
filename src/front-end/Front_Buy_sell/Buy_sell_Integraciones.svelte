@@ -15,8 +15,9 @@
     NavItem,
     NavLink,
     Row,
+	TabContent,
+	TabPane
   } from "sveltestrap";
-   import { TabContent, TabPane } from 'sveltestrap';
 </script>
 
 <TabContent>
