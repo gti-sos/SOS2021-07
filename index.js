@@ -5,8 +5,12 @@ var bodyParser = require("body-parser");
 var path = require("path");
 
 var rentalsAPI = require("./src/back-end/rentalsAPI");
-var unemploymentAPI = require("./src/back-end/unemploymentAPI");
+
 var buy_sell_API = require("./src/back-end/buy_sell_API/v2");
+
+//Alejandro
+var unemploymentAPI = require("./src/back-end/unemploymentAPI/v1"); //api v1
+var unemploymentAPI_Integration = require("./src/back-end/unemploymentAPI/integration"); //integracion
 
 var app = express();
 app.use(bodyParser.json());
@@ -15,9 +19,12 @@ var port = (process.env.PORT || 10000);
 
 var BASE_API_PATH = "/api/v1";
 
-unemploymentAPI.register(app);
 rentalsAPI.register(app);
 buy_sell_API.register(app);
+
+//Alejandro
+unemploymentAPI.register(app); //importamos api declarada arriba
+unemploymentAPI_Integration.register(app); //importamos integration declarado arriba
 
 //Mostrar directamente el contenido de /public
 app.use("/", express.static(path.join(__dirname, "public")));
