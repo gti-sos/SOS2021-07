@@ -25,9 +25,7 @@
     </NavItem>
   </Nav>
 
-  <div>
-  <h1>INTEGRACIONES</h1>
-</div>
+  
 <div>
   <Card class="mb-3">
     <CardHeader>
