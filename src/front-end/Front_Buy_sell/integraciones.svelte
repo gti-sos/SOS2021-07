@@ -1,11 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Title of the document</title>
-</head>
+<svelte:head>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js" on:load="{loadGraph}"></script>
+</svelte:head>
 
-<body>
-The content of the document......
-</body>
+<main>
+  <h2 style="text-align: center;"> <i class="fas fa-car"></i> Alquileres en España</h2>
 
-</html>
+  <Nav>
+    <NavItem>
+      <NavLink href="/"><Button color="primary">Página Inicial</Button></NavLink>
+    </NavItem>
+    <NavItem>
+      <NavLink href="/#/rentals"><Button color="primary">Datos</Button></NavLink>
+    </NavItem>
+</Nav>
+
+  <div id="graph"></div>
+  <p>Muestra datos sobre el alquiler en provincias de España</p>
+</main>
+
+<style>
+</style>
