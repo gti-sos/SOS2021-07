@@ -11,6 +11,7 @@
 	import Buy_sell from "./front-end/Front_Buy_sell/Buy_sell.svelte";
 	import Buy_sellEdit from "./front-end/Front_Buy_sell/Buy_sell_Editor.svelte";
 	import Buy_sell_Chart from "./front-end/Front_Buy_sell/Buy_sell_Chart.svelte";
+	import NATALITY from "./front-end/Front_Buy_sell/integraciones/natalitystats.svelte";
 	import Rentals_Graphic from "./front-end/Front_Rentals/graficos.svelte";
 	import Rentals_Graphic2 from "./front-end/Front_Rentals/graficos3.svelte";
 	import Unemployment_Chart from "./front-end/Front_Unemployment/Unemployment_Chart.svelte";
@@ -28,6 +29,7 @@
 		"/buy_sell": Buy_sell,
 		"/buy_sell/:autonomous_community/:province/:year":Buy_sellEdit,
 		"/buy_sell/buy_sell_Charts":Buy_sell_Chart,
+		"/integraciones/natalitystats": NATALITY,
 		"/rentals/rentals_graphic":Rentals_Graphic,
 		"/rentals/rentals_graphic2":Rentals_Graphic2,
 		"/unemployment/unemployment_graphic":Unemployment_Chart,
