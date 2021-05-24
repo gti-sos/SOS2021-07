@@ -22,7 +22,7 @@ module.exports.register = (app) => {
                 "year": 2020,
                 "unemployment_rate": 22.8954,
                 "occupation_variation": -1.09999
-            }, 
+            },
             {
                 "autonomous_community": "extremadura",
                 "youth_unemployment_rate": null,
@@ -130,5 +130,22 @@ module.exports.register = (app) => {
             }
         });
     });
-    
+
+    //Delete a lista de recursos
+    app.delete(UNEMPLOYMENT_INTEGRATION_API_PATH + "/unemployment", (req, res) => {
+        db.remove({}, { multi: true }, function (error, numRemoved) {
+            if (error) {
+                console.error("ERROR deleting DB: " + error);
+                res.sendStatus(500);
+            } else {
+                if (numRemoved == 0) {
+                    console.error("ERROR: DB was empty");
+                    res.sendStatus(404);
+                } else {
+                    res.sendStatus(200);
+                }
+            }
+        });
+    });
+
 }
