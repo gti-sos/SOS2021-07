@@ -1,6 +1,6 @@
 <script>
   import { Nav, NavItem, NavLink } from "sveltestrap";
-  //Uso de API externa coincap.io
+  //Uso de API externa
   var evictions = [];
   var location = [];
   var year = [];
@@ -20,7 +20,7 @@
     
       console.log("Ok");
     } else {
-      errorMsg = "Error recuperando datos de coinCap";
+      errorMsg = "Error recuperando datos";
       okMsg = "";
       console.log("ERROR!" + errorMsg);
     }
