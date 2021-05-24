@@ -9,7 +9,7 @@
   
   async function getStats() {
     console.log("Fetching data...");
-    const res = await fetch("api/v1/evictions/loadInitialData");
+    const res = await fetch("http://sos2021-25.herokuapp.com/api/v1/evictions");
     if (res.ok) {
       const json = await res.json();
   
