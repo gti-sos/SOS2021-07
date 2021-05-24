@@ -35,8 +35,8 @@
     <CardBody>
       <CardSubtitle />
       <CardText />
-      <a href=""
-        ><Button color="primary">API1</Button></a
+      <a href="/#/buy_sell/deshaucios"
+        ><Button color="primary">API DESHAUCIOS</Button></a
       >
       <a href=""
         ><Button color="primary">API2</Button></a
