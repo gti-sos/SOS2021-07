@@ -255,7 +255,7 @@ module.exports.register = (app) => {
                 "unemployment_rate": 21.6080,
                 "occupation_variation": -225.03
             }
-        ];
+        ]; 
 
         if (db.getAllData().length > 0) res.sendStatus(409);
 
