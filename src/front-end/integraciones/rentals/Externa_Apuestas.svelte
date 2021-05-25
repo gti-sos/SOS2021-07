@@ -1,6 +1,7 @@
 <script>
 	
-
+    import { onMount } from "svelte";
+    import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
 	let MyData = [];
 	let API_externa = [];
 	
