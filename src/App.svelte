@@ -19,6 +19,7 @@
 	import Unemployment_Chart from "./front-end/Front_Unemployment/Unemployment_Chart.svelte";
 	import Info from "./front-end/complementos/info.svelte";
 	import Integracion_G27_Tristan from "./front-end/integraciones/rentals/Grupo27.svelte";
+	import criptomoneda from "./front-end/integraciones/rentals/Externa_Apuestas.svelte";
 	import Grafico_Comun from "./front-end/complementos/Grafico_Comun.svelte";
 
 	const routes = {
@@ -26,6 +27,7 @@
 		"/info": Info,
 		"/integrations":IntegracionesInit,
 		"/integrations/G27_rentals":Integracion_G27_Tristan,
+		"/integrations/criptomoneda":criptomoneda,
 		"/common-graphic":Grafico_Comun,
 		"/rentals": Rentals,
 		"/rentals/:province/:year":RentalsEdit,
