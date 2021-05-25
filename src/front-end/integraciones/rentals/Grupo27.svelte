@@ -2,35 +2,36 @@
     import { onMount } from "svelte";
     import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
     async function loadGraph() {
-        const invercionData = await fetch("/api/v2/province-budget-and-investment-in-social-promotion");
         const rentalsData = await fetch("/api/v1/rentals");
-        let invercion = await invercionData.json();
-        let rentals = await rentalsData.json();
+        const investment_in_social_promotion = await fetch("/api/v2/province-budget-and-investment-in-social-promotion");
         
-        console.log(Life);
-        let data_Rentals = rentals.map((x) => {
+        let Data = await rentalsData.json();
+        let Data1 = await investment_in_social_promotion.json();
+        
+        let data_rentals = Data.map((x) => {
             let res = {
                 name: x.province + " - " + x.year,
                 value: x["rent"]
             };
             return res;
         });
-        let data_Invercion = invercion.map((x) => {
+        let data_investment_in_social_promotion = Data1.map((x) => {
             let res = {
                 name: x.province + " - " + x.year,
                 value: x["invest_promotion"]
             };
             return res;
         });
+        
         let dataTotal =
             [
                 {
-                    name: "Renta",
-                    data: data_Rentals
+                    name: "Ratio alquileres",
+                    data: data_rentals
                 },
                 {
-                    name: "Inversión en promoción social",
-                    data: data_Invercion
+                    name: "Inversion Social",
+                    data: data_investment_in_social_promotion
                 }
             ];
         Highcharts.chart('container', {
@@ -39,7 +40,7 @@
                 height: '40%'
             },
             title: {
-                text: 'Relación entre edad de la Media de la Esperanza de Vida y el Ranking de Felicidad'
+                text: 'Mezcla de APIs'
             },
             tooltip: {
                 useHTML: true,
@@ -50,7 +51,7 @@
                     minSize: '30%',
                     maxSize: '120%',
                     zMin: 0,
-                    zMax: 1000,
+                    zMax: 500,
                     layoutAlgorithm: {
                         splitSeries: false,
                         gravitationalConstant: 0.02
@@ -75,18 +76,24 @@
         });
     }
     loadGraph();
-</script>
-<svelte:head>
-</svelte:head>
-
-<main>
-
+  </script>
+  
+  <svelte:head>
+  
+    <script src="https://code.highcharts.com/highcharts.js" on:load={loadGraph}></script>
+    <script src="https://code.highcharts.com/highcharts-more.js" on:load={loadGraph}></script>
+    <script src="https://code.highcharts.com/modules/exporting.js" on:load={loadGraph}></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadGraph}></script>
+  
+  </svelte:head>
+  
+  <main>
+  
     <figure class="highcharts-figure">
         <div id="container"></div>
-        <p class="highcharts-description" align = "center">
-            Gráfica que muestra el ranking de felicidad y la media de la esperanza de vida.
+        <p class="highcharts-description" align ="center">
+            Gráfica que muestra los datos de las 3 APIs. La variacion de las diversas APIs
         </p>
     </figure>
-
-
-</main>
+  
+  </main>
