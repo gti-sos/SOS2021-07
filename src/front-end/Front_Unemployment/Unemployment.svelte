@@ -65,7 +65,7 @@
 
   async function loadStats() {
     console.log("Loading data...");
-    const res = await fetch("/api/v1/unemployment/loadInitialData").then(
+    const res = await fetch("/api/v2/unemployment/loadInitialData").then(
       function (res) {
         if (res.ok) {
           console.log("OK");
@@ -98,7 +98,7 @@
 
     if (fullQuery != "") {
       const res = await fetch(
-        "/api/v1/unemployment/" + fullQuery
+        "/api/v2/unemployment/" + fullQuery
       );
       if (res.ok) {
         console.log("OK");
@@ -127,7 +127,7 @@
     //Total de datos en la BD
   async function getNumTotal() {
     const res = await fetch( 
-      "/api/v1/unemployment");
+      "/api/v2/unemployment");
     if (res.ok) {
       const json = await res.json();
       total = json.length;
@@ -163,7 +163,7 @@
   async function getStats() {
     console.log("Fetching data...");
 
-    const res = await fetch("/api/v1/unemployment?limit=" +
+    const res = await fetch("/api/v2/unemployment?limit=" +
       limit + 
       "&offset=" +
       current_offset
@@ -184,7 +184,7 @@
   async function deleteStats() {
     console.log("Deleting data...");
 
-    const res = await fetch("/api/v1/unemployment/", {
+    const res = await fetch("/api/v2/unemployment/", {
       method: "DELETE",
     }).then(function (res) {
       if (res.ok) {
@@ -205,7 +205,7 @@
     console.log(`Deleting data with name ${autonomous_community}, ${province} and date ${year}`);
 
     const res = await fetch(
-      "/api/v1/unemployment/" + autonomous_community + "/" + province + "/" + year,
+      "/api/v2/unemployment/" + autonomous_community + "/" + province + "/" + year,
       {
         method: "DELETE",
       }
@@ -241,7 +241,7 @@
     newData["occupation_variation"] = parseFloat(newData["occupation_variation"]);
 
     const res = await fetch(
-      "/api/v1/unemployment/", {
+      "/api/v2/unemployment/", {
       method: "POST",
       body: JSON.stringify(newData),
       headers: {
