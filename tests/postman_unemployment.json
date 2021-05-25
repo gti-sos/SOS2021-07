@@ -765,7 +765,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-07.herokuapp.com/api/v2/unemployment/andalucia/almeria/2020",
+					"raw": "https://sos2021-07.herokuapp.com/api/v2/unemployment/comunidad-valenciana/alicante/2020",
 					"protocol": "https",
 					"host": [
 						"sos2021-07",

@@ -16,6 +16,22 @@ module.exports.register = (app) => {
 
         var unemployment_initial = [
             {
+                "autonomous_community": "madrid",
+                "youth_unemployment_rate": 31.7662,
+                "province": "madrid",
+                "year": 2020,
+                "unemployment_rate": 12.1491,
+                "occupation_variation": 40399.90
+            },
+            {
+                "autonomous_community": "murcia",
+                "youth_unemployment_rate": 37.4509,
+                "province": "murcia",
+                "year": 2020,
+                "unemployment_rate": 16.4211,
+                "occupation_variation": -1199.95
+            },
+            {
                 "autonomous_community": "extremadura",
                 "youth_unemployment_rate": 48.1605,
                 "province": "badajoz",
@@ -25,7 +41,7 @@ module.exports.register = (app) => {
             },
             {
                 "autonomous_community": "extremadura",
-                "youth_unemployment_rate": null,
+                "youth_unemployment_rate": 48.1605,
                 "province": "caceres",
                 "year": 2020,
                 "unemployment_rate": 18.5352,
@@ -37,15 +53,207 @@ module.exports.register = (app) => {
                 "province": "malaga",
                 "year": 2020,
                 "unemployment_rate": 19.3225,
-                "occupation_variation": 32.79998
+                "occupation_variation": -42199.95
             },
             {
                 "autonomous_community": "andalucia",
-                "youth_unemployment_rate": null,
+                "youth_unemployment_rate": 52.1912,
                 "province": "granada",
                 "year": 2020,
                 "unemployment_rate": 24.8484,
-                "occupation_variation": 13.79998
+                "occupation_variation": 10899.99
+            }, //X
+            {
+                "autonomous_community": "andalucia",
+                "youth_unemployment_rate": 52.1912,
+                "province": "cadiz",
+                "year": 2020,
+                "unemployment_rate": 24.0474,
+                "occupation_variation": -24399.99
+            },
+            {
+                "autonomous_community": "andalucia",
+                "youth_unemployment_rate": 52.1912,
+                "province": "sevilla",
+                "year": 2020,
+                "unemployment_rate": 23.8074,
+                "occupation_variation": -16100.03
+            },
+            {
+                "autonomous_community": "andalucia",
+                "youth_unemployment_rate": 52.1912,
+                "province": "huelva",
+                "year": 2020,
+                "unemployment_rate": 20.6911,
+                "occupation_variation": 8900
+            },
+            {
+                "autonomous_community": "andalucia",
+                "youth_unemployment_rate": 52.1912,
+                "province": "cordoba",
+                "year": 2020,
+                "unemployment_rate": 20.0753,
+                "occupation_variation": 8500
+            },
+            {
+                "autonomous_community": "andalucia",
+                "youth_unemployment_rate": 52.1912,
+                "province": "jaen",
+                "year": 2020,
+                "unemployment_rate": 20.1441,
+                "occupation_variation": 1900
+            },
+            {
+                "autonomous_community": "andalucia",
+                "youth_unemployment_rate": 52.1912,
+                "province": "almeria",
+                "year": 2020,
+                "unemployment_rate": 17.1404,
+                "occupation_variation": 21899.99
+            },
+            {
+                "autonomous_community": "castilla la mancha",
+                "youth_unemployment_rate": 37.3831,
+                "province": "guadalajara",
+                "year": 2020,
+                "unemployment_rate": 13.6976,
+                "occupation_variation": -899.99
+            },
+            {
+                "autonomous_community": "castilla la mancha",
+                "youth_unemployment_rate": 37.3831,
+                "province": "cuenca",
+                "year": 2020,
+                "unemployment_rate": 14.0043,
+                "occupation_variation": -2300
+            },
+            {
+                "autonomous_community": "castilla la mancha",
+                "youth_unemployment_rate": 37.3831,
+                "province": "albacete",
+                "year": 2020,
+                "unemployment_rate": 19.7889,
+                "occupation_variation": -6600
+            },
+            {
+                "autonomous_community": "castilla la mancha",
+                "youth_unemployment_rate": 37.3831,
+                "province": "ciudad real",
+                "year": 2020,
+                "unemployment_rate": 19.9999,
+                "occupation_variation": -3100
+            },
+            {
+                "autonomous_community": "castilla la mancha",
+                "youth_unemployment_rate": 37.3831,
+                "province": "toledo",
+                "year": 2020,
+                "unemployment_rate": 16.7832,
+                "occupation_variation": 4900.09
+            },
+            {
+                "autonomous_community": "cantabria",
+                "youth_unemployment_rate": 27.9069,
+                "province": "cantabria",
+                "year": 2020,
+                "unemployment_rate": 11.8581,
+                "occupation_variation": 1199.99
+            },
+            {
+                "autonomous_community": "asturias", 
+                "youth_unemployment_rate": 37.5000,
+                "province": "asturias",
+                "year": 2020,
+                "unemployment_rate": 14.0845,
+                "occupation_variation": -300.01
+            },
+            {
+                "autonomous_community": "la rioja", 
+                "youth_unemployment_rate": 29.5454,
+                "province": "la rioja",
+                "year": 2020,
+                "unemployment_rate": 11.8480,
+                "occupation_variation": -4199.99
+            },
+            {
+                "autonomous_community": "navarra", 
+                "youth_unemployment_rate": 31.7460,
+                "province": "navarra",
+                "year": 2020,
+                "unemployment_rate": 11.4832,
+                "occupation_variation": -699.98
+            },
+            {
+                "autonomous_community": "pais vasco", 
+                "youth_unemployment_rate": 39.0384,
+                "province": "vizcaya",
+                "year": 2020,
+                "unemployment_rate": 12.0379,
+                "occupation_variation": -11500
+            },
+            {
+                "autonomous_community": "pais vasco", 
+                "youth_unemployment_rate": 39.0384,
+                "province": "guipuzcoa",
+                "year": 2020,
+                "unemployment_rate": 9.2500,
+                "occupation_variation": 7299.98
+            },
+            {
+                "autonomous_community": "pais vasco", 
+                "youth_unemployment_rate": 39.0384,
+                "province": "alava",
+                "year": 2020,
+                "unemployment_rate": 11.2924,
+                "occupation_variation": 99.99
+            },
+            {
+                "autonomous_community": "galicia", 
+                "youth_unemployment_rate": 37.1158,
+                "province": "a coruña",
+                "year": 2020,
+                "unemployment_rate": 12.7018,
+                "occupation_variation": -11500
+            },
+            {
+                "autonomous_community": "galicia", 
+                "youth_unemployment_rate": 37.1158,
+                "province": "lugo",
+                "year": 2020,
+                "unemployment_rate": 8.8489,
+                "occupation_variation": -300
+            },
+            {
+                "autonomous_community": "galicia", 
+                "youth_unemployment_rate": 37.1158,
+                "province": "potevedra",
+                "year": 2020,
+                "unemployment_rate": 15.2133,
+                "occupation_variation": -9200.01
+            },
+            {
+                "autonomous_community": "galicia", 
+                "youth_unemployment_rate": 37.1158,
+                "province": "ourense",
+                "year": 2020,
+                "unemployment_rate": 11.6459,
+                "occupation_variation": -299.99
+            },
+            {
+                "autonomous_community": "ceuta", 
+                "youth_unemployment_rate": 70.5882,
+                "province": "ceuta",
+                "year": 2020,
+                "unemployment_rate": 28.0898,
+                "occupation_variation": -1600
+            },
+            {
+                "autonomous_community": "melilla", 
+                "youth_unemployment_rate": 47.2758,
+                "province": "melilla",
+                "year": 2020,
+                "unemployment_rate": 21.6080,
+                "occupation_variation": -225.03
             }
         ];
 
