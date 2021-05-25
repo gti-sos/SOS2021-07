@@ -18,7 +18,7 @@
         });
         let data_buy_sell = Data1.map((x) => {
             let res = {
-                name: x.province + " - " + x.year,
+                name: x["province"] + " - " + x["province"],
                 value: x["invest_promotion"]
             };
             return res;
