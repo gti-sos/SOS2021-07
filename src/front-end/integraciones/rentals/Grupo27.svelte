@@ -31,7 +31,7 @@
                     data: data_rentals
                 },
                 {
-                    name: "Ratio de Compraventa",
+                    name: "inversion social",
                     data: data_buy_sell
                 }
             ];
