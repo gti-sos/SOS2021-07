@@ -2,143 +2,111 @@
 	
     import { onMount } from "svelte";
     import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
-	let MyData = [];
-	let API_externa = [];
-	
+    
+    const url = "http://api.quotable.io/random";
+    let Quote = [];
 	async function loadGraph(){
-		
-		const resData = await fetch("/api/v1/rentals");
-		MyData = await resData.json();
-		
-		const resData2 = await fetch("https://restcountries-v1.p.rapidapi.com/all", {
-			"method": "GET",
-			"headers": {
-				"x-rapidapi-host": "restcountries-v1.p.rapidapi.com",
-				"x-rapidapi-key": "fbc3a26ce8mshdb989f0848b0219p134cc7jsn7c3ac5c079da"
-			}
-    	});
-		
-		if (resData2.ok) {
-			console.log("Ok, api externa 1 loaded");
-			const json = await resData2.json();
-            API_externa = json;
-			console.log(API_externa)
+        console.log("");	
+		const res = await fetch(url); 
+		if (res.ok) {
+			console.log("Ok, loaded successfully");
+			const json = await res.json();
+            Quote = json;
 		} else {
 			console.log("ERROR!");
         }
-		let aux = []
-		let valores = []
-		MyData.forEach((x) => {
-        		
-				aux={
-					name: x.province,
-					data: [0,x.meter]
-				}
-				valores.push(aux)
-			
+        let frase = Quote.content;
+    
+        var text = frase;
+        var lines = text.split(/[,\. ]+/g),
+        data = Highcharts.reduce(lines, function (arr, word) {
+            var obj = Highcharts.find(arr, function (obj) {
+            return obj.name === word;
+            });
+            if (obj) {
+            obj.weight += 1;
+            } else {
+            obj = {
+                name: word,
+                weight: 1
+            };
+            arr.push(obj);
+            }
+            return arr;
+        }, []);
+        Highcharts.chart('container', {
+        accessibility: {
+            screenReaderSection: {
+            beforeChartFormat: '<h5>{chartTitle}</h5>' +
+                '<div>{chartSubtitle}</div>' +
+                '<div>{chartLongdesc}</div>' +
+                '<div>{viewTableButton}</div>'
+            }
+            },
+            series: [{
+                type: 'wordcloud',
+                data: data,
+                name: 'Valor'
+            }],
+            title: {
+                text: 'Frases célebres'
+            }
         });
-		
-		API_externa.forEach((x) => {
-			if(x.name=="Spain"){
-				aux={
-					name: x.name,
-					data: [x.population,0]
-				}
-				valores.push(aux)
-			}
-		});
-		
-				
-		Highcharts.chart('container', {
-			chart: {
-				type: 'bar'
-			},
-			title: {
-				text: 'Población en España y viajeros en algunas provincias de Andalucía'
-			},
-			xAxis: {
-				categories: ['Población', 'Viajeros'],
-				title: {
-					text: null
-				}
-			},
-			yAxis: {
-				min: 0,
-				labels: {
-					overflow: 'justify'
-				}
-			},
-			plotOptions: {
-				bar: {
-					dataLabels: {
-						enabled: true
-					}
-				}
-			},
-			credits: {
-				enabled: false
-			},
-			series: valores
-		});
-	}
+        
+    }
 </script>
 
 <svelte:head>
-	<script src="https://code.highcharts.com/highcharts.js"></script>
-	<script src="https://code.highcharts.com/modules/exporting.js"></script>
-	<script src="https://code.highcharts.com/modules/export-data.js"></script>
-	<script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/wordcloud.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>
 </svelte:head>
 
 <main>
-	<h3 style="text-align: center;"> Integración con una API externa</h3>
-	<Button outline color="secondary" on:click="{pop}">Volver</Button>
-	<figure class="highcharts-figure">
-		<div id="container"></div>
-		<p style="text-align:center;" class="highcharts-description">
-			Comparativa entre la población de España y viajeros en algunas provincias de Andalucía.
-		</p>
-	</figure>
+    <figure class="highcharts-figure">
+        <div id="container"></div>
+        <p class="highcharts-description">
+          {Quote.content}<br> - {Quote.author}
+        </p>
+    </figure>
+    <Button color="primary" onclick="location.reload()" style="margin-left: 35%; width: 25%;"> Siguiente frase</Button>
 
+   
 </main>
 
 <style>
-	.highcharts-figure, .highcharts-data-table table {
-		min-width: 310px; 
-		max-width: 800px;
-		margin: 1em auto;
-	}
-
-	#container {
-		height: 400px;
-	}
-
-	.highcharts-data-table table {
-		font-family: Verdana, sans-serif;
-		border-collapse: collapse;
-		border: 1px solid #EBEBEB;
-		margin: 10px auto;
-		text-align: center;
-		width: 100%;
-		max-width: 500px;
-	}
-	.highcharts-data-table caption {
-		padding: 1em 0;
-		font-size: 1.2em;
-		color: #555;
-	}
-	.highcharts-data-table th {
-		font-weight: 600;
-		padding: 0.5em;
-	}
-	.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
-		padding: 0.5em;
-	}
-	.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
-		background: #f8f8f8;
-	}
-	.highcharts-data-table tr:hover {
-		background: #f1f7ff;
-	}
-
+    .highcharts-figure, .highcharts-data-table table {
+        min-width: 320px; 
+        max-width: 800px;
+        margin: 1em auto;
+    }
+    .highcharts-data-table table {
+            font-family: Verdana, sans-serif;
+            border-collapse: collapse;
+            border: 1px solid #EBEBEB;
+            margin: 10px auto;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+    }
+    .highcharts-data-table caption {
+        padding: 1em 0;
+        font-size: 1.2em;
+        color: #555;
+    }
+    .highcharts-data-table th {
+        font-weight: 600;
+        padding: 0.5em;
+    }
+    .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+        padding: 0.5em;
+    }
+    .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+        background: #f8f8f8;
+    }
+    .highcharts-data-table tr:hover {
+        background: #f1f7ff;
+    }
 </style>
