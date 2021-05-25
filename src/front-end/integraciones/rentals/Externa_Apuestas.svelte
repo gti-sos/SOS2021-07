@@ -4,14 +4,7 @@
     let Data = [];
     let Coins = [];
     async function loadGraph() {
-        const resCoins = await fetch("https://coinpaprika1.p.rapidapi.com/exchanges", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "9b2b2f4d65msh643a2276d42fb51p1e4972jsn8ab58ddd82c9",
-	    "x-rapidapi-host": "coinpaprika1.p.rapidapi.com",
-	    "useQueryString": true
-	}
-});
+        
 
         const rentalsData = await fetch("/api/v1/rentals");
         let Rentals = await rentalsData.json();
@@ -23,12 +16,20 @@
             };
             return res;
         });
+
+        const resCoins = await fetch("https://coinpaprika1.p.rapidapi.com/exchanges", {
+	    "method": "GET",
+	    "headers": {
+		"x-rapidapi-key": "9b2b2f4d65msh643a2276d42fb51p1e4972jsn8ab58ddd82c9",
+	    "x-rapidapi-host": "coinpaprika1.p.rapidapi.com",
+	    //"useQueryString": true
+	                    }});
         Coins = await resCoins.json();
         console.log(Coins);
         Coins.forEach((x) => {
             let coin = {
-                'name': x.name,
-		        'value': x.markets
+                'name': x["name"],
+		        'value': x["markets"]
             };
            
             Data.push(coin);
