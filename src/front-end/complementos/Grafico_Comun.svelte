@@ -4,7 +4,7 @@
   async function loadGraph() {
       const rentalsData = await fetch("/api/v1/rentals");
       const buy_sellData = await fetch("/api/v2/buy_sell");
-      const unemploymentData = await fetch("/api/v1/unemployment");
+      const unemploymentData = await fetch("/api/v2/unemployment");
       let Data = await rentalsData.json();
       let Data1 = await buy_sellData.json();
       let Data2 = await unemploymentData.json();
