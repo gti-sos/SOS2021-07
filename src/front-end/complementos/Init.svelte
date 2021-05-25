@@ -103,7 +103,7 @@ import {
           <CardText>
             Desempleo: Ratios de desempleo general, desempleo joven y la variación del mismo a lo largo de un año en las diferentes provincias españolas.
           </CardText>
-          <a href="/api/v1/unemployment"
+          <a href="/api/v2/unemployment"
             ><Button color="primary">Backend</Button></a
           >
 
@@ -115,7 +115,10 @@ import {
             ><Button color="primary">Interfaz</Button></a
           >
           <a href="https://documenter.getpostman.com/view/15352819/TzJoE1VM"
-            ><Button color="info">Documentación Postman</Button></a
+            ><Button color="info">Documentación Postman v1</Button></a
+          >
+          <a href="https://documenter.getpostman.com/view/15352819/TzXwExqo"
+            ><Button color="info">Documentación Postman v2</Button></a
           >
         </CardBody>
         <CardFooter

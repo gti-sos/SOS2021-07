@@ -3,7 +3,7 @@
 
   import { Table, Button, Nav, NavItem, NavLink, UncontrolledAlert } from "sveltestrap";
 
-  const BASE_API_PATH = "/api/v1";
+  const BASE_API_PATH = "/api/v2";
   export let params = {};
   let stat = {};
   let updateComunity = "";
