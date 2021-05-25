@@ -36,14 +36,14 @@ unemploymentAPI_Integration.register(app); //importamos integration declarado ar
 //proxys Tristan
 //Grupo 27: province-budget-and-investment-in-social-promotion
 
-var apiServerHostG27 = "https://sos2021-27.herokuapp.com";
-var path_province_budget_and_investment_in_social_promotion = "/api/v2/province-budget-and-investment-in-social-promotion";
 
-app.use(path_province_budget_and_investment_in_social_promotion, function(req, res) {
-  var url = apiServerHostG27 + req.baseUrl + req.url;
-  console.log('piped: ' + req.baseUrl + req.url);
-  req.pipe(request(url)).pipe(res);
-});
+app.use("/province-budget-and-investment-in-social-promotion", function(req, res) {
+    var apiServerHostG27 = ' http://sos2021-27.herokuapp.com';
+
+    var url = apiServerHostG27 + req.url;
+    console.log('piped: /inversion Social -> ' + url);
+
+    req.pipe(request(url)).pipe(res);});
 
 //Mostrar directamente el contenido de /public
 app.use("/", express.static(path.join(__dirname, "public")));
