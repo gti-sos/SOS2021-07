@@ -19,7 +19,7 @@ module.exports.register = (app) => {
         
         var rentals_initial = [
             {
-                "autonomous_community": "Castilla Y leon",
+                "autonomous_community": "castilla-y-leon",
                 "province": "salamanca",
                 "year":2018,
                 "rent":468,
@@ -29,7 +29,7 @@ module.exports.register = (app) => {
             },
            
             {
-                "autonomous_community": "Andalucía",
+                "autonomous_community": "andalucia",
                 "province": "sevilla",
                 "year":2018,
                 "rent":560.5,
@@ -39,7 +39,7 @@ module.exports.register = (app) => {
             },
             
             {
-                "autonomous_community": "Cataluna",
+                "autonomous_community": "cataluna",
                 "province": "barcelona",
                 "year":2018,
                 "rent":696,
@@ -48,7 +48,7 @@ module.exports.register = (app) => {
                 "salary":49.0
             },
             {
-                "autonomous_community": "Comunidad de Madrid",
+                "autonomous_community": "comunidad_de_madrid",
                 "province": "madrid",
                 "year":2020,
                 "rent":848,
