@@ -36,7 +36,7 @@
             <CardBody>
               <CardSubtitle />
               
-              <a href="/#/rentals/G27"
+              <a href="/#/integrations/G27_rentals"
                 ><Button color="primary">G27</Button></a
               >
               <a href="/#/rentals"

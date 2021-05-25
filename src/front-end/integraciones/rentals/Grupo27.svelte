@@ -87,8 +87,6 @@
             Gráfica que muestra el ranking de felicidad y la media de la esperanza de vida.
         </p>
     </figure>
-    <div style="text-align:center;padding-bottom: 3%;">
-    <Button outline align = "center" color="secondary" on:click="{pop}">Volver</Button>
-    </div>
+
 
 </main>

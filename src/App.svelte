@@ -25,7 +25,7 @@
 		"/":Init,
 		"/info": Info,
 		"/integrations":IntegracionesInit,
-		"/rentals/G27":Integracion_G27_Tristan,
+		"/integrations/G27_rentals":Integracion_G27_Tristan,
 		"/common-graphic":Grafico_Comun,
 		"/rentals": Rentals,
 		"/rentals/:province/:year":RentalsEdit,
