@@ -1,6 +1,6 @@
 <script>
     import {pop} from "svelte-spa-router";
-    import Button from "sveltestrap/src/Button.svelte";
+    
     let Data = [];
     let Coins = [];
     async function loadGraph() {
