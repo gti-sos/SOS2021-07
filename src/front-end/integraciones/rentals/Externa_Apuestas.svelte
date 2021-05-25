@@ -1,106 +1,143 @@
 <script>
-    import {pop} from "svelte-spa-router";
-    import Button from "sveltestrap/src/Button.svelte";
-    let Data = [];
-    let Coins = [];
-    async function loadGraph() {
-        const resCoins = await fetch("https://coinpaprika1.p.rapidapi.com/exchanges", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "coinpaprika1.p.rapidapi.com",
-		"x-rapidapi-key": "7ba6091b4amsh6731b2f89b0cdc6p106e3fjsnbd534659f6b0"
+	
+
+	let MyData = [];
+	let API_externa = [];
+	
+	async function loadGraph(){
+		
+		const resData = await fetch("/api/v1/rentals");
+		MyData = await resData.json();
+		
+		const resData2 = await fetch("https://restcountries-v1.p.rapidapi.com/all", {
+			"method": "GET",
+			"headers": {
+				"x-rapidapi-host": "restcountries-v1.p.rapidapi.com",
+				"x-rapidapi-key": "fbc3a26ce8mshdb989f0848b0219p134cc7jsn7c3ac5c079da"
+			}
+    	});
+		
+		if (resData2.ok) {
+			console.log("Ok, api externa 1 loaded");
+			const json = await resData2.json();
+            API_externa = json;
+			console.log(API_externa)
+		} else {
+			console.log("ERROR!");
+        }
+		let aux = []
+		let valores = []
+		MyData.forEach((x) => {
+        		
+				aux={
+					name: x.province,
+					data: [0,x.meter]
+				}
+				valores.push(aux)
+			
+        });
+		
+		API_externa.forEach((x) => {
+			if(x.name=="Spain"){
+				aux={
+					name: x.name,
+					data: [x.population,0]
+				}
+				valores.push(aux)
+			}
+		});
+		
+				
+		Highcharts.chart('container', {
+			chart: {
+				type: 'bar'
+			},
+			title: {
+				text: 'Población en España y viajeros en algunas provincias de Andalucía'
+			},
+			xAxis: {
+				categories: ['Población', 'Viajeros'],
+				title: {
+					text: null
+				}
+			},
+			yAxis: {
+				min: 0,
+				labels: {
+					overflow: 'justify'
+				}
+			},
+			plotOptions: {
+				bar: {
+					dataLabels: {
+						enabled: true
+					}
+				}
+			},
+			credits: {
+				enabled: false
+			},
+			series: valores
+		});
 	}
-});
-
-        const resDataHappiness_rate = await fetch("/api/v2/happiness_rate");
-        let Happy = await resDataHappiness_rate.json();
-        
-        let dataHappiness = Happy.map((x) => {
-            let res = {
-                name: x.country + " - " + x.year,
-                value: x["happinessRanking"]
-            };
-            return res;
-        });
-        Coins = await resCoins.json();
-        console.log(Coins);
-        Coins.forEach((x) => {
-            let coin = {
-                'name': x.name,
-		        'value': x.markets
-            };
-           
-            Data.push(coin);
-
-        }); 
-       
-        let dataTotal =
-            [
-                {
-                    name: "Ranking de Felicidad",
-                    data: dataHappiness
-                },
-                {
-                    name: "Nombre de la Criptomoneda",
-                    data: Data
-                }
-            ];
-        Highcharts.chart('container', {
-            chart: {
-                type: 'packedbubble',
-                height: '40%'
-            },
-            title: {
-                text: 'Relación entre el número de mercados en la que se usa la criptomoneda y el Ranking de Felicidad'
-            },
-            tooltip: {
-                useHTML: true,
-                pointFormat: '<b>{point.name}:</b> {point.value}'
-            },
-            plotOptions: {
-                packedbubble: {
-                    minSize: '30%',
-                    maxSize: '120%',
-                    zMin: 0,
-                    zMax: 1000,
-                    layoutAlgorithm: {
-                        splitSeries: false,
-                        gravitationalConstant: 0.02
-                    },
-                    dataLabels: {
-                        enabled: true,
-                        format: '{point.name}',
-                        filter: {
-                            property: 'y',
-                            operator: '>',
-                            value: 250
-                        },
-                        style: {
-                            color: 'black',
-                            textOutline: 'none',
-                            fontWeight: 'normal'
-                        }
-                    }
-                }
-            },
-            series: dataTotal
-        });
-    }
-    loadGraph();
 </script>
+
 <svelte:head>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://code.highcharts.com/modules/export-data.js"></script>
+	<script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>
 </svelte:head>
 
 <main>
-
-    <figure class="highcharts-figure">
-        <div id="container"></div>
-        <p class="highcharts-description" align = "center">
-            Gráfica que muestra el ranking de felicidad y el número de mercados en la que se usa la criptomoneda.
-        </p>
-    </figure>
-    <div style="text-align:center;padding-bottom: 3%;">
-    <Button outline align = "center" color="secondary" on:click="{pop}">Volver</Button>
-    </div>
+	<h3 style="text-align: center;"> Integración con una API externa</h3>
+	<Button outline color="secondary" on:click="{pop}">Volver</Button>
+	<figure class="highcharts-figure">
+		<div id="container"></div>
+		<p style="text-align:center;" class="highcharts-description">
+			Comparativa entre la población de España y viajeros en algunas provincias de Andalucía.
+		</p>
+	</figure>
 
 </main>
+
+<style>
+	.highcharts-figure, .highcharts-data-table table {
+		min-width: 310px; 
+		max-width: 800px;
+		margin: 1em auto;
+	}
+
+	#container {
+		height: 400px;
+	}
+
+	.highcharts-data-table table {
+		font-family: Verdana, sans-serif;
+		border-collapse: collapse;
+		border: 1px solid #EBEBEB;
+		margin: 10px auto;
+		text-align: center;
+		width: 100%;
+		max-width: 500px;
+	}
+	.highcharts-data-table caption {
+		padding: 1em 0;
+		font-size: 1.2em;
+		color: #555;
+	}
+	.highcharts-data-table th {
+		font-weight: 600;
+		padding: 0.5em;
+	}
+	.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+		padding: 0.5em;
+	}
+	.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+		background: #f8f8f8;
+	}
+	.highcharts-data-table tr:hover {
+		background: #f1f7ff;
+	}
+
+</style>
