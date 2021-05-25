@@ -7,8 +7,9 @@
         const resCoins = await fetch("https://coinpaprika1.p.rapidapi.com/exchanges", {
 	"method": "GET",
 	"headers": {
-		"x-rapidapi-host": "coinpaprika1.p.rapidapi.com",
-		"x-rapidapi-key": "7ba6091b4amsh6731b2f89b0cdc6p106e3fjsnbd534659f6b0"
+		"x-rapidapi-key": "SIGN-UP-FOR-KEY",
+	    "x-rapidapi-host": "coinpaprika1.p.rapidapi.com",
+	    "useQueryString": true
 	}
 });
 
