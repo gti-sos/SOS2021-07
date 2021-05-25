@@ -4,32 +4,30 @@
     let Data = [];
     let Coins = [];
     async function loadGraph() {
-        
+        const resCoins = await fetch("https://coinpaprika1.p.rapidapi.com/exchanges", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "coinpaprika1.p.rapidapi.com",
+		"x-rapidapi-key": "7ba6091b4amsh6731b2f89b0cdc6p106e3fjsnbd534659f6b0"
+	}
+});
 
-        const rentalsData = await fetch("/api/v1/rentals");
-        let Rentals = await rentalsData.json();
+        const resDataHappiness_rate = await fetch("/api/v2/happiness_rate");
+        let Happy = await resDataHappiness_rate.json();
         
-        let data_Rentals = Rentals.map((x) => {
+        let dataHappiness = Happy.map((x) => {
             let res = {
-                name: x.autonomous_community+", "+x.province + " (" + x.year + ") ",
-                value: x["salary"]
+                name: x.country + " - " + x.year,
+                value: x["happinessRanking"]
             };
             return res;
         });
-
-        const resCoins = await fetch("https://coinpaprika1.p.rapidapi.com/exchanges", {
-	    "method": "GET",
-	    "headers": {
-		"x-rapidapi-key": "9b2b2f4d65msh643a2276d42fb51p1e4972jsn8ab58ddd82c9",
-	    "x-rapidapi-host": "coinpaprika1.p.rapidapi.com",
-	    //"useQueryString": true
-	                    }});
         Coins = await resCoins.json();
         console.log(Coins);
         Coins.forEach((x) => {
             let coin = {
-                'name': x["name"],
-		        'value': x["markets"]
+                'name': x.name,
+		        'value': x.markets
             };
            
             Data.push(coin);
@@ -39,8 +37,8 @@
         let dataTotal =
             [
                 {
-                    name: "Renta",
-                    data: data_Rentals
+                    name: "Ranking de Felicidad",
+                    data: dataHappiness
                 },
                 {
                     name: "Nombre de la Criptomoneda",
@@ -53,7 +51,7 @@
                 height: '40%'
             },
             title: {
-                text: 'Relación entre el número de mercados en la que se usa la criptomoneda y el salario en España'
+                text: 'Relación entre el número de mercados en la que se usa la criptomoneda y el Ranking de Felicidad'
             },
             tooltip: {
                 useHTML: true,
