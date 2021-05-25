@@ -31,7 +31,7 @@
                     data: data_rentals
                 },
                 {
-                    name: "inversion social",
+                    name: "inversion socia",
                     data: data_buy_sell
                 }
             ];
