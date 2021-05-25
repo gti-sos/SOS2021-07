@@ -1,6 +1,6 @@
 <script>
-    import { onMount } from "svelte";
-    import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
+    import {pop} from "svelte-spa-router";
+    import Button from "sveltestrap/src/Button.svelte";
     let Data = [];
     let Coins = [];
     async function loadGraph() {
@@ -101,6 +101,8 @@
             Gráfica que muestra el ranking de felicidad y el número de mercados en la que se usa la criptomoneda.
         </p>
     </figure>
-
+    <div style="text-align:center;padding-bottom: 3%;">
+    <Button outline align = "center" color="secondary" on:click="{pop}">Volver</Button>
+    </div>
 
 </main>
