@@ -1,99 +1,173 @@
 <script>
-    import { onMount } from "svelte";
-    import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
-    async function loadGraph() {
-        const rentalsData = await fetch("/api/v1/rentals");
-        const investment_in_social_promotion = await fetch("/api/v2/province-budget-and-investment-in-social-promotion");
-        
-        let Data = await rentalsData.json();
-        let Data1 = await investment_in_social_promotion.json();
-        
-        let data_rentals = Data.map((x) => {
-            let res = {
-                name: x.province + " - " + x.year,
-                value: x["rent"]
-            };
-            return res;
-        });
-        let data_investment_in_social_promotion = Data1.map((x) => {
-            let res = {
-                name: x.province + " - " + x.year,
-                value: x["invest_promotion"]
-            };
-            return res;
-        });
-        
-        let dataTotal =
-            [
-                {
-                    name: "Ratio alquileres",
-                    data: data_rentals
-                },
-                {
-                    name: "Inversion Social",
-                    data: data_investment_in_social_promotion
-                }
-            ];
-        Highcharts.chart('container', {
-            chart: {
-                type: 'packedbubble',
-                height: '40%'
-            },
-            title: {
-                text: 'Mezcla de APIs'
-            },
-            tooltip: {
-                useHTML: true,
-                pointFormat: '<b>{point.name}:</b> {point.value}'
-            },
-            plotOptions: {
-                packedbubble: {
-                    minSize: '30%',
-                    maxSize: '120%',
-                    zMin: 0,
-                    zMax: 500,
-                    layoutAlgorithm: {
-                        splitSeries: false,
-                        gravitationalConstant: 0.02
-                    },
-                    dataLabels: {
-                        enabled: true,
-                        format: '{point.name}',
-                        filter: {
-                            property: 'y',
-                            operator: '>',
-                            value: 250
-                        },
-                        style: {
-                            color: 'black',
-                            textOutline: 'none',
-                            fontWeight: 'normal'
-                        }
-                    }
-                }
-            },
-            series: dataTotal
-        });
+    import { Nav, NavItem, NavLink } from "sveltestrap";
+    
+    const BASE_CONTACT_API_PATH_v2 = "/api/v2";
+    const BASE_CONTACT_API_PATH_v1 = "/api/v1";
+    var rentalsData = [];
+    var inversionData = [];
+    var errorMsg = "";
+    var okMsg = "";
+    var activeSpinner = true;
+    async function loadStats() {
+      console.log("Loading data...");
+      const res = await fetch(
+        BASE_CONTACT_API_PATH + "/rentals/loadInitialData"
+      ).then(function (res) {
+        if (res.ok) {
+          getStats();
+          errorMsg = "";
+          okMsg = "Datos cargados correctamente";
+          console.log("OK");
+        } else {
+          if (res.status === 500) {
+            errorMsg = "No se ha podido acceder a la base de datos";
+          }
+          okMsg = "";
+          console.log("ERROR!" + errorMsg);
+        }
+      });
     }
-    loadGraph();
+    async function getStats() {
+      console.log("Fetching data...");
+      await loadStats();
+      const res = await fetch(BASE_CONTACT_API_PATH_v1 + "/rentals");
+      if (res.ok) {
+        console.log("OK");
+        natalityData = await res.json();
+        okMsg = "";
+        
+      } else {
+        console.log("Error");
+        errorMsg = "Error al cargar los datos de la API";
+      }
+    }
+    async function getSanityStats() {
+      console.log("Fetching data...");
+      const res = await fetch("/province-budget-and-investment-in-social-promotion");
+      if (res.ok) {
+        const json = await res.json();
+        sanityStats = json;
+    
+        console.log("Ok");
+      } else {
+        errorMsg = "Error recuperando datos de sanity-stats";
+        okMsg = "";
+        console.log("ERROR!" + errorMsg);
+      }
+    }
+    async function loadChart() {
+      await getStats();
+      await getSanityStats();
+      var xAxis = [];
+      var yAxis = [];
+      var yAxis1 = [];
+      //-------------------Sanity-stats
+      console.log("Calculating sanity-stats...");
+      var index = 0;
+      sanityStats.forEach(x => {
+        var e = x.province+"-"+x.year;
+        if (!xAxis.includes(e)){
+          xAxis.push(e);
+          yAxis.push(Math.round(x.invest_promotion));
+          index++;
+          console.log("X: "+xAxis);
+          console.log("Y: "+yAxis);
+        }
+      });
+      console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+      console.log("Calculating natality-stats...");
+      natalityData.forEach(x => {
+        var e = x.province+"-"+x.year;
+        if (!xAxis.includes(e)){
+          if(x["rent"]!=undefined){
+            
+            xAxis.push(e);
+          yAxis.push(Math.round(x["rent"]));
+          console.log("X: "+xAxis);
+          console.log("Y: "+yAxis);
+          }
+          
+        }
+      });
+      var yAxis1 = [];
+      for (let i = 0; i < index; i++) {
+        yAxis1.push(0);    
+      }
+      var copy = yAxis.slice(index,yAxis.lengt);
+    for (let i = 0; i < copy.length; i++) {
+      yAxis1.push(copy[i]);
+      
+    }
+ 
+      var ctx = document.getElementById("myChart").getContext("2d");
+      var myChart = new Chart(ctx, {
+        
+        data: {
+          
+          datasets: [
+            {
+              type: 'line',
+              label: "Inversion social",
+              data: yAxis.slice(0,index),
+              borderColor: 'rgb(255, 99, 132)',
+              backgroundColor: 'rgba(255, 99, 132, 0.2)'
+            
+            },
+            {
+              type: 'bar',
+              label: "Renta",
+              data: yAxis1,
+              borderColor: 'rgb(54, 162, 235)'
+            },
+          ],
+          labels: xAxis
+        },
+      });
+    }
+    activeSpinner=false;
   </script>
   
   <svelte:head>
-  
-    <script src="https://code.highcharts.com/highcharts.js" on:load={loadGraph}></script>
-    <script src="https://code.highcharts.com/highcharts-more.js" on:load={loadGraph}></script>
-    <script src="https://code.highcharts.com/modules/exporting.js" on:load={loadGraph}></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadGraph}></script>
-  
+    <script
+      src="https://cdn.jsdelivr.net/npm/chart.js"
+      on:load={loadChart}></script>
   </svelte:head>
   
   <main>
+    <Nav>
+      <NavItem>
+        <NavLink href="/">Página Principal</NavLink>
+      </NavItem>
+      <NavItem>
+        <NavLink href="/#/integrations/">volver</NavLink>
+      </NavItem>
+    </Nav>
   
-    <figure class="highcharts-figure">
-        <div id="container"></div>
-        <p class="highcharts-description" align ="center">
-            Gráfica que muestra los datos de las 3 APIs. La variacion de las diversas APIs
-        </p>
-    </figure>
+    <div>
+      <h2>Integración API SOS sanity-stats</h2>
+    </div>
   
+    {#if errorMsg}
+      <p>{errorMsg}</p>
+    {:else}
+    {#if activeSpinner}
+    <Spinner {primary} />
+    {:else}
+    <div>
+      <canvas id="myChart" />
+    </div>
+    {/if}
+     
+    {/if}
   </main>
+  
+  <style>
+    main {
+      text-align: center;
+      padding: 1em;
+      margin: 0 auto;
+    }
+    div {
+      margin-bottom: 15px;
+    }
+  </style>
