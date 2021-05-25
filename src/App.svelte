@@ -3,6 +3,7 @@
 	
 	import NotFound from "./front-end/complementos/NotFound.svelte";
 	import Router from 'svelte-spa-router';
+	import IntegracionesInit from "./front-end/complementos/Integraciones_Init.svelte"
 	import Rentals from "./front-end/Front_Rentals/Rentals.svelte";
 	import Init from "./front-end/complementos/Init.svelte";
 	import Unemployment from "./front-end/Front_Unemployment/Unemployment.svelte";
@@ -17,11 +18,14 @@
 	import Rentals_Graphic2 from "./front-end/Front_Rentals/graficos3.svelte";
 	import Unemployment_Chart from "./front-end/Front_Unemployment/Unemployment_Chart.svelte";
 	import Info from "./front-end/complementos/info.svelte";
+	import Integracion_G27_Tristan from "./front-end/integraciones/rentals/Grupo27.svelte";
 	import Grafico_Comun from "./front-end/complementos/Grafico_Comun.svelte";
 
 	const routes = {
 		"/":Init,
 		"/info": Info,
+		"/integrations":IntegracionesInit,
+		"/rentals/G27":Integracion_G27_Tristan,
 		"/common-graphic":Grafico_Comun,
 		"/rentals": Rentals,
 		"/rentals/:province/:year":RentalsEdit,
