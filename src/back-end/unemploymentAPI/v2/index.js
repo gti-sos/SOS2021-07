@@ -389,7 +389,7 @@ module.exports.register = (app) => {
 
     //Post al recurso /:autonomous_community => Method Not Allowed
     app.post(UNEMPLOYMENT_API_PATH + "/unemployment/:autonomous_community", (req, res) => {
-        res.sendStatus(405);
+        res.sendStatus(405); 
 
     });
 
