@@ -39,12 +39,15 @@
               <a href="/#/integrations/G27_rentals"
                 ><Button color="primary">G27</Button></a
               >
-              <a href="/#/integrations/criptomoneda"
-                ><Button color="primary">Criptomoneda E1</Button></a
+              
+              <a href="/#/integrations/Ext1_educacion"
+              ><Button color="info">Ext1 Educación</Button></a
+            >
+
+              <a href="/#/integrations/Ext2_Cartas"
+                ><Button color="primary">Ext2 Cartas E1</Button></a
               >
-              <a href="https://documenter.getpostman.com/view/14949877/TzJu8wZf"
-                ><Button color="info">API Externa 1</Button></a
-              >
+              
             </CardBody>
             
           </Card>

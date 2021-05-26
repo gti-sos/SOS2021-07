@@ -19,8 +19,9 @@
 	import Rentals_Graphic2 from "./front-end/Front_Rentals/graficos3.svelte";
 	import Unemployment_Chart from "./front-end/Front_Unemployment/Unemployment_Chart.svelte";
 	import Info from "./front-end/complementos/info.svelte";
-	import Integracion_G27_Tristan from "./front-end/integraciones/rentals/Grupo27.svelte";
-	import criptomoneda from "./front-end/integraciones/rentals/Externa_Apuestas.svelte";
+	import Integracion_G27_Tristan from "./front-end/integraciones/rentals/G27.svelte";
+	import IntegracionExt_Educacion from "./front-end/integraciones/rentals/Ext1_educacion.svelte";
+	import cartas from "./front-end/integraciones/rentals/Ext2_cartas.svelte";
 	import Grafico_Comun from "./front-end/complementos/Grafico_Comun.svelte";
 
 	const routes = {
@@ -28,7 +29,8 @@
 		"/info": Info,
 		"/integrations":IntegracionesInit,
 		"/integrations/G27_rentals":Integracion_G27_Tristan,
-		"/integrations/criptomoneda":criptomoneda,
+		"/integrations/Ext2_Cartas":cartas,
+		"/integrations/Ext1_educacion":IntegracionExt_Educacion,
 		"/common-graphic":Grafico_Comun,
 		"/rentals": Rentals,
 		"/rentals/:province/:year":RentalsEdit,
