@@ -26,6 +26,7 @@ let buy_sell_Chart_eviction_Data = [];
     buy_sell_Data = await res.json();
     if (res.ok) {
 	console.log(res.json());
+	console.log(buy_sell_Data);
       buy_sell_Data.forEach(stat => {
       //buy_sell_Chart_autonomous_community_Data.push(stat.autonomous_community);
       //buy_sell_Chart_province_Data.push(stat.province);
