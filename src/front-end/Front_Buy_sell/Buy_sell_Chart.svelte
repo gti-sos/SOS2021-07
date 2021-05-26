@@ -125,6 +125,9 @@ let buy_sell_Chart_eviction_Data = [];
     <NavItem>
       <NavLink href="#/buy_sell">Datos</NavLink>
     </NavItem>
+	<NavItem>
+      <NavLink href="#/buy_sell/graficaNL">Gráfica AREA</NavLink>
+    </NavItem>
   </Nav>
 
   <div>
