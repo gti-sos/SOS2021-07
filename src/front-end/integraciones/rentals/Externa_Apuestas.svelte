@@ -1,106 +1,107 @@
 <script>
-    import {pop} from "svelte-spa-router";
     import Button from "sveltestrap/src/Button.svelte";
-    let Data = [];
-    let Coins = [];
-    async function loadGraph() {
-        const resCoins = await fetch("https://coinpaprika1.p.rapidapi.com/exchanges", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "coinpaprika1.p.rapidapi.com",
-		"x-rapidapi-key": "7ba6091b4amsh6731b2f89b0cdc6p106e3fjsnbd534659f6b0"
-	}
-});
-
-        const resDataHappiness_rate = await fetch("/api/v2/happiness_rate");
-        let Happy = await resDataHappiness_rate.json();
-        
-        let dataHappiness = Happy.map((x) => {
-            let res = {
-                name: x.country + " - " + x.year,
-                value: x["happinessRanking"]
-            };
-            return res;
+    import { pop } from "svelte-spa-router";
+    
+async function loadChart(){
+   
+    var cards={};
+    var cardTypes = [];
+    const resData = await fetch("https://db.ygoprodeck.com/api/v7/cardinfo.php");
+    const myData = await resData.json();  
+    console.log(myData);
+    
+    myData.data.forEach((v) =>{
+         if(v.type in cards){
+                cards[v.type] += 1;
+            }
+            else{
+                cards[v.type]= 1;
+            }
         });
-        Coins = await resCoins.json();
-        console.log(Coins);
-        Coins.forEach((x) => {
-            let coin = {
-                'name': x.name,
-		        'value': x.markets
-            };
-           
-            Data.push(coin);
-
-        }); 
-       
-        let dataTotal =
-            [
-                {
-                    name: "Ranking de Felicidad",
-                    data: dataHappiness
-                },
-                {
-                    name: "Nombre de la Criptomoneda",
-                    data: Data
-                }
-            ];
-        Highcharts.chart('container', {
-            chart: {
-                type: 'packedbubble',
-                height: '40%'
-            },
-            title: {
-                text: 'Relación entre el número de mercados en la que se usa la criptomoneda y el Ranking de Felicidad'
-            },
-            tooltip: {
-                useHTML: true,
-                pointFormat: '<b>{point.name}:</b> {point.value}'
-            },
-            plotOptions: {
-                packedbubble: {
-                    minSize: '30%',
-                    maxSize: '120%',
-                    zMin: 0,
-                    zMax: 1000,
-                    layoutAlgorithm: {
-                        splitSeries: false,
-                        gravitationalConstant: 0.02
-                    },
-                    dataLabels: {
-                        enabled: true,
-                        format: '{point.name}',
-                        filter: {
-                            property: 'y',
-                            operator: '>',
-                            value: 250
-                        },
-                        style: {
-                            color: 'black',
-                            textOutline: 'none',
-                            fontWeight: 'normal'
-                        }
-                    }
-                }
-            },
-            series: dataTotal
-        });
+    
+    for (var key in cards){
+        cardTypes.push([key,cards[key]]);
     }
-    loadGraph();
+    
+Highcharts.chart('container', {
+    chart: {
+        renderTo: 'container',
+        type: 'column',
+        options3d: {
+            enabled: true,
+            alpha: 10,
+            beta: 15,
+            depth: 50,
+            viewDistance: 20
+        }
+    },
+    title: {
+        text: 'Cartas de Yu-Gi-Oh por tipos'
+    },
+    accessibility: {
+        announceNewData: {
+            enabled: true
+        }
+    },
+    xAxis: {
+        type: 'category'
+    },
+    yAxis: {
+        title: {
+            text: 'Número de cartas'
+        }
+    },
+    legend: {
+        enabled: false
+    },
+    plotOptions: {
+        column: {
+            depth: 20
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:12px">{series.name}</span><br>',
+        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}</b><br/>'
+    },
+        series: [{
+            name: 'Número de cartas',
+            colorByPoint: true,
+            data: cardTypes
+        }]
+    });
+}
 </script>
 <svelte:head>
+  <script src="https://code.highcharts.com/highcharts.js" on:load={loadChart}></script>
+  <script src="https://code.highcharts.com/modules/series-label.js"></script>
+  <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+  <script src="https://code.highcharts.com/modules/cylinder.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 </svelte:head>
 
 <main>
-
-    <figure class="highcharts-figure">
-        <div id="container"></div>
-        <p class="highcharts-description" align = "center">
-            Gráfica que muestra el ranking de felicidad y el número de mercados en la que se usa la criptomoneda.
-        </p>
-    </figure>
-    <div style="text-align:center;padding-bottom: 3%;">
-    <Button outline align = "center" color="secondary" on:click="{pop}">Volver</Button>
-    </div>
-
+  <figure class="highcharts-figure">
+  <div id ="container"></div>
+  <p class="highcharts-description">
+      Gráfico 3D que muestra la cantidad de cartas de YU-GI-OH por tipos.
+  </p>
+  </figure>
+    <Button outline color="secondary" on:click="{pop}"> Atrás</Button>
 </main>
+
+<style>
+
+#container {
+    height: 600px;
+    width: 900px;
+}
+
+.highcharts-figure, .highcharts-data-table table {
+    min-width: 350px;
+    max-width: 900px;
+    margin: 1em auto;
+}
+
+</style>
