@@ -3,9 +3,9 @@ var cool = require("cool-ascii-faces");
 var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
-//const cors = require("cors");
-//app.use(cors());
-//
+var cors = require("cors");
+var request = require("request");
+app.use(cors());
 
 
 
