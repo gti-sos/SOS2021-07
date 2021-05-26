@@ -3,8 +3,8 @@ var cool = require("cool-ascii-faces");
 var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
-const cors = require("cors");
-app.use(cors());
+//const cors = require("cors");
+//app.use(cors());
 
 
 var buy_sell_API = require("./src/back-end/buy_sell_API/v2");
