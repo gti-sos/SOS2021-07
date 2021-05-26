@@ -45,6 +45,7 @@ unemploymentAPI_Integration.register(app); //importamos integration declarado ar
 var pathBudget='/api/v2/province-budget-and-investment-in-social-promotion';
 var apiServerHostBudget = "https://sos2021-27.herokuapp.com";
  
+
 //app.use(pathBudget, function(req, res) {
   //var url = apiServerHostBudget + req.baseUrl + req.url;
   //console.log('piped: ' + req.baseUrl + req.url);
