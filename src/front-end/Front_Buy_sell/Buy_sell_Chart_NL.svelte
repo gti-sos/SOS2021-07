@@ -25,6 +25,8 @@ let buy_sell_Chart_eviction_Data = [];
     const res = await fetch(BASE_CONTACT_API_PATH + "/buy_sell");
     buy_sell_Data = await res.json();
     if (res.ok) {
+	//console.log(res.json()); me imprime una cosa rara
+	console.log(buy_sell_Data);
       buy_sell_Data.forEach(stat => {
       //buy_sell_Chart_autonomous_community_Data.push(stat.autonomous_community);
       //buy_sell_Chart_province_Data.push(stat.province);
@@ -37,80 +39,74 @@ let buy_sell_Chart_eviction_Data = [];
     }
     
     console.log("BUY SELL Chart DaTa: " + buy_sell_Chart_Data);
-   Highcharts.chart('container', {
+	
+    Highcharts.chart('container', {
     chart: {
-        type: 'bar'
+        type: 'area'
     },
     title: {
-        text: 'BUY SELL STATS'
+        text: 'Gráfica de tipo AREA'
     },
     subtitle: {
-        text: 'TIPO BAR'
+        text: 'API BUY SELL'
     },
     xAxis: {
-        categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+        categories: buy_sell_Chart_comunityprovinceyear_Data,
+        tickmarkPlacement: 'on',
         title: {
-            text: 'comunidad autónoma y provincia'
+            enabled: false
         }
     },
     yAxis: {
-        min: 0,
         title: {
-            text: 'Valor',
-            align: 'high'
+            text: 'Valor'
         },
         labels: {
-            overflow: 'justify'
-        }
-    },
-    tooltip: {
-        valueSuffix: ' millions'
-    },
-    plotOptions: {
-        bar: {
-            dataLabels: {
-                enabled: true
+            formatter: function () {
+                return this.value / 1000;
             }
         }
     },
-    legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'top',
-        x: -40,
-        y: 80,
-        floating: true,
-        borderWidth: 1,
-        backgroundColor:
-            Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
-        shadow: true
+    tooltip: {
+        split: true,
+        valueSuffix: ''
     },
-    credits: {
-        enabled: false
+    plotOptions: {
+        area: {
+            stacking: 'normal',
+            lineColor: '#666666',
+            lineWidth: 1,
+            marker: {
+                lineWidth: 1,
+                lineColor: '#666666'
+            }
+        }
     },
-    series: [{
-        name: 'Superficie',
-        data: [107, 31, 635, 203, 2]
-    }, {
-        name: '% variación anual',
-        data: [133, 156, 947, 408, 6]
-    }, {
-        name: 'Desalojo',
-        data: [814, 841, 3714, 727, 31]
-    }]
+    series: [
+        {
+          name: "Superficie",
+          data: buy_sell_Chart_surface_Data,
+        },
+        {
+          name: "Porcentaje de variación anual (%)",
+          data: buy_sell_Chart_annual_variation_percentage_Data,
+        },
+        {
+          name: "Desalojo",
+          data: buy_sell_Chart_eviction_Data,
+        }
+        
+      ]
 });
-	
 	
   }
 </script>
 <svelte:head>
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="https://code.highcharts.com/modules/series-label.js"></script>
-  <script src="https://code.highcharts.com/modules/exporting.js"></script>
-  <script src="https://code.highcharts.com/modules/export-data.js"></script>
-  <script
-    src="https://code.highcharts.com/modules/accessibility.js"
-    on:load={loadChart}></script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://code.highcharts.com/modules/export-data.js"></script>
+	<script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadChart}></script>
+	
 </svelte:head>
 <main>
   <Nav>
@@ -122,41 +118,70 @@ let buy_sell_Chart_eviction_Data = [];
     </NavItem>
   </Nav>
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+  <div>
+    <h2>
+      Análiticas
+    </h2>
+  </div>
 
-<figure class="highcharts-figure">
-    <div id="container"></div>
-    <p class="highcharts-description">
-        Bar chart showing horizontal columns. This chart type is often
-        beneficial for smaller screens, as the user can scroll through the data
-        vertically, and axis labels are easy to read.
-    </p>
-</figure>
+  <div>
+    {#if errorMsg}
+      <p class="msgRed" style="color: #9d1c24">ERROR: {errorMsg}</p>
+    {/if}
+    {#if okMsg}
+      <p class="msgGreen" style="color: #155724">{okMsg}</p>
+    {/if}
+  </div>
 
+  <div>
+    <figure class="highcharts-figure">
+      <div id="container" />
+      <p class="highcharts-description">
+        Gráfico de líneas básico que muestra los diferentes valores para los campos de compra venta.
+      </p>
+    </figure>
+  </div>
 </main>
 
 <style>
-  .highcharts-figure, .highcharts-data-table table {
+  main {
+    text-align: center;
+    padding: 1em;
+    margin: 0 auto;
+  }
+  div{
+    margin-bottom: 15px;
+  }
+  p {
+    display: inline;
+  }
+  .msgRed {
+    padding: 8px;
+    background-color: #f8d7da;
+  }
+  .msgGreen {
+    padding: 8px;
+    background-color: #d4edda;
+  }
+  
+  #container {
+    height: 400px; 
+}
+
+.highcharts-figure, .highcharts-data-table table {
     min-width: 310px; 
     max-width: 800px;
     margin: 1em auto;
 }
 
-#container {
-    height: 400px;
-}
-
 .highcharts-data-table table {
-	font-family: Verdana, sans-serif;
-	border-collapse: collapse;
-	border: 1px solid #EBEBEB;
-	margin: 10px auto;
-	text-align: center;
-	width: 100%;
-	max-width: 500px;
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #EBEBEB;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
 }
 .highcharts-data-table caption {
     padding: 1em 0;
