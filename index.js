@@ -1,9 +1,10 @@
 //Declaracion de variables globales
+import cors from 'cors';
 var cool = require("cool-ascii-faces");
 var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
-var cors = require("cors");
+//var cors = require("cors");
 var request = require("request");
 app.use(cors());
 
