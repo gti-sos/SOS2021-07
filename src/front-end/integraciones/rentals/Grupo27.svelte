@@ -1,100 +1,96 @@
 <script>
-    import { onMount } from "svelte";
-    import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
-    const BASE_SOCIAL_API_PATH = "/province-budget-and-investment-in-social-promotion/api/v2"
-    async function loadGraph() {
-        const rentalsData = await fetch("/api/v1/rentals");
-        const buy_sellData = await fetch(BASE_SOCIAL_API_PATH + "/province-budget-and-investment-in-social-promotion/api/v2");
-        
-        let Data = await rentalsData.json();
-        let Data1 = await buy_sellData.json();
-        
-        let data_rentals = Data.map((x) => {
-            let res = {
-                name: x.autonomous_community+", "+ x.province + " - " + x.year,
-                value: x["rent_variation"]
-            };
-            return res;
-        });
-        let data_buy_sell = Data1.map((x) => {
-            let res = {
-                name: x["province"] + " - " + x["province"],
-                value: x["invest_promotion"]
-            };
-            return res;
-        });
-        
-        let dataTotal =
-            [
-                {
-                    name: "Ratio alquileres",
-                    data: data_rentals
-                },
-                {
-                    name: "inversion social",
-                    data: data_buy_sell
-                }
-            ];
-        Highcharts.chart('container', {
-            chart: {
-                type: 'packedbubble',
-                height: '40%'
-            },
-            title: {
-                text: 'Mezcla de APIs'
-            },
-            tooltip: {
-                useHTML: true,
-                pointFormat: '<b>{point.name}:</b> {point.value}'
-            },
-            plotOptions: {
-                packedbubble: {
-                    minSize: '30%',
-                    maxSize: '120%',
-                    zMin: 0,
-                    zMax: 500,
-                    layoutAlgorithm: {
-                        splitSeries: false,
-                        gravitationalConstant: 0.02
-                    },
-                    dataLabels: {
-                        enabled: true,
-                        format: '{point.name}',
-                        filter: {
-                            property: 'y',
-                            operator: '>',
-                            value: 250
-                        },
-                        style: {
-                            color: 'black',
-                            textOutline: 'none',
-                            fontWeight: 'normal'
-                        }
-                    }
-                }
-            },
-            series: dataTotal
-        });
-    }
-    loadGraph();
-  </script>
-  
-  <svelte:head>
-  
-    <script src="https://code.highcharts.com/highcharts.js" on:load={loadGraph}></script>
-    <script src="https://code.highcharts.com/highcharts-more.js" on:load={loadGraph}></script>
-    <script src="https://code.highcharts.com/modules/exporting.js" on:load={loadGraph}></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadGraph}></script>
-  
-  </svelte:head>
-  
-  <main>
-  
-    <figure class="highcharts-figure">
-        <div id="container"></div>
-        <p class="highcharts-description" align ="center">
-            Gráfica que muestra los datos de las 3 APIs. La variacion de las diversas APIs
-        </p>
-    </figure>
-  
-  </main>
+    import {pop} from "svelte-spa-router";
+  import Button from "sveltestrap/src/Button.svelte";
+  async function loadGraph() {
+      const resDatasugarconsume = await fetch("https://sos2021-27.herokuapp.com/api/v2/province-budget-and-investment-in-social-promotion");
+      const resDataEquality = await fetch("https://sos2021-07.herokuapp.com/api/v1/integration/rentals");
+      let sugarconsume = await resDatasugarconsume.json();
+      let equality = await resDataEquality.json();
+      console.log(equality);
+      let datasugarconsume = sugarconsume.map((d) => {
+          let res = {
+              name: d.province + " - " + d.year,
+              value: parseInt(d["invest_promotion"])
+          };
+          return res;
+      });
+      let dataEquality = equality.map((d) => {
+          let res = {
+              name: d.province + " - " + d.year,
+              value: d["rent"]
+          };
+          return res;
+      });
+      let dataTotal =
+          [
+              {
+                  name: "Consumo de azucar",
+                  data: datasugarconsume
+              },
+              {
+                  name: "Ranking de paz",
+                  data: dataEquality
+              }
+          ];
+      Highcharts.chart('container', {
+          chart: {
+              type: 'packedbubble',
+              height: '60%'
+          },
+          title: {
+              text: 'Relación entre el ranking de paz y consumo de azucar'
+          },
+          tooltip: {
+              useHTML: true,
+              pointFormat: '<b>{point.name}:</b> {point.value}'
+          },
+          plotOptions: {
+              packedbubble: {
+                  minSize: '20%',
+                  maxSize: '100%',
+                  zMin: 0,
+                  zMax: 100,
+                  layoutAlgorithm: {
+                      splitSeries: false,
+                      gravitationalConstant: 0.02
+                  },
+                  dataLabels: {
+                      enabled: true,
+                      format: '{point.name}',
+                      filter: {
+                          property: 'y',
+                          operator: '>',
+                          value: 250
+                      },
+                      style: {
+                          color: 'black',
+                          textOutline: 'none',
+                          fontWeight: 'normal'
+                      }
+                  }
+              }
+          },
+          series: dataTotal
+      });
+  }
+  loadGraph();
+</script>
+
+<svelte:head>
+
+
+</svelte:head>
+
+<main>
+
+  <figure class="highcharts-figure">
+      <div id="container"></div>
+      <p class="highcharts-description">
+          Gráfica de diferencia entre el consumo de azucar y el ranking de paz.
+      </p>
+  </figure>
+  <div style="text-align:center;padding-bottom: 3%;">
+      <Button outline align = "center" color="secondary" on:click="{pop}">Volver</Button>
+      </div>
+      
+</main>
