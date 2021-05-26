@@ -15,7 +15,7 @@
         const resData = await fetch("/api/v1/rentals");
         const MyData = await resData.json();  
 
-        const res2Data = await fetch("https://education-expenditures.herokuapp.com/api/v1");
+        const res2Data = await fetch("https://sos2021-27.herokuapp.com/api/v2/province-budget-and-investment-in-social-promotion");
         const extData = await res2Data.json();  
         
         MyData.forEach((v) => {
@@ -27,8 +27,8 @@
 
         extData.forEach((v) => {
         extDataTrans['data'].push({
-            name: v.country + " " + v.year,
-            value: v.education_expenditure_per_millions
+            name: v.province + " " + v.year,
+            value: v["invest_promotion"]
             });
         });
         
