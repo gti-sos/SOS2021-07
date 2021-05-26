@@ -37,9 +37,9 @@
               <CardSubtitle />
               
               <a href="/#/integrations/G27_rentals"
-                ><Button color="primary">G27</Button></a
+                ><Button color="primary">G27 Budget</Button></a
               >
-              
+
               <a href="/#/integrations/Ext1_educacion"
               ><Button color="info">Ext1 Educación</Button></a
             >
