@@ -36,7 +36,7 @@ Highcharts.chart('container', {
         }
     },
     title: {
-        text: 'Cartas de Yu-Gi-Oh por tipos'
+        text: 'Cartas de Yu-Gi-Oh por atributos'
     },
     accessibility: {
         announceNewData: {
