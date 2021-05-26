@@ -41,7 +41,7 @@
             height: '85%'
         },
         title: {
-            text: 'Renta y Gasto en educación por millones de euros.'
+            text: 'Renta y inversion.'
         },
         tooltip: {
             useHTML: true
@@ -95,7 +95,7 @@
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
-            Esta grafica muestra el total de niños y niñas que abandona la escuela y el gasto en educación por millones de euros en los últimos años.
+            Muestra la cantidad de inversion social frente a la renta en las provincias de españa.
         </p>
     </figure>
     <Button outline color="secondary" on:click="{pop}"> Atrás</Button>
