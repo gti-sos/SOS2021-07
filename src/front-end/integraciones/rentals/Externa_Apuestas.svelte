@@ -1,107 +1,170 @@
 <script>
-    import {pop} from "svelte-spa-router";
     import Button from "sveltestrap/src/Button.svelte";
-    let Data = [];
-    let Coins = [];
-    async function loadGraph() {
-        const resCoins = await fetch("https://coinpaprika1.p.rapidapi.com/exchanges", {
-	"method": "GET",
-	"headers": {
-        'x-rapidapi-key': '9b2b2f4d65msh643a2276d42fb51p1e4972jsn8ab58ddd82c9',
-        'x-rapidapi-host': 'coinpaprika1.p.rapidapi.com',
-        useQueryString: true
-	}
-});
+    import { pop } from "svelte-spa-router";
+    
+async function loadChart(){
+   
+    var pokemon1={};
+    var pokemon2={};
+    var pokemon3={};
+    var pokemon4={};
+    var pokemon5={};
 
-        const resDataHappiness_rate = await fetch("/api/v1/rentals");
-        let Happy = await resDataHappiness_rate.json();
+    var pokedex = [];
+    const resData_N = await fetch("https://pokeapi.co/api/v2/pokedex/1");
+    const resData_K = await fetch("https://pokeapi.co/api/v2/pokedex/2");
+    const resData_J = await fetch("https://pokeapi.co/api/v2/pokedex/3");
+    const resData_H = await fetch("https://pokeapi.co/api/v2/pokedex/4");
+    const resData_S = await fetch("https://pokeapi.co/api/v2/pokedex/5");
+    const myData1 = await resData_N.json();  
+    const myData2 = await resData_K.json();  
+    const myData3 = await resData_J.json();  
+    const myData4 = await resData_H.json();  
+    const myData5= await resData_S.json();  
+    console.log(myData);
+    
+    myData1.data.forEach((v) =>{
+         if(!(v.pokemon_species in pokemon1)){
+            pokemon1[v.descriptions["descriptions"]] += 1;
+            }
+            else{
+                
+            }
+        });
+
+        myData2.data.forEach((v) =>{
+         if(!(v.pokemon_species in pokemon2)){
+            pokemon2[v.descriptions["descriptions"]] += 1;
+            }
+            else{
+                
+            }
+        });
+
+        myData3.data.forEach((v) =>{
+         if(!(v.pokemon_species in pokemon3)){
+            pokemon3[v.descriptions["descriptions"]] += 1;
+            }
+            else{
+                
+            }
+        });
+
+        myData4.data.forEach((v) =>{
+         if(!(v.pokemon_species in pokemon4)){
+            pokemon4[v.descriptions["descriptions"]] += 1;
+            }
+            else{
+                
+            }
+        });
+
+        myData5.data.forEach((v) =>{
+         if(!(v.pokemon_species in pokemon5)){
+            pokemon5[v.descriptions["descriptions"]] += 1;
+            }
+            else{
+                
+            }
+        });
+
         
-        let dataHappiness = Happy.map((x) => {
-            let res = {
-                name: x.province + " - " + x.year,
-                value: x["salary"]
-            };
-            return res;
-        });
-        Coins = await resCoins.json();
-        console.log(Coins);
-        Coins.forEach((x) => {
-            let coin = {
-                'name': x.name,
-		        'value': x.markets
-            };
-           
-            Data.push(coin);
-
-        }); 
-       
-        let dataTotal =
-            [
-                {
-                    name: "Ranking de Felicidad",
-                    data: dataHappiness
-                },
-                {
-                    name: "Nombre de la Criptomoneda",
-                    data: Data
-                }
-            ];
-        Highcharts.chart('container', {
-            chart: {
-                type: 'packedbubble',
-                height: '40%'
-            },
-            title: {
-                text: 'Relación entre el número de mercados en la que se usa la criptomoneda y el Ranking de Felicidad'
-            },
-            tooltip: {
-                useHTML: true,
-                pointFormat: '<b>{point.name}:</b> {point.value}'
-            },
-            plotOptions: {
-                packedbubble: {
-                    minSize: '30%',
-                    maxSize: '120%',
-                    zMin: 0,
-                    zMax: 1000,
-                    layoutAlgorithm: {
-                        splitSeries: false,
-                        gravitationalConstant: 0.02
-                    },
-                    dataLabels: {
-                        enabled: true,
-                        format: '{point.name}',
-                        filter: {
-                            property: 'y',
-                            operator: '>',
-                            value: 250
-                        },
-                        style: {
-                            color: 'black',
-                            textOutline: 'none',
-                            fontWeight: 'normal'
-                        }
-                    }
-                }
-            },
-            series: dataTotal
-        });
+    
+    for (var key in pokemon1){
+        pokedex.push([key,pokemon1[key]]);
     }
-    loadGraph();
+    for (var key in pokemon2){
+        pokedex.push([key,pokemon2[key]]);
+    }
+    for (var key in pokemon3){
+        pokedex.push([key,pokemon3[key]]);
+    }
+    for (var key in pokemon4){
+        pokedex.push([key,pokemon4[key]]);
+    }
+    for (var key in pokemon5){
+        pokedex.push([key,pokemon5[key]]);
+    }
+    
+Highcharts.chart('container', {
+    chart: {
+        renderTo: 'container',
+        type: 'column',
+        options3d: {
+            enabled: true,
+            alpha: 10,
+            beta: 15,
+            depth: 50,
+            viewDistance: 20
+        }
+    },
+    title: {
+        text: 'Cantidad pokemon por cada pokedex'
+    },
+    accessibility: {
+        announceNewData: {
+            enabled: true
+        }
+    },
+    xAxis: {
+        type: 'category'
+    },
+    yAxis: {
+        title: {
+            text: 'numero de pokemon'
+        }
+    },
+    legend: {
+        enabled: false
+    },
+    plotOptions: {
+        column: {
+            depth: 20
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:12px">{series.name}</span><br>',
+        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}</b><br/>'
+    },
+        series: [{
+            name: 'numero pokemon',
+            colorByPoint: true,
+            data: pokedex
+        }]
+    });
+}
 </script>
 <svelte:head>
+  <script src="https://code.highcharts.com/highcharts.js" on:load={loadChart}></script>
+  <script src="https://code.highcharts.com/modules/series-label.js"></script>
+  <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+  <script src="https://code.highcharts.com/modules/cylinder.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 </svelte:head>
 
 <main>
-
-    <figure class="highcharts-figure">
-        <div id="container"></div>
-        <p class="highcharts-description" align = "center">
-            Gráfica que muestra el ranking de felicidad y el número de mercados en la que se usa la criptomoneda.
-        </p>
-    </figure>
-    <div style="text-align:center;padding-bottom: 3%;">
-    <Button outline align = "center" color="secondary" on:click="{pop}">Volver</Button>
-    </div>
-
+  <figure class="highcharts-figure">
+  <div id ="container"></div>
+  <p class="highcharts-description">
+      Gráfico 3D que muestra la cantidad de cartas de pokemon segun pokedex.
+  </p>
+  </figure>
+    <Button outline color="secondary" on:click="{pop}"> Atrás</Button>
 </main>
+
+<style>
+
+#container {
+    height: 600px;
+    width: 900px;
+}
+
+.highcharts-figure, .highcharts-data-table table {
+    min-width: 350px;
+    max-width: 900px;
+    margin: 1em auto;
+}
+
+</style>
