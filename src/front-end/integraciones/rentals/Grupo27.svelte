@@ -1,25 +1,25 @@
 <script>
     import Button from "sveltestrap/src/Button.svelte";
     async function loadGraph() {
-        const resDatahappiness_rate = await fetch("/api/v1/rentals");
-        const resDataGlobal_Competitiveness = await fetch("https://education-expenditures.herokuapp.com/api/v1");
+        const resData_Rental = await fetch("/api/v1/rentals");
+        const resDataEduacionGastos = await fetch("https://education-expenditures.herokuapp.com/api/v1");
         
 
-        let Data = await resDatahappiness_rate.json();
-        let Data1 = await resDataGlobal_Competitiveness.json();
+        let Data = await resData_Rental.json();
+        let Data1 = await resDataEduacionGastos.json();
         
 
-        let datahappiness_rate = Data.map((x) => {
+        let DataRental = Data.map((x) => {
             let res = {
                 name: x.province + " - " + x.year,
                 value: x["salary"]
             };
             return res;
         });
-        let dataGlobal_Competitiveness = Data1.map((x) => {
+        let dataGastos_Educacion = Data1.map((x) => {
             let res = {
                 name: x.country + " - " + x.year,
-                value: x["education_expenditure_per_millions"]
+                value: x["education_expenditure_per_capita"]
             };
             return res;
         });
@@ -27,12 +27,12 @@
         let dataTotal =
             [
                 {
-                    name: "Ranking de Felicidad por Paises",
-                    data: datahappiness_rate
+                    name: "% salario",
+                    data: DataRental
                 },
                 {
-                    name: "Ranking de Competitividad Global",
-                    data: dataGlobal_Competitiveness
+                    name: "Gasto en educación por capital",
+                    data: dataGastos_Educacion
                 }
             ];
         Highcharts.chart('container', {
@@ -93,7 +93,7 @@
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description" align ="center">
-            Gráfica que muestra los datos de las 3 APIs. Los Ranking de las diversas APIs
+            Gráfica muestra los datos de en conjunto del porcentaje de salio por provincias de españa y el gasto en educacion segun capital en paises del mundo
         </p>
     </figure>
 
