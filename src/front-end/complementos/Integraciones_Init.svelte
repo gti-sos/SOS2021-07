@@ -41,7 +41,7 @@
               >
 
               <a href="/#/integrations/Ext1_educacion"
-              ><Button color="info">Ext1 Educación</Button></a
+              ><Button color="info">Ext1 Educacion</Button></a
             >
 
               <a href="/#/integrations/Ext2_Cartas"
