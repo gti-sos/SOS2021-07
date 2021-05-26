@@ -1,133 +1,100 @@
 <script>
     import Button from "sveltestrap/src/Button.svelte";
-    import { pop } from "svelte-spa-router";
-    
-    async function loadChart(){
-        var myDataTrans={
-            name: '  Renta',
-            data: []
-        };
-        var extDataTrans={
-            name: 'Inversion Social',
-            data: []
-        };
-        var allData =[];
-        const resData = await fetch("/api/v1/rentals");
-        const MyData = await resData.json();  
-
-        const res2Data = await fetch("https://sos2021-27.herokuapp.com/api/v2/province-budget-and-investment-in-social-promotion");
-        const extData = await res2Data.json();  
+    async function loadGraph() {
+        const resDatahappiness_rate = await fetch("/api/v1/rentals");
+        const resDataGlobal_Competitiveness = await fetch("https://education-expenditures.herokuapp.com/api/v1");
         
-        MyData.forEach((v) => {
-        myDataTrans['data'].push({
-            name:v.province  + " " +v.year,
-            value: v["rent"]
-            });
-        });
 
-        extData.forEach((v) => {
-        extDataTrans['data'].push({
-            name: v.province + " " + v.year,
-            value: v["invest_promotion"]
-            });
+        let Data = await resDatahappiness_rate.json();
+        let Data1 = await resDataGlobal_Competitiveness.json();
+        
+
+        let datahappiness_rate = Data.map((x) => {
+            let res = {
+                name: x.province + " - " + x.year,
+                value: x["salary"]
+            };
+            return res;
+        });
+        let dataGlobal_Competitiveness = Data1.map((x) => {
+            let res = {
+                name: x.country + " - " + x.year,
+                value: x["education_expenditure_per_millions"]
+            };
+            return res;
         });
         
-        allData.push(myDataTrans);
-        allData.push(extDataTrans);
-        
-        Highcharts.chart('container', {
-        chart: {
-            type: 'packedbubble',
-            height: '85%'
-        },
-        title: {
-            text: 'Renta y Inversion.'
-        },
-        tooltip: {
-            useHTML: true
-        },
-        plotOptions: {
-            packedbubble: {
-                minSize: '20%',
-                maxSize: '70%',
-                zMin: 0,
-                zMax: 1000,
-                layoutAlgorithm: {
-                    gravitationalConstant: 0.02,
-                    splitSeries: true,
-                    seriesInteraction: false,
-                    dragBetweenSeries: true,
-                    parentNodeLimit: true
+        let dataTotal =
+            [
+                {
+                    name: "Ranking de Felicidad por Paises",
+                    data: datahappiness_rate
                 },
-                dataLabels: {
-                    enabled: true,
-                    format: '{point.name}',
-                    filter: {
-                        property: 'y',
-                        operator: '>',
-                        value: 200
+                {
+                    name: "Ranking de Competitividad Global",
+                    data: dataGlobal_Competitiveness
+                }
+            ];
+        Highcharts.chart('container', {
+            chart: {
+                type: 'packedbubble',
+                height: '40%'
+            },
+            title: {
+                text: 'Mezcla de APIs'
+            },
+            tooltip: {
+                useHTML: true,
+                pointFormat: '<b>{point.name}:</b> {point.value}'
+            },
+            plotOptions: {
+                packedbubble: {
+                    minSize: '30%',
+                    maxSize: '120%',
+                    zMin: 0,
+                    zMax: 500,
+                    layoutAlgorithm: {
+                        splitSeries: false,
+                        gravitationalConstant: 0.02
                     },
-                    style: {
-                        color: 'black',
-                        textOutline: 'none',
-                        fontWeight: 'normal'
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.name}',
+                        filter: {
+                            property: 'y',
+                            operator: '>',
+                            value: 250
+                        },
+                        style: {
+                            color: 'black',
+                            textOutline: 'none',
+                            fontWeight: 'normal'
+                        }
                     }
                 }
-            }
-        },
-        series: allData
-    });
-}
+            },
+            series: dataTotal
+        });
+    }
+    loadGraph();
 </script>
+
 <svelte:head>
-  <script src="https://code.highcharts.com/highcharts.js" on:load={loadChart}></script>
-  <script src="https://code.highcharts.com/modules/series-label.js"></script>
-  <script src="https://code.highcharts.com/highcharts-more.js"></script>
-  <script src="https://code.highcharts.com/modules/exporting.js"></script>
-  <script src="https://code.highcharts.com/modules/export-data.js"></script>
-  <script
-    src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <script src="https://code.highcharts.com/highcharts.js" on:load={loadGraph}></script>
+    <script src="https://code.highcharts.com/highcharts-more.js" on:load={loadGraph}></script>
+    <script src="https://code.highcharts.com/modules/exporting.js" on:load={loadGraph}></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadGraph}></script>
+
 </svelte:head>
 
-
-
 <main>
+
     <figure class="highcharts-figure">
         <div id="container"></div>
-        <p class="highcharts-description">
-            Muestra la cantidad de inversion social frente a la renta en las provincias de españa.
+        <p class="highcharts-description" align ="center">
+            Gráfica que muestra los datos de las 3 APIs. Los Ranking de las diversas APIs
         </p>
     </figure>
-    <Button outline color="secondary" on:click="{pop}"> Atrás</Button>
-    
 
 </main>
-
-<style>
-    .highcharts-figure, .highcharts-data-table table {
-    min-width: 320px; 
-    max-width: 800px;
-    margin: 1em auto;
-    }
-    .highcharts-data-table table {
-        font-family: Verdana, sans-serif;
-        border-collapse: collapse;
-        border: 1px solid #EBEBEB;
-        margin: 10px auto;
-        text-align: center;
-        width: 100%;
-        max-width: 500px;
-    }
-    .highcharts-data-table caption {
-        padding: 1em 0;
-        font-size: 1.2em;
-        color: #555;
-    }
-    .highcharts-data-table th {
-        font-weight: 600;
-        padding: 0.5em;
-    }
-    .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
-        padding: 0.5em;
-    }
-</style>
