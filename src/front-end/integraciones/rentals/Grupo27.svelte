@@ -4,7 +4,7 @@
     
     async function loadChart(){
         var myDataTrans={
-            name: 'Variacion de la Renta',
+            name: '  Renta',
             data: []
         };
         var extDataTrans={
