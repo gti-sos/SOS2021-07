@@ -7,15 +7,16 @@
         const resCoins = await fetch("https://coinpaprika1.p.rapidapi.com/exchanges", {
 	"method": "GET",
 	"headers": {
-		"x-rapidapi-host": "coinpaprika1.p.rapidapi.com",
-		"x-rapidapi-key": "9b2b2f4d65msh643a2276d42fb51p1e4972jsn8ab58ddd82c9"
+        'x-rapidapi-key': '9b2b2f4d65msh643a2276d42fb51p1e4972jsn8ab58ddd82c9',
+        'x-rapidapi-host': 'coinpaprika1.p.rapidapi.com',
+        useQueryString: true
 	}
 });
 
-        const resDataRentals = await fetch("/api/v1/rentals");
-        let Rentals = await resDataRentals.json();
+        const resDataHappiness_rate = await fetch("/api/v1/rentals");
+        let Happy = await resDataHappiness_rate.json();
         
-        let data_Rentals = Rentals.map((x) => {
+        let dataHappiness = Happy.map((x) => {
             let res = {
                 name: x.province + " - " + x.year,
                 value: x["salary"]
@@ -37,8 +38,8 @@
         let dataTotal =
             [
                 {
-                    name: "Salario",
-                    data: data_Rentals
+                    name: "Ranking de Felicidad",
+                    data: dataHappiness
                 },
                 {
                     name: "Nombre de la Criptomoneda",
@@ -51,7 +52,7 @@
                 height: '40%'
             },
             title: {
-                text: 'Relación entre el número de mercados en la que se usa la criptomoneda y el Salario por provincias de España'
+                text: 'Relación entre el número de mercados en la que se usa la criptomoneda y el Ranking de Felicidad'
             },
             tooltip: {
                 useHTML: true,
@@ -96,7 +97,7 @@
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description" align = "center">
-            Gráfica que muestra el Salario de provincias de España y el número de mercados en la que se usa la criptomoneda.
+            Gráfica que muestra el ranking de felicidad y el número de mercados en la que se usa la criptomoneda.
         </p>
     </figure>
     <div style="text-align:center;padding-bottom: 3%;">
