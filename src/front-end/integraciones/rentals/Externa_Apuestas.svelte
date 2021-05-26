@@ -4,86 +4,23 @@
     
 async function loadChart(){
    
-    var pokemon1={};
-    var pokemon2={};
-    var pokemon3={};
-    var pokemon4={};
-    var pokemon5={};
-
-    var pokedex = [];
-    const resData_N = await fetch("https://pokeapi.co/api/v2/pokedex/1");
-    const resData_K = await fetch("https://pokeapi.co/api/v2/pokedex/2");
-    const resData_J = await fetch("https://pokeapi.co/api/v2/pokedex/3");
-    const resData_H = await fetch("https://pokeapi.co/api/v2/pokedex/4");
-    const resData_S = await fetch("https://pokeapi.co/api/v2/pokedex/5");
-    const myData1 = await resData_N.json();  
-    const myData2 = await resData_K.json();  
-    const myData3 = await resData_J.json();  
-    const myData4 = await resData_H.json();  
-    const myData5= await resData_S.json();  
+    var cards={};
+    var cardAtribute = [];
+    const resData = await fetch("https://db.ygoprodeck.com/api/v7/cardinfo.php");
+    const myData = await resData.json();  
     console.log(myData);
     
-    myData1.data.forEach((v) =>{
-         if(!(v.pokemon_species in pokemon1)){
-            pokemon1[v.descriptions["descriptions"]] += 1;
+    myData.data.forEach((v) =>{
+         if(v.attribute in cards){
+                cards[v.attribute] += 1;
             }
             else{
-                
+                cards[v.attribute]= 1;
             }
         });
-
-        myData2.data.forEach((v) =>{
-         if(!(v.pokemon_species in pokemon2)){
-            pokemon2[v.descriptions["descriptions"]] += 1;
-            }
-            else{
-                
-            }
-        });
-
-        myData3.data.forEach((v) =>{
-         if(!(v.pokemon_species in pokemon3)){
-            pokemon3[v.descriptions["descriptions"]] += 1;
-            }
-            else{
-                
-            }
-        });
-
-        myData4.data.forEach((v) =>{
-         if(!(v.pokemon_species in pokemon4)){
-            pokemon4[v.descriptions["descriptions"]] += 1;
-            }
-            else{
-                
-            }
-        });
-
-        myData5.data.forEach((v) =>{
-         if(!(v.pokemon_species in pokemon5)){
-            pokemon5[v.descriptions["descriptions"]] += 1;
-            }
-            else{
-                
-            }
-        });
-
-        
     
-    for (var key in pokemon1){
-        pokedex.push([key,pokemon1[key]]);
-    }
-    for (var key in pokemon2){
-        pokedex.push([key,pokemon2[key]]);
-    }
-    for (var key in pokemon3){
-        pokedex.push([key,pokemon3[key]]);
-    }
-    for (var key in pokemon4){
-        pokedex.push([key,pokemon4[key]]);
-    }
-    for (var key in pokemon5){
-        pokedex.push([key,pokemon5[key]]);
+    for (var key in cards){
+        cardAtribute.push([key,cards[key]]);
     }
     
 Highcharts.chart('container', {
@@ -99,7 +36,7 @@ Highcharts.chart('container', {
         }
     },
     title: {
-        text: 'Cantidad pokemon por cada pokedex'
+        text: 'Cartas de Yu-Gi-Oh por tipos'
     },
     accessibility: {
         announceNewData: {
@@ -111,7 +48,7 @@ Highcharts.chart('container', {
     },
     yAxis: {
         title: {
-            text: 'numero de pokemon'
+            text: 'Número de cartas'
         }
     },
     legend: {
@@ -127,9 +64,9 @@ Highcharts.chart('container', {
         pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}</b><br/>'
     },
         series: [{
-            name: 'numero pokemon',
+            name: 'Número de cartas',
             colorByPoint: true,
-            data: pokedex
+            data: cardAtribute
         }]
     });
 }
@@ -148,7 +85,7 @@ Highcharts.chart('container', {
   <figure class="highcharts-figure">
   <div id ="container"></div>
   <p class="highcharts-description">
-      Gráfico  que muestra la cantidad de cartas de pokemon segun pokedex.
+      Gráfico 3D que muestra la cantidad de cartas de YU-GI-OH por tipos.
   </p>
   </figure>
     <Button outline color="secondary" on:click="{pop}"> Atrás</Button>
