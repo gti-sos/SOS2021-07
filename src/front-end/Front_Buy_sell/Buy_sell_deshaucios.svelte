@@ -1,76 +1,89 @@
 <script>
-  import { Nav, NavItem, NavLink } from "sveltestrap";
-  //Uso de API externa
-  var evictions = [];
-  var location = [];
-  var year = [];
-  var errorMsg = "";
-  var okMsg = "";
+  import { onMount } from "svelte";
+  import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
+  const BASE_CONTACT_API_PATH = "/api/v2";
   
-  async function getStats() {
-    console.log("Fetching data...");
-    const res = await fetch("http://sos2021-25.herokuapp.com/api/v1/evictions");
-    if (res.ok) {
-      const json = await res.json();
+let buy_sell_Data = [];
+let buy_sell_Chart_eviction_Data = [];
+  let errorMsg = "";
+  let okMsg = "";
   
-      json.data.forEach(element => {
-        location.push(element.location);
-        year.push(element.year);
-      });
-    
-      console.log("Ok");
-    } else {
-      errorMsg = "Error recuperando datos";
-      okMsg = "";
-      console.log("ERROR!" + errorMsg);
-    }
-  }
-  async function loadChart() {
-    await getStats();
-    var ctx = document.getElementById("myChart").getContext("2d"); 
-    var myChart = new Chart(ctx, {
-      type: "line",
-      data: {
-        labels: location,
-        datasets: [
-          {
-            label: "skere",
-            data: year,
-            backgroundColor: [
-              "rgba(255, 99, 132, 0.2)",
-              "rgba(54, 162, 235, 0.2)",
-              "rgba(255, 206, 86, 0.2)",
-              "rgba(75, 192, 192, 0.2)",
-              "rgba(153, 102, 255, 0.2)",
-              "rgba(255, 159, 64, 0.2)",
-            ],
-            borderColor: [
-              "rgba(255, 99, 132, 1)",
-              "rgba(54, 162, 235, 1)",
-              "rgba(255, 206, 86, 1)",
-              "rgba(75, 192, 192, 1)",
-              "rgba(153, 102, 255, 1)",
-              "rgba(255, 159, 64, 1)",
-            ],
-            borderWidth: 1,
-          },
-        ],
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
-        },
-      },
+  function distinctRecords(MYJSON, prop) {
+    return MYJSON.filter((obj, pos, arr) => {
+      return arr.map((mapObj) => mapObj[prop]).indexOf(obj[prop]) === pos;
     });
+  }
+  
+  async function loadChart() {
+    console.log("Fetching data...");
+    const res = await fetch(BASE_CONTACT_API_PATH + "/buy_sell");
+    buy_sell_Data = await res.json();
+    if (res.ok) {
+	
+      buy_sell_Data.forEach(stat => {
+      
+      buy_sell_Chart_eviction_Data.push(stat["eviction"]);   
+      });
+    }
+	
+	ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
+    let chartConfig = {
+      type: 'venn',
+      title: {
+        text: 'Facts About AngularJS'
+      },
+      tooltip: {
+        text: '%t',
+        borderRadius: '5px',
+        fontSize: '15px'
+      },
+      series: [{
+          text: 'Popularity Of AngularJS Online',
+          values: [400],
+          tooltip: {
+            backgroundColor: '#006ACC'
+          },
+          backgroundColor: '#006ACC',
+          join: [15]
+        },
+        {
+          text: 'People Who Use AngularJS',
+          values: [300],
+          tooltip: {
+            backgroundColor: '#FBB148'
+          },
+          backgroundColor: '#FBB148',
+          join: [15]
+        },
+        {
+          text: 'People Who Actually Know How To Use AngularJS',
+          values: [100],
+          tooltip: {
+            backgroundColor: '#DD0031'
+          },
+          backgroundColor: '#DD0031',
+          join: [15]
+        }
+      ]
+    }
+
+    zingchart.render({
+      id: 'myChart',
+      data: chartConfig,
+      height: '100%',
+      width: '100%',
+    });
+	
+	
   }
 </script>
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 <svelte:head>
-  <script
-    src="https://cdn.jsdelivr.net/npm/chart.js"
-    on:load={loadChart}></script>
+
+	<script src="https://cdn.zingchart.com/zingchart.min.js" on:load={loadChart} ></script>
+	
 </svelte:head>
 
 <main>
@@ -79,30 +92,66 @@
       <NavLink href="/">Página Principal</NavLink>
     </NavItem>
     <NavItem>
-      <NavLink href="/#/buy_sell/integraciones/">volver</NavLink>
+      <NavLink href="#/buy_sell">Datos</NavLink>
+    </NavItem>
+	<NavItem>
+      <NavLink href="#/buy_sell/buy_sell_Charts">Gráfica LINEAL</NavLink>
     </NavItem>
   </Nav>
 
   <div>
-    <h2>Uso API externa DESHAUCIOS</h2>
+    <h2>
+      Análiticas
+    </h2>
   </div>
 
-  {#if errorMsg}
-    <p>{errorMsg}</p>
-  {:else}
-    <div>
-      <canvas id="myChart" />
-    </div>
-  {/if}
-</main>
+  <div>
+    {#if errorMsg}
+      <p class="msgRed" style="color: #9d1c24">ERROR: {errorMsg}</p>
+    {/if}
+    {#if okMsg}
+      <p class="msgGreen" style="color: #155724">{okMsg}</p>
+    {/if}
+  </div>
 
+  <div id="myChart" class="chart--container">
+    <a class="zc-ref" href="https://www.zingchart.com/">Powered by ZingChart</a>
+  
+</main>
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 <style>
   main {
     text-align: center;
     padding: 1em;
     margin: 0 auto;
   }
-  div {
+  div{
     margin-bottom: 15px;
   }
+  p {
+    display: inline;
+  }
+  .msgRed {
+    padding: 8px;
+    background-color: #f8d7da;
+  }
+  .msgGreen {
+    padding: 8px;
+    background-color: #d4edda;
+  }
+  
+  #container {
+    height: 400px; 
+}
+
+.chart--container {
+      min-height: 530px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .zc-ref {
+      display: none;
+    }
+
 </style>
