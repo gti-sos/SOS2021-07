@@ -41,7 +41,7 @@
             height: '85%'
         },
         title: {
-            text: 'Renta y inversion.'
+            text: 'Renta y Inversion.'
         },
         tooltip: {
             useHTML: true
