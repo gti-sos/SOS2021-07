@@ -1,5 +1,5 @@
 <script>
-    import {pop} from "svelte-spa-router";
+   
     
     let Data = [];
     let Coins = [];
@@ -7,18 +7,19 @@
         const resCoins = await fetch("https://coinpaprika1.p.rapidapi.com/exchanges", {
 	"method": "GET",
 	"headers": {
-		"x-rapidapi-host": "coinpaprika1.p.rapidapi.com",
-		"x-rapidapi-key": "7ba6091b4amsh6731b2f89b0cdc6p106e3fjsnbd534659f6b0"
+        "x-rapidapi-key": "9b2b2f4d65msh643a2276d42fb51p1e4972jsn8ab58ddd82c9",
+	    "x-rapidapi-host": "coinpaprika1.p.rapidapi.com",
+	    "useQueryString": true
 	}
 });
 
-        const resDataHappiness_rate = await fetch("/api/v2/happiness_rate");
-        let Happy = await resDataHappiness_rate.json();
+        const resDataRentals = await fetch("/api/v1/rentals");
+        let Rentals = await resDataRentals.json();
         
-        let dataHappiness = Happy.map((x) => {
+        let dataRentals = Rentals.map((x) => {
             let res = {
-                name: x.country + " - " + x.year,
-                value: x["happinessRanking"]
+                name: x.province + " - " + x.year,
+                value: x["salary"]
             };
             return res;
         });
@@ -37,8 +38,8 @@
         let dataTotal =
             [
                 {
-                    name: "Ranking de Felicidad",
-                    data: dataHappiness
+                    name: "Salario",
+                    data: dataRentals
                 },
                 {
                     name: "Nombre de la Criptomoneda",
@@ -51,7 +52,7 @@
                 height: '40%'
             },
             title: {
-                text: 'Relación entre el número de mercados en la que se usa la criptomoneda y el Ranking de Felicidad'
+                text: 'Relación entre el número de mercados en la que se usa la criptomoneda y el Salario en las provincias de España'
             },
             tooltip: {
                 useHTML: true,
@@ -96,11 +97,9 @@
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description" align = "center">
-            Gráfica que muestra el ranking de felicidad y el número de mercados en la que se usa la criptomoneda.
+            Gráfica que muestra el Salario y el número de mercados en la que se usa la criptomoneda.
         </p>
     </figure>
-    <div style="text-align:center;padding-bottom: 3%;">
-    <Button outline align = "center" color="secondary" on:click="{pop}">Volver</Button>
-    </div>
+    
 
 </main>
