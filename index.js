@@ -6,7 +6,7 @@ var bodyParser = require("body-parser");
 var path = require("path");
 var cors = require("cors");
 var request = require("request");
-app.use(cors());
+
 
 
 
@@ -23,6 +23,7 @@ var unemploymentAPI_Integration = require("./src/back-end/rentalsAPI/integration
 
 var app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 var port = (process.env.PORT || 10000);
 
