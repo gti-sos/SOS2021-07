@@ -111,7 +111,7 @@
     console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     console.log("Calculating natality-stats...");
     natalityData.forEach(element => {
-      var e = element.province+"-"+element.date;
+      var e = element.province+"-"+element.year;
       if (!xAxis.includes(e)){
         if(element["rent_variation"]!=undefined){
           console.log("natalite-rite "+element["rent_variation"]);
