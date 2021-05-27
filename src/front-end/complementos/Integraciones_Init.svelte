@@ -47,7 +47,9 @@
               <a href="/#/integrations/Ext2_Cartas"
                 ><Button color="primary">Ext2 Cartas E1</Button></a
               >
-              
+              <a href="/#/integrations/Covid"
+                ><Button color="primary">Ext3 Covid E1</Button></a
+              >
             </CardBody>
             
           </Card>
