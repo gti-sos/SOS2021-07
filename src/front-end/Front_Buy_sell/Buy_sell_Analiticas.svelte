@@ -30,19 +30,19 @@ import {
       <NavLink href="#/buy_sell">Datos</NavLink>
     </NavItem>
 	<NavItem>
-      <NavLink href="#/buy_sell/buy_sell_Charts">Grรกfica LINEAL (highchart)</NavLink>
+      <NavLink href="#/buy_sell/buy_sell_Charts">Gráfica LINEAL (highchart)</NavLink>
     </NavItem>
 	<NavItem>
-      <NavLink href="#/buy_sell/graficaNL">Grรกfica AREA (highchart)</NavLink>
+      <NavLink href="#/buy_sell/graficaNL">Gráfica AREA (highchart)</NavLink>
     </NavItem>
 	<NavItem>
-      <NavLink href="#/buy_sell/graficaZING">Grรกfica CIRCULOS (zingchart)</NavLink>
+      <NavLink href="#/buy_sell/graficaZING">Gráfica CIRCULOS (zingchart)</NavLink>
     </NavItem>
   </Nav>
 
   <div>
     <h2>
-      Anรกliticas
+      Analíticas
     </h2>
   </div>
   
@@ -52,4 +52,5 @@ import {
 </main>
 
 <style>
+
 </style>
