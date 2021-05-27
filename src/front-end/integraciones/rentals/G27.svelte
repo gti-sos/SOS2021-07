@@ -102,7 +102,7 @@
       var e = element.province+"-"+element.year;
       if (!xAxis.includes(e)){
         xAxis.push(e);
-        yAxis.push(Math.round(element.invest_promotion));
+        yAxis.push(Math.round(parseFloat(element.percentage)));
         index++;
         console.log("X: "+xAxis);
         console.log("Y: "+yAxis);
