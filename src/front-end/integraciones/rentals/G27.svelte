@@ -3,7 +3,7 @@
   import Button from "sveltestrap/src/Button.svelte";
   async function loadGraph() {
       const resData_Rental = await fetch("/api/v1/rentals");
-      const resDataEduacionGastos = await fetch("/api/v2/province-budget-and-investment-in-social-promotion/loadInitialData");
+      const resDataSocial = await fetch("/api/v2/province-budget-and-investment-in-social-promotion/loadInitialData");
       
 
       let Data = await resData_Rental.json();
