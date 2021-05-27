@@ -1,22 +1,21 @@
 <script>
-
-  import { Nav, NavItem, NavLink } from "sveltestrap";
-
-  //Uso API grupo 10
+import { onMount } from "svelte";
+import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
   const BASE_CONTACT_API_PATH = "/api/v1";
 
-  var sanityStats = [];
-  var natalityData = [];
+  var Social = [];
+  var Rental = [];
   var errorMsg = "";
   var okMsg = "";
   var activeSpinner = true;
 
   async function loadApi() {
-    console.log("Loading data...");
+    
     const res = await fetch("/api/v2/province-budget-and-investment-in-social-promotion/loadInitialData").then(
       function (res) {
         if (res.ok) {
           errorMsg = "";
+          okMsg = "Datos cargados correctamente";
           console.log("OK");
         } else {
           if (res.status === 500) {
@@ -30,13 +29,12 @@
   }
   
   async function loadStats() {
-    console.log("Loading data...");
+    
     const res = await fetch(
       BASE_CONTACT_API_PATH + "/rentals/loadInitialData"
     ).then(function (res) {
       if (res.ok) {
         getStats();
-
         errorMsg = "";
         okMsg = "Datos cargados correctamente";
         console.log("OK");
@@ -51,36 +49,33 @@
   }
 
   async function getStats() {
-    console.log("Fetching data...");
+   
     await loadStats();
     const res = await fetch(BASE_CONTACT_API_PATH + "/rentals");
 
     if (res.ok) {
       console.log("OK");
-      natalityData = await res.json();
+      Rental = await res.json();
 
       okMsg = "";
-      console.log(`We have received ${natalityData.length} natality-stats.`);
+      
     } else {
       console.log("Error");
       errorMsg = "Error al cargar los datos de la API";
     }
   }
 
-  async function getSanityStats() {
-    console.log("Fetching data...");
+  async function getSocial() {
+    
     await loadApi();
     const res = await fetch("/api/v2/province-budget-and-investment-in-social-promotion");
 
     if (res.ok) {
       const json = await res.json();
-      sanityStats = json;
-
-      console.log(`We have received ${sanityStats.length} sanity-stats.`);
-
+      Social = json;
       console.log("Ok");
     } else {
-      errorMsg = "Error recuperando datos de sanity-stats";
+      errorMsg = "Error recuperando datos de Social";
       okMsg = "";
       console.log("ERROR!" + errorMsg);
     }
@@ -89,36 +84,30 @@
 
   async function loadChart() {
     await getStats();
-    await getSanityStats();
+    await getSocial();
 
     var xAxis = [];
     var yAxis = [];
     var yAxis1 = [];
 
-    //-------------------Sanity-stats
-    console.log("Calculating sanity-stats...");
+
     var index = 0;
-    sanityStats.forEach(element => {
-      var e = element.province+"-"+element.year;
-      if (!xAxis.includes(e)){
-        xAxis.push(e);
-        yAxis.push(Math.round(parseFloat(element.percentage)));
+    Social.forEach(x => {
+      var i = x.province+"-"+x.year;
+      if (!xAxis.includes(i)){
+        xAxis.push(i);
+        yAxis.push(Math.round(parseFloat(x.percentage)));
         index++;
-        console.log("X: "+xAxis);
-        console.log("Y: "+yAxis);
+
       }
     });
-    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-    console.log("Calculating natality-stats...");
-    natalityData.forEach(element => {
-      var e = element.province+"-"+element.year;
-      if (!xAxis.includes(e)){
-        if(element["rent_variation"]!=undefined){
-          console.log("natalite-rite "+element["rent_variation"]);
-          xAxis.push(e);
-        yAxis.push(Math.round(element["rent_variation"]));
-        console.log("X: "+xAxis);
-        console.log("Y: "+yAxis);
+
+    Rental.forEach(x => {
+      var i = x.province+"-"+x.year;
+      if (!xAxis.includes(i)){
+        if(x["rent_variation"]!=undefined){
+          xAxis.push(i);
+        yAxis.push(Math.round(x["rent_variation"]));
         }
         
       }
@@ -128,21 +117,11 @@
     for (let i = 0; i < index; i++) {
       yAxis1.push(0);    
     }
-    var copy = yAxis.slice(index,yAxis.lengt);
-  for (let i = 0; i < copy.length; i++) {
-    yAxis1.push(copy[i]);
+    var c = yAxis.slice(index,yAxis.lengt);
+  for (let i = 0; i < c.length; i++) {
+    yAxis1.push(c[i]);
     
   }
-    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-    console.log("X: "+xAxis.length);
-    console.log("Y: "+yAxis.length);
-    console.log("X-Sanity: "+xAxis.slice(0,index));
-    console.log("X-Natality: "+xAxis.slice(index,yAxis.length));
-    console.log("Y-Sanity: "+yAxis.slice(0,index));
-    console.log("Y-Natality: "+yAxis.slice(index,yAxis.length));
-    console.log("index: "+index);
-
-
 
     var ctx = document.getElementById("myChart").getContext("2d");
 
@@ -152,8 +131,8 @@
         
         datasets: [
           {
-            type: 'line',
-            label: "Gasto en sanidad (%)",
+            type: 'bar',
+            label: "Porcentaje inversion social",
             data: yAxis.slice(0,index),
             borderColor: 'rgb(255, 99, 132)',
             backgroundColor: 'rgba(255, 99, 132, 0.2)'
@@ -161,9 +140,10 @@
           },
           {
             type: 'bar',
-            label: "Ratio de natalidad (%)",
+            label: "Variacion de la renta",
             data: yAxis1,
-            borderColor: 'rgb(54, 162, 235)'
+            borderColor: 'rgb(204, 15, 241)',
+            backgroundColor: 'rgba(204, 15, 241, 0.2)'
           },
         ],
         labels: xAxis
@@ -182,15 +162,15 @@
 <main>
   <Nav>
     <NavItem>
-      <NavLink href="/">Página Principal</NavLink>
+      <NavLink href="/"><Button color="primary">Página Inicial</Button></NavLink>
     </NavItem>
     <NavItem>
-      <NavLink href="/#/integrations/">volver</NavLink>
+      <NavLink href="/#/integrations"><Button color="primary">Volver</Button></NavLink>
     </NavItem>
-  </Nav>
+</Nav>
 
   <div>
-    <h2>Integración API SOS sanity-stats</h2>
+    <h2>Integración Budget G27</h2>
   </div>
 
   {#if errorMsg}
