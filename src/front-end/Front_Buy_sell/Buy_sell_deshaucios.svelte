@@ -19,7 +19,7 @@ let population_Data=[];
   
   async function loadChart() {
     console.log("Fetching data...");
-    const res = await fetch(https://sos2021-23.herokuapp.com/api/v1/mh-stats);
+    const res = await fetch("https://sos2021-23.herokuapp.com/api/v1/mh-stats");
     mh_Data = await res.json();
     if (res.ok) {
 	
