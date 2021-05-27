@@ -1,30 +1,15 @@
 <script>
-  import { onMount } from "svelte";
 
-  import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
+  import { Nav, NavItem, NavLink } from "sveltestrap";
 
+  //Uso API grupo 10
   const BASE_CONTACT_API_PATH = "/api/v1";
 
-  let natalityData = [];
-  var illiteracyData = [];
-
+  var sanityStats = [];
+  var natalityData = [];
   var errorMsg = "";
   var okMsg = "";
-
-  function jsonToMap(j, k, v) {
-    var res = new Map();
-    j.forEach((element) => {
-      var key = element[k];
-      var value = element[v];
-      if (res.has(key)) {
-        var newValue = res.get(key) + value;
-        res.set(key, newValue);
-      } else {
-        res.set(key, value);
-      }
-    });
-    return res;
-  }
+  var activeSpinner = true;
 
   async function loadApi() {
     console.log("Loading data...");
@@ -43,14 +28,17 @@
       }
     );
   }
-
+  
   async function loadStats() {
     console.log("Loading data...");
     const res = await fetch(
       BASE_CONTACT_API_PATH + "/rentals/loadInitialData"
     ).then(function (res) {
       if (res.ok) {
+        getStats();
+
         errorMsg = "";
+        okMsg = "Datos cargados correctamente";
         console.log("OK");
       } else {
         if (res.status === 500) {
@@ -79,152 +67,118 @@
     }
   }
 
-  async function getIlliteracyData() {
+  async function getSanityStats() {
     console.log("Fetching data...");
     await loadApi();
     const res = await fetch("/api/v2/province-budget-and-investment-in-social-promotion");
 
     if (res.ok) {
       const json = await res.json();
-      illiteracyData = json;
+      sanityStats = json;
 
-      console.log(
-        `We have received ${illiteracyData.length} illiteracy-stats.`
-      );
+      console.log(`We have received ${sanityStats.length} sanity-stats.`);
 
       console.log("Ok");
     } else {
-      errorMsg = "Error recuperando datos de poverty-risks";
+      errorMsg = "Error recuperando datos de sanity-stats";
       okMsg = "";
       console.log("ERROR!" + errorMsg);
     }
   }
-  function commonValues(dataset1, dataset2) {
-    var data1 = dataset1.map(function (v) {
-      return v.toLowerCase();
-    });
-    var data2 = dataset2.map(function (v) {
-      return v.toLowerCase();
-    });
-    return data1.filter((value) => data2.includes(value));
-  }
 
-  function capitalLetters(dataset) {
-    for (let index = 0; index < dataset.length; index++) {
-      var str = dataset[index];
-      var space = str.indexOf(" ");
-      if (str.indexOf(" ") !== -1) {
-        dataset[index] =
-          str.charAt(0).toUpperCase() +
-          str.substr(1, space) +
-          str.charAt(space + 1).toUpperCase() +
-          str.substr(space + 2, str.length);
-      } else {
-        dataset[index] = str.charAt(0).toUpperCase() + str.substr(1);
-      }
-    }
-  }
 
   async function loadChart() {
     await getStats();
-    await getIlliteracyData();
+    await getSanityStats();
 
-    var result = jsonToMap(illiteracyData, "province", "percentage");
-    var result1 = jsonToMap(natalityData, "province", "rent");
+    var xAxis = [];
+    var yAxis = [];
+    var yAxis1 = [];
 
-    var commonCountries = commonValues(
-      Array.from(result.keys()),
-      Array.from(result1.keys())
-    );
-
-    var template = {
-      name: "",
-      data: [],
-    };
-
-    var data = [];
-
-    var countriesWithCapitalLetter = commonValues(
-      Array.from(result.keys()),
-      Array.from(result1.keys())
-    );
-    capitalLetters(countriesWithCapitalLetter);
-
-    console.log("capitalletter country " + countriesWithCapitalLetter);
-    console.log("common countries: " + commonCountries);
-
-   
-    var arrayAux = [];
-    for (let j = 0; j < countriesWithCapitalLetter.length; j++) {
-      var c = countriesWithCapitalLetter[j];
-      arrayAux.push(result.get(c));
-      console.log("templatedata " + arrayAux);
-    }
-    data.push({
-name: " Inversion social",
-data: arrayAux
+    //-------------------Sanity-stats
+    console.log("Calculating sanity-stats...");
+    var index = 0;
+    sanityStats.forEach(element => {
+      var e = element.province+"-"+element.year;
+      if (!xAxis.includes(e)){
+        xAxis.push(e);
+        yAxis.push(Math.round(element.invest_promotion));
+        index++;
+        console.log("X: "+xAxis);
+        console.log("Y: "+yAxis);
+      }
     });
-    arrayAux = [];
-    for (let j = 0; j < commonCountries.length; j++) {
-      var c = commonCountries[j];
-      arrayAux.push(result1.get(c));
-    }
-    data.push({
-name:"Renta",
-data: arrayAux
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    console.log("Calculating natality-stats...");
+    natalityData.forEach(element => {
+      var e = element.province+"-"+element.date;
+      if (!xAxis.includes(e)){
+        if(element["rent"]!=undefined){
+          console.log("natalite-rite "+element["rent"]);
+          xAxis.push(e);
+        yAxis.push(Math.round(element["rent"]));
+        console.log("X: "+xAxis);
+        console.log("Y: "+yAxis);
+        }
+        
+      }
     });
 
-    console.log(data);
-    Highcharts.chart("container", {
-      chart: {
-        type: "bar",
-      },
-      title: {
-        text: "Renta e inversion social",
-      },
-      xAxis: {
-        categories: commonCountries,
-        title: {
-          text: null,
-        },
-      },
-     
-      plotOptions: {
-        bar: {
-          dataLabels: {
-            enabled: true,
+    var yAxis1 = [];
+    for (let i = 0; i < index; i++) {
+      yAxis1.push(0);    
+    }
+    var copy = yAxis.slice(index,yAxis.lengt);
+  for (let i = 0; i < copy.length; i++) {
+    yAxis1.push(copy[i]);
+    
+  }
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    console.log("X: "+xAxis.length);
+    console.log("Y: "+yAxis.length);
+    console.log("X-Sanity: "+xAxis.slice(0,index));
+    console.log("X-Natality: "+xAxis.slice(index,yAxis.length));
+    console.log("Y-Sanity: "+yAxis.slice(0,index));
+    console.log("Y-Natality: "+yAxis.slice(index,yAxis.length));
+    console.log("index: "+index);
+
+
+
+    var ctx = document.getElementById("myChart").getContext("2d");
+
+    var myChart = new Chart(ctx, {
+      
+      data: {
+        
+        datasets: [
+          {
+            type: 'line',
+            label: "Gasto en sanidad (%)",
+            data: yAxis.slice(0,index),
+            borderColor: 'rgb(255, 99, 132)',
+            backgroundColor: 'rgba(255, 99, 132, 0.2)'
+          
           },
-        },
+          {
+            type: 'bar',
+            label: "Ratio de natalidad (%)",
+            data: yAxis1,
+            borderColor: 'rgb(54, 162, 235)'
+          },
+        ],
+        labels: xAxis
       },
-      legend: {
-        layout: "vertical",
-        align: "right",
-        verticalAlign: "top",
-        x: -40,
-        y: 80,
-        floating: true,
-        borderWidth: 1,
-        backgroundColor:
-          Highcharts.defaultOptions.legend.backgroundColor || "#FFFFFF",
-        shadow: true,
-      },
-      credits: {
-        enabled: false,
-      },
-      series: data,
     });
   }
+  activeSpinner=false;
 </script>
 
 <svelte:head>
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="https://code.highcharts.com/modules/series-label.js"></script>
-  <script src="https://code.highcharts.com/modules/exporting.js"></script>
-  <script src="https://code.highcharts.com/modules/export-data.js"></script>
   <script
-    src="https://code.highcharts.com/modules/accessibility.js"
+    src="https://cdn.jsdelivr.net/npm/chart.js"
     on:load={loadChart}></script>
 </svelte:head>
+
 <main>
   <Nav>
     <NavItem>
@@ -236,15 +190,20 @@ data: arrayAux
   </Nav>
 
   <div>
-    <h2>Integración API SOS G27 Budget</h2>
+    <h2>Integración API SOS sanity-stats</h2>
   </div>
 
   {#if errorMsg}
     <p>{errorMsg}</p>
   {:else}
-    <figure class="highcharts-figure">
-      <div id="container" />
-    </figure>
+  {#if activeSpinner}
+  <Spinner {primary} />
+  {:else}
+  <div>
+    <canvas id="myChart" />
+  </div>
+  {/if}
+   
   {/if}
 </main>
 
@@ -256,46 +215,5 @@ data: arrayAux
   }
   div {
     margin-bottom: 15px;
-  }
-  .highcharts-figure,
-  .highcharts-data-table table {
-    min-width: 310px;
-    max-width: 800px;
-    margin: 1em auto;
-  }
-
-  #container {
-    height: 400px;
-  }
-
-  .highcharts-data-table table {
-    font-family: Verdana, sans-serif;
-    border-collapse: collapse;
-    border: 1px solid #ebebeb;
-    margin: 10px auto;
-    text-align: center;
-    width: 100%;
-    max-width: 500px;
-  }
-  .highcharts-data-table caption {
-    padding: 1em 0;
-    font-size: 1.2em;
-    color: #555;
-  }
-  .highcharts-data-table th {
-    font-weight: 600;
-    padding: 0.5em;
-  }
-  .highcharts-data-table td,
-  .highcharts-data-table th,
-  .highcharts-data-table caption {
-    padding: 0.5em;
-  }
-  .highcharts-data-table thead tr,
-  .highcharts-data-table tr:nth-child(even) {
-    background: #f8f8f8;
-  }
-  .highcharts-data-table tr:hover {
-    background: #f1f7ff;
   }
 </style>
