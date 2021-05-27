@@ -25,7 +25,7 @@ let buy_sell_Chart_eviction_Data = [];
       buy_sell_Chart_eviction_Data.push(stat["eviction"]);   
       });
     }
-	
+	console.log(buy_sell_Chart_eviction_Data);
 	ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
     let chartConfig = {
       type: 'venn',
@@ -78,7 +78,7 @@ let buy_sell_Chart_eviction_Data = [];
   }
 </script>
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 <svelte:head>
 
@@ -118,7 +118,7 @@ let buy_sell_Chart_eviction_Data = [];
     <a class="zc-ref" href="https://www.zingchart.com/">Powered by ZingChart</a>
   
 </main>
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 <style>
   main {
     text-align: center;
