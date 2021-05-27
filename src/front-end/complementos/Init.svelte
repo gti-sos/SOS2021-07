@@ -145,7 +145,7 @@ import {
           <a href="/#/buy_sell"
             ><Button color="primary">Interfaz</Button></a
           >
-		  <a href="/#/buy_sell/buy_sell_Charts"
+		  <a href="/#/buy_sell/analiticas"
             ><Button color="info">Analíticas</Button></a
           >
           <a href="https://documenter.getpostman.com/view/14952576/TzJydbQv"

@@ -111,13 +111,19 @@ let buy_sell_Chart_eviction_Data = [];
 <main>
   <Nav>
     <NavItem>
-      <NavLink href="/">Página Principal</NavLink>
+      <NavLink href="/">Pรกgina Principal</NavLink>
     </NavItem>
     <NavItem>
       <NavLink href="#/buy_sell">Datos</NavLink>
     </NavItem>
 	<NavItem>
-      <NavLink href="#/buy_sell/buy_sell_Charts">Gráfica LINEAL</NavLink>
+      <NavLink href="#/buy_sell/buy_sell_Charts">Grรกfica LINEAL (highchart)</NavLink>
+    </NavItem>
+	<NavItem>
+      <NavLink href="#/buy_sell/graficaNL">Grรกfica AREA (highchart)</NavLink>
+    </NavItem>
+	<NavItem>
+      <NavLink href="#/buy_sell/graficaZING">Grรกfica CIRCULOS (zingchart)</NavLink>
     </NavItem>
   </Nav>
 
