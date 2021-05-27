@@ -129,7 +129,7 @@
     await getStats();
     await getIlliteracyData();
 
-    var result = jsonToMap(illiteracyData, "province", "invest_promotion");
+    var result = jsonToMap(illiteracyData, "province", "percentage");
     var result1 = jsonToMap(natalityData, "province", "rent");
 
     var commonCountries = commonValues(
