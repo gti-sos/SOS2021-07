@@ -113,10 +113,10 @@
     natalityData.forEach(element => {
       var e = element.province+"-"+element.date;
       if (!xAxis.includes(e)){
-        if(element["rent"]!=undefined){
-          console.log("natalite-rite "+element["rent"]);
+        if(element["rent_variation"]!=undefined){
+          console.log("natalite-rite "+element["rent_variation"]);
           xAxis.push(e);
-        yAxis.push(Math.round(element["rent"]));
+        yAxis.push(Math.round(element["rent_variation"]));
         console.log("X: "+xAxis);
         console.log("Y: "+yAxis);
         }
