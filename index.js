@@ -51,6 +51,17 @@ app.use(pathBudget, function(req, res) {
   req.pipe(request(url)).pipe(res);
 });
 
+//Grupo 30: life-stats
+
+var pathLIFE='/api/v2/life-expectancy-stats';
+var apiServerHostLIFE = "https://sos2021-30.herokuapp.com";
+ 
+app.use(pathLIFE, function(req, res) {
+  var url = apiServerHostLIFE + req.baseUrl + req.url;
+  console.log('piped: ' + req.baseUrl + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
 //Mostrar directamente el contenido de /public
 app.use("/", express.static(path.join(__dirname, "public")));
 
