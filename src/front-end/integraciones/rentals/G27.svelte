@@ -19,7 +19,7 @@
       });
       let data_Social = Data1.map((x) => {
           let res = {
-              name: x.province.toLowerCase() + " - " + x.year,
+              name: x.province + " - " + x.year,
               value: x["invest_promotion"]
               
           };
