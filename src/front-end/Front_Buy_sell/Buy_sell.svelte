@@ -430,7 +430,7 @@
       <NavLink href="/">Página Principal</NavLink>
     </NavItem>
 	 <NavItem>
-      <NavLink href="/#/buy_sell/buy_sell_Charts">Análiticas</NavLink>
+      <NavLink href="/#/buy_sell/analiticas">Análiticas</NavLink>
     </NavItem>
   </Nav>
 
@@ -696,4 +696,3 @@ main {
     font-weight: 100;
   }
 </style>
-/////
