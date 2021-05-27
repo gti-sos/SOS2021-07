@@ -5,7 +5,7 @@
   
 let buy_sell_Data = [];
 let buy_sell_Chart_comunityprovinceyear_Data = [];
-let buy_sell_Chart_eviction_Data = [];
+let estrin='';
   let errorMsg = "";
   let okMsg = "";
   
@@ -22,65 +22,59 @@ let buy_sell_Chart_eviction_Data = [];
     if (res.ok) {
 	
       buy_sell_Data.forEach(stat => {
-	  
-      buy_sell_Chart_comunityprovinceyear_Data.push(stat.autonomous_community+"-"+stat.province+"-"+stat.year);
-      buy_sell_Chart_eviction_Data.push(stat["eviction"]);   
+	  estrin=estrin+stat.autonomous_community;
+      b//uy_sell_Chart_comunityprovinceyear_Data.push(stat.autonomous_community);
       });
     }
 	
-	console.log(buy_sell_Chart_comunityprovinceyear_Data);
-	console.log(buy_sell_Chart_eviction_Data);
+	console.log(estrin);
 	
-	ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
+	ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"]; // CHART CONFIG
+    // -----------------------------
     let chartConfig = {
-      type: 'venn',
-      title: {
-        text: 'Facts About AngularJS'
-      },
-      tooltip: {
-        text: '%t',
-        borderRadius: '5px',
-        fontSize: '15px'
-      },
-      series: [{
-          text: 'Popularity Of AngularJS Online',
-          values: [400],
+      type: 'wordcloud',
+      options: {
+        text: 'We the people of the United States, in order to form a more perfect union, establish justice, insure domestic tranquility, provide for the common defense, promote the general welfare, and secure the blessings of liberty to ourselves and our posterity, do ordain and establish this Constitution for the United States of America.',
+        aspect: 'spiral',
+        colorType: 'palette',
+        ignore: ['establish', 'this'],
+        maxItems: 50,
+        minLength: '4px',
+        palette: ['#D32F2F', '#1976D2', '#9E9E9E', '#E53935', '#1E88E5', '#7E57C2', '#F44336', '#2196F3', '#A1887F'],
+        rotate: true,
+        style: {
           tooltip: {
-            backgroundColor: '#006ACC'
+            text: 'We the people of the United States, in order to form a more perfect union, establish justice, insure domestic tranquility, provide for the common defense, promote the general welfare, and secure the blessings of liberty to ourselves and our posterity, do ordain and establish this Constitution for the United States of America.',
+            padding: '5px',
+            alpha: 0.9,
+            backgroundColor: '#D32F2F',
+            borderColor: 'none',
+            borderRadius: '3px',
+            fontColor: 'white',
+            fontFamily: 'Georgia',
+            textAlpha: 1,
+            visible: true,
+            width: '400px',
+            wrapText: true
           },
-          backgroundColor: '#006ACC',
-          join: [15]
-        },
-        {
-          text: 'People Who Use AngularJS',
-          values: [300],
-          tooltip: {
-            backgroundColor: '#FBB148'
-          },
-          backgroundColor: '#FBB148',
-          join: [15]
-        },
-        {
-          text: 'People Who Actually Know How To Use AngularJS',
-          values: [100],
-          tooltip: {
-            backgroundColor: '#DD0031'
-          },
-          backgroundColor: '#DD0031',
-          join: [15]
+          fontFamily: 'Merriweather',
+          hoverState: {
+            backgroundColor: '#1976D2',
+            borderColor: 'none',
+            borderRadius: '3px',
+            fontColor: 'white'
+          }
         }
-      ]
-    }
+      }
+    };
 
+    // RENDER CHARTS
+    // -----------------------------
     zingchart.render({
       id: 'myChart',
-      data: chartConfig,
-      height: '100%',
-      width: '100%',
+      data: chartConfig
     });
-	
-	
-  }
+}
 </script>
 
 
@@ -94,7 +88,7 @@ let buy_sell_Chart_eviction_Data = [];
 <main>
   <Nav>
     <NavItem>
-      <NavLink href="/">Pรกgina Principal</NavLink>
+      <NavLink href="/">Página Principal</NavLink>
     </NavItem>
     <NavItem>
       <NavLink href="#/buy_sell">Datos</NavLink>
@@ -126,7 +120,8 @@ let buy_sell_Chart_eviction_Data = [];
   </div>
 
   <div id="myChart" class="chart--container">
-    <a class="zc-ref" href="https://www.zingchart.com/">Powered by ZingChart</a>
+    <a href="https://www.zingchart.com/" rel="noopener" class="zc-ref">Powered by ZingChart</a>
+  </div>
   
 </main>
 
@@ -156,9 +151,9 @@ let buy_sell_Chart_eviction_Data = [];
 }
 
 .chart--container {
-      min-height: 530px;
-      width: 100%;
       height: 100%;
+      width: 100%;
+      min-height: 530px;
     }
 
     .zc-ref {
