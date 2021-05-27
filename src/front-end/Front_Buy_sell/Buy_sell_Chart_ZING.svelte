@@ -23,7 +23,7 @@ let estrin='';
 	
       buy_sell_Data.forEach(stat => {
 	  estrin=estrin+stat.autonomous_community;
-      b//uy_sell_Chart_comunityprovinceyear_Data.push(stat.autonomous_community);
+      //buy_sell_Chart_comunityprovinceyear_Data.push(stat.autonomous_community);
       });
     }
 	
