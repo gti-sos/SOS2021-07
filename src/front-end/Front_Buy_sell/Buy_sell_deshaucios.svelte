@@ -196,5 +196,4 @@ let population_Data=[];
   background: #f1f7ff;
 }
 
-
 </style>
