@@ -135,7 +135,7 @@ import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
             label: "Porcentaje inversion social",
             data: yAxis.slice(0,index),
             borderColor: 'rgb(255, 99, 132)',
-            backgroundColor: 'rgba(255, 99, 132, 0.2)'
+            backgroundColor: 'rgba(255, 99, 132)'
           
           },
           {
@@ -143,7 +143,7 @@ import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
             label: "Variacion de la renta",
             data: yAxis1,
             borderColor: 'rgb(204, 15, 241)',
-            backgroundColor: 'rgba(204, 15, 241, 0.2)'
+            backgroundColor: 'rgba(204, 15, 241)'
           },
         ],
         labels: xAxis
