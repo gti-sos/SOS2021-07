@@ -19,7 +19,7 @@ var unemploymentAPI_Integration = require("./src/back-end/unemploymentAPI/integr
 
 //Tristan
 var rentalsAPI = require("./src/back-end/rentalsAPI");
-var unemploymentAPI_Integration = require("./src/back-end/rentalsAPI/integration"); //integracion
+var rentalsAPI_Integration = require("./src/back-end/rentalsAPI/integration"); //integracion
 
 var app = express();
 app.use(bodyParser.json());
@@ -29,8 +29,12 @@ var port = (process.env.PORT || 10000);
 
 var BASE_API_PATH = "/api/v1";
 
-rentalsAPI.register(app);
 buy_sell_API.register(app);
+
+//endpoint integration Tristan
+rentalsAPI.register(app);
+rentalsAPI_Integration.register(app);
+
 
 //Alejandro
 unemploymentAPI.register(app); //importamos api declarada arriba
