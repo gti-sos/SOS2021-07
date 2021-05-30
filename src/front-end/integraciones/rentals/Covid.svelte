@@ -22,13 +22,13 @@
         
 
 		Externa2.forEach((x) => {
-            if((x.country=="Mexico"||x.country=="Canada")){	
-				aux={
-					name: x.country,
-					data: [parseInt(x.deaths),parseInt(x.recovered),0,0]
-				}
-				valores.push(aux)
-			}  	
+            
+            aux={
+                name: x.country,
+                data: [parseInt(x.deaths),parseInt(x.recovered),0,0]
+            }
+            valores.push(aux)
+			 	
 		
 
         });
@@ -37,7 +37,7 @@
             type: 'areaspline'
         },
         title: {
-            text: 'G01 - Externa2'
+            text: 'Externa2'
         },
         legend: {
             layout: 'vertical',
