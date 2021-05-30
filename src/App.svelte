@@ -23,6 +23,7 @@
 	import Info from "./front-end/complementos/info.svelte";
 	import Integracion_G27_Tristan from "./front-end/integraciones/rentals/G27.svelte";
 	import IntegracionExt_Educacion from "./front-end/integraciones/rentals/Ext1_educacion.svelte";
+	import Integracion_G30_Tristan from "./front-end/integraciones/rentals/G30.svelte";
 	import cartas from "./front-end/integraciones/rentals/Ext2_cartas.svelte";
 	import Covid19_Tristan from "./front-end/integraciones/rentals/Covid.svelte";
 	import Grafico_Comun from "./front-end/complementos/Grafico_Comun.svelte";
@@ -32,6 +33,7 @@
 		"/info": Info,
 		"/integrations":IntegracionesInit,
 		"/integrations/G27_rentals":Integracion_G27_Tristan,
+		"/integrations/G30_rentals":Integracion_G30_Tristan,
 		"/integrations/Ext2_Cartas":cartas,
 		"/integrations/Covid":Covid19_Tristan,
 		"/integrations/Ext1_educacion":IntegracionExt_Educacion,

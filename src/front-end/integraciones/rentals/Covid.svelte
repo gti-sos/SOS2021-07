@@ -13,7 +13,7 @@
        
         let dataGastos_Educacion = Data1.map((x) => {
             let res = {
-                name: x.nombreLugar + " - " +  "(hoy)",
+                name: x.nombreLugar + " - " +  "( hoy )",
                 value: x["casosRecuperadosDiario"]
             };
             return res;

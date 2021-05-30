@@ -40,8 +40,8 @@
                 ><Button color="primary">G27 Budget</Button></a
               >
 
-              <a href="/#/integrations/Ext1_educacion"
-              ><Button color="info">Ext1 Educacion</Button></a
+              <a href="/#/integrations/G30_rentals"
+              ><Button color="info">G30 life-expectancy</Button></a
             >
 
               <a href="/#/integrations/Ext2_Cartas"

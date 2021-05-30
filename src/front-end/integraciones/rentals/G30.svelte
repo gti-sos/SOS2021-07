@@ -43,7 +43,7 @@
     
     async function loadGraph() {
         const resData_Rental = await fetch("/api/v1/rentals");
-        const resDataEduacionGastos = await fetch("https://education-expenditures.herokuapp.com/api/v1");
+        const resDataEduacionGastos = await fetch("/api/v2/life-expectancy-stats/loadInitialData");
     
 
         let Data = await resData_Rental.json();
@@ -53,14 +53,14 @@
         let DataRental = Data.map((x) => {
             let res = {
                 name: x.province + " - " + x.year,
-                value: x["salary"]
+                value: x["rent_variation"]
             };
             return res;
         });
         let dataGastos_Educacion = Data1.map((x) => {
             let res = {
                 name: x.country + " - " + x.year,
-                value: x["education_expenditure_per_capita"]
+                value: x["averageLifeExpectancy"]
             };
             return res;
         });
@@ -68,11 +68,11 @@
         let dataTotal =
             [
                 {
-                    name: "% salario",
+                    name: "Variacion Renta",
                     data: DataRental
                 },
                 {
-                    name: "Gasto en educación por capital",
+                    name: "Esperanza de vida Media",
                     data: dataGastos_Educacion
                 }
             ];
