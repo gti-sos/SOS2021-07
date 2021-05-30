@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
-  const BASE_CONTACT_API_PATH = "/api/v1/mh-stats";
+  //const BASE_CONTACT_API_PATH = "/api/v1/mh-stats";
   
 let mh_Data = [];
 
@@ -94,17 +94,10 @@ let population_Data=[];
 </script>
 <svelte:head>
 	
-	<script src="https://code.highcharts.com/highcharts.js"on:load={loadChart}></script>
-	<script src="https://code.highcharts.com/modules/exporting.js"on:load={loadChart}></script>
-	<script src="https://code.highcharts.com/modules/export-data.js"on:load={loadChart}></script>
-	<script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadChart} ></script>
-
-<figure class="highcharts-figure">
-    <div id="container"></div>
-    <p class="highcharts-description">
-        Gráfica x fabo funsiona
-    </p>
-</figure>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://code.highcharts.com/modules/export-data.js"></script>
+	<script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadChart}></script>
 	
 </svelte:head>
 <main>
@@ -152,9 +145,11 @@ let population_Data=[];
       </p>
     </figure>
   </div>
+  
 </main>
 
 <style>
+
   main {
     text-align: center;
     padding: 1em;
