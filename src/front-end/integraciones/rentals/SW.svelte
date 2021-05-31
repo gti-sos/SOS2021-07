@@ -21,7 +21,7 @@
         let valores = []
         var name = Externa2.results.map(x=>x.name)
 
-        for (let index = 0; index < planetas.length; index++) {
+        for (let index = 0; index < name.length; index++) {
         var llamada = await fetch("https://swapi.dev/api/people/"+(index+1));
         var datos = await llamada.json();
         if(isNaN(datos.height)){
