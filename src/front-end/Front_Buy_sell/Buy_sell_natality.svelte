@@ -145,7 +145,7 @@ let totalData=[];
         fillColor: 'rgb(140,180,200)',
         name: "Dachstein panorama seen from Krippenstein",
         data: [
-            ['Kufstein', 2049],
+            [EvictionData[0].name, EvictionData[0].value],
             ['Hohe Wildstelle', 2746],
             ['Kleiner Miesberg', 2173],
             ['Großer Miesberg', 2202],
