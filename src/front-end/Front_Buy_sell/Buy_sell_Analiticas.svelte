@@ -24,7 +24,7 @@ import {
 <main>
   <Nav>
     <NavItem>
-      <NavLink href="/">Pรกgina Principal</NavLink>
+      <NavLink href="/">Página Principal</NavLink>
     </NavItem>
     <NavItem>
       <NavLink href="#/buy_sell">Datos</NavLink>
@@ -46,7 +46,8 @@ import {
     </h2>
   </div>
   
-  <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Festudianteo.com%2Fmatematicas%2Fgraficas-concepto-y-caracteristicas%2F&psig=AOvVaw2Wr-I4j9s2-vzwFiw7gSGD&ust=1622194820500000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOCig-fI6fACFQAAAAAdAAAAABAK" alt="GRF" width="500" height="600">
+  <img src="images/grafica.jpg" alt="background image" width="800" height="600" />
+  
 
   
 </main>

@@ -35,14 +35,14 @@
     <CardBody>
       <CardSubtitle />
       <CardText />
-      <a href="/#/buy_sell/deshaucios"
-        ><Button color="primary">API DESHAUCIOS</Button></a
+      <a href="/#/buy_sell/VIH"
+        ><Button color="primary">API SOS VIH</Button></a
       >
-      <a href=""
-        ><Button color="primary">API2</Button></a
+      <a href="/#/buy_sell/natality"
+        ><Button color="primary">INTEGRACION BUY-NATALITY</Button></a
       >
-      <a href="">
-        <Button color="primary">API3</Button></a
+      <a href="/#/buy_sell/MH">
+        <Button color="primary">API SOS MH</Button></a
       >
       <a href="">
         <Button color="primary">API4</Button></a
@@ -50,6 +50,9 @@
     </CardBody>
   </Card>
 </div>
+
+<img src="images/integration.png" alt="background image" width="800" height="700" />
+
 
 </main>
 

@@ -132,7 +132,7 @@ let buy_sell_Chart_eviction_Data = [];
       <NavLink href="#/buy_sell/graficaNL">Gráfica AREA (highchart)</NavLink>
     </NavItem>
 	<NavItem>
-      <NavLink href="#/buy_sell/graficaZING">Gráfica CIRCULOS (zingchart)</NavLink>
+      <NavLink href="#/buy_sell/graficaZING">Gráfica NUBE (zingchart)</NavLink>
     </NavItem>
   </Nav>
 
