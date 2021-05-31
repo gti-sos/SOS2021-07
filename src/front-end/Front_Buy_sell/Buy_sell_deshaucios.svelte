@@ -67,7 +67,7 @@ let population_Data=[];
         name: 'Población',
         colorByPoint: true,
         data: [{
-            name: country_Data[0],
+            name: 'country_Data[0]',
             y: population_Data[0],
             sliced: true,
             selected: true
