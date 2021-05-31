@@ -26,7 +26,7 @@ let population_Data=[];
       mh_Data.forEach(stat => {
      
       country_Data.push(stat.country);   
-	  population_Data.push(parseInt(stat.population));   
+	  population_Data.push(parseFloat(stat.population));   
 	  
       });
     }
