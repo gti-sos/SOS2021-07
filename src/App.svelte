@@ -13,7 +13,7 @@
 	import Buy_sellEdit from "./front-end/Front_Buy_sell/Buy_sell_Editor.svelte";
 	import Buy_sell_Chart from "./front-end/Front_Buy_sell/Buy_sell_Chart.svelte";
 	import Buy_sell_Integraciones from "./front-end/Front_Buy_sell/Buy_sell_Integraciones.svelte";
-	import Buy_sell_deshaucios from "./front-end/Front_Buy_sell/Buy_sell_deshaucios.svelte";
+	import Buy_sell_VIH from "./front-end/Front_Buy_sell/Buy_sell_VIH.svelte";
 	import Buy_sell_Chart_NL from "./front-end/Front_Buy_sell/Buy_sell_Chart_NL.svelte";
 	import Buy_sell_Chart_ZING from "./front-end/Front_Buy_sell/Buy_sell_Chart_ZING.svelte";
 	import Buy_sell_Analiticas from "./front-end/Front_Buy_sell/Buy_sell_Analiticas.svelte";
@@ -46,7 +46,7 @@
 		"/buy_sell/:autonomous_community/:province/:year":Buy_sellEdit,
 		"/buy_sell/buy_sell_Charts":Buy_sell_Chart,
 		"/buy_sell/integraciones":Buy_sell_Integraciones,
-		"/buy_sell/deshaucios":Buy_sell_deshaucios,
+		"/buy_sell/VIH":Buy_sell_VIH,
 		"/buy_sell/graficaNL":Buy_sell_Chart_NL,
 		"/buy_sell/graficaZING":Buy_sell_Chart_ZING,
 		"/buy_sell/analiticas":Buy_sell_Analiticas,

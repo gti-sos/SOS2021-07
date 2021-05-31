@@ -35,8 +35,8 @@
     <CardBody>
       <CardSubtitle />
       <CardText />
-      <a href="/#/buy_sell/deshaucios"
-        ><Button color="primary">API DESHAUCIOS</Button></a
+      <a href="/#/buy_sell/VIH"
+        ><Button color="primary">API SOS VIH</Button></a
       >
       <a href=""
         ><Button color="primary">API2</Button></a
