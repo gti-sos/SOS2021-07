@@ -105,7 +105,7 @@ let estrin='';
         label: {
           text: 'Years'
         },
-        labels: [2017, 2018, 2019, 2020],
+        labels: yearData,
         lineWidth: '0px',
         offsetY: '-20px',
         tick: {
