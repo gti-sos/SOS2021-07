@@ -1,7 +1,6 @@
 <script>
   import { onMount } from "svelte";
   import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
-  const BASE_CONTACT_API_PATH = "/api/v2";
   
 let HIVData = [];
 let yearData = [];
@@ -9,7 +8,6 @@ let living_withData=[];
 let newly_infectedData=[];
 let total_infectedData=[];
 
-let estrin='';
   let errorMsg = "";
   let okMsg = "";
   
@@ -19,7 +17,27 @@ let estrin='';
     });
   }
   
-  async function loadChart() {
+   async function loadStats() {
+    
+    const res = await fetch(
+     "https://sos2021-24.herokuapp.com/api/v2/children-with-hiv/loadInitialData"
+    ).then(function (res) {
+      if (res.ok) {
+        getStats();
+        errorMsg = "";
+        okMsg = "Datos cargados correctamente";
+        console.log("OK");
+      } else {
+        if (res.status === 500) {
+          errorMsg = "No se ha podido acceder a la base de datos";
+        }
+        okMsg = "";
+        console.log("ERROR!" + errorMsg);
+      }
+    });
+  }
+  
+ async function loadChart() {
     console.log("Fetching data...");
     const res = await fetch("https://sos2021-24.herokuapp.com/api/v2/children-with-hiv?country=Ethiopia");
     HIVData = await res.json();
@@ -34,193 +52,112 @@ let estrin='';
       
       });
     }
-	
-	console.log(yearData);
+    
+    console.log(yearData);
 	console.log(living_withData);
 	console.log(newly_infectedData);
 	console.log(total_infectedData);
 	
-	ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
-    // -----------------------------
-    let chartConfig = {
-      type: 'vbar3d',
-      '3dAspect': {
-        depth: 90,
-        true3d: 1
-      },
-      backgroundColor: '#FBFCFE',
-      title: {
-        text: 'Revenue',
-        padding: '15px',
-        fontColor: '#1E5D9E',
-        fontFamily: 'Lato'
-      },
-      legend: {
-        marginTop: '55px',
-        marginRight: '50px',
-        alpha: 1,
-        borderColor: '#CCCCCC',
-        shadow: false,
-        toggleAction: 'remove'
-      },
-      plot: {
-        tooltip: {
-          visible: false
-        },
-        aspect: 'cylinder',
-        backgroundColor: '#FBFCFE',
-        barsOverlap: '100%',
-        borderWidth: '0px',
-        marker: {
-          size: '4px'
-        },
-        mode: 'normal',
-        stacked: true,
-        stackType: '100%'
-      },
-      plotarea: {
-        margin: '70px 30px 50px 90px',
-        backgroundColor: 'transparent'
-      },
-      scaleX: {
-        margin: '20px',
-        padding: '20px',
-        backgroundColor: 'none',
-        guide: {
-          alpha: .25,
-          lineColor: '#1E5D9E',
-          lineGapSize: '4px',
-          lineStyle: 'dotted',
-          rules: [{
-            rule: '%i == 0',
-            visible: false
-          }],
-          visible: true
-        },
-        item: {
-          padding: '5px',
-          fontColor: '#1E5D9E',
-          fontFamily: 'Montserrat'
-        },
-        label: {
-          text: 'Years'
-        },
-        labels: yearData,
-        lineWidth: '0px',
-        offsetY: '-20px',
-        tick: {
-          lineColor: '#D1D3D4',
-          rules: [{
-            rule: '%i == 0',
-            visible: false
-          }]
+   Highcharts.chart('container', {
+    chart: {
+        type: 'column',
+        options3d: {
+            enabled: true,
+            alpha: 15,
+            beta: 15,
+            viewDistance: 25,
+            depth: 40
         }
-      },
-      scaleY: {
-        values: '0:100:20',
-        format: '$%v',
-        guide: {
-          alpha: .25,
-          lineColor: '#1E5D9E',
-          lineGapSize: '4px',
-          lineStyle: 'dotted',
-          rules: [{
-            rule: '%i == 0',
-            visible: false
-          }],
-          visible: true
-        },
-        item: {
-          padding: '0 10 0 0',
-          fontColor: '#1E5D9E',
-          fontFamily: 'Montserrat'
-        },
-        label: {
-          text: 'Personas'
-        },
-        lineWidth: '0px',
-        maxValue: 100,
-        tick: {
-          lineColor: '#D1D3D4',
-          rules: [{
-            rule: '%i == 0',
-            visible: false
-          }]
-        }
-      },
-      series: [{
-          text: 'Viviendo con VIH',
-          values: living_withData,
-          backgroundColor: '#00BAF2',
-          lineColor: '#00BAF2',
-          lineWidth: '1px',
-          marker: {
-            backgroundColor: '#00BAF2'
-          }
-        },
-        {
-          text: 'Nuevos infectados',
-          values: newly_infectedData,
-          backgroundColor: '#E80C60',
-          lineColor: '#E80C60',
-          lineWidth: '1px',
-          marker: {
-            backgroundColor: '#E80C60'
-          }
-        },
-        {
-          text: 'Total de infectados',
-          values: total_infectedData,
-          backgroundColor: '#9B26AF',
-          lineColor: '#9B26AF',
-          lineWidth: '1px',
-          marker: {
-            backgroundColor: '#9B26AF'
-          }
-        }
-      ]
-    };
+    },
 
-    zingchart.render({
-      id: 'myChart',
-      data: chartConfig,
-      height: '100%',
-    });
+    title: {
+        text: 'GRUPO 24 Administrador de datos de Niños/as con VIH'
+    },
+
+    xAxis: {
+        categories: yearData,
+        labels: {
+            skew3d: true,
+            style: {
+                fontSize: '16px'
+            }
+        }
+    },
+
+    yAxis: {
+        allowDecimals: false,
+        min: 0,
+        title: {
+            text: 'Numero de personas',
+            skew3d: true
+        }
+    },
+
+    tooltip: {
+        headerFormat: '<b>{point.key}</b><br>',
+        pointFormat: '<span style="color:{series.color}">\u25CF</span> {series.name}: {point.y} / {point.stackTotal}'
+    },
+
+    plotOptions: {
+        column: {
+            stacking: 'normal',
+            depth: 40
+        }
+    },
+
+    series: [{
+        name: 'Viviendo con VIH',
+        data: living_withData,
+        //stack: 'male'
+    }, {
+        name: 'Nuevos infectados',
+        data: newly_infectedData,
+        //stack: 'male'
+    }, {
+        name: 'Total de infectados',
+        data: total_infectedData,
+        //stack: 'female'
+    }]
+});
 	
-	
-}
+  }
 </script>
-
-
-
 <svelte:head>
 
-	<script src="https://cdn.zingchart.com/zingchart.min.js" on:load={loadChart} ></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadChart} ></script>
 	
 </svelte:head>
-
 <main>
+
   <Nav>
     <NavItem>
       <NavLink href="/">Página Principal</NavLink>
     </NavItem>
     <NavItem>
-      <NavLink href="#/buy_sell">Datos</NavLink>
+      <NavLink href="/">Volver</NavLink>
     </NavItem>
 	<NavItem>
-      <NavLink href="#/buy_sell/buy_sell_Charts">Gráfica LINEAL (highchart)</NavLink>
+      <NavLink href="">API1</NavLink>
     </NavItem>
 	<NavItem>
-      <NavLink href="#/buy_sell/graficaNL">Gráfica AREA (highchart)</NavLink>
+      <NavLink href="">API2</NavLink>
     </NavItem>
 	<NavItem>
-      <NavLink href="#/buy_sell/graficaZING">Gráfica NUBE (zingchart)</NavLink>
+      <NavLink href="">API3</NavLink>
+    </NavItem>
+	<NavItem>
+      <NavLink href="">API4</NavLink>
     </NavItem>
   </Nav>
 
   <div>
     <h2>
-     Analíticas
+      Analíticas
     </h2>
   </div>
 
@@ -233,10 +170,17 @@ let estrin='';
     {/if}
   </div>
 
-  <div id="myChart" class="chart--container">
-    <a class="zc-ref" href="https://www.zingchart.com/">Powered by ZingChart</a>
-  </div>
+  <div>
   
+    <figure class="highcharts-figure">
+    <div id="container"></div>
+    <p class="highcharts-description">
+        Chart showing grouped and stacked 3D columns. These features are
+        available both for 2D and 3D column charts.
+    </p>
+</figure>
+	
+  </div>
 </main>
 
 <style>
@@ -261,17 +205,42 @@ let estrin='';
   }
   
   #container {
-    height: 400px; 
+  height: 400px; 
 }
 
-.chart--container {
-      min-height: 530px;
-      width: 100%;
-      height: 100%;
-    }
+.highcharts-figure, .highcharts-data-table table {
+  min-width: 310px; 
+  max-width: 800px;
+  margin: 1em auto;
+}
 
-    .zc-ref {
-      display: none;
-    }
+.highcharts-data-table table {
+  font-family: Verdana, sans-serif;
+  border-collapse: collapse;
+  border: 1px solid #EBEBEB;
+  margin: 10px auto;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+.highcharts-data-table caption {
+  padding: 1em 0;
+  font-size: 1.2em;
+  color: #555;
+}
+.highcharts-data-table th {
+  font-weight: 600;
+  padding: 0.5em;
+}
+.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+  padding: 0.5em;
+}
+.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+  background: #f8f8f8;
+}
+.highcharts-data-table tr:hover {
+  background: #f1f7ff;
+}
+
 
 </style>
