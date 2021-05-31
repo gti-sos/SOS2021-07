@@ -20,7 +20,7 @@ let totalData=[];
    async function loadStats() {
     
     const res = await fetch(
-     "https://sos2021-25.herokuapp.com/api/v1/evictions/loadInitialData"
+     "https://sos2021-01.herokuapp.com/api/v2/natality-stats/loadInitialData"
     ).then(function (res) {
       if (res.ok) {
         getStats();
@@ -64,14 +64,14 @@ let totalData=[];
  async function loadChart() {
     console.log("Fetching data...");
 	
-    const res = await fetch("https://sos2021-25.herokuapp.com/api/v1/evictions?limit=5&offset=5");
+    const res = await fetch("https://sos2021-01.herokuapp.com/api/v2/natality-stats?limit=5&offset=1");
     EvictionData = await res.json();
 	
     if (res.ok) {
 	
       EvictionData.forEach(stat => {
 	  
-	  totalData.push(parseInt(stat.total));
+	  totalData.push(parseInt(stat.born));
       
       });
 	  
