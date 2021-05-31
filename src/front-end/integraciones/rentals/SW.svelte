@@ -1,4 +1,4 @@
-<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
 <script>
 	import {pop} from "svelte-spa-router";
     import Button from "sveltestrap/src/Button.svelte";
@@ -95,6 +95,7 @@
 </script>
 
     <svelte:head>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <script src="https://code.highcharts.com/modules/exporting.js"></script>
         <script src="https://code.highcharts.com/modules/export-data.js"></script>
         <script src="https://code.highcharts.com/highcharts.js"></script>

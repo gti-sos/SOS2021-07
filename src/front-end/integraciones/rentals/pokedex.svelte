@@ -202,14 +202,14 @@
         });
         
         //Hoenn
-        var array = Object.entries(Sinnoh);
-        array.forEach(x => {
-            var i = x.name;
-            if (!xAxis.includes(i)){
-                xAxis.push(i);
-                yAxisS.push(x.pokemon_entries);
-      }
-        });
+        //var array = Object.entries(Sinnoh);
+        //array.forEach(x => {
+          //  var i = x.name;
+            //if (!xAxis.includes(i)){
+              //  xAxis.push(i);
+                //yAxisS.push(x.pokemon_entries);
+      //}
+       // });
         //Sinnoh
 
 
