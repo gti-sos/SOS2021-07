@@ -34,6 +34,7 @@ let population_Data=[];
     console.log("me quiero morir" + mh_Data);
 	console.log(country_Data);
 	console.log(population_Data);
+	console.log("hola?"+population_Data[0]);
 	
     Highcharts.chart('container', {
     chart: {
