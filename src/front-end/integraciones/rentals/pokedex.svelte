@@ -35,7 +35,7 @@
         const res = await fetch("https://pokeapi.co/api/v2/pokedex/3"
         ).then(function (res) {
           if (res.ok) {
-            getStats();
+            
             errorMsg = "";
             okMsg = "Datos cargados correctamente";
             console.log("OK");
@@ -54,7 +54,7 @@
         const res = await fetch("https://pokeapi.co/api/v2/pokedex/4"
         ).then(function (res) {
           if (res.ok) {
-            getStats();
+            
             errorMsg = "";
             okMsg = "Datos cargados correctamente";
             console.log("OK");
@@ -73,7 +73,7 @@
         const res = await fetch("https://pokeapi.co/api/v2/pokedex/5"
         ).then(function (res) {
           if (res.ok) {
-            getStats();
+           
             errorMsg = "";
             okMsg = "Datos cargados correctamente";
             console.log("OK");
