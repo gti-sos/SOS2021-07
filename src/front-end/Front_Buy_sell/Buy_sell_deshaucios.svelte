@@ -63,7 +63,7 @@ let population_Data=[];
         }
     },
     series: [{
-        name: 'Población',
+        name: country_Data.get(0),
         colorByPoint: true,
         data: [{
             name: 'Chrome',
