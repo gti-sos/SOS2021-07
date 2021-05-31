@@ -46,7 +46,7 @@ let population_Data=[];
         text: 'Browser market shares in January, 2018'
     },
     tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        pointFormat: '{series.name}: <b>{series.y}</b>'
     },
     accessibility: {
         point: {
@@ -64,7 +64,7 @@ let population_Data=[];
         }
     },
     series: [{
-        name: 'country_Data',
+        name: 'Población',
         colorByPoint: true,
         data: [{
             name: 'Chrome',
