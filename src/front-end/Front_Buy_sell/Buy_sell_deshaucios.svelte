@@ -34,7 +34,6 @@ let population_Data=[];
     console.log("me quiero morir" + mh_Data);
 	console.log(country_Data);
 	console.log(population_Data);
-	console.log("hola?"+population_Data[0]);
 	
     Highcharts.chart('container', {
     chart: {
@@ -68,8 +67,8 @@ let population_Data=[];
         name: 'Población',
         colorByPoint: true,
         data: [{
-            name: 'country_Data[0]',
-            y: population_Data[0],
+            name: 'Chrome',
+            y: 61.41,
             sliced: true,
             selected: true
         }, {
