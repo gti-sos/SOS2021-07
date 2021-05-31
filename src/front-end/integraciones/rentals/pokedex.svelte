@@ -171,33 +171,40 @@
         var index = 0;
         var i = 0;
         Kanto.forEach(x => {
-            i = x["entry_number"];
-            index++;
+            var i = x.name;
+            if (!xAxis.includes(i)){
+                xAxis.push(i);
+                yAxisK.push(x.pokemon_entries["entry_number"]);
+      }
         });
-        xAxis.push("Kanto");
-        yAxisK.push(i);
+       
         //Kanto
         Johto.forEach(x => {
-            i = x["entry_number"];
-            index++;
+            var i = x.name;
+            if (!xAxis.includes(i)){
+                xAxis.push(i);
+                yAxisJ.push(x.pokemon_entries["entry_number"]);
+      }
         });
-        xAxis.push("Jhoto");
-        yAxisJ.push(i);
+        
         //Jhoto
 
         Hoenn.forEach(x => {
-            i = x["entry_number"];
-            index++;
+            var i = x.name;
+            if (!xAxis.includes(i)){
+                xAxis.push(i);
+                yAxisH.push(x.pokemon_entries["entry_number"]);
+      }
         });
-        xAxis.push("Hoenn");
-        yAxisH.push(i);
+        
         //Hoenn
         Sinnoh.forEach(x => {
-            i = x["entry_number"];
-            index++;
+            var i = x.name;
+            if (!xAxis.includes(i)){
+                xAxis.push(i);
+                yAxisS.push(x.pokemon_entries["entry_number"]);
+      }
         });
-        xAxis.push("Sinnoh");
-        yAxisS.push(i);
         //Sinnoh
 
 
