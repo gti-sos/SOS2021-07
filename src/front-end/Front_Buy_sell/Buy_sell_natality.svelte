@@ -88,7 +88,9 @@ let totalData=[];
     
     console.log("EvictionData="+EvictionData);
 	
-	console.log("HOLA==="+Object.entries(EvictionData));
+	for (let sos in EvictionData) {
+ 	 console.log(`${sos}: ${EvictionData[sos]}`);
+}
 	
    Highcharts.chart('container', {
     chart: {
