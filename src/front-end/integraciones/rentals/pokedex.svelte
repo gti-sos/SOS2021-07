@@ -164,8 +164,10 @@
         await getSinnoh();
     
         var xAxis = [];
-        var yAxis = [];
-        var yAxis1 = [];
+        var yAxisK = [];
+        var yAxisJ = [];
+        var yAxisH = [];
+        var yAxisS = [];
     
     
         var index = 0;
