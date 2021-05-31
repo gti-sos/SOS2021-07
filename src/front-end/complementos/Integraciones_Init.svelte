@@ -47,10 +47,13 @@
               ><Button color="info">Ext1 Educacion</Button></a>
 
               <a href="/#/integrations/Ext2_Cartas"
-                ><Button color="primary">Ext2 Cartas E1</Button></a
-              >
+                ><Button color="primary">Ext2 Cartas E1</Button></a>
+
+              <a href="/#/integrations/Pokemon"
+              ><Button color="primary">Ext3 Pokemon</Button></a>
+              
               <a href="/#/integrations/Covid"
-                ><Button color="primary">Ext3 Covid E1</Button></a
+                ><Button color="primary">Ext4 Covid E1</Button></a
               >
             </CardBody>
             
