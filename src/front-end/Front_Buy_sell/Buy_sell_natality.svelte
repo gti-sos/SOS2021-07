@@ -87,8 +87,8 @@ let totalData=[];
         });
     
     console.log("EvictionData="+EvictionData);
-	//console.log("countryData="+countryData);
-	//console.log("desalojoData="+desalojoData);
+	
+	console.log("HOLA==="+Object.entries(EvictionData));
 	
    Highcharts.chart('container', {
     chart: {
