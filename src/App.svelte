@@ -28,6 +28,7 @@
 	import Integracion_G30_Tristan from "./front-end/integraciones/rentals/G30.svelte";
 	import cartas from "./front-end/integraciones/rentals/Ext2_cartas.svelte";
 	import Pokemon from "./front-end/integraciones/rentals/pokedex.svelte";
+	import SW from "./front-end/integraciones/rentals/SW.svelte";
 	import Covid19_Tristan from "./front-end/integraciones/rentals/Covid.svelte";
 	import Grafico_Comun from "./front-end/complementos/Grafico_Comun.svelte";
 
@@ -39,6 +40,7 @@
 		"/integrations/G30_rentals":Integracion_G30_Tristan,
 		"/integrations/Ext2_Cartas":cartas,
 		"/integrations/Pokemon":Pokemon,
+		"/integrations/SW":SW,
 		"/integrations/Covid":Covid19_Tristan,
 		"/integrations/Ext1_educacion":IntegracionExt_Educacion,
 		"/common-graphic":Grafico_Comun,
