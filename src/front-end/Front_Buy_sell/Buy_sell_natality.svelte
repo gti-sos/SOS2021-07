@@ -63,8 +63,8 @@ let totalData=[];
     const res = await fetch("https://sos2021-25.herokuapp.com/api/v1/evictions?limit=5&offset=5");
     EvictionData = await res.json();
 	
-	const res = await fetch("https://sos2021-07.herokuapp.com/api/v2/buy_sell?offset=1&limit=5");
-    BuyData = await res.json();
+	const res2 = await fetch("https://sos2021-07.herokuapp.com/api/v2/buy_sell?offset=1&limit=5");
+    BuyData = await res2.json();
 	
     if (res.ok) {
 	
@@ -74,13 +74,17 @@ let totalData=[];
       
       });
 	  
-	  BuyData.forEach(stat => {
+    }
+	
+	if(res2.ok) {
+		
+		 BuyData.forEach(stat => {
 	  
 	  desalojoData.push(parseInt(stat.eviction));
       
       });
-	  
-    }
+		
+	}
     
     console.log(totalData);
 	console.log(desalojoData);
