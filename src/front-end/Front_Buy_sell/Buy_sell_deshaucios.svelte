@@ -26,14 +26,13 @@ let population_Data=[];
       mh_Data.forEach(stat => {
      
       country_Data.push(stat.country);   
-	  population_Data.push(parseFloat(stat.population));   
+	  population_Data.push(stat.population);   
 	  
       });
     }
     
-    console.log("me quiero morir" + mh_Data);
-	console.log(country_Data);
-	console.log(population_Data);
+	console.log(country_Data[0]);
+	console.log(population_Data[0]);
 	
     Highcharts.chart('container', {
     chart: {

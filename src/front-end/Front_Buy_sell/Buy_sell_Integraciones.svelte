@@ -51,7 +51,7 @@
   </Card>
 </div>
 
-<img src="images/integration.png" alt="background image" width="800" height="600" />
+<img src="images/integration.png" alt="background image" width="800" height="700" />
 
 
 </main>
