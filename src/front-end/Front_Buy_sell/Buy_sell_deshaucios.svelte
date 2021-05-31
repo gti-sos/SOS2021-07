@@ -63,7 +63,7 @@ let population_Data=[];
         }
     },
     series: [{
-        name: country_Data.get(0),
+        name: 'susmuertos',
         colorByPoint: true,
         data: [{
             name: 'Chrome',
