@@ -117,7 +117,7 @@ let estrin='';
         }
       },
       scaleY: {
-        values: '0:180:20',
+        values: '0:100000:10000',
         format: '$%v',
         guide: {
           alpha: .25,
@@ -136,7 +136,7 @@ let estrin='';
           fontFamily: 'Montserrat'
         },
         label: {
-          text: 'Revenue (In Millions)'
+          text: 'Personas'
         },
         lineWidth: '0px',
         maxValue: 100,
@@ -149,8 +149,8 @@ let estrin='';
         }
       },
       series: [{
-          text: 'Internal',
-          values: [70, 100, 110, 141],
+          text: 'Viviendo con VIH',
+          values: living_withData,
           backgroundColor: '#00BAF2',
           lineColor: '#00BAF2',
           lineWidth: '1px',
@@ -159,8 +159,8 @@ let estrin='';
           }
         },
         {
-          text: 'External',
-          values: [30, 50, 60, 75],
+          text: 'Nuevos infectados',
+          values: newly_infectedData,
           backgroundColor: '#E80C60',
           lineColor: '#E80C60',
           lineWidth: '1px',
@@ -169,8 +169,8 @@ let estrin='';
           }
         },
         {
-          text: 'Outbound',
-          values: [20, 30, 40, 39],
+          text: 'Total de infectados',
+          values: total_infectedData,
           backgroundColor: '#9B26AF',
           lineColor: '#9B26AF',
           lineWidth: '1px',
