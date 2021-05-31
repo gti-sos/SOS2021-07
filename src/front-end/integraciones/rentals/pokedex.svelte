@@ -170,7 +170,8 @@
     
         var index = 0;
         var i = 0;
-        Kanto.forEach(x => {
+        var array = Object.entries(Kanto);
+        array.forEach(x => {
             var i = x.name;
             if (!xAxis.includes(i)){
                 xAxis.push(i);
@@ -179,7 +180,8 @@
         });
        
         //Kanto
-        Johto.forEach(x => {
+        var array = Object.entries(Johto);
+        array.forEach(x => {
             var i = x.name;
             if (!xAxis.includes(i)){
                 xAxis.push(i);
@@ -188,8 +190,8 @@
         });
         
         //Jhoto
-
-        Hoenn.forEach(x => {
+        var array = Object.entries(Hoenn);
+        array.forEach(x => {
             var i = x.name;
             if (!xAxis.includes(i)){
                 xAxis.push(i);
@@ -198,7 +200,8 @@
         });
         
         //Hoenn
-        Sinnoh.forEach(x => {
+        var array = Object.entries(Sinnoh);
+        array.forEach(x => {
             var i = x.name;
             if (!xAxis.includes(i)){
                 xAxis.push(i);
