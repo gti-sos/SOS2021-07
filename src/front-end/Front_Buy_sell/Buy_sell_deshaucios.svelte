@@ -21,7 +21,7 @@ let estrin='';
   
   async function loadChart() {
     console.log("Fetching data...");
-    const res = await fetch(BASE_CONTACT_API_PATH + "/children-with-hiv?country=Ethiopia");
+    const res = await fetch("https://sos2021-24.herokuapp.com/api/v2/children-with-hiv?country=Ethiopia");
     HIVData = await res.json();
     if (res.ok) {
 	
