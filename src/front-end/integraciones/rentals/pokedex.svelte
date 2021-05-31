@@ -177,7 +177,7 @@
             var i = x.name;
             if (!xAxis.includes(i)){
                 xAxis.push(i);
-                yAxisK.push(x.pokemon_entries["entry_number"]);
+                yAxisK.push(x.pokemon_entries.size());
       }
         });
        
