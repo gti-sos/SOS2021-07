@@ -66,35 +66,29 @@ let totalData=[];
     console.log("Fetching data...");
 	
     const res = await fetch("https://sos2021-01.herokuapp.com/api/v2/natality-stats?limit=5&offset=1");
-    EvictionData = await res.json();
-	
-    if (res.ok) {
-	
-      EvictionData.forEach(stat => {
-	  
-	  totalData.push(parseInt(stat.born));
-	  countryData.push(stat.country);
-      
-      });
-	  
-    }
-	
 	const res2 = await fetch("https://sos2021-07.herokuapp.com/api/v2/buy_sell?offset=1&limit=5");
-    BuyData = await res2.json();
+    Data = await res.json();
+	Data2 = await res2.json();
 	
-	if(res2.ok) {
-		
-		 BuyData.forEach(stat => {
-	  
-	  desalojoData.push(parseInt(stat.eviction));
-      
-      });
-		
-	}
+	let EvictionData = Data.map((x) => {
+            let res = {
+                name: x.country,
+                value: parseInt(x.born)
+            };
+            return res;
+        });
+	
+    let BuyData = Data2.map((x) => {
+            let res = {
+                name: x.autonomous_community,
+                value: parseInt(x.eviction)
+            };
+            return res;
+        });
     
-    console.log("totalData="+totalData);
-	console.log("countryData="+countryData);
-	console.log("desalojoData="+desalojoData);
+    console.log("EvictionData="+EvictionData);
+	//console.log("countryData="+countryData);
+	//console.log("desalojoData="+desalojoData);
 	
    Highcharts.chart('container', {
     chart: {
