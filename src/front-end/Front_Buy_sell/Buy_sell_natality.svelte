@@ -189,10 +189,10 @@ let totalData=[];
       <NavLink href="/">Volver</NavLink>
     </NavItem>
 	<NavItem>
-      <NavLink href="">API1</NavLink>
+      <NavLink href="/#/buy_sell/VIH">API SOS VIH</NavLink>
     </NavItem>
 	<NavItem>
-      <NavLink href="">API2</NavLink>
+      <NavLink href="/#/buy_sell/natality">INTEGRACION BUY-NATALITY</NavLink>
     </NavItem>
 	<NavItem>
       <NavLink href="">API3</NavLink>

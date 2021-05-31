@@ -39,10 +39,10 @@
         ><Button color="primary">API SOS VIH</Button></a
       >
       <a href="/#/buy_sell/natality"
-        ><Button color="primary">API SOS NATALITY</Button></a
+        ><Button color="primary">INTEGRACION BUY-NATALITY</Button></a
       >
-      <a href="">
-        <Button color="primary">API3</Button></a
+      <a href="/#/buy_sell/MH">
+        <Button color="primary">API SOS MH</Button></a
       >
       <a href="">
         <Button color="primary">API4</Button></a
