@@ -46,7 +46,7 @@ import {
     </h2>
   </div>
   
-  <img src="images/grafica.jpg" alt="background image" width="500" height="600" />
+  <img src="images/grafica.jpg" alt="background image" width="800" height="600" />
   
 
   

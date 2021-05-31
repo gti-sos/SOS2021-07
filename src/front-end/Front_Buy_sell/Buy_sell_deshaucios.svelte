@@ -43,7 +43,7 @@ let population_Data=[];
         type: 'pie'
     },
     title: {
-        text: 'Browser market shares in January, 2018'
+        text: 'GRUPO 23 MENTAL HEALTH'
     },
     tooltip: {
         pointFormat: '{series.name}: <b>{point.percentage:.1f}</b>'
@@ -67,8 +67,8 @@ let population_Data=[];
         name: 'Población',
         colorByPoint: true,
         data: [{
-            name: 'Chrome',
-            y: 61.41,
+            name: country_Data[0],
+            y: population_Data[0],
             sliced: true,
             selected: true
         }, {
