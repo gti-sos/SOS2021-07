@@ -1,13 +1,15 @@
 <script>
   import { onMount } from "svelte";
   import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
-  //const BASE_CONTACT_API_PATH = "/api/v1/mh-stats";
+  const BASE_CONTACT_API_PATH = "/api/v2";
   
-let mh_Data = [];
+let HIVData = [];
+let yearData = [];
+let living_withData=[];
+let newly_infectedData=[];
+let total_infectedData=[];
 
-let country_Data=[];
-let population_Data=[];
-
+let estrin='';
   let errorMsg = "";
   let okMsg = "";
   
@@ -19,112 +21,206 @@ let population_Data=[];
   
   async function loadChart() {
     console.log("Fetching data...");
-    const res = await fetch("https://sos2021-23.herokuapp.com/api/v1/mh-stats");
-    mh_Data = await res.json();
+    const res = await fetch(BASE_CONTACT_API_PATH + "/children-with-hiv?country=Ethiopia");
+    HIVData = await res.json();
     if (res.ok) {
 	
-      mh_Data.forEach(stat => {
-     
-      country_Data.push(stat.country);   
-	  population_Data.push(stat.population);   
+      HIVData.forEach(stat => {
 	  
+	  yearData.push(parseInt(stat.year));
+	  living_withData.push(parseInt(stat.living_with));
+	  newly_infectedData.push(parseInt(stat.newly_infected));
+	  total_infectedData.push(parseInt(stat.total_infected));
+      
       });
     }
-    
-	console.log(country_Data[0]);
-	console.log(population_Data[0]);
 	
-    Highcharts.chart('container', {
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-    },
-    title: {
-        text: 'GRUPO 23 MENTAL HEALTH'
-    },
-    tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}</b>'
-    },
-    accessibility: {
-        point: {
-            valueSuffix: '%'
-        }
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: false
-            },
-            showInLegend: true
-        }
-    },
-    series: [{
-        name: 'susmuertos',
-        colorByPoint: true,
-        data: [{
-            name: 'Chrome',
-            y: 0.0,
-            sliced: true,
-            selected: true
-        }, {
-            name: 'Internet Explorer',
-            y: 11.84
-        }, {
-            name: 'Firefox',
-            y: 10.85
-        }, {
-            name: 'Edge',
-            y: 4.67
-        }, {
-            name: 'Safari',
-            y: 4.18
-        }, {
-            name: 'Other',
-            y: 7.05
-        }
-		]
-    }]
-});
+	console.log(yearData);
+	console.log(living_withData);
+	console.log(newly_infectedData);
+	console.log(total_infectedData);
 	
-  }
+	ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
+    // -----------------------------
+    let chartConfig = {
+      type: 'vbar3d',
+      '3dAspect': {
+        depth: 90,
+        true3d: 1
+      },
+      backgroundColor: '#FBFCFE',
+      title: {
+        text: 'Revenue',
+        padding: '15px',
+        fontColor: '#1E5D9E',
+        fontFamily: 'Lato'
+      },
+      legend: {
+        marginTop: '55px',
+        marginRight: '50px',
+        alpha: 1,
+        borderColor: '#CCCCCC',
+        shadow: false,
+        toggleAction: 'remove'
+      },
+      plot: {
+        tooltip: {
+          visible: false
+        },
+        aspect: 'cylinder',
+        backgroundColor: '#FBFCFE',
+        barsOverlap: '100%',
+        borderWidth: '0px',
+        marker: {
+          size: '4px'
+        },
+        mode: 'normal',
+        stacked: true,
+        stackType: '100%'
+      },
+      plotarea: {
+        margin: '70px 30px 50px 90px',
+        backgroundColor: 'transparent'
+      },
+      scaleX: {
+        margin: '20px',
+        padding: '20px',
+        backgroundColor: 'none',
+        guide: {
+          alpha: .25,
+          lineColor: '#1E5D9E',
+          lineGapSize: '4px',
+          lineStyle: 'dotted',
+          rules: [{
+            rule: '%i == 0',
+            visible: false
+          }],
+          visible: true
+        },
+        item: {
+          padding: '5px',
+          fontColor: '#1E5D9E',
+          fontFamily: 'Montserrat'
+        },
+        label: {
+          text: 'Years'
+        },
+        labels: [2017, 2018, 2019, 2020],
+        lineWidth: '0px',
+        offsetY: '-20px',
+        tick: {
+          lineColor: '#D1D3D4',
+          rules: [{
+            rule: '%i == 0',
+            visible: false
+          }]
+        }
+      },
+      scaleY: {
+        values: '0:180:20',
+        format: '$%v',
+        guide: {
+          alpha: .25,
+          lineColor: '#1E5D9E',
+          lineGapSize: '4px',
+          lineStyle: 'dotted',
+          rules: [{
+            rule: '%i == 0',
+            visible: false
+          }],
+          visible: true
+        },
+        item: {
+          padding: '0 10 0 0',
+          fontColor: '#1E5D9E',
+          fontFamily: 'Montserrat'
+        },
+        label: {
+          text: 'Revenue (In Millions)'
+        },
+        lineWidth: '0px',
+        maxValue: 100,
+        tick: {
+          lineColor: '#D1D3D4',
+          rules: [{
+            rule: '%i == 0',
+            visible: false
+          }]
+        }
+      },
+      series: [{
+          text: 'Internal',
+          values: [70, 100, 110, 141],
+          backgroundColor: '#00BAF2',
+          lineColor: '#00BAF2',
+          lineWidth: '1px',
+          marker: {
+            backgroundColor: '#00BAF2'
+          }
+        },
+        {
+          text: 'External',
+          values: [30, 50, 60, 75],
+          backgroundColor: '#E80C60',
+          lineColor: '#E80C60',
+          lineWidth: '1px',
+          marker: {
+            backgroundColor: '#E80C60'
+          }
+        },
+        {
+          text: 'Outbound',
+          values: [20, 30, 40, 39],
+          backgroundColor: '#9B26AF',
+          lineColor: '#9B26AF',
+          lineWidth: '1px',
+          marker: {
+            backgroundColor: '#9B26AF'
+          }
+        }
+      ]
+    };
+
+    zingchart.render({
+      id: 'myChart',
+      data: chartConfig,
+      height: '100%',
+    });
+	
+	
+}
 </script>
+
+
+
 <svelte:head>
-	
-	<script src="https://code.highcharts.com/highcharts.js"></script>
-	<script src="https://code.highcharts.com/modules/exporting.js"></script>
-	<script src="https://code.highcharts.com/modules/export-data.js"></script>
-	<script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadChart}></script>
+
+	<script src="https://cdn.zingchart.com/zingchart.min.js" on:load={loadChart} ></script>
 	
 </svelte:head>
+
 <main>
   <Nav>
     <NavItem>
       <NavLink href="/">Página Principal</NavLink>
     </NavItem>
     <NavItem>
-      <NavLink href="/">Volver</NavLink>
+      <NavLink href="#/buy_sell">Datos</NavLink>
     </NavItem>
 	<NavItem>
-      <NavLink href="">API1</NavLink>
+      <NavLink href="#/buy_sell/buy_sell_Charts">Gráfica LINEAL (highchart)</NavLink>
     </NavItem>
 	<NavItem>
-      <NavLink href="">API2</NavLink>
+      <NavLink href="#/buy_sell/graficaNL">Gráfica AREA (highchart)</NavLink>
     </NavItem>
 	<NavItem>
-      <NavLink href="">API3</NavLink>
-    </NavItem>
-	<NavItem>
-      <NavLink href="">API4</NavLink>
+      <NavLink href="#/buy_sell/graficaZING">Gráfica NUBE (zingchart)</NavLink>
     </NavItem>
   </Nav>
 
   <div>
     <h2>
-      Analíticas
+     Analíticas
     </h2>
   </div>
 
@@ -137,19 +233,13 @@ let population_Data=[];
     {/if}
   </div>
 
-  <div>
-    <figure class="highcharts-figure">
-      <div id="container" />
-      <p class="highcharts-description">
-        Gráfico de líneas básico que muestra los diferentes valores para los campos de compra venta.
-      </p>
-    </figure>
+  <div id="myChart" class="chart--container">
+    <a class="zc-ref" href="https://www.zingchart.com/">Powered by ZingChart</a>
   </div>
   
 </main>
 
 <style>
-
   main {
     text-align: center;
     padding: 1em;
@@ -170,43 +260,18 @@ let population_Data=[];
     background-color: #d4edda;
   }
   
- #container {
-  height: 400px; 
+  #container {
+    height: 400px; 
 }
 
-.highcharts-figure, .highcharts-data-table table {
-    min-width: 320px; 
-    max-width: 660px;
-    margin: 1em auto;
-}
+.chart--container {
+      min-height: 530px;
+      width: 100%;
+      height: 100%;
+    }
 
-.highcharts-data-table table {
-	font-family: Verdana, sans-serif;
-	border-collapse: collapse;
-	border: 1px solid #EBEBEB;
-	margin: 10px auto;
-	text-align: center;
-	width: 100%;
-	max-width: 500px;
-}
-.highcharts-data-table caption {
-    padding: 1em 0;
-    font-size: 1.2em;
-    color: #555;
-}
-.highcharts-data-table th {
-	font-weight: 600;
-    padding: 0.5em;
-}
-.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
-    padding: 0.5em;
-}
-.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
-    background: #f8f8f8;
-}
-.highcharts-data-table tr:hover {
-    background: #f1f7ff;
-}
-
+    .zc-ref {
+      display: none;
+    }
 
 </style>
