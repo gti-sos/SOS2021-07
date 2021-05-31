@@ -143,26 +143,27 @@ let totalData=[];
         lineColor: 'rgb(120,160,180)',
         color: 'rgb(140,180,200)',
         fillColor: 'rgb(140,180,200)',
-        name: "API NATALITY - nacimientos",
+        name: "API BUY - desahucios",
         data: [
-            [EvictionData[0].name, EvictionData[0].value],
-            [EvictionData[1].name, EvictionData[1].value],
-			[EvictionData[2].name, EvictionData[2].value],
-			[EvictionData[3].name, EvictionData[3].value],
-			[EvictionData[4].name, EvictionData[4].value]
+             [BuyData[0].name, BuyData[0].value],
+			[BuyData[1].name, BuyData[1].value],
+			[BuyData[2].name, BuyData[2].value],
+			[BuyData[3].name, BuyData[3].value],
+			[BuyData[4].name, BuyData[4].value]
         ]
     }, {
         xAxis: 2,
         lineColor: 'rgb(200, 190, 140)',
         color: 'rgb(200, 190, 140)',
         fillColor: 'rgb(230, 220, 180)',
-        name: "API BUY - desahucios",
+        name: "API NATALITY - nacimientos",
         data: [
-            [BuyData[0].name, BuyData[0].value],
-			[BuyData[1].name, BuyData[1].value],
-			[BuyData[2].name, BuyData[2].value],
-			[BuyData[3].name, BuyData[3].value],
-			[BuyData[4].name, BuyData[4].value]
+        
+			[EvictionData[0].name, EvictionData[0].value],
+            [EvictionData[1].name, EvictionData[1].value],
+			[EvictionData[2].name, EvictionData[2].value],
+			[EvictionData[3].name, EvictionData[3].value],
+			[EvictionData[4].name, EvictionData[4].value]
         ]
     }]
 });
