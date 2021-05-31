@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <script>
 	import {pop} from "svelte-spa-router";
     import Button from "sveltestrap/src/Button.svelte";
