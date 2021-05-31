@@ -7,17 +7,9 @@
 
 	    let Externa2 = [];
     
-        
 
-        
-            const DatosExternos = await fetch("https://swapi.dev/api/people/?page=1", {
-            "method": "GET",
-            "headers": {
-            'Content-Security-Policy': 'default-src https:'
-	        }
-         });
 
-        
+        const DatosExternos = await fetch("https://swapi.dev/api/people/?page=1");
 		if (DatosExternos.ok) {
 			console.log("Externa2 cargado");
 			const json = await DatosExternos.json();
@@ -31,15 +23,7 @@
         var name = Externa2.results.map(x=>x.name)
 
         for (let index = 0; index < name.length; index++) {
-       
-        var llamada = await fetch("https://swapi.dev/api/people/"+(index+1), {
-            "method": "GET",
-            "headers": {
-            'Content-Security-Policy': 'default-src https:'
-	        }
-         });
-
-
+        var llamada = await fetch("https://swapi.dev/api/people/"+(index+1));
         var datos = await llamada.json();
         if(isNaN(datos.height)){
           lista.push(0)
@@ -111,14 +95,12 @@
 </script>
 
     <svelte:head>
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <script src="https://code.highcharts.com/modules/exporting.js"></script>
         <script src="https://code.highcharts.com/modules/export-data.js"></script>
         <script src="https://code.highcharts.com/highcharts.js"></script>
         <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>
     </svelte:head>
 <main>
-    
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
