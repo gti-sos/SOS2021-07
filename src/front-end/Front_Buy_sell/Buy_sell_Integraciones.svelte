@@ -51,6 +51,9 @@
   </Card>
 </div>
 
+<img src="images/integration.png" alt="background image" width="800" height="600" />
+
+
 </main>
 
 <style>

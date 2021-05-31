@@ -68,7 +68,7 @@ let population_Data=[];
         colorByPoint: true,
         data: [{
             name: 'Chrome',
-            y: 61.41,
+            y: population_Data[0],
             sliced: true,
             selected: true
         }, {
