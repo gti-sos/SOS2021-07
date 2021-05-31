@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
- 
+  //const BASE_CONTACT_API_PATH = "/api/v1/mh-stats";
   
 let mh_Data = [];
 
@@ -67,71 +67,25 @@ let population_Data=[];
         name: 'country_Data',
         colorByPoint: true,
         data: [{
-            name: country_Data[0],
-            y: population_Data[0],
+            name: 'Chrome',
+            y: 61.41,
             sliced: true,
             selected: true
         }, {
-            name: country_Data[1],
-            y: population_Data[1]
-        }, 
-		{
-            name: country_Data[2],
-            y: population_Data[2]
-        }, 
-		{
-            name: country_Data[3],
-            y: population_Data[3]
-        }, 
-		{
-            name: country_Data[4],
-            y: population_Data[4]
-        }, 
-		{
-            name: country_Data[5],
-            y: population_Data[5]
-        }, 
-		{
-            name: country_Data[6],
-            y: population_Data[6]
-        }, 
-		{
-            name: country_Data[7],
-            y: population_Data[7]
-        }, 
-		{
-            name: country_Data[8],
-            y: population_Data[8]
+            name: 'Internet Explorer',
+            y: 11.84
         }, {
-            name: country_Data[9],
-            y: population_Data[9]
-        }, 
-		{
-            name: country_Data[10],
-            y: population_Data[10]
-        }, 
-		{
-            name: country_Data[11],
-            y: population_Data[11]
+            name: 'Firefox',
+            y: 10.85
         }, {
-            name: country_Data[12],
-            y: population_Data[12]
-        }, 
-		{
-            name: country_Data[13],
-            y: population_Data[13]
-        }, 
-		{
-            name: country_Data[14],
-            y: population_Data[14]
-        }, 
-		{
-            name: country_Data[15],
-            y: population_Data[15]
-        }, 
-		{
-            name: country_Data[16],
-            y: population_Data[16]
+            name: 'Edge',
+            y: 4.67
+        }, {
+            name: 'Safari',
+            y: 4.18
+        }, {
+            name: 'Other',
+            y: 7.05
         }
 		]
     }]
