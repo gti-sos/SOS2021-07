@@ -37,6 +37,8 @@ let totalData=[];
     });
   }
   
+  loadStats();
+  
   async function loadStats2() {
     
     const res = await fetch(
@@ -57,14 +59,13 @@ let totalData=[];
     });
   }
   
+  loadStats2();
+  
  async function loadChart() {
     console.log("Fetching data...");
 	
     const res = await fetch("https://sos2021-25.herokuapp.com/api/v1/evictions?limit=5&offset=5");
     EvictionData = await res.json();
-	
-	const res2 = await fetch("https://sos2021-07.herokuapp.com/api/v2/buy_sell?offset=1&limit=5");
-    BuyData = await res2.json();
 	
     if (res.ok) {
 	
@@ -76,6 +77,9 @@ let totalData=[];
 	  
     }
 	
+	const res2 = await fetch("https://sos2021-07.herokuapp.com/api/v2/buy_sell?offset=1&limit=5");
+    BuyData = await res2.json();
+	
 	if(res2.ok) {
 		
 		 BuyData.forEach(stat => {
@@ -86,8 +90,8 @@ let totalData=[];
 		
 	}
     
-    console.log(totalData);
-	console.log(desalojoData);
+    console.log("totalData="+totalData);
+	console.log("desalojoData="+desalojoData);
 	
    Highcharts.chart('container', {
     chart: {
@@ -213,6 +217,7 @@ let totalData=[];
 });
 	
   }
+  //loadChart();
 </script>
 <svelte:head>
 
