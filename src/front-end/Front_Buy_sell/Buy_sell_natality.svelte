@@ -89,7 +89,7 @@ let totalData=[];
     console.log("EvictionData="+EvictionData);
 	
 	for (let sos in EvictionData) {
- 	 console.log(`${sos}: ${EvictionData[sos]}`);
+ 	 console.log(`${EvictionData[sos].name}: ${EvictionData[sos].value}`);
 }
 	
    Highcharts.chart('container', {
