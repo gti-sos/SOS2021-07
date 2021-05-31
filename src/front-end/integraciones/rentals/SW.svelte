@@ -95,13 +95,14 @@
 </script>
 
     <svelte:head>
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        
         <script src="https://code.highcharts.com/modules/exporting.js"></script>
         <script src="https://code.highcharts.com/modules/export-data.js"></script>
         <script src="https://code.highcharts.com/highcharts.js"></script>
         <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>
     </svelte:head>
 <main>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
