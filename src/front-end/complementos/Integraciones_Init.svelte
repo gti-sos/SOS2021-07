@@ -51,6 +51,9 @@
 
               <a href="/#/integrations/Pokemon"
               ><Button color="primary">Ext3 Pokemon</Button></a>
+
+              <a href="/#/integrations/SW"
+              ><Button color="primary">Ext5 SW</Button></a>
               
               <a href="/#/integrations/Covid"
                 ><Button color="primary">Ext4 Covid E1</Button></a

@@ -177,7 +177,7 @@
             var i = x.name;
             if (!xAxis.includes(i)){
                 xAxis.push(i);
-                yAxisK.push(x.pokemon_entries.size());
+                yAxisK.push(x.pokemon_entries);
       }
         });
        
@@ -187,7 +187,7 @@
             var i = x.name;
             if (!xAxis.includes(i)){
                 xAxis.push(i);
-                yAxisJ.push(x.pokemon_entries["entry_number"]);
+                yAxisJ.push(x.pokemon_entries);
       }
         });
         
@@ -197,7 +197,7 @@
             var i = x.name;
             if (!xAxis.includes(i)){
                 xAxis.push(i);
-                yAxisH.push(x.pokemon_entries["entry_number"]);
+                yAxisH.push(x.pokemon_entries);
       }
         });
         
@@ -207,7 +207,7 @@
             var i = x.name;
             if (!xAxis.includes(i)){
                 xAxis.push(i);
-                yAxisS.push(x.pokemon_entries["entry_number"]);
+                yAxisS.push(x.pokemon_entries);
       }
         });
         //Sinnoh
