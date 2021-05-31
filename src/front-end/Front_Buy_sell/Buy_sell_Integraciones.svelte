@@ -38,8 +38,8 @@
       <a href="/#/buy_sell/VIH"
         ><Button color="primary">API SOS VIH</Button></a
       >
-      <a href=""
-        ><Button color="primary">API2</Button></a
+      <a href="/#/buy_sell/natality"
+        ><Button color="primary">API SOS NATALITY</Button></a
       >
       <a href="">
         <Button color="primary">API3</Button></a

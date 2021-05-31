@@ -14,6 +14,7 @@
 	import Buy_sell_Chart from "./front-end/Front_Buy_sell/Buy_sell_Chart.svelte";
 	import Buy_sell_Integraciones from "./front-end/Front_Buy_sell/Buy_sell_Integraciones.svelte";
 	import Buy_sell_VIH from "./front-end/Front_Buy_sell/Buy_sell_VIH.svelte";
+	import Buy_sell_natality from "./front-end/Front_Buy_sell/Buy_sell_natality.svelte";
 	import Buy_sell_Chart_NL from "./front-end/Front_Buy_sell/Buy_sell_Chart_NL.svelte";
 	import Buy_sell_Chart_ZING from "./front-end/Front_Buy_sell/Buy_sell_Chart_ZING.svelte";
 	import Buy_sell_Analiticas from "./front-end/Front_Buy_sell/Buy_sell_Analiticas.svelte";
@@ -50,6 +51,7 @@
 		"/buy_sell/graficaNL":Buy_sell_Chart_NL,
 		"/buy_sell/graficaZING":Buy_sell_Chart_ZING,
 		"/buy_sell/analiticas":Buy_sell_Analiticas,
+		"/buy_sell/natality":Buy_sell_natality,
 		"/rentals/rentals_graphic":Rentals_Graphic,
 		"/rentals/rentals_graphic2":Rentals_Graphic2,
 		"/unemployment/unemployment_graphic":Unemployment_Chart,
