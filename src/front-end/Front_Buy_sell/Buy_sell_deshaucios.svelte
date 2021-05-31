@@ -117,7 +117,7 @@ let estrin='';
         }
       },
       scaleY: {
-        values: '0:100000:10000',
+        values: '0:1000:100',
         format: '$%v',
         guide: {
           alpha: .25,
