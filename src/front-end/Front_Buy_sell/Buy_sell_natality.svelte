@@ -6,6 +6,7 @@ let EvictionData = [];
 let BuyData = [];
 
 let desalojoData = [];
+let countryData=[];
 let totalData=[];
 
   let errorMsg = "";
@@ -72,6 +73,7 @@ let totalData=[];
       EvictionData.forEach(stat => {
 	  
 	  totalData.push(parseInt(stat.born));
+	  countryData.push(stat.country);
       
       });
 	  
@@ -91,6 +93,7 @@ let totalData=[];
 	}
     
     console.log("totalData="+totalData);
+	console.log("countryData="+countryData);
 	console.log("desalojoData="+desalojoData);
 	
    Highcharts.chart('container', {
