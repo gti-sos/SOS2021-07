@@ -67,8 +67,8 @@ let totalData=[];
 	
     const res = await fetch("https://sos2021-01.herokuapp.com/api/v2/natality-stats?limit=5&offset=1");
 	const res2 = await fetch("https://sos2021-07.herokuapp.com/api/v2/buy_sell?offset=1&limit=5");
-    Data = await res.json();
-	Data2 = await res2.json();
+    let Data = await res.json();
+	let Data2 = await res2.json();
 	
 	let EvictionData = Data.map((x) => {
             let res = {
