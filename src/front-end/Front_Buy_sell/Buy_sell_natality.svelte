@@ -103,15 +103,15 @@ let totalData=[];
         }
     },
     title: {
-        text: "Visual comparison of Mountains Panorama"
+        text: "GRUPO 01 INTEGRACIÓN BUY-NATALITY"
     },
     yAxis: {
         title: {
-            text: 'Height Above Sea Level',
+            text: '',
             x: -40
         },
         labels: {
-            format: '{value:,.0f} MAMSL'
+            format: '{value:,.0f} '
         },
         gridLineDashStyle: 'Dash'
     },
@@ -136,14 +136,14 @@ let totalData=[];
         }
     },
     tooltip: {
-        valueSuffix: ' MAMSL'
+        valueSuffix: ' '
     },
     series: [{
         xAxis: 1,
         lineColor: 'rgb(120,160,180)',
         color: 'rgb(140,180,200)',
         fillColor: 'rgb(140,180,200)',
-        name: "Dachstein panorama seen from Krippenstein",
+        name: "API NATALITY - nacimientos",
         data: [
             [EvictionData[0].name, EvictionData[0].value],
             [EvictionData[1].name, EvictionData[1].value],
@@ -156,7 +156,7 @@ let totalData=[];
         lineColor: 'rgb(200, 190, 140)',
         color: 'rgb(200, 190, 140)',
         fillColor: 'rgb(230, 220, 180)',
-        name: "Panorama from Col Des Mines",
+        name: "API BUY - desahucios",
         data: [
             [BuyData[0].name, BuyData[0].value],
 			[BuyData[1].name, BuyData[1].value],
