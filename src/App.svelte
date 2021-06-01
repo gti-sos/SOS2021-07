@@ -29,6 +29,7 @@
 	import cartas from "./front-end/integraciones/rentals/Ext2_cartas.svelte";
 	import Pokemon from "./front-end/integraciones/rentals/pokedex.svelte";
 	import moneda from "./front-end/integraciones/rentals/cryto.svelte";
+	import enfermo from "./front-end/integraciones/rentals/SW.svelte";
 	import Covid19_Tristan from "./front-end/integraciones/rentals/Covid.svelte";
 	import Grafico_Comun from "./front-end/complementos/Grafico_Comun.svelte";
 
@@ -41,6 +42,7 @@
 		"/integrations/Ext2_Cartas":cartas,
 		"/integrations/Pokemon":Pokemon,
 		"/integrations/crypto":moneda,
+		"/integrations/enfermos":enfermo,
 		"/integrations/Covid":Covid19_Tristan,
 		"/integrations/Ext1_educacion":IntegracionExt_Educacion,
 		"/common-graphic":Grafico_Comun,
