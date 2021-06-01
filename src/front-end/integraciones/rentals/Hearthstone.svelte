@@ -24,7 +24,7 @@
             return res;
         });
 
-      
+      console.log();
         let dataTotal =
             [
                 
@@ -66,7 +66,7 @@
     series: [{
         name: 'ataque',
         colorByPoint: true,
-        data: dataTotal
+        data: Hearthstone1
     }]
 });
     }
