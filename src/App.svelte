@@ -30,6 +30,7 @@
 	import Pokemon from "./front-end/integraciones/rentals/pokedex.svelte";
 	import SW from "./front-end/integraciones/rentals/SW.svelte";
 	import moneda from "./front-end/integraciones/rentals/cryto.svelte";
+	import NBA from "./front-end/integraciones/rentals/NBA.svelte";
 	import Hearthstone from "./front-end/integraciones/rentals/Hearthstone.svelte";
 	import Covid19_Tristan from "./front-end/integraciones/rentals/Covid.svelte";
 	import Grafico_Comun from "./front-end/complementos/Grafico_Comun.svelte";
@@ -43,6 +44,7 @@
 		"/integrations/Ext2_Cartas":cartas,
 		"/integrations/Pokemon":Pokemon,
 		"/integrations/SW":SW,
+		"/integrations/NBA":NBA,
 		"/integrations/crypto":moneda,
 		"/integrations/Hearthstone":Hearthstone,
 		"/integrations/Covid":Covid19_Tristan,

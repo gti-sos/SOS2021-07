@@ -64,6 +64,10 @@
               <a href="/#/integrations/SW"
                 ><Button color="primary">Ext6 StarWars </Button></a
               >
+
+              <a href="/#/integrations/NBA"
+                ><Button color="primary">Ext7 NBA </Button></a
+              >
             </CardBody>
             
           </Card>
