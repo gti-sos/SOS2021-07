@@ -88,6 +88,17 @@ app.use(pathExt02, function(req, res) {
   req.pipe(request(url)).pipe(res);
 });
 
+//Star Wars
+var apiExt03 = "https://swapi.dev";
+var pathExt03 = "/api/people/?page=1";
+
+app.use(pathExt03, function(req, res) {
+  var url = apiExt03 + req.baseUrl + req.url;
+  console.log('piped: ' + req.baseUrl + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
+
 
 //Mostrar directamente el contenido de /public
 app.use("/", express.static(path.join(__dirname, "public")));

@@ -61,6 +61,9 @@
               <a href="/#/integrations/Hearthstone"
                 ><Button color="primary">Ext6 Hearthstone </Button></a
               >
+              <a href="/#/integrations/SW"
+                ><Button color="primary">Ext6 StarWars </Button></a
+              >
             </CardBody>
             
           </Card>
