@@ -264,41 +264,13 @@
   </svelte:head>
   
   <main>
-    <Nav>
-      <NavItem>
-        <NavLink href="/"><Button color="primary">Página Inicial</Button></NavLink>
-      </NavItem>
-      <NavItem>
-        <NavLink href="/#/integrations"><Button color="primary">Volver</Button></NavLink>
-      </NavItem>
-  </Nav>
-  
-    <div>
-      <h2>Cantidad de pokemon de cada region</h2>
-    </div>
-  
-    {#if errorMsg}
-      <p>{errorMsg}</p>
-    {:else}
-    {#if activeSpinner}
-    <Spinner {primary} />
-    {:else}
-    <div>
-      <canvas id="myChart" />
-    </div>
-    {/if}
-     
-    {/if}
+    <figure class="highcharts-figure">
+        <div id="container"></div>
+        <p class="highcharts-description">
+            pokedex.
+        </p>
+    </figure>
+    <div style="text-align:center;padding-bottom: 3%;">
+        <Button outline align = "center" color="secondary" on:click="{pop}">Volver</Button>
+        </div>
   </main>
-  
-  <style>
-    main {
-      text-align: center;
-      padding: 1em;
-      margin: 0 auto;
-    }
-    div {
-      margin-bottom: 15px;
-    }
-  </style>
-  
