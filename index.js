@@ -77,6 +77,17 @@ app.use(pathExt01, function(req, res) {
   req.pipe(request(url)).pipe(res);
 });
 
+//juego Hearthstone
+
+var apiExt02 = "https://omgvamp-hearthstone-v1.p.rapidapi.com";
+var pathExt02 = "/cards/classes/Priest?cost=1";
+
+app.use(pathExt02, function(req, res) {
+  var url = apiExt02 + req.baseUrl + req.url;
+  console.log('piped: ' + req.baseUrl + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
 
 //Mostrar directamente el contenido de /public
 app.use("/", express.static(path.join(__dirname, "public")));

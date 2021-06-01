@@ -1,139 +1,99 @@
-<script>
-	import {pop} from "svelte-spa-router";
-    import Button from "sveltestrap/src/Button.svelte";
+<body style="background-color:#082EFF;">
+</body>
 
-	let MyData = [];
-	let API_externa = [];
-	
-	async function loadGraph(){
-		
-		
-		const resData2 = await fetch("https://disease.sh/v2/gov");
-		
-		if (resData2.ok) {
-			console.log("Ok, api externa 2 loaded");
-			const json = await resData2.json();
-            API_externa = json;
-			console.log(API_externa)
-		} else {
-			console.log("ERROR!");
-        }
-		let aux = []
-		let valores = []
+<script>
+      import {pop} from "svelte-spa-router";
+    import Button from "sveltestrap/src/Button.svelte";
+    async function loadGraph() {
+       
+        const resDataHearthstone = await fetch("https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/classes/Priest?cost=1", {
+	        "method": "GET",
+	        "headers": {
+                "x-rapidapi-key": "9b2b2f4d65msh643a2276d42fb51p1e4972jsn8ab58ddd82c9",
+	            "x-rapidapi-host": "omgvamp-hearthstone-v1.p.rapidapi.com",
+	            
+	        }
+        });
+        
+        let HearthstoneData = await resDataHearthstone.json();
 
         
-		
-        for (let index = 0; index < API_externa.length; index++) {
-        var llamada = await fetch("https://disease.sh/v2/gov/"+(API_externa[index]));
-        var datos = await llamada.json();
-        var sum=0;
 
-        for (var item in datos){
-        console.log(datos[item].cases);
-        sum = sum + datos[item].cases;
+        let Hearthstone = HearthstoneData.map((x) => {
+            let res = {
+                name: x.name,
+                value: parseInt(x["health"])
+            };
+            return res;
+        });
+        let dataTotal =
+            [
+                
+                {
+                    name: "Vida de las criaturas",
+                    data: Hearthstone
+                }
+            ];
+
+            Highcharts.chart('container', {
+            chart: {
+                type: 'packedbubble',
+                height: '60%'
+            },
+            title: {
+                text: 'Aqui mostramos la integración de una API de Hearthstone y lo comparamos con el Índice de Competitividad Global'
+            },
+            tooltip: {
+                useHTML: true,
+                pointFormat: '<b>{point.name}:</b> {point.value}'
+            },
+            plotOptions: {
+                packedbubble: {
+                    minSize: '30%',
+                    maxSize: '120%',
+                    zMin: 0,
+                    zMax: 1000,
+                    layoutAlgorithm: {
+                        splitSeries: false,
+                        gravitationalConstant: 0.02
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.name}',
+                        filter: {
+                            property: 'y',
+                            operator: '>',
+                            value: 250
+                        },
+                        style: {
+                            color: 'black',
+                            textOutline: 'none',
+                            fontWeight: 'normal'
+                        }
+                    }
+                }
+            },
+            series: dataTotal
+        });
     }
-
-    aux={
-                name: API_externa[index],
-                data: [sum,0]
-            }
-            valores.push(aux);
-        }
-
-		
-		
-		
-				
-		Highcharts.chart('container', {
-			chart: {
-				type: 'bar'
-			},
-			title: {
-				text: 'Enfermos en varios paises'
-			},
-			xAxis: {
-				categories: ['Casos  pp'],
-				title: {
-					text: null
-				}
-			},
-			yAxis: {
-				min: 0,
-				labels: {
-					overflow: 'justify'
-				}
-			},
-			plotOptions: {
-				bar: {
-					dataLabels: {
-						enabled: true
-					}
-				}
-			},
-			credits: {
-				enabled: false
-			},
-			series: valores
-		});
-	}
+    loadGraph();
 </script>
 
 <svelte:head>
-	<script src="https://code.highcharts.com/highcharts.js"></script>
-	<script src="https://code.highcharts.com/modules/exporting.js"></script>
-	<script src="https://code.highcharts.com/modules/export-data.js"></script>
-	<script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>
+
+    <script src="https://code.highcharts.com/highcharts.js" on:load={loadGraph}></script>
+    <script src="https://code.highcharts.com/highcharts-more.js" on:load={loadGraph}></script>
+    <script src="https://code.highcharts.com/modules/exporting.js" on:load={loadGraph}></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadGraph}></script>
+
 </svelte:head>
 
 <main>
-	<h3 style="text-align: center;"> Integración con una API externa</h3>
-	<Button outline color="secondary" on:click="{pop}">Volver</Button>
-	<figure class="highcharts-figure">
-		<div id="container"></div>
-		<p style="text-align:center;" class="highcharts-description">
-		Muestra grafica de enfermos en diferentes paises
-		</p>
-	</figure>
 
+    <figure class="highcharts-figure">
+        <div id="container"></div>
+    </figure>
+    <div style="text-align:center;padding-bottom: 3%;">
+        <Button outline align = "center" color="secondary" on:click="{pop}">Volver</Button>
+        </div>
 </main>
-
-<style>
-	.highcharts-figure, .highcharts-data-table table {
-		min-width: 310px; 
-		max-width: 800px;
-		margin: 1em auto;
-	}
-
-	#container {
-		height: 400px;
-	}
-
-	.highcharts-data-table table {
-		font-family: Verdana, sans-serif;
-		border-collapse: collapse;
-		border: 1px solid #EBEBEB;
-		margin: 10px auto;
-		text-align: center;
-		width: 100%;
-		max-width: 500px;
-	}
-	.highcharts-data-table caption {
-		padding: 1em 0;
-		font-size: 1.2em;
-		color: #555;
-	}
-	.highcharts-data-table th {
-		font-weight: 600;
-		padding: 0.5em;
-	}
-	.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
-		padding: 0.5em;
-	}
-	.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
-		background: #f8f8f8;
-	}
-	.highcharts-data-table tr:hover {
-		background: #f1f7ff;
-	}
-
-</style>
