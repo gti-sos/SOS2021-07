@@ -69,26 +69,32 @@
       var name =[];
       var altura = [];
 
-      jugador1.forEach((x) => {
-          name.push(x.first_name+" "+ x.last_name);
-          altura.push(x.height_inches)
-      });
-      jugador2.forEach((x) => {
-          name.push(x.first_name+" "+ x.last_name);
-          altura.push(x.height_inches)
-      });
-      jugador3.forEach((x) => {
-          name.push(x.first_name+" "+ x.last_name);
-          altura.push(x.height_inches)
-      });
-      jugador4.forEach((x) => {
-          name.push(x.first_name+" "+ x.last_name);
-          altura.push(x.height_inches)
-      });
-      jugador5.forEach((x) => {
-          name.push(x.first_name+" "+ x.last_name);
-          altura.push(x.height_inches)
-      });
+      for (var item in jugador1){
+       
+        name.push(jugador1[item].first_name+" "+ jugador1[item].last_name);
+        altura.push(jugador1[item].height_inches)
+    }
+
+    for (var item in jugador2){
+       
+       name.push(jugador2[item].first_name+" "+ jugador2[item].last_name);
+       altura.push(jugador2[item].height_inches)
+   }
+   for (var item in jugador3){
+       
+       name.push(jugador3[item].first_name+" "+ jugador3[item].last_name);
+       altura.push(jugador3[item].height_inches)
+   }
+   for (var item in jugador4){
+       
+       name.push(jugador4[item].first_name+" "+ jugador4[item].last_name);
+       altura.push(jugador4[item].height_inches)
+   }
+   for (var item in jugador5){
+       
+       name.push(jugador5[item].first_name+" "+ jugador5[item].last_name);
+       altura.push(jugador5[item].height_inches)
+   }
 
       
       let dataTotal =
