@@ -172,61 +172,36 @@
     
         var index = 0;
         var i = 0;
-        var array = Object.entries(Kanto);
+        
         var pokemonsK = Kanto.pokemon_entries.map(x=>x.entry_number)
         var numberK = pokemonsK.length
+        var DexK = Kanto.map(x=>x.name)
+        xAxis.push(DexK);
+        yAxisK.push(numberK);
         console.log(numberK);
+        console.log(DexK);
+        console.log(xAxis);
 
         var pokemonsJ = Johto.pokemon_entries.map(x=>x.entry_number)
         var numberJ = pokemonsJ.length
+        var DexJ = Johto.map(x=>x.name)
+        xAxis.push(DexJ);
+        yAxisK.push(numberJ);
         console.log(numberJ);
+        console.log(DexJ);
+        console.log(xAxis);
 
         var pokemonsH = Hoenn.pokemon_entries.map(x=>x.entry_number)
         var numberH = pokemonsH.length
+        var DexH = Hoenn.map(x=>x.name)
+        xAxis.push(DexH);
+        yAxisK.push(numberH);
         console.log(numberH);
-        
-        array.forEach(x => {
-            var i = x.name;
-            if (!xAxis.includes(i)){
-                xAxis.push(i);
-                yAxisK.push(Math.round(numberK));
-      }
-        });
-        console.log(yAxisK);
-       
-        //Kanto
-        var array = Object.entries(Johto);
-        array.forEach(x => {
-            var i = x.name;
-            if (!xAxis.includes(i)){
-                xAxis.push(i);
-                yAxisJ.push(Math.round(numberJ));
-      }
-        });
-        
-        //Jhoto
-        var array = Object.entries(Hoenn);
-        array.forEach(x => {
-            var i = x.name;
-            if (!xAxis.includes(i)){
-                xAxis.push(i);
-                yAxisH.push(Math.round(numberH));
-      }
-        });
-        
-        //Hoenn
-        //var array = Object.entries(Sinnoh);
-        //array.forEach(x => {
-          //  var i = x.name;
-            //if (!xAxis.includes(i)){
-              //  xAxis.push(i);
-                //yAxisS.push(x.pokemon_entries);
-      //}
-       // });
-        //Sinnoh
+        console.log(DexH);
+        console.log(xAxis);
 
 
-    
+        
    
     
         
@@ -244,7 +219,22 @@
                 backgroundColor: 'rgba(255, 99, 132)'
               
               },
-             
+              {
+                type: 'bar',
+                label: "Pokedex Jhoto",
+                data: yAxisJ,
+                borderColor: 'rgb(255, 99, 132)',
+                backgroundColor: 'rgba(155, 99, 132)'
+              
+              },
+              {
+                type: 'bar',
+                label: "Pokedex Hoenn",
+                data: yAxisH,
+                borderColor: 'rgb(255, 99, 132)',
+                backgroundColor: 'rgba(215, 99, 132)'
+              
+              }
             ],
             labels: xAxis
           },
