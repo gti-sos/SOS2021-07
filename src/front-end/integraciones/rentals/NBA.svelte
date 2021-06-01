@@ -3,7 +3,12 @@
 <script>
     import {pop} from "svelte-spa-router";
   import Button from "sveltestrap/src/Button.svelte";
-import BuySellChartZing from "../../Front_Buy_sell/Buy_sell_Chart_ZING.svelte";
+    var jugador1=[];
+    var jugador2=[];
+    var jugador3=[];
+    var jugador4=[];
+    var jugador5=[];
+
   async function loadGraph() {
      
       const resjugador1 = await fetch("https://free-nba.p.rapidapi.com/players/1", {
@@ -15,7 +20,7 @@ import BuySellChartZing from "../../Front_Buy_sell/Buy_sell_Chart_ZING.svelte";
           }
       });
       
-      let jugador1 = await resjugador1.json();
+      jugador1 = await resjugador1.json();
 
       const resjugador2 = await fetch("https://free-nba.p.rapidapi.com/players/2", {
           "method": "GET",
@@ -26,7 +31,7 @@ import BuySellChartZing from "../../Front_Buy_sell/Buy_sell_Chart_ZING.svelte";
           }
       });
       
-      let jugador2 = await resjugador2.json();
+      jugador2 = await resjugador2.json();
 
       const resjugador3 = await fetch("https://free-nba.p.rapidapi.com/players/3", {
           "method": "GET",
@@ -37,7 +42,7 @@ import BuySellChartZing from "../../Front_Buy_sell/Buy_sell_Chart_ZING.svelte";
           }
       });
       
-      let jugador3 = await resjugador3.json();
+      jugador3 = await resjugador3.json();
 
       const resjugador4 = await fetch("https://free-nba.p.rapidapi.com/players/4", {
           "method": "GET",
@@ -48,7 +53,7 @@ import BuySellChartZing from "../../Front_Buy_sell/Buy_sell_Chart_ZING.svelte";
           }
       });
       
-      let jugador4 = await resjugador4.json();
+      jugador4 = await resjugador4.json();
 
       const resjugador5 = await fetch("https://free-nba.p.rapidapi.com/players/5", {
           "method": "GET",
@@ -59,7 +64,7 @@ import BuySellChartZing from "../../Front_Buy_sell/Buy_sell_Chart_ZING.svelte";
           }
       });
       
-      let jugador5 = await resjugador5.json();
+      jugador5 = await resjugador5.json();
 
       var name =[];
       var altura = [];
