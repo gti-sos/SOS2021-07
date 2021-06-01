@@ -238,7 +238,7 @@
               {
                 type: 'bar',
                 label: "Pokedex Kanto",
-                data: yAxisK,
+                data: numberK,
                 borderColor: 'rgb(204, 99, 132)',
                 backgroundColor: 'rgba(255, 99, 132)'
               
@@ -246,7 +246,7 @@
               {
                 type: 'bar',
                 label: "Pokedex Jhoto",
-                data: yAxisJ,
+                data: numberJ,
                 borderColor: 'rgb(255, 99, 132)',
                 backgroundColor: 'rgba(155, 99, 132)'
               
@@ -254,18 +254,11 @@
               {
                 type: 'bar',
                 label: "Pokedex Hoenn",
-                data: yAxisH,
+                data: numberH,
                 borderColor: 'rgb(255, 99, 132)',
                 backgroundColor: 'rgba(215, 99, 132)'
               
-              },
-              {
-                type: 'bar',
-                label: "Pokedex Sinnoh",
-                data: yAxisS,
-                borderColor: 'rgb(204, 15, 241)',
-                backgroundColor: 'rgba(204, 15, 241)'
-              },
+              }
             ],
             labels: xAxis
           },
