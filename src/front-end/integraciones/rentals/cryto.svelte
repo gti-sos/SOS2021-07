@@ -37,7 +37,7 @@
         }); 
 
         console.log(Data);
-        console.log(myData);
+        console.log(myData );
        
         let dataTotal =
             [
