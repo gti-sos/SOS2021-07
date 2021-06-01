@@ -34,6 +34,8 @@
     }
 
     num.push(suma);
+    console.log(num);
+
     }
 
 		
@@ -69,8 +71,8 @@
         },
         xAxis: {
             categories: [
-                'deaths',
-                'recovered',
+                'cases',
+                
 
             ],
             plotBands: [{ // visualize the weekend
