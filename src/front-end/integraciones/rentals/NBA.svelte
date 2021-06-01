@@ -69,7 +69,7 @@
         altura.push(jugador1.height_inches)
         
        name.push(jugador2.first_name+" "+ jugador2.last_name);
-       altura.push(jugador2[item].height_inches)
+       altura.push(jugador2.height_inches)
        
        name.push(jugador3.first_name+" "+ jugador3.last_name);
        altura.push(jugador3.height_inches)
