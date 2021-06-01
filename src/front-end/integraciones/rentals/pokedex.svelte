@@ -221,7 +221,7 @@
 
   yAxis: {
     title: {
-      text: 'yo que se'
+      text: 'yo que se '
     },
     labels: {
       format: '{value}k $'
