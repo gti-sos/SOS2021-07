@@ -129,7 +129,7 @@ import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
   console.log( index);
   console.log( c);
   console.log(yAxis1);
-    var ctx = document.getElementById("myChart").getContext("2d");
+    var ctx = document.getElementById("myChart").getContext("3d");
 
     var myChart = new Chart(ctx, {
       
