@@ -98,6 +98,16 @@ app.use(pathExt03, function(req, res) {
   req.pipe(request(url)).pipe(res);
 });
 
+//NBA
+var apiExt04 = "https://free-nba.p.rapidapi.com";
+var pathExt04 = "/players";
+
+app.use(pathExt04, function(req, res) {
+  var url = apiExt04 + req.baseUrl + req.url;
+  console.log('piped: ' + req.baseUrl + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
 
 
 //Mostrar directamente el contenido de /public
