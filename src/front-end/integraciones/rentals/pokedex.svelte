@@ -173,11 +173,20 @@
         var index = 0;
         var i = 0;
         var array = Object.entries(Kanto);
+        var pokemonsK = Kanto.pokemon_entries.map(x=>x.entry_number)
+        var numberK = pokemonsK.length
+
+        var pokemonsJ = Johto.pokemon_entries.map(x=>x.entry_number)
+        var numberJ = pokemonsJ.length
+
+        var pokemonsH = Hoenn.pokemon_entries.map(x=>x.entry_number)
+        var numberH = pokemonsH.length
+        
         array.forEach(x => {
             var i = x.name;
             if (!xAxis.includes(i)){
                 xAxis.push(i);
-                yAxisK.push(x.pokemon_entries);
+                yAxisK.push(numberK);
       }
         });
        
@@ -187,7 +196,7 @@
             var i = x.name;
             if (!xAxis.includes(i)){
                 xAxis.push(i);
-                yAxisJ.push(x.pokemon_entries);
+                yAxisJ.push(numberJ);
       }
         });
         
@@ -197,7 +206,7 @@
             var i = x.name;
             if (!xAxis.includes(i)){
                 xAxis.push(i);
-                yAxisH.push(x.pokemon_entries);
+                yAxisH.push(numberH);
       }
         });
         
@@ -227,7 +236,7 @@
                 type: 'bar',
                 label: "Pokedex Kanto",
                 data: yAxisK,
-                borderColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(204, 99, 132)',
                 backgroundColor: 'rgba(255, 99, 132)'
               
               },
@@ -236,7 +245,7 @@
                 label: "Pokedex Jhoto",
                 data: yAxisJ,
                 borderColor: 'rgb(255, 99, 132)',
-                backgroundColor: 'rgba(255, 99, 132)'
+                backgroundColor: 'rgba(155, 99, 132)'
               
               },
               {
@@ -244,7 +253,7 @@
                 label: "Pokedex Hoenn",
                 data: yAxisH,
                 borderColor: 'rgb(255, 99, 132)',
-                backgroundColor: 'rgba(255, 99, 132)'
+                backgroundColor: 'rgba(215, 99, 132)'
               
               },
               {
