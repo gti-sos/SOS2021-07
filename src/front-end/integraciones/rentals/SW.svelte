@@ -9,7 +9,7 @@
     
 
 
-        const DatosExternos = await fetch("https://swapi.dev/api/people/?page=1");
+        const DatosExternos = await fetch("https://disease.sh/v2/gov");
 		if (DatosExternos.ok) {
 			console.log("Externa2 cargado");
 			const json = await DatosExternos.json();
@@ -20,23 +20,25 @@
         }
 		let aux = []
         let valores = []
-        var name = Externa2.results.map(x=>x.name)
+        let num =[]
+        var name = Externa2
+        console.log(name);
 
         for (let index = 0; index < name.length; index++) {
-        var llamada = await fetch("https://swapi.dev/api/people/"+(index+1));
+        var llamada = await fetch("https://disease.sh/v2/gov/"+(name[index]));
         var datos = await llamada.json();
-        if(isNaN(datos.height)){
-          lista.push(0)
-        }else{
-          lista.push(datos.height)
-        }
+        var casos = datos.map(x=>x.cases)
+        casos.forEach (function(x){
+        suma += x;
+    });
+    num.push(suma);
     }
 
 		
             
             aux={
                 name: name,
-                data: [lista]
+                data: [num]
             }
             valores.push(aux)
 			 	
