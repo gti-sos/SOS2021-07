@@ -189,7 +189,7 @@
             var i = x.name;
             if (!xAxis.includes(i)){
                 xAxis.push(i);
-                yAxisK.push(parseInt(numberK));
+                yAxisK.push(Math.round(numberK));
       }
         });
        
@@ -199,7 +199,7 @@
             var i = x.name;
             if (!xAxis.includes(i)){
                 xAxis.push(i);
-                yAxisJ.push(parseInt(numberJ));
+                yAxisJ.push(Math.round(numberJ));
       }
         });
         
@@ -209,7 +209,7 @@
             var i = x.name;
             if (!xAxis.includes(i)){
                 xAxis.push(i);
-                yAxisH.push(parseInt(numberH));
+                yAxisH.push(Math.round(numberH));
       }
         });
         
