@@ -64,23 +64,23 @@ import BuySellChartZing from "../../Front_Buy_sell/Buy_sell_Chart_ZING.svelte";
       var name =[];
       var altura = [];
 
-      jugador1.map((x) => {
+      jugador1.forEach((x) => {
           name.push(x.first_name+" "+ x.last_name);
           altura.push(x.height_inches)
       });
-      jugador2.map((x) => {
+      jugador2.forEach((x) => {
           name.push(x.first_name+" "+ x.last_name);
           altura.push(x.height_inches)
       });
-      jugador3.map((x) => {
+      jugador3.forEach((x) => {
           name.push(x.first_name+" "+ x.last_name);
           altura.push(x.height_inches)
       });
-      jugador4.map((x) => {
+      jugador4.forEach((x) => {
           name.push(x.first_name+" "+ x.last_name);
           altura.push(x.height_inches)
       });
-      jugador5.map((x) => {
+      jugador5.forEach((x) => {
           name.push(x.first_name+" "+ x.last_name);
           altura.push(x.height_inches)
       });
