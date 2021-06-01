@@ -55,9 +55,10 @@
       
       jugador4 = await resjugador4.json();
 
-      
-      
-      
+      console.log(jugador1);
+      console.log(jugador2);
+      console.log(jugador3);
+      console.log(jugador4);
 
       var name =[];
       var altura = [];
@@ -84,6 +85,8 @@
        altura.push(jugador4[item].height_inches)
    }
    
+   console.log(name);
+   console.log(altura);
 
       
 
