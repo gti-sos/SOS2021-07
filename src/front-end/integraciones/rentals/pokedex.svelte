@@ -192,6 +192,7 @@
                 yAxisK.push(Math.round(numberK));
       }
         });
+        console.log(yAxisK);
        
         //Kanto
         var array = Object.entries(Johto);

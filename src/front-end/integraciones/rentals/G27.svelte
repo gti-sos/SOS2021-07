@@ -112,6 +112,8 @@ import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
         
       }
     });
+    console.log(yAxis);
+
 
     var yAxis1 = [];
     for (let i = 0; i < index; i++) {
