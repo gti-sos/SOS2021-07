@@ -1,7 +1,7 @@
 <script>
     import {pop} from "svelte-spa-router";
   import Button from "sveltestrap/src/Button.svelte";
-
+  let dataTotal2 =[];
   async function loadGraph() {
       const resDataStarWars = await fetch("https://swapi.dev/api/people/?page=1");
       
@@ -16,15 +16,9 @@
               name: d.name,
               value: parseInt(d["height"])
           };
-          return res;
+          dataTotal2.push(res);
       });
-      let dataStarWars2 = starwar2.map((d) => {
-          let res = {
-              name: d.name,
-              value: parseInt(d["mass"])
-          };
-          return res;
-      });
+      
       let dataTotal =
           [
               {
@@ -36,7 +30,7 @@
                   data: dataStarWars2
               }
           ];
-          
+
           Highcharts.chart('container', {
     chart: {
         plotBackgroundColor: null,
@@ -65,7 +59,7 @@
             }
         }
     },
-    series: dataTotal
+    series: dataTotal2
 });
   }
   loadGraph();
