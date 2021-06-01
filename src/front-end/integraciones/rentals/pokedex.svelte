@@ -189,7 +189,7 @@
             var i = x.name;
             if (!xAxis.includes(i)){
                 xAxis.push(i);
-                yAxisK.push(numberK);
+                yAxisK.push(parseInt(numberK));
       }
         });
        
@@ -199,7 +199,7 @@
             var i = x.name;
             if (!xAxis.includes(i)){
                 xAxis.push(i);
-                yAxisJ.push(numberJ);
+                yAxisJ.push(parseInt(numberJ));
       }
         });
         
@@ -209,7 +209,7 @@
             var i = x.name;
             if (!xAxis.includes(i)){
                 xAxis.push(i);
-                yAxisH.push(numberH);
+                yAxisH.push(parseInt(numberH));
       }
         });
         
@@ -238,7 +238,7 @@
               {
                 type: 'bar',
                 label: "Pokedex Kanto",
-                data: numberK,
+                data: yAxisK,
                 borderColor: 'rgb(204, 99, 132)',
                 backgroundColor: 'rgba(255, 99, 132)'
               
@@ -246,7 +246,7 @@
               {
                 type: 'bar',
                 label: "Pokedex Jhoto",
-                data: numberJ,
+                data: yAxisJ,
                 borderColor: 'rgb(255, 99, 132)',
                 backgroundColor: 'rgba(155, 99, 132)'
               
@@ -254,7 +254,7 @@
               {
                 type: 'bar',
                 label: "Pokedex Hoenn",
-                data: numberH,
+                data: yAxisH,
                 borderColor: 'rgb(255, 99, 132)',
                 backgroundColor: 'rgba(215, 99, 132)'
               
