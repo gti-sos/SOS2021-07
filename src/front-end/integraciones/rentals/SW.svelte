@@ -23,14 +23,16 @@
         let num =[]
         var name = Externa2
         console.log(name);
+        console.log(datos);
 
         for (let index = 0; index < name.length; index++) {
         var llamada = await fetch("https://disease.sh/v2/gov/"+(name[index]));
         var datos = await llamada.json();
-        
-        datos.forEach (function(x){
-        suma += x.cases;
-    });
+        for (var item in datos){
+        console.log(datos[item].cases);
+        suma += datos[item].cases;
+    }
+
     num.push(suma);
     }
 
