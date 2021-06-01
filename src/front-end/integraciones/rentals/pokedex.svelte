@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
+import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
 
   
     var Kanto = [];
@@ -270,7 +270,12 @@
             pokedex.
         </p>
     </figure>
-    <div style="text-align:center;padding-bottom: 3%;">
-        <Button outline align = "center" color="secondary" on:click="{pop}">Volver</Button>
-        </div>
+    <Nav>
+      <NavItem>
+        <NavLink href="/"><Button color="primary">Página Inicial</Button></NavLink>
+      </NavItem>
+      <NavItem>
+        <NavLink href="/#/integrations"><Button color="primary">Volver</Button></NavLink>
+      </NavItem>
+  </Nav>
   </main>
