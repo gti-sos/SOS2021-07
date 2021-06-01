@@ -63,27 +63,21 @@
       var name =[];
       var altura = [];
 
-      for (var item in jugador1){
+      
        
-        name.push(jugador1[item].first_name+" "+ jugador1[item].last_name);
-        altura.push(jugador1[item].height_inches)
-    }
-
-    for (var item in jugador2){
-       
-       name.push(jugador2[item].first_name+" "+ jugador2[item].last_name);
+        name.push(jugador1.first_name+" "+ jugador1.last_name);
+        altura.push(jugador1.height_inches)
+        
+       name.push(jugador2.first_name+" "+ jugador2.last_name);
        altura.push(jugador2[item].height_inches)
-   }
-   for (var item in jugador3){
        
-       name.push(jugador3[item].first_name+" "+ jugador3[item].last_name);
-       altura.push(jugador3[item].height_inches)
-   }
-   for (var item in jugador4){
+       name.push(jugador3.first_name+" "+ jugador3.last_name);
+       altura.push(jugador3.height_inches)
+
        
-       name.push(jugador4[item].first_name+" "+ jugador4[item].last_name);
-       altura.push(jugador4[item].height_inches)
-   }
+       name.push(jugador4.first_name+" "+ jugador4.last_name);
+       altura.push(jugador4.height_inches)
+
    
    console.log(name);
    console.log(altura);
