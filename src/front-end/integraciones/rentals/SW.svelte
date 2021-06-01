@@ -91,7 +91,7 @@
   <figure class="highcharts-figure">
       <div id="container"></div>
       <p class="highcharts-description">
-          Gráfica de diferencia entre el ranking de paz y el diamentro de los planetas de star wars.
+          Peso y altura personajes starWars.
       </p>
   </figure>
   <div style="text-align:center;padding-bottom: 3%;">
