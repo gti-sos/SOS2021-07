@@ -86,19 +86,7 @@
    
 
       
-      let dataTotal =
-          [
-              
-              {
-                  name: "Vida de las criaturas",
-                  data: Hearthstone
-              },
-              {
-                  name: "Ataque de las criaturas",
-                  data: Hearthstone1
-              }
 
-          ];
 
           Highcharts.chart('container', {
     chart: {
