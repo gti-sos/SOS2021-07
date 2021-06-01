@@ -221,7 +221,7 @@
 
   yAxis: {
     title: {
-      text: ''
+      text: 'yo que se'
     },
     labels: {
       format: '{value}k $'
@@ -230,7 +230,7 @@
 
   series: [{
     name: 'Numero de pokemons',
-    data: [yAxisK, yAxisJ, yAxisH]
+    data: [numberK, numberJ, numberH]
   }],
 });
 }
