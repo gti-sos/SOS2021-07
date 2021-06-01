@@ -3,6 +3,7 @@
     import Button from "sveltestrap/src/Button.svelte";
     let Data = [];
     let Coins = [];
+    let myData =[];
     async function loadGraph() {
         const resCoins = await fetch("https://coinpaprika1.p.rapidapi.com/exchanges", {
 	"method": "GET",
@@ -16,12 +17,12 @@
         const resDataHappiness_rate = await fetch("/api/v1/rentals");
         let Happy = await resDataHappiness_rate.json();
         
-        let dataHappiness = Happy.map((x) => {
+        dataHappiness = Happy.map((x) => {
             let res = {
                 name: x.province + " - " + x.year,
                 value: x["salary"]
             };
-            return res;
+            myData.push(res);
         });
         Coins = await resCoins.json();
         console.log(Coins);
@@ -34,12 +35,15 @@
             Data.push(coin);
 
         }); 
+
+        console.log(Data);
+        console.log(myData);
        
         let dataTotal =
             [
                 {
                     name: "Ranking de Felicidad",
-                    data: dataHappiness
+                    data: myData
                 },
                 {
                     name: "Nombre de la Criptomoneda",
