@@ -50,34 +50,34 @@
         let Data1 = await resDataEduacionGastos.json();
         
 
-        let DataRental = Data.map((x) => {
-            let res = {
-                name: x.province + " - " + x.year,
-                value: x["rent_variation"]
-            };
-            return res;
+        Data.map((x) => {
+            myData['data'].push({
+            name:x.province  + " - " +x.year,
+            value: x["rent_variation"]
+            });
+            
         });
-        let dataGastos_Educacion = Data1.map((x) => {
-            let res = {
-                name: x.country + " - " + x.year,
-                value: x["averageLifeExpectancy"]
-            };
-            return res;
+        Data1.map((x) => {
+           
+            extData['data'].push({
+            name:x.country  + " - " +x.year,
+            value: x["averageLifeExpectancy"]
+            });
+            
         });
+
+        var myData={
+            name: 'Variacion de la renta (Total)',
+            data: []
+        };
+        var extData={
+            name: 'Esperanza de  vida Media(Total)',
+            data: []
+        };
         
-        let dataTotal =
-            [
-                
-                    
-                {
-                    name: "Renta",
-                    data: [DataRental]
-                },
-                {
-                    name: "Esperanza de  vida ",
-                    data: [dataGastos_Educacion]
-                }
-            ];
+        var dataTotal = [];
+        dataTotal.push(myData);
+        dataTotal.push(extData);
         Highcharts.chart('container', {
             chart: {
                 type: 'packedbubble',
