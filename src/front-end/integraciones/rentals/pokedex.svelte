@@ -243,22 +243,7 @@
                 backgroundColor: 'rgba(255, 99, 132)'
               
               },
-              {
-                type: 'bar',
-                label: "Pokedex Jhoto",
-                data: yAxisJ,
-                borderColor: 'rgb(255, 99, 132)',
-                backgroundColor: 'rgba(155, 99, 132)'
-              
-              },
-              {
-                type: 'bar',
-                label: "Pokedex Hoenn",
-                data: yAxisH,
-                borderColor: 'rgb(255, 99, 132)',
-                backgroundColor: 'rgba(215, 99, 132)'
-              
-              }
+             
             ],
             labels: xAxis
           },
