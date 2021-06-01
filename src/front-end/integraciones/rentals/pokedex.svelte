@@ -175,7 +175,7 @@
         
         var pokemonsK = Kanto.pokemon_entries.map(x=>x.entry_number)
         var numberK = pokemonsK.length
-        var DexK = Kanto.map(x=>x.name)
+        var DexK = Kanto.name
         xAxis.push(DexK);
         yAxisK.push(numberK);
         console.log(numberK);
@@ -184,18 +184,18 @@
 
         var pokemonsJ = Johto.pokemon_entries.map(x=>x.entry_number)
         var numberJ = pokemonsJ.length
-        var DexJ = Johto.map(x=>x.name)
+        var DexJ = Johto.name
         xAxis.push(DexJ);
-        yAxisK.push(numberJ);
+        yAxisJ.push(numberJ);
         console.log(numberJ);
         console.log(DexJ);
         console.log(xAxis);
 
         var pokemonsH = Hoenn.pokemon_entries.map(x=>x.entry_number)
         var numberH = pokemonsH.length
-        var DexH = Hoenn.map(x=>x.name)
+        var DexH = Hoenn.name
         xAxis.push(DexH);
-        yAxisK.push(numberH);
+        yAxisH.push(numberH);
         console.log(numberH);
         console.log(DexH);
         console.log(xAxis);
