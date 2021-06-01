@@ -19,25 +19,15 @@
         let Hearthstone1 = HearthstoneData.map((x) => {
             let res = {
                 name: x.name,
-                value: parseInt(x["attack"])
+                y: parseInt(x["attack"])
             };
             return res;
         });
 
-        let Hearthstone = HearthstoneData.map((x) => {
-            let res = {
-                name: x.name,
-                value: parseInt(x["health"])
-            };
-            return res;
-        });
+      
         let dataTotal =
             [
                 
-                {
-                    name: "Vida de las criaturas",
-                    data: Hearthstone
-                },
                 {
                     name: "Ataque de las criaturas",
                     data: Hearthstone1
@@ -46,45 +36,39 @@
             ];
 
             Highcharts.chart('container', {
-            chart: {
-                type: 'packedbubble',
-                height: '60%'
-            },
-            title: {
-                text: 'Aqui mostramos la integración de una API de Hearthstone'
-            },
-            tooltip: {
-                useHTML: true,
-                pointFormat: '<b>{point.name}:</b> {point.value}'
-            },
-            plotOptions: {
-                packedbubble: {
-                    minSize: '30%',
-                    maxSize: '120%',
-                    zMin: 0,
-                    zMax: 1000,
-                    layoutAlgorithm: {
-                        splitSeries: false,
-                        gravitationalConstant: 0.02
-                    },
-                    dataLabels: {
-                        enabled: true,
-                        format: '{point.name}',
-                        filter: {
-                            property: 'y',
-                            operator: '>',
-                            value: 250
-                        },
-                        style: {
-                            color: 'black',
-                            textOutline: 'none',
-                            fontWeight: 'normal'
-                        }
-                    }
-                }
-            },
-            series: dataTotal
-        });
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: 'Browser market shares in January, 2018'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    accessibility: {
+        point: {
+            valueSuffix: ' puntos'
+        }
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+            }
+        }
+    },
+    series: [{
+        name: 'ataque',
+        colorByPoint: true,
+        data: dataTotal
+    }]
+});
     }
     loadGraph();
 </script>
