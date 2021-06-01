@@ -86,7 +86,7 @@
             },
             tooltip: {
                 useHTML: true,
-                pointFormat: '<b>{point.name}:</b> {point.value}'
+                pointFormat: '<b>{point.name}:</b> {point.value}m CO<sub>2</sub>'
             },
             plotOptions: {
                 packedbubble: {
@@ -95,8 +95,11 @@
                     zMin: 0,
                     zMax: 500,
                     layoutAlgorithm: {
-                        splitSeries: false,
-                        gravitationalConstant: 0.02
+                        gravitationalConstant: 0.05,
+                        splitSeries: true,
+                        seriesInteraction: false,
+                        dragBetweenSeries: true,
+                        parentNodeLimit: true
                     },
                     dataLabels: {
                         enabled: true,
