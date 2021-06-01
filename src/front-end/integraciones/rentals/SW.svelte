@@ -17,7 +17,13 @@
         
         let HearthstoneData = await resDataHearthstone.json();
 
-        
+        let Hearthstone1 = HearthstoneData.map((x) => {
+            let res = {
+                name: x.name,
+                value: parseInt(x["attack"])
+            };
+            return res;
+        });
 
         let Hearthstone = HearthstoneData.map((x) => {
             let res = {
@@ -32,7 +38,12 @@
                 {
                     name: "Vida de las criaturas",
                     data: Hearthstone
+                },
+                {
+                    name: "Ataque de las criaturas",
+                    data: Hearthstone1
                 }
+
             ];
 
             Highcharts.chart('container', {
@@ -41,7 +52,7 @@
                 height: '60%'
             },
             title: {
-                text: 'Aqui mostramos la integración de una API de Hearthstone y lo comparamos con el Índice de Competitividad Global'
+                text: 'Aqui mostramos la integración de una API de Hearthstone'
             },
             tooltip: {
                 useHTML: true,
