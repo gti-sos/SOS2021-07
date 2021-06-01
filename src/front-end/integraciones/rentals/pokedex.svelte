@@ -157,7 +157,7 @@
    }
   
   
-    async function loadChart() {
+    async function loadGraph() {
       await getKanto();
       await getJhoto();
       await getHoenn();
