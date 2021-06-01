@@ -101,6 +101,7 @@ import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
 
       }
     });
+    console.log(xAxis);
 
     Rental.forEach(x => {
       var i = x.province+"-"+x.year;
@@ -113,6 +114,7 @@ import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
       }
     });
     console.log(yAxis);
+    console.log(xAxis);
 
 
     var yAxis1 = [];
@@ -124,7 +126,7 @@ import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
     yAxis1.push(c[i]);
     
   }
-
+  console.log(xAxis);
     var ctx = document.getElementById("myChart").getContext("2d");
 
     var myChart = new Chart(ctx, {
