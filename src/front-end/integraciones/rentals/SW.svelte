@@ -52,7 +52,7 @@
 				text: 'Enfermos en varios paises'
 			},
 			xAxis: {
-				categories: ['Casos'],
+				categories: ['Casos  pp'],
 				title: {
 					text: null
 				}
