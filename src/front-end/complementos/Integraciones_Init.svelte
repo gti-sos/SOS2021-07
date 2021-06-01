@@ -52,7 +52,7 @@
               <a href="/#/integrations/Pokemon"
               ><Button color="primary">Ext3 Pokemon</Button></a>
 
-              <a href="/#/integrations/cryptp"
+              <a href="/#/integrations/crypto"
               ><Button color="primary">Ext5 crypto</Button></a>
               
               <a href="/#/integrations/Covid"
