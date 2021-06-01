@@ -175,12 +175,15 @@
         var array = Object.entries(Kanto);
         var pokemonsK = Kanto.pokemon_entries.map(x=>x.entry_number)
         var numberK = pokemonsK.length
+        console.log(numberK);
 
         var pokemonsJ = Johto.pokemon_entries.map(x=>x.entry_number)
         var numberJ = pokemonsJ.length
+        console.log(numberJ);
 
         var pokemonsH = Hoenn.pokemon_entries.map(x=>x.entry_number)
         var numberH = pokemonsH.length
+        console.log(numberH);
         
         array.forEach(x => {
             var i = x.name;
