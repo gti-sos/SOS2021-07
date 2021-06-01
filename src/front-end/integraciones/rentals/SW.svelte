@@ -27,9 +27,9 @@
         for (let index = 0; index < name.length; index++) {
         var llamada = await fetch("https://disease.sh/v2/gov/"+(name[index]));
         var datos = await llamada.json();
-        var casos = datos.map(x=>x.cases)
-        casos.forEach (function(x){
-        suma += x;
+        
+        datos.forEach (function(x){
+        suma += x.cases;
     });
     num.push(suma);
     }
