@@ -186,7 +186,7 @@
         var numberJ = pokemonsJ.length
         var DexJ = Johto.name
         xAxis.push(DexJ);
-        yAxisJ.push(0);
+        yAxisJ.push(0 );
         yAxisJ.push(numberJ);
         console.log(numberJ);
         console.log(DexJ);
