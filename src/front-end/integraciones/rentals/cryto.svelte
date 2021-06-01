@@ -17,37 +17,34 @@
         const resDataHappiness_rate = await fetch("/api/v1/rentals");
         let Happy = await resDataHappiness_rate.json();
         
-        dataHappiness = Happy.map((x) => {
+        let DataRental = Happy.map((x) => {
             let res = {
                 name: x.province + " - " + x.year,
                 value: x["salary"]
             };
-            myData.push(res);
+            return res;
         });
         Coins = await resCoins.json();
-        console.log(Coins);
-        Coins.forEach((x) => {
-            let coin = {
-                'name': x.name,
-		        'value': x.markets
+        let DataCoins = Coins.map((x) => {
+            let res = {
+                name: x.name,
+                value: x["markets"] 
             };
-           
-            Data.push(coin);
+            return res;
+        });
 
-        }); 
-
-        console.log(Data);
-        console.log(myData );
+        console.log(DataRental);
+        console.log(DataCoins );
        
         let dataTotal =
             [
                 {
                     name: "Ranking de Felicidad",
-                    data: myData
+                    data: DataRental
                 },
                 {
                     name: "Nombre de la Criptomoneda",
-                    data: Data
+                    data: DataCoins
                 }
             ];
         Highcharts.chart('container', {
