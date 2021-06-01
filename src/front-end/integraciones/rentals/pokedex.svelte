@@ -208,48 +208,59 @@
  
   
       
-      var ctx = document.getElementById("myChart").getContext("2d");
-      var myChart = new Chart(ctx, {
-        
-        data: {
-          
-          datasets: [
-            {
-              type: 'bar',
-              label: DexK,
-              data: yAxisK,
-              borderColor: 'rgb(204, 99, 132)',
-              backgroundColor: 'rgba(255, 99, 132)'
-            
-            },
-            {
-              type: 'bar',
-              label: DexJ,
-              data: yAxisJ,
-              borderColor: 'rgb(255, 99, 132)',
-              backgroundColor: 'rgba(155, 99, 132)'
-            
-            },
-            {
-              type: 'bar',
-              label: DexH,
-              data: yAxisH,
-              borderColor: 'rgb(255, 99, 132)',
-              backgroundColor: 'rgba(215, 99, 132)'
-            
-            },
-          ],
-          labels: xAxis
-        },
-      });
+      Highcharts.chart('container', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Monthly Average Rainfall'
+    },
+    subtitle: {
+        text: 'Source: WorldClimate.com'
+    },
+    xAxis: {
+        categories: [
+            'Kanto',
+            'Jhoto',
+            'Hoen'
+        ],
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Rainfall (mm)'
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: 'Numero de pokemons',
+        data: [numberK, numberJ, numberH]
+
+    }]
+});
     }
     activeSpinner=false;
   </script>
   
   <svelte:head>
-    <script
-      src="https://cdn.jsdelivr.net/npm/chart.js"
-      on:load={loadChart}></script>
+    <script src="https://code.highcharts.com/highcharts.js" on:load={loadGraph}></script>
+    <script src="https://code.highcharts.com/highcharts-more.js" on:load={loadGraph}></script>
+    <script src="https://code.highcharts.com/modules/exporting.js" on:load={loadGraph}></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadGraph}></script>
   </svelte:head>
   
   <main>
