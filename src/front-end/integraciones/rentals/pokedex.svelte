@@ -213,7 +213,7 @@
     type: 'column'
   },
   title: {
-    text: 'Monthly Sales Trend (May-Aug)'
+    text: 'Pokemon de cada región'
   },
   xAxis: {
     categories: [DexK, DexJ, DexH]
