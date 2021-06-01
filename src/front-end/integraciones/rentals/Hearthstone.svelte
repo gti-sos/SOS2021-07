@@ -1,5 +1,4 @@
-<body style="background-color:#082EFF;">
-</body>
+
 
 <script>
       import {pop} from "svelte-spa-router";
