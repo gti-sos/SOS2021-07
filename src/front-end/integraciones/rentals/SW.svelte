@@ -29,8 +29,9 @@
         var llamada = await fetch("https://disease.sh/v2/gov/"+(name[index]));
         var datos = await llamada.json();
         for (var item in datos){
-        console.log(datos[item].cases);
+        
         suma += datos[item].cases;
+        console.log(suma);
     }
 
     num.push(suma);
