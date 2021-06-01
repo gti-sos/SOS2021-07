@@ -152,7 +152,7 @@
        
      } else {
        console.log("Error");
-       errorMsg = "Error al cargar los datos de la API";
+       errorMsg = "Error al cargar los datos de  la API";
      }
    }
   
