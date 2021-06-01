@@ -11,7 +11,7 @@
      
      
     
-      let dataStarWars = starwar2.map((d) => {
+      starwar2.map((d) => {
           let res = {
               name: d.name,
               value: parseInt(d["height"])
@@ -19,17 +19,7 @@
           dataTotal2.push(res);
       });
       
-      let dataTotal =
-          [
-              {
-                  name: "Altura de algunos personajes de StarWars",
-                  data: dataStarWars
-              },
-              {
-                  name: "Peso de algunos personajes de StarWars",
-                  data: dataStarWars2
-              }
-          ];
+      
 
           Highcharts.chart('container', {
     chart: {
