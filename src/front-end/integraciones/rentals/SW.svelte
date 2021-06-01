@@ -36,46 +36,37 @@
                   data: dataStarWars2
               }
           ];
-      Highcharts.chart('container', {
-          chart: {
-              type: 'packedbubble',
-              height: '60%'
-          },
-          title: {
-              text: 'Peso y altura de algunos personajes de StarWars'
-          },
-          tooltip: {
-              useHTML: true,
-              pointFormat: '<b>{point.name}:</b> {point.value}'
-          },
-          plotOptions: {
-              packedbubble: {
-                  minSize: '20%',
-                  maxSize: '100%',
-                  zMin: 0,
-                  zMax: 1000,
-                  layoutAlgorithm: {
-                      splitSeries: false,
-                      gravitationalConstant: 0.02
-                  },
-                  dataLabels: {
-                      enabled: true,
-                      format: '{point.name}',
-                      filter: {
-                          property: 'y',
-                          operator: '>',
-                          value: 250
-                      },
-                      style: {
-                          color: 'black',
-                          textOutline: 'none',
-                          fontWeight: 'normal'
-                      }
-                  }
-              }
-          },
-          series: dataTotal
-      });
+          
+          Highcharts.chart('container', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: 'Browser market shares in January, 2018'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    accessibility: {
+        point: {
+            valueSuffix: '%'
+        }
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+            }
+        }
+    },
+    series: dataTotal
+});
   }
   loadGraph();
 </script>
