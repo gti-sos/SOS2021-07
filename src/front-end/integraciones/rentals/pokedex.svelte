@@ -213,7 +213,7 @@
             datasets: [
               {
                 type: 'bar',
-                label: "Pokedex Kanto",
+                label: DexK,
                 data: yAxisK,
                 borderColor: 'rgb(204, 99, 132)',
                 backgroundColor: 'rgba(255, 99, 132)'
@@ -221,7 +221,7 @@
               },
               {
                 type: 'bar',
-                label: "Pokedex Jhoto",
+                label: DexJ,
                 data: yAxisJ,
                 borderColor: 'rgb(255, 99, 132)',
                 backgroundColor: 'rgba(155, 99, 132)'
@@ -229,14 +229,14 @@
               },
               {
                 type: 'bar',
-                label: "Pokedex Hoenn",
+                label: DexH,
                 data: yAxisH,
                 borderColor: 'rgb(255, 99, 132)',
                 backgroundColor: 'rgba(215, 99, 132)'
               
               }
             ],
-            labels: xAxis
+            
           },
         });
       }
