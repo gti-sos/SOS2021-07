@@ -59,7 +59,7 @@
                 ><Button color="primary">Ext4 Covid E1</Button></a
               >
               <a href="/#/integrations/enfermos"
-                ><Button color="primary">Ext6 enfermos</Button></a
+                ><Button color="primary">Ext6 Hearthstone</Button></a
               >
             </CardBody>
             
