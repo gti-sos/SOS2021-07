@@ -1,70 +1,100 @@
 <script>
-    import { onMount } from "svelte";
-    import Button from "sveltestrap/src/Button.svelte";
-    import { pop } from "svelte-spa-router";
-    onMount(loadGeoDB);
+    import {pop} from "svelte-spa-router";
+  import Button from "sveltestrap/src/Button.svelte";
 
-    async function loadGeoDB(){
-        const resData = await fetch("https://swapi.dev/api/people/?page=1");
-       
-        
-        const Datas = await resData.json(); 
-        
-
-        
-        
-
-        //Estos son los 3 paises elegidos
-        var theGreat3 =[Datas[1]["name"],myData[2]["name"],myData[3]["name"]];
-        //Son los paises que en 2017 la edad media de la poblacion que murio por sobredosis fue la menor
-        var theGreat3Ages =[Datas[1]["mass"],Datas[2]["mass"],Datas[3]["mass"]];
-        
-        var theGreat3Together=[theGreat3[0]+", peso: "+theGreat3Ages[0] + " kg",theGreat3[1]+", peso: "+theGreat3Ages[1] + " kg",theGreat3[2]+", peso: "+theGreat3Ages[2] + " kg",]
-        
-        console.log(theGreat3);
-        console.log(theGreat3Ages);
-
-        
-        
-        
-        ['rgb(56, 75, 126)', 'rgb(18, 36, 37)', 'rgb(34, 53, 101)', 'rgb(36, 55, 57)', 'rgb(6, 4, 4)']
-
+  async function loadGraph() {
+      const resDataStarWars = await fetch("https://swapi.dev/api/people/?page=1");
+      
+      let starwar1 = await resDataStarWars.json();
+      let starwar2 = starwar1.results;
      
-
-        var data = [{
-        values: theGreat3Ages,
-        labels: theGreat3Together,
-        type: 'pie',
-        textinfo: "percent",
-        marker: { colors: ['rgb(33, 75, 99)', 'rgb(79, 129, 102)', 'rgb(151, 179, 100)', 'rgb(175, 49, 35)', 'rgb(36, 73, 147)']}
-}];
-
-var layout = {
-  title: "Número de habitantes en los paises que en 2017 los fallecidos por sobredosis tuvieron menor edad media" ,
-  height: 600,
-  width: 1400
-};
-
-Plotly.newPlot('myDiv', data, layout);
-     }
-
-
-    function GetSortOrder(prop) {    
-    return function(a, b) {    
-        if (a[prop] > b[prop]) {    
-            return 1;    
-        } else if (a[prop] < b[prop]) {    
-            return -1;    
-        }    
-        return 0;    
-    }    
-}    
+     
+     
+    
+      let dataStarWars = starwar2.map((d) => {
+          let res = {
+              name: d.name,
+              value: parseInt(d["height"])
+          };
+          return res;
+      });
+      let dataStarWars2 = starwar2.map((d) => {
+          let res = {
+              name: d.name,
+              value: parseInt(d["mass"])
+          };
+          return res;
+      });
+      let dataTotal =
+          [
+              {
+                  name: "Altura de algunos personajes de StarWars",
+                  data: dataStarWars
+              },
+              {
+                  name: "Peso de algunos personajes de StarWars",
+                  data: dataStarWars2
+              }
+          ];
+      Highcharts.chart('container', {
+          chart: {
+              type: 'packedbubble',
+              height: '60%'
+          },
+          title: {
+              text: 'Peso y altura de algunos personajes de StarWars'
+          },
+          tooltip: {
+              useHTML: true,
+              pointFormat: '<b>{point.name}:</b> {point.value}'
+          },
+          plotOptions: {
+              packedbubble: {
+                  minSize: '20%',
+                  maxSize: '100%',
+                  zMin: 0,
+                  zMax: 1000,
+                  layoutAlgorithm: {
+                      splitSeries: false,
+                      gravitationalConstant: 0.02
+                  },
+                  dataLabels: {
+                      enabled: true,
+                      format: '{point.name}',
+                      filter: {
+                          property: 'y',
+                          operator: '>',
+                          value: 250
+                      },
+                      style: {
+                          color: 'black',
+                          textOutline: 'none',
+                          fontWeight: 'normal'
+                      }
+                  }
+              }
+          },
+          series: dataTotal
+      });
+  }
+  loadGraph();
 </script>
+
 <svelte:head>
-      <script src='https://cdn.plot.ly/plotly-latest.min.js' on:load="{loadGeoDB}"></script>
-  </svelte:head>
+    <script src="https://code.highcharts.com/highcharts.js" on:load={loadGraph}></script>
+    <script src="https://code.highcharts.com/highcharts-more.js" on:load={loadGraph}></script>
+    <script src="https://code.highcharts.com/modules/exporting.js" on:load={loadGraph}></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadGraph}></script>
+</svelte:head>
 
 <main>
-    <div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
-    <Button outline color="secondary" on:click="{pop}"> Atrás</Button>
+  <figure class="highcharts-figure">
+      <div id="container"></div>
+      <p class="highcharts-description">
+          Gráfica de diferencia entre el ranking de paz y el diamentro de los planetas de star wars.
+      </p>
+  </figure>
+  <div style="text-align:center;padding-bottom: 3%;">
+      <Button outline align = "center" color="secondary" on:click="{pop}">Volver</Button>
+      </div>
 </main>
