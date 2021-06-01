@@ -208,42 +208,32 @@
    
     
         
-        var ctx = document.getElementById("myChart").getContext("2d");
-        var myChart = new Chart(ctx, {
-          
-          data: {
-            
-            datasets: [
-              {
-                type: 'bar',
-                label: DexK,
-                data: yAxisK,
-                borderColor: 'rgb(204, 99, 132)',
-                backgroundColor: 'rgba(255, 99, 132)'
-              
-              },
-              {
-                type: 'bar',
-                label: DexJ,
-                data: yAxisJ,
-                borderColor: 'rgb(255, 99, 132)',
-                backgroundColor: 'rgba(155, 99, 132)'
-              
-              },
-              {
-                type: 'bar',
-                label: DexH,
-                data: yAxisH,
-                borderColor: 'rgb(255, 99, 132)',
-                backgroundColor: 'rgba(215, 99, 132)'
-              
-              },
-            ],
-            labels: xAxis
-          },
-        });
-      }
-      activeSpinner=false;
+        Highcharts.chart('container', {
+  chart: {
+    type: 'column'
+  },
+  title: {
+    text: 'Monthly Sales Trend (May-Aug)'
+  },
+  xAxis: {
+    categories: [DexK, DexJ, DexH]
+  },
+
+  yAxis: {
+    title: {
+      text: ''
+    },
+    labels: {
+      format: '{value}k $'
+    }
+  },
+
+  series: [{
+    name: 'Numero de pokemons',
+    data: [yAxisK, yAxisJ, yAxisH]
+  }],
+});
+}
     </script>
     
     <svelte:head>
