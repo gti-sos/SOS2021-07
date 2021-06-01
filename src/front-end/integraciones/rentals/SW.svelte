@@ -22,6 +22,7 @@
         let valores = []
         let num =[]
         var name = Externa2
+        var suma =0;
         console.log(name);
         console.log(datos);
 
