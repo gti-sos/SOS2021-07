@@ -247,7 +247,7 @@
         }
     },
     series: [{
-        name: 'Numero de pokemons',
+        name: 'Numero de  pokemons',
         data: [numberK, numberJ, numberH]
 
     }]
