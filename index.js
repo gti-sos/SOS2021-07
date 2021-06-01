@@ -66,6 +66,18 @@ app.use(pathLIFE, function(req, res) {
   req.pipe(request(url)).pipe(res);
 });
 
+//Externa crypto
+
+var apiExt01 = "https://coinpaprika1.p.rapidapi.com";
+var pathExt01 = "/exchanges";
+
+app.use(pathExt01, function(req, res) {
+  var url = apiExt01 + req.baseUrl + req.url;
+  console.log('piped: ' + req.baseUrl + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
+
 //Mostrar directamente el contenido de /public
 app.use("/", express.static(path.join(__dirname, "public")));
 
