@@ -126,7 +126,7 @@ import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
     yAxis1.push(c[i]);
     
   }
-  console.log(c);
+  console.log( c);
   console.log(yAxis1);
     var ctx = document.getElementById("myChart").getContext("2d");
 
