@@ -67,14 +67,16 @@
         
         let dataTotal =
             [
-                [{
-                    name: "Variacion Renta",
-                    data: DataRental
-                }],
-                [{
-                    name: "Esperanza de vida Media",
-                    data: dataGastos_Educacion
-                }]
+                
+                    
+                {
+                    name: "Renta",
+                    data: [DataRental]
+                },
+                {
+                    name: "Esperanza de vida ",
+                    data: [dataGastos_Educacion]
+                }
             ];
         Highcharts.chart('container', {
             chart: {
