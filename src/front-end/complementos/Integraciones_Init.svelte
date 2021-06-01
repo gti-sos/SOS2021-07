@@ -56,7 +56,7 @@
               ><Button color="primary">Ext5 crypto</Button></a>
               
               <a href="/#/integrations/Covid"
-                ><Button color="primary">Ext4  Covid E1</Button></a
+                ><Button color="primary">Ext4 Covid E1</Button></a
               >
               <a href="/#/integrations/enfermos"
                 ><Button color="primary">Ext6 Hearthstone</Button></a
