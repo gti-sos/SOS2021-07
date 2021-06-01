@@ -27,10 +27,12 @@
         var llamada = await fetch("https://disease.sh/v2/gov/"+(API_externa[index]));
         var datos = await llamada.json();
         var sum=0;
-        datos.forEach((x) => {
-			sum = sum + x.cases;
-        
-    });
+
+        for (var item in datos){
+        console.log(datos[item].cases);
+        sum = sum + datos[item].cases;
+    }
+
     aux={
                 name: API_externa[index],
                 data: [sum,0]
