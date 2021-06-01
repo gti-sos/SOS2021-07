@@ -55,16 +55,9 @@
       
       jugador4 = await resjugador4.json();
 
-      const resjugador5 = await fetch("https://free-nba.p.rapidapi.com/players/5", {
-          "method": "GET",
-          "headers": {
-              "x-rapidapi-key": "9b2b2f4d65msh643a2276d42fb51p1e4972jsn8ab58ddd82c9",
-              "x-rapidapi-host": "free-nba.p.rapidapi.com",
-              
-          }
-      });
       
-      jugador5 = await resjugador5.json();
+      
+      
 
       var name =[];
       var altura = [];
@@ -90,11 +83,7 @@
        name.push(jugador4[item].first_name+" "+ jugador4[item].last_name);
        altura.push(jugador4[item].height_inches)
    }
-   for (var item in jugador5){
-       
-       name.push(jugador5[item].first_name+" "+ jugador5[item].last_name);
-       altura.push(jugador5[item].height_inches)
-   }
+   
 
       
       let dataTotal =
@@ -131,8 +120,7 @@
             name[0],
             name[1],
             name[2],
-            name[3],
-            name[4]
+            name[3]
         ],
         plotBands: [{ // visualize the weekend
             from: 4.5,
