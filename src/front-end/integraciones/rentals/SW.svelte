@@ -49,10 +49,10 @@
 				type: 'bar'
 			},
 			title: {
-				text: 'Enfermos en Alemania y turistas en Andalucía'
+				text: 'Enfermos en varios paises'
 			},
 			xAxis: {
-				categories: ['Enfermos por cada cien mil', 'Viajeros'],
+				categories: ['Casos'],
 				title: {
 					text: null
 				}
@@ -91,7 +91,7 @@
 	<figure class="highcharts-figure">
 		<div id="container"></div>
 		<p style="text-align:center;" class="highcharts-description">
-			Comparativa entre el número de enfermos en tres provincias alemanas y viajeros en algunas provincias andaluzas.
+		Muestra grafica de enfermos en diferentes paises
 		</p>
 	</figure>
 
