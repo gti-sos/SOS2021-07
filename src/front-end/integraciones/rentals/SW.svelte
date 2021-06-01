@@ -40,7 +40,7 @@
             
             aux={
                 name: name,
-                data: [num]
+                data: num
             }
             valores.push(aux)
             console.log(aux);
