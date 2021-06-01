@@ -94,6 +94,6 @@
         <div id="container"></div>
     </figure>
     <div style="text-align:center;padding-bottom: 3%;">
-        <Button outline align = "center" color="secondary" on:click="{pop}">Volver</Button>
+        <Button outline align = "center" color="secondary" on:click="{pop}"> Volver</Button>
         </div>
 </main>
