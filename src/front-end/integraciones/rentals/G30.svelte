@@ -74,7 +74,7 @@
                     data: [DataRental]
                 },
                 {
-                    name: "Esperanza de vida ",
+                    name: "Esperanza de  vida ",
                     data: [dataGastos_Educacion]
                 }
             ];
