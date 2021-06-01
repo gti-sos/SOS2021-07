@@ -42,6 +42,17 @@
   }
     
     async function loadGraph() {
+        var myData={
+            name: 'Variacion de la renta (Total)',
+            data: []
+        };
+        var extData={
+            name: 'Esperanza de  vida Media(Total)',
+            data: []
+        };
+        
+        var dataTotal = [];
+
         const resData_Rental = await fetch("/api/v1/rentals");
         const resDataEduacionGastos = await fetch("/api/v2/life-expectancy-stats/loadInitialData");
     
@@ -66,16 +77,7 @@
             
         });
 
-        var myData={
-            name: 'Variacion de la renta (Total)',
-            data: []
-        };
-        var extData={
-            name: 'Esperanza de  vida Media(Total)',
-            data: []
-        };
         
-        var dataTotal = [];
         dataTotal.push(myData);
         dataTotal.push(extData);
         Highcharts.chart('container', {
