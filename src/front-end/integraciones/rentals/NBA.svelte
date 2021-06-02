@@ -93,8 +93,36 @@
         
         
         var layout = {
-            title: 'Basic Overlaid Area Chart'
-        };
+            title: "Styled Point Cloud",
+            xaxis: {
+                showgrid: false,
+                showline: true,
+                linecolor: 'rgb(102, 102, 102)',
+                titlefont: {
+                font: {
+                    color: 'rgb(204, 204, 204)'
+                }
+                },
+                tickfont: {
+                font: {
+                    color: 'rgb(102, 102, 102)'
+                }
+                },
+                autotick: false,
+                dtick: 10,
+                ticks: 'outside',
+                tickcolor: 'rgb(102, 102, 102)'
+            },
+            yaxis: {
+                type: "linear",
+                range: [0,100],
+                autorange: true
+            },
+            height: 598,
+            width: 1080,
+            autosize: true,
+            showlegend: true
+        }
         var data = [trace1];
         Plotly.newPlot('myDiv', data, layout);
     }
