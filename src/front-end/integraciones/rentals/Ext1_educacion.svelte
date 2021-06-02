@@ -71,6 +71,6 @@
       </NavItem>
   </Nav>
   
-    <div id="graph"></div>
+    <div id='myDiv'>
     <p>Muestra integracion con los datos de grupo 04 </p>
   </main>
