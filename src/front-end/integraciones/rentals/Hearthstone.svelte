@@ -3,8 +3,8 @@
 <script>
     import { onMount } from "svelte";
     import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
-    var values =[];
-    var labels = [];
+    var v =[];
+    var l = [];
     async function loadGraph() {
        
         const resDataHearthstone = await fetch("https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/classes/Priest?cost=1", {
@@ -19,23 +19,25 @@
         let HearthstoneData = await resDataHearthstone.json();
 
         HearthstoneData.map((x) => { 
-                values.push(x.name);
-                labels.push(parseInt(x["attack"]));
+                v.push(x.name);
+                l.push(parseInt(x["attack"]));
         });
 
+        console.log(v);
+        console.log(l);
 
        
 
       var data = [{
-  values: values,
-  labels: labels,
+  values: v,
+  labels: l,
   type: 'pie'
 }];
 
 var layout = {
-  height: 400,
-  width: 500
-};
+            height: 400,
+            width: 1300
+            };
 
 Plotly.newPlot('myDiv', data, layout);
     }
@@ -44,7 +46,7 @@ Plotly.newPlot('myDiv', data, layout);
 
 <svelte:head>
 
-    <script src="https://cdn.plot.ly/plotly-2.0.0-rc.2.min.js" on:load={loadGraph}></script>
+    <script src="https://cdn.plot.ly/plotly-1.58.4.min.js" on:load={loadGraph}></script>
     
 
 </svelte:head>
