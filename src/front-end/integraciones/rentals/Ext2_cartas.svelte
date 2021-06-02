@@ -16,7 +16,7 @@ async function loadChart(){
     
     myData.data.forEach((v) =>{
         console.log(v.attribute);
-        if(!(v.attribute==undefined)){
+        if(!(v.attribute==null)){
             if(v.attribute in cards){
                 cards[v.attribute] += 1;
             }
