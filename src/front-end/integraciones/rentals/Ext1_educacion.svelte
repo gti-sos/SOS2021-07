@@ -45,6 +45,27 @@
 
         var data = [trace1, trace2];
 
+        var layout = {
+            title: "Styled Point Cloud",
+            xaxis: {
+                type: "linear",
+                range: [
+                -2.501411175139456,
+                43.340777299865266],
+                autorange: true
+            },
+            yaxis: {
+                type: "linear",
+                range: [0,100],
+                autorange: true
+            },
+            height: 598,
+            width: 1080,
+            autosize: true,
+            showlegend: true
+        }
+
+
         
 
         Plotly.newPlot('myDiv', data);
