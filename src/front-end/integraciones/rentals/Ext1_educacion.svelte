@@ -27,17 +27,7 @@
             
         });
         
-        let dataTotal =
-            [
-                {
-                    name: "% salario",
-                    data: DataRental
-                },
-                {
-                    name: "Gasto en educación por capital",
-                    data: dataGastos_Educacion
-                }
-            ];
+        
         
         var trace1 = {
         x: x,
