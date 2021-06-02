@@ -141,7 +141,7 @@
   
     <Nav>
       <NavItem>
-        <NavLink href="/"><Button color="primary">Página Inicial</Button></NavLink>
+        <NavLink href="/"><Button color="primary">Página Inicial </Button></NavLink>
       </NavItem>
       <NavItem>
         <NavLink href="/#/rentals"><Button color="primary">Datos</Button></NavLink>
