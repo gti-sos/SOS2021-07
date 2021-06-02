@@ -72,8 +72,9 @@
             let province_minus = d.province.toLowerCase(); 
             console.log(province_minus);
             Data.forEach((data) => {     
-              console.log(data);
-                if(data.province==province_minus){
+              let provinciaMia =data.province;
+              console.log(data.province);
+                if(data.provinciaMia==province_minus){
                   console.log(data.province);
                     provincias.push(province_minus);
                     esperanza.push(d["averageLifeExpectancy"]);
