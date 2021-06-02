@@ -2,6 +2,7 @@
   
 	
 	import NotFound from "./front-end/complementos/NotFound.svelte";
+	import about from "./front-end/complementos/Acerca_de.svelte";
 	import Router from 'svelte-spa-router';
 	import IntegracionesInit from "./front-end/complementos/Integraciones_Init.svelte"
 	import Rentals from "./front-end/Front_Rentals/Rentals.svelte";
@@ -39,6 +40,7 @@
 		"/":Init,
 		"/info": Info,
 		"/integrations":IntegracionesInit,
+		"/about":about,
 		"/integrations/G27_rentals":Integracion_G27_Tristan,
 		"/integrations/G30_rentals":Integracion_G30_Tristan,
 		"/integrations/Ext2_Cartas":cartas,

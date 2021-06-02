@@ -35,6 +35,7 @@ import {
     <a href="/#/info"><Button color="info">Información</Button></a>
     <a href="/#/common-graphic"><Button color="info">Gráfico Común</Button></a>
     <a href="/#/integrations"><Button color="info">Integraciones</Button></a>
+    <a href="/#/about"><Button color="info">Acerca de</Button></a>
 
 	  </Container>
 
