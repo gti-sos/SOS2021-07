@@ -48,11 +48,23 @@
         var layout = {
             title: "Styled Point Cloud",
             xaxis: {
-                type: "linear",
-                range: [
-                -2.501411175139456,
-                43.340777299865266],
-                autorange: true
+                showgrid: false,
+                showline: true,
+                linecolor: 'rgb(102, 102, 102)',
+                titlefont: {
+                font: {
+                    color: 'rgb(204, 204, 204)'
+                }
+                },
+                tickfont: {
+                font: {
+                    color: 'rgb(102, 102, 102)'
+                }
+                },
+                autotick: false,
+                dtick: 10,
+                ticks: 'outside',
+                tickcolor: 'rgb(102, 102, 102)'
             },
             yaxis: {
                 type: "linear",
