@@ -88,7 +88,7 @@
 </script>
 
 <svelte:head>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js" on:load="{loadGraph}"></script>
+  <script src="https://cdn.plot.ly/plotly-1.58.4.min.js" on:load="{loadGraph}"></script>
 </svelte:head>
 
 <main>
