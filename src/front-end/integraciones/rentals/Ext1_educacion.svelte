@@ -8,7 +8,7 @@
     var y2= [];
     async function loadGraph() {
         const resData_Rental = await fetch("/api/v1/rentals");
-        const resDataEduacionGastos = await fetch("https://education-expenditures.herokuapp.com/api/v1");
+        const resDataEduacionGastos = await fetch("https://education-expenditures.herokuapp.com/api/v1/reduced");
         
 
         let Data = await resData_Rental.json();
