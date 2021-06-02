@@ -15,13 +15,13 @@
         let Data1 = await resDataEduacionGastos.json();
         
 
-        Data.foreach((z) => {
+        Data.map((z) => {
             x.push(z.province + " - " + z.year);
             y.push(z["salary"]);
                
         });
 
-        Data1.foreach((p) => {
+        Data1.map((p) => {
             x2.push(p.country + " - " + p.year);
             y2.push(p["education_expenditure_per_capita"]);
             
