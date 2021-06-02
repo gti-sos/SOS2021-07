@@ -36,6 +36,7 @@
     "express": "^4.17.1",
     "nedb": "^1.8.0",
     "plotly.js-dist": "^1.58.4",
+    "puppeteer": "^10.0.0",
     "request": "^2.88.2",
     "svelte-spa-router": "^3.1.0",
     "sveltestrap": "^3.14.1",
