@@ -34,7 +34,8 @@
         y: 60
     },
     tooltip: {
-        pointFormat: '{series.name}: <b>cm</b>'
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} cm</b></td></tr>',
     },
     accessibility: {
         point: {
