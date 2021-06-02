@@ -90,7 +90,12 @@
   type: 'scatter'
 };
 var layout = {
-            title: 'Basic Overlaid Area Chart'
+            title: 'Basic Overlaid Area Chart',
+            yaxis: {
+                type: "linear",
+                range: [0,50],
+                autorange: true
+            },
         };
 
 
