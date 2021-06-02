@@ -1,6 +1,10 @@
 <script>
-    import Button from "sveltestrap/src/Button.svelte";
-    import { pop } from "svelte-spa-router";
+import { onMount } from "svelte";
+import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
+var atributo = [];
+var numeroCarta = [];
+  
+  var msg = "";
     
 async function loadChart(){
    
@@ -20,88 +24,94 @@ async function loadChart(){
         });
     
     for (var key in cards){
-        cardAtribute.push([key,cards[key]]);
+        atributo.push(key);
+        numeroCarta.push(cards[key]);
+        
     }
     
-Highcharts.chart('container', {
-    chart: {
-        renderTo: 'container',
-        type: 'column',
-        options3d: {
-            enabled: true,
-            alpha: 10,
-            beta: 15,
-            depth: 50,
-            viewDistance: 20
-        }
-    },
-    title: {
-        text: 'Cartas de Yu-Gi-Oh por atributos'
-    },
-    accessibility: {
-        announceNewData: {
-            enabled: true
-        }
-    },
-    xAxis: {
-        type: 'category'
-    },
-    yAxis: {
-        title: {
-            text: 'Número de cartas'
-        }
-    },
-    legend: {
-        enabled: false
-    },
-    plotOptions: {
-        column: {
-            depth: 20
-        }
-    },
-    tooltip: {
-        headerFormat: '<span style="font-size:12px">{series.name}</span><br>',
-        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}</b><br/>'
-    },
-        series: [{
-            name: 'Número de cartas',
-            colorByPoint: true,
-            data: cardAtribute
-        }]
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var myChart = new Chart(ctx, {
+      type: "pie",
+      data: {
+        labels: atributo,
+        datasets: [
+          {
+            label: "Numero de cartas con ese atributo",
+            data: numeroCarta,
+            backgroundColor: [
+              "rgba(255, 99, 132, 0.2)",
+              "rgba(54, 162, 235, 0.2)",
+              "rgba(255, 206, 86, 0.2)",
+              "rgba(75, 192, 192, 0.2)",
+              "rgba(153, 102, 255, 0.2)",
+              "rgba(255, 159, 64, 0.2)",
+            ],
+            borderColor: [
+              "rgba(255, 99, 132, 1)",
+              "rgba(54, 162, 235, 1)",
+              "rgba(255, 206, 86, 1)",
+              "rgba(75, 192, 192, 1)",
+              "rgba(153, 102, 255, 1)",
+              "rgba(255, 159, 64, 1)",
+            ],
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Cartas de YU-GI-OH por atributo'
+            }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
     });
-}
+  }
 </script>
 <svelte:head>
-  <script src="https://code.highcharts.com/highcharts.js" on:load={loadChart}></script>
-  <script src="https://code.highcharts.com/modules/series-label.js"></script>
-  <script src="https://code.highcharts.com/highcharts-3d.js"></script>
-  <script src="https://code.highcharts.com/modules/cylinder.js"></script>
-  <script src="https://code.highcharts.com/modules/exporting.js"></script>
-  <script src="https://code.highcharts.com/modules/export-data.js"></script>
-  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/chart.js"
+    on:load={loadChart}></script>
 </svelte:head>
 
 <main>
-  <figure class="highcharts-figure">
-  <div id ="container"></div>
-  <p class="highcharts-description">
-      Gráfico 3D que muestra la cantidad de cartas de YU-GI-OH por tipos.
-  </p>
-  </figure>
-    <Button outline color="secondary" on:click="{pop}"> Atrás</Button>
+    <Nav>
+        <NavItem>
+          <NavLink href="/"><Button color="primary">Página Inicial</Button></NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="/#/integrations"><Button color="primary">Volver</Button></NavLink>
+        </NavItem>
+    </Nav>
+    
+    {#if msg}
+    <p>{msg}</p>
+  {:else}
+    <div class="chart-container">
+      <canvas id="myChart" />
+    </div>
+  {/if}
 </main>
 
 <style>
-
-#container {
-    height: 600px;
-    width: 900px;
-}
-
-.highcharts-figure, .highcharts-data-table table {
-    min-width: 350px;
-    max-width: 900px;
-    margin: 1em auto;
-}
-
-</style>
+    main {
+      text-align: center;
+      padding: 1em;
+      margin: 0 auto;
+    }
+    div {
+      margin-bottom: 15px;
+    }
+    #myChart{
+      width: 400px;
+      height: 500px;
+    }
+  </style>
