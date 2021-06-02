@@ -82,5 +82,5 @@
   </Nav>
   
     <div id="graph"></div>
-    <p>Muestra integracion con los datos de grupo 04</p>
+    <p>Muestra integracion con los datos de grupo 04 </p>
   </main>
