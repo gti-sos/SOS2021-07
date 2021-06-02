@@ -2,6 +2,9 @@
     import {
         Button,
         Icon,
+        Nav,
+    NavItem, 
+    NavLink,
         Card,
         CardBody,
         CardFooter,
@@ -25,6 +28,12 @@
       
     
       <h2>Integraciones</h2>
+      <Nav>
+     
+        <NavItem>
+          <NavLink href="/#/integrations"><Button color="primary">Volver</Button></NavLink>
+        </NavItem>
+    </Nav>
       <Container>
         
         
