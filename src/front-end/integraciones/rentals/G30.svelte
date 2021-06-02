@@ -64,21 +64,8 @@
         let Data1 = await resDataEduacionGastos.json();
         
 
-        Data.map((x) => {
-            myData['data'].push({
-            name:x.province  + " - " +x.year,
-            value: x["rent_variation"]
-            });
-            
-        });
-        Data1.map((x) => {
-           
-            extData['data'].push({
-            name:x.province  + " - " +x.year,
-            value: x["averageLifeExpectancy"]
-            });
-            
-        });
+     
+    
 
         Data1.forEach(d => { 
             let province_minus = d.province.toLowerCase(); 
@@ -91,9 +78,11 @@
             })
         });
 
+        console.log(provincias);
+        console.log(esperanza);
+        console.log(rental);
         
-        dataTotal.push(myData);
-        dataTotal.push(extData);
+       
         var trace1 = {
             type: 'scatter',
             x : provincias,
