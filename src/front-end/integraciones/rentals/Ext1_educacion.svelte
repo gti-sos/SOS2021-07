@@ -1,6 +1,11 @@
 
 <script>
-    import Button from "sveltestrap/src/Button.svelte";
+      import { onMount } from "svelte";
+  import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
+    var x=[];
+    var y= [];
+    var x2=[];
+    var y2= [];
     async function loadGraph() {
         const resData_Rental = await fetch("/api/v1/rentals");
         const resDataEduacionGastos = await fetch("https://education-expenditures.herokuapp.com/api/v1");
@@ -10,19 +15,16 @@
         let Data1 = await resDataEduacionGastos.json();
         
 
-        let DataRental = Data.map((x) => {
-            let res = {
-                name: x.province + " - " + x.year,
-                value: x["salary"]
-            };
-            return res;
+        Data.foreach((z) => {
+            x.push(z.province + " - " + z.year);
+            y.push(z["salary"]);
+               
         });
-        let dataGastos_Educacion = Data1.map((x) => {
-            let res = {
-                name: x.country + " - " + x.year,
-                value: x["education_expenditure_per_capita"]
-            };
-            return res;
+
+        Data1.foreach((p) => {
+            x2.push(p.country + " - " + p.year);
+            y2.push(p["education_expenditure_per_capita"]);
+            
         });
         
         let dataTotal =
@@ -36,66 +38,49 @@
                     data: dataGastos_Educacion
                 }
             ];
-        Highcharts.chart('container', {
-            chart: {
-                type: 'packedbubble',
-                height: '40%'
-            },
-            title: {
-                text: 'Mezcla de APIs'
-            },
-            tooltip: {
-                useHTML: true,
-                pointFormat: '<b>{point.name}:</b> {point.value}'
-            },
-            plotOptions: {
-                packedbubble: {
-                    minSize: '30%',
-                    maxSize: '120%',
-                    zMin: 0,
-                    zMax: 500,
-                    layoutAlgorithm: {
-                        splitSeries: false,
-                        gravitationalConstant: 0.02
-                    },
-                    dataLabels: {
-                        enabled: true,
-                        format: '{point.name}',
-                        filter: {
-                            property: 'y',
-                            operator: '>',
-                            value: 250
-                        },
-                        style: {
-                            color: 'black',
-                            textOutline: 'none',
-                            fontWeight: 'normal'
-                        }
-                    }
-                }
-            },
-            series: dataTotal
-        });
+        
+        var trace1 = {
+        x: x,
+        y: y,
+        name: '% salario',
+        type: 'bar'
+        };
+
+        var trace2 = {
+        x: x2,
+        y: y2,
+        name: 'Gasto en educación por capital',
+        type: 'bar'
+        };
+
+        var data = [trace1, trace2];
+
+        
+
+        Plotly.newPlot('myDiv', data);
+
     }
     loadGraph();
 </script>
 
 <svelte:head>
 
-    <script src="https://code.highcharts.com/highcharts.js" on:load={loadGraph}></script>
-    <script src="https://code.highcharts.com/highcharts-more.js" on:load={loadGraph}></script>
-    <script src="https://code.highcharts.com/modules/exporting.js" on:load={loadGraph}></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadGraph}></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js" on:load="{loadGraph}"></script>
 
 </svelte:head>
 
 <main>
-
-    <figure class="highcharts-figure">
-        <div id="container"></div>
-        <p class="highcharts-description" align ="center">
-            Gráfica muestra los datos de en conjunto del porcentaje de salio por provincias de españa y el gasto en educacion segun capital en paises del mundo
-        </p>
-    </figure>
-
-</main>
+    <h2 style="text-align: center;"> <i class="fas fa-car"></i> integracion G04</h2>
+  
+    <Nav>
+      <NavItem>
+        <NavLink href="/"><Button color="primary">Página Inicial</Button></NavLink>
+      </NavItem>
+      <NavItem>
+        <NavLink href="/#/rentals"><Button color="primary">Datos</Button></NavLink>
+      </NavItem>
+  </Nav>
+  
+    <div id="graph"></div>
+    <p>Muestra integracion con los datos de grupo 04</p>
+  </main>
