@@ -218,7 +218,7 @@ import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
           {
             label: "Pokemons",
             data: [numberK,numberJ,numberH],
-            backgroundColor: ["rgb(240, 162, 2)", "rgb(123, 158, 137)","rgb(73, 128, 37)"],
+            backgroundColor: ["rgb(240, 102, 2)", "rgb(123, 218, 137)","rgb(73, 128, 37)"],
             
           },
         ],
@@ -243,8 +243,8 @@ import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
   
   <main>
     <div>
-      <h2>Integración API SOS poverty-risks</h2>
-      <p>por favor espere unos segundos a que se cargue la gráfica</p>
+      <h2>Pokemons en la pokedex segun Region</h2>
+     
     </div>
   
     {#if msg}
