@@ -80,7 +80,7 @@
 
         console.log(provincias);
         console.log(esperanza);
-        console.log(rental);
+        console.log(rental );
         
        
         var trace1 = {
