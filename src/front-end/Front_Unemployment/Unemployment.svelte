@@ -384,6 +384,7 @@
         <td
           ><input
             type="text"
+            id="input_autonomous_community"
             placeholder="andalucia"
             bind:value={newData.autonomous_community}
           />
@@ -392,6 +393,7 @@
         <td>
           <input
             type="number"
+            id="input_youth_unemployment_rate"
             placeholder="52.1912"
             min="1"
             bind:value={newData["youth_unemployment_rate"]}
@@ -401,6 +403,7 @@
         <td>
           <input
             type="text"
+            id = "input_province"
             placeholder="malaga"
             bind:value={newData.province}
           />
@@ -409,6 +412,7 @@
         <td
           ><input
             type="number"
+            id = "input_year"
             placeholder="2020"
             min="1900"
             bind:value={newData.year}
@@ -417,6 +421,7 @@
         <td
           ><input
             type="number"
+            id = "input_unemployment_rate"
             placeholder="19.3225"
             min="1"
             bind:value={newData["unemployment_rate"]}
@@ -425,6 +430,7 @@
         <td
           ><input
             type="number"
+            id = "input_occupation_variation"
             placeholder="32.79998"
             min="1.0"
             bind:value={newData["occupation_variation"]}
@@ -452,6 +458,7 @@
         <td
           ><input
             type="text"
+            id="input_autonomous_community"
             placeholder="andalucia"
             bind:value={newData.autonomous_community}
           /></td
@@ -459,6 +466,7 @@
         <td
           ><input
             type="number"
+            id="input_youth_unemployment_rate"
             placeholder="52.1912"
             min="1"
             bind:value={newData["youth_unemployment_rate"]}
@@ -467,6 +475,7 @@
         <td
           ><input
             type="text"
+            id="input_province"
             placeholder="malaga"
             bind:value={newData.province}
           /></td
@@ -474,6 +483,7 @@
         <td>
           <input
             type="number"
+            id="input_year"
             placeholder="2020"
             min="1900"
             bind:value={newData.year}
@@ -483,6 +493,7 @@
         <td>
           <input
             type="number"
+            id="input_unemployment_rate"
             placeholder="19.3225"
             min="1"
             bind:value={newData["unemployment_rate"]}
@@ -492,6 +503,7 @@
         <td>
           <input
             type="number"
+            id="input_occupation_variation"
             placeholder="32.79998"
             min="1.0"
             bind:value={newData["occupation_variation"]}
