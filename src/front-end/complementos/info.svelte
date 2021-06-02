@@ -19,11 +19,12 @@ import {
 </script>
 
 
-<main>
-       
-  <NavItem>
-    <NavLink href="/"><Button color="primary">Volver</Button></NavLink>
-  </NavItem>
+<main>  
+  <Nav>
+    <NavItem>
+      <NavLink href="/"><Button color="primary">Volver</Button></NavLink>
+    </NavItem>
+</Nav>
   <h1>SOS2021-07</h1>
 
   <h2>Team</h2>
