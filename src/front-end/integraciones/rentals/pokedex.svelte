@@ -9,7 +9,8 @@ import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
     var Sinnoh = [];
     var errorMsg = "";
     var okMsg = "";
-    var activeSpinner = true;
+    var msg = "";
+ 
   
     async function loadApiKANTO() {
       
@@ -208,68 +209,51 @@ import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
  
   
       
-      Highcharts.chart('container', {
-    chart: {
-        type: 'column'
-    },
-    title: {
-        text: 'Cantidad de pokemon por su region'
-    },
-    subtitle: {
-        text: 'Muestra los pokemon que contiene la pokedex de cada region'
-    },
-    xAxis: {
-        categories: [
-            'Kanto',
-            'Jhoto',
-            'Hoen'
+      var ctx = document.getElementById("myChart").getContext("2d");
+    var myChart = new Chart(ctx, {
+      type: "doughnut",
+      data: {
+        labels: [DexK,DexJ,DexH],
+        datasets: [
+          {
+            label: "Pokemons",
+            data: [numberK,numberJ,numberH],
+            backgroundColor: ["rgb(240, 162, 2)", "rgb(123, 158, 137)","rgb(73, 128, 37)"],
+            
+          },
         ],
-        crosshair: true
-    },
-    yAxis: {
-        min: 0,
-        title: {
-            text: 'Cantidad'
-        }
-    },
-    tooltip: {
-        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y:.1f} Pokemons</b></td></tr>',
-        footerFormat: '</table>',
-        shared: true,
-        useHTML: true
-    },
-    plotOptions: {
-        column: {
-            pointPadding: 0.2,
-            borderWidth: 0
-        }
-    },
-    series: [{
-        name: 'Numero de  pokemons',
-        data: [numberK, numberJ, numberH]
-
-    }]
-});
-    }
-    activeSpinner=false;
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Comparativa del numero de pokemon en la pokedex de cada region'
+            }
+        },
+      },
+    });
+  }
   </script>
   
   <svelte:head>
-    <script src="https://code.highcharts.com/highcharts.js" on:load={loadGraph}></script>
-    <script src="https://code.highcharts.com/highcharts-more.js" on:load={loadGraph}></script>
-    <script src="https://code.highcharts.com/modules/exporting.js" on:load={loadGraph}></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadGraph}></script>
-  </svelte:head>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" on:load={loadGraph}></script>
+</svelte:head>
   
   <main>
-    <figure class="highcharts-figure">
-        <div id="container"></div>
-        <p class="highcharts-description">
-            pokedex.
-        </p>
-    </figure>
+    <div>
+      <h2>Integración API SOS poverty-risks</h2>
+      <p>por favor espere unos segundos a que se cargue la gráfica</p>
+    </div>
+  
+    {#if msg}
+      <p>{msg}</p>
+    {:else}
+      <div>
+        <canvas id="myChart" />
+      </div>
+    {/if}
     <Nav>
       <NavItem>
         <NavLink href="/"><Button color="primary">Página Inicial</Button></NavLink>
@@ -279,3 +263,17 @@ import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
       </NavItem>
   </Nav>
   </main>
+  <style>
+    main {
+      text-align: center;
+      padding: 1em;
+      margin: 0 auto;
+    }
+    div {
+      margin-bottom: 15px;
+    }
+    #myChart{
+      width: 400px;
+      height: 500px;
+    }
+  </style>
