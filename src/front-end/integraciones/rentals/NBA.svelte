@@ -84,29 +84,20 @@
 
       
    var trace1 = {
-  x: name,
-  y: altura,
-  fill: 'tozeroy',
-  type: 'scatter'
-};
-var layout = {
-            title: 'Basic Overlaid Area Chart',
-            yaxis: {
-                type: "linear",
-                range: [0,50],
-                autorange: true
-            },
+            x: name,
+            y: altura,
+            fill: 'tozeroy',
+            type: 'scatter',
+            name : "Jugador NBA"
         };
-
-
-
-var data = [trace1];
-
-Plotly.newPlot('myDiv', data, layout);
-
-   
-
-}
+        
+        
+        var layout = {
+            title: 'Basic Overlaid Area Chart'
+        };
+        var data = [trace1];
+        Plotly.newPlot('myDiv', data, layout);
+    }
   loadGraph();
 </script>
 
