@@ -355,21 +355,21 @@
     <tbody>
       <tr>
         <td
-          ><input
+          ><input id="comunidad"
             type="text"
             placeholder="Andalucía"
             bind:value={newData.autonomous_community}
           /></td
         >
         <td
-          ><input
+          ><input id="provincia"
             type="text"
             placeholder="Sevilla"
             bind:value={newData.province}
           /></td
         >
         <td
-          ><input
+          ><input id="año"
             
             placeholder="2018"
             min="1900"
@@ -377,7 +377,7 @@
           /></td
         >
         <td
-          ><input
+          ><input id="renta"
             
             placeholder="600.0"
             min="1"
@@ -385,7 +385,7 @@
           /></td
         >
         <td
-          ><input
+          ><input id="variacion_renta"
             
             placeholder="6.0"
             min="1.0"
@@ -393,7 +393,7 @@
           /></td
         >
         <td
-          ><input
+          ><input id="metros"
             
             placeholder="100.6"
             min="1.0"
@@ -401,7 +401,7 @@
           /></td
         >
         <td
-          ><input
+          ><input id="salario"
             
             placeholder="42.1"
             min="1.0"
