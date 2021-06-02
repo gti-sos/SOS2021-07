@@ -25,15 +25,7 @@
         });
 
       console.log();
-        let dataTotal =
-            [
-                
-                {
-                    name: "Ataque de las criaturas",
-                    data: Hearthstone1
-                }
-
-            ];
+       
 
             Highcharts.chart('container', {
     chart: {
