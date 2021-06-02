@@ -103,7 +103,7 @@
 
 <svelte:head>
 
-    <script src='https://cdn.plot.ly/plotly-1.58.4.min.js' on:load={loadChart}></script>
+    <script src='https://cdn.plot.ly/plotly-1.58.4.min.js' on:load={loadGraph}></script>
 
 </svelte:head>
 
