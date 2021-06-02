@@ -17,13 +17,13 @@
 
         Data.map((z) => {
             x.push(z.province + " - " + z.year);
-            y.push(z["salary"]);
+            y.push(parseFloat(z["salary"]));
                
         });
 
         Data1.map((p) => {
             x2.push(p.country + " - " + p.year);
-            y2.push(p["education_expenditure_per_capita"]);
+            y2.push(parseFloat(p["education_expenditure_per_capita"]));
             
         });
         
