@@ -1,6 +1,6 @@
 <script>
-    import {pop} from "svelte-spa-router";
-  import Button from "sveltestrap/src/Button.svelte";
+    import { onMount } from "svelte";
+import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
 
   async function loadGraph() {
       const resDataStarWars = await fetch("https://swapi.dev/api/people/?page=1");
@@ -83,7 +83,12 @@
           Peso personajes starWars.
       </p>
   </figure>
-  <div style="text-align:center;padding-bottom: 3%;">
-      <Button outline align = "center" color="secondary" on:click="{pop}">Volver</Button>
-      </div>
+  <Nav>
+    <NavItem>
+      <NavLink href="/"><Button color="primary">Página Inicial</Button></NavLink>
+    </NavItem>
+    <NavItem>
+      <NavLink href="/#/integrations"><Button color="primary">Volver</Button></NavLink>
+    </NavItem>
+</Nav>
 </main>
