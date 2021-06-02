@@ -104,6 +104,11 @@
       <p class="highcharts-description" align ="center">
           Gráfica que muestra los datos de las 3 APIs. La variacion de las diversas APIs
       </p>
+      <Nav>
+        <NavItem>
+          <NavLink href="/"><Button color="primary">Volver</Button></NavLink>
+        </NavItem>
+    </Nav>
   </figure>
 
 </main>
