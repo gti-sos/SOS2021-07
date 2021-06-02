@@ -19,8 +19,11 @@
         let HearthstoneData = await resDataHearthstone.json();
 
         HearthstoneData.map((x) => { 
+            if(!(isNaN(x["attack"]))){
                 l.push(x.name);
                 v.push(parseInt(x["attack"]));
+            }
+                
         });
 
         console.log(v);
