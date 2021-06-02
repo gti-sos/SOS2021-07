@@ -111,9 +111,9 @@
             mode: 'markers',
             name: 'Variación de la renta',
             marker: {
-                color: 'rgba(204, 204, 204, 0.95)',
+                color: 'rgba(104, 204, 204, 0.95)',
                 line: {
-                color: 'rgba(217, 217, 217, 1.0)',
+                color: 'rgba(57, 217, 217, 1.0)',
                 width: 1,
                 },
                 symbol: 'circle',
