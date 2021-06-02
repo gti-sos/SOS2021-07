@@ -68,7 +68,7 @@
 
         
 
-        Plotly.newPlot('myDiv', data);
+        Plotly.newPlot('myDiv', data, layout);
 
     }
     loadGraph();
