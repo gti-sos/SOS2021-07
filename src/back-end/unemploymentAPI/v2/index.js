@@ -338,26 +338,26 @@ module.exports.register = (app) => {
             });
         });
      */
-        //Get al recurso /:autonomous_community/:province/:year
-        app.get(UNEMPLOYMENT_API_PATH + "/unemployment/:autonomous_community/:province/:year", (req, res) => {
-            var params = req.params;
-     
-            db.find({ autonomous_community: params.autonomous_community, province: params.province, year: parseInt(params.year) }, (error, data) => {
-                if (error) {
-                    console.error("ERROR accesing DB in GET");
-                    res.sendStatus(500);
+    //Get al recurso /:autonomous_community/:province/:year
+    app.get(UNEMPLOYMENT_API_PATH + "/unemployment/:autonomous_community/:province/:year", (req, res) => {
+        var params = req.params;
+
+        db.find({ autonomous_community: params.autonomous_community, province: params.province, year: parseInt(params.year) }, (error, data) => {
+            if (error) {
+                console.error("ERROR accesing DB in GET");
+                res.sendStatus(500);
+            } else {
+                if (data.length == 0) {
+                    console.error("No data found");
+                    res.sendStatus(404);
                 } else {
-                    if (data.length == 0) {
-                        console.error("No data found");
-                        res.sendStatus(404);
-                    } else {
-                        delete data[0]._id;
-                        res.send(JSON.stringify(data[0], null, 2));
-                    }
+                    delete data[0]._id;
+                    res.send(JSON.stringify(data[0], null, 2));
                 }
-            });
+            }
         });
-    
+    });
+
     //Post a la lista de recursos unemployment
     app.post(UNEMPLOYMENT_API_PATH + "/unemployment", (req, res) => {
         var newData = req.body;
@@ -412,22 +412,21 @@ module.exports.register = (app) => {
             || !newData.year
             || !newData.province
             || !newData.unemployment_rate
-            || !newData.occupation_variation) {
+            || !newData.occupation_variation
+            || !newData.youth_unemployment_rate) {
             console.log("Data is missing or incorrect.");
-            return res.sendStatus(400);
+            res.sendStatus(400);
         } else {
             db.update({ "autonomous_community": params.autonomous_community, "province": params.province, "year": parseInt(params.year) }, newData, (error, data) => {
                 if (error) {
                     console.error("ERROR accesing DB in GET " + error);
                     res.sendStatus(500);
+                } else if (data.length == 0) {
+                    console.error("No data found");
+                    res.sendStatus(404);
                 } else {
-                    if (data.length == 0) {
-                        console.error("No data found");
-                        res.sendStatus(404);
-                    } else {
-                        console.log("Successful PUT");
-                        res.sendStatus(200);
-                    }
+                    console.log("Successful PUT");
+                    res.sendStatus(200);
                 }
             });
         }

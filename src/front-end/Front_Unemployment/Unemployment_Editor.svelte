@@ -29,9 +29,9 @@
       updateComunity = stat.autonomous_community;
       updateProvince = stat.province;
       updateYear = stat.year;
-      updateUnempRate = stat['unemployment_rate'];
-      updateYouthUnempRate = stat['youth_unemployment_rate'];
-      updateOcupVariation = stat['occupation_variation'];
+      updateUnempRate = stat.unemployment_rate;
+      updateYouthUnempRate = stat.youth_unemployment_rate;
+      updateOcupVariation = stat.occupation_variation;
       console.log("Received stat.");
       
     } else {
@@ -79,26 +79,24 @@
       if (res.ok) {
         console.log("OK");
         error = 0;
-        getStat();
         errorMsg = "";
         okMsg = `${params.autonomous_community} ${params.province} ${params.year} han sido actualizados correctamente`;
       } else {
          if(res.status == 500){
+           error = 1000;
           errorMsg = "No se ha podido acceder a la base de datos";
-        }else if(res.status == 404){
-          error = 404;
-          errorMsg = "No se ha encontrado el dato solicitado";
-        }        
-        else if(res.status == 201)
-          error = 0;
+        } else if (res.status == 400) {
+          error = 1005;
+          errorMsg = "Hay campo/s vacío/s.";
+        } else if (res.status == 409) {
+          error = 409;
+          errorMsg = "Este dato ya existe.";
+        }
         okMsg = "";
-        getStat();
         console.log("ERROR!" + errorMsg);
       }
       console.log(okMsg);
     });
-
-    
   }
 
   onMount(getStat);
@@ -121,12 +119,12 @@
   <Table bordered>
     <thead>
       <tr>
-        <th> Comunidad Autónoma </th>
-        <th>Tasa de desempleo juvenil </th>
-        <th>Provincia </th>
-        <th>Año </th>
-        <th>Tasa de desempleo	</th>
-        <th>Variación de ocupación </th>
+        <th> Comunidad autónoma</th>
+        <th>Tasa de desempleo juvenil</th>
+        <th>Provincia</th>
+        <th>Año</th>
+        <th>Tasa de desempleo</th>
+        <th>Variación de ocupación</th>
       </tr>
     </thead>
     <tbody>
@@ -137,10 +135,9 @@
         <td><input type="number" placeholder="2020" min="1"   bind:value={updateYear} /></td>
         <td><input type="number" placeholder="19.3225" min="1"   bind:value={updateUnempRate} /></td>
         <td><input type="number" placeholder="32.79998" min="1.0" bind:value={updateOcupVariation} /></td>
-        <td>
-          <a href="#/unemployment/">
-          <Button outline color="primary" on:click={updateStat}>Actualizar</Button>
-        </a></td>
+
+        <td><Button outline color="primary" on:click={updateStat}>Actualizar</Button> </td>
+
       </tr>
     </tbody>
   </Table>
@@ -155,22 +152,22 @@
 
     {#if error === 409}
       <UncontrolledAlert  color="warning" >
-          Los datos ya se encuentran cargados.
-        
+          El dato ya se encuentra cargado.
       </UncontrolledAlert>
+
     {:else if error === 404}
       <UncontrolledAlert  color="danger">
           No se encuentra en la base de datos.
         
       </UncontrolledAlert>
-    {:else if error ===1000}
+    {:else if error === 1000}
       <UncontrolledAlert  color="danger" >
-       Error desconocido.
+       Error con la base de datos.
       </UncontrolledAlert>
 
-    {:else if error ===1005}
+    {:else if error === 1005}
       <UncontrolledAlert  color="danger" >
-       Búsqueda vacía.
+       Actualización incorrecta. Todos los campos deben contener un valor.
       </UncontrolledAlert>
     {/if}
 
