@@ -1,8 +1,10 @@
 
 
 <script>
-      import {pop} from "svelte-spa-router";
-    import Button from "sveltestrap/src/Button.svelte";
+    import { onMount } from "svelte";
+    import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
+    var values =[];
+    var labels = [];
     async function loadGraph() {
        
         const resDataHearthstone = await fetch("https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/classes/Priest?cost=1", {
@@ -16,70 +18,49 @@
         
         let HearthstoneData = await resDataHearthstone.json();
 
-        let Hearthstone1 = HearthstoneData.map((x) => {
-            let res = {
-                name: x.name,
-                y: parseInt(x["attack"])
-            };
-            return res;
+        HearthstoneData.map((x) => { 
+                values.push(x.name);
+                labels.push(parseInt(x["attack"]));
         });
 
-      console.log();
+
        
 
-            Highcharts.chart('container', {
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-    },
-    title: {
-        text: 'Browser market shares in January, 2018'
-    },
-    tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-    },
-    accessibility: {
-        point: {
-            valueSuffix: ' puntos'
-        }
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-            }
-        }
-    },
-    series: [{
-        name: 'ataque',
-        colorByPoint: true,
-        data: Hearthstone1
-    }]
-});
+      var data = [{
+  values: values,
+  labels: labels,
+  type: 'pie'
+}];
+
+var layout = {
+  height: 400,
+  width: 500
+};
+
+Plotly.newPlot('myDiv', data, layout);
     }
     loadGraph();
 </script>
 
 <svelte:head>
 
-    <script src="https://code.highcharts.com/highcharts.js" on:load={loadGraph}></script>
-    <script src="https://code.highcharts.com/highcharts-more.js" on:load={loadGraph}></script>
-    <script src="https://code.highcharts.com/modules/exporting.js" on:load={loadGraph}></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadGraph}></script>
+    <script src="https://cdn.plot.ly/plotly-2.0.0-rc.2.min.js" on:load={loadGraph}></script>
+    
 
 </svelte:head>
 
 <main>
-
-    <figure class="highcharts-figure">
-        <div id="container"></div>
-    </figure>
-    <div style="text-align:center;padding-bottom: 3%;">
-        <Button outline align = "center" color="secondary" on:click="{pop}"> Volver</Button>
-        </div>
+    <h2 style="text-align: center;"> <i class="fas fa-car"></i> Cartas Hearthstone</h2>
+  
+    <Nav>
+      <NavItem>
+        <NavLink href="/"><Button color="primary">Página Inicial</Button></NavLink>
+      </NavItem>
+      <NavItem>
+        <NavLink href="/#/rentals"><Button color="primary">Datos</Button></NavLink>
+      </NavItem>
+  </Nav>
+  
+    <div id='myDiv'>
+    <p>Cartas de Hearthstone segun su ataque</p>
 </main>
