@@ -16,13 +16,17 @@ async function loadChart(){
     
     myData.data.forEach((v) =>{
         console.log(v.attribute);
-         if(v.attribute in cards){
+        if(!(v.attribute==undefined)){
+            if(v.attribute in cards){
                 cards[v.attribute] += 1;
             }
             else{
                 cards[v.attribute]= 1;
             }
+        }
+         
         });
+        console.log(cards);
     
     for (var key in cards){
         atributo.push(key);
