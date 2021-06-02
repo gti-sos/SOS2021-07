@@ -14,7 +14,7 @@
       let dataStarWars = starwar2.map((d) => {
           let res = {
               name: d.name,
-              value: parseInt(d["height"])
+              y: parseInt(d["height"])
           };
           return res;
       });
@@ -36,46 +36,49 @@
                   data: dataStarWars2
               }
           ];
-      Highcharts.chart('container', {
-          chart: {
-              type: 'packedbubble',
-              height: '60%'
-          },
-          title: {
-              text: 'Peso y altura de algunos personajes de StarWars'
-          },
-          tooltip: {
-              useHTML: true,
-              pointFormat: '<b>{point.name}:</b> {point.value}'
-          },
-          plotOptions: {
-              packedbubble: {
-                  minSize: '20%',
-                  maxSize: '100%',
-                  zMin: 0,
-                  zMax: 1000,
-                  layoutAlgorithm: {
-                      splitSeries: false,
-                      gravitationalConstant: 0.02
-                  },
-                  dataLabels: {
-                      enabled: true,
-                      format: '{point.name}',
-                      filter: {
-                          property: 'y',
-                          operator: '>',
-                          value: 250
-                      },
-                      style: {
-                          color: 'black',
-                          textOutline: 'none',
-                          fontWeight: 'normal'
-                      }
-                  }
-              }
-          },
-          series: dataTotal
-      });
+          Highcharts.chart('container', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: 0,
+        plotShadow: false
+    },
+    title: {
+        text: 'Browser<br>shares<br>2017',
+        align: 'center',
+        verticalAlign: 'middle',
+        y: 60
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    accessibility: {
+        point: {
+            valueSuffix: '%'
+        }
+    },
+    plotOptions: {
+        pie: {
+            dataLabels: {
+                enabled: true,
+                distance: -50,
+                style: {
+                    fontWeight: 'bold',
+                    color: 'white'
+                }
+            },
+            startAngle: -90,
+            endAngle: 90,
+            center: ['50%', '75%'],
+            size: '110%'
+        }
+    },
+    series: [{
+        type: 'pie',
+        name: 'Browser share',
+        innerSize: '50%',
+        data: dataStarWars
+    }]
+});
   }
   loadGraph();
 </script>
