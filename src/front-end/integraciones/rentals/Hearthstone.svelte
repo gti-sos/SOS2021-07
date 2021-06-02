@@ -62,7 +62,7 @@ Plotly.newPlot('myDiv', data, layout);
         <NavLink href="/"><Button color="primary">Página Inicial</Button></NavLink>
       </NavItem>
       <NavItem>
-        <NavLink href="/#/rentals"><Button color="primary">Datos</Button></NavLink>
+        <NavLink href="/#/integrations"><Button color="primary">Volver</Button></NavLink>
       </NavItem>
   </Nav>
   

@@ -1,6 +1,6 @@
 <script>
-    import {pop} from "svelte-spa-router";
-  import Button from "sveltestrap/src/Button.svelte";
+    import { onMount } from "svelte";
+import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
 
   async function loadGraph() {
       const resDataStarWars = await fetch("https://swapi.dev/api/people/?page=1");
@@ -18,24 +18,9 @@
           };
           return res;
       });
-      let dataStarWars2 = starwar2.map((d) => {
-          let res = {
-              name: d.name,
-              value: parseInt(d["mass"])
-          };
-          return res;
-      });
-      let dataTotal =
-          [
-              {
-                  name: "Altura de algunos personajes de StarWars",
-                  data: dataStarWars
-              },
-              {
-                  name: "Peso de algunos personajes de StarWars",
-                  data: dataStarWars2
-              }
-          ];
+      console.log(dataStarWars);
+     
+      
           Highcharts.chart('container', {
     chart: {
         plotBackgroundColor: null,
@@ -43,17 +28,18 @@
         plotShadow: false
     },
     title: {
-        text: 'Browser<br>shares<br>2017',
+        text: 'Altura<br>Personajes<br>StarWars',
         align: 'center',
         verticalAlign: 'middle',
         y: 60
     },
     tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} cm</b></td></tr>',
     },
     accessibility: {
         point: {
-            valueSuffix: '%'
+            valueSuffix: 'cm'
         }
     },
     plotOptions: {
@@ -74,7 +60,7 @@
     },
     series: [{
         type: 'pie',
-        name: 'Browser share',
+        name: 'Altura',
         innerSize: '50%',
         data: dataStarWars
     }]
@@ -94,10 +80,15 @@
   <figure class="highcharts-figure">
       <div id="container"></div>
       <p class="highcharts-description">
-          Peso y altura personajes starWars.
+          Peso personajes starWars.
       </p>
   </figure>
-  <div style="text-align:center;padding-bottom: 3%;">
-      <Button outline align = "center" color="secondary" on:click="{pop}">Volver</Button>
-      </div>
+  <Nav>
+    <NavItem>
+      <NavLink href="/"><Button color="primary">Página Inicial</Button></NavLink>
+    </NavItem>
+    <NavItem>
+      <NavLink href="/#/integrations"><Button color="primary">Volver</Button></NavLink>
+    </NavItem>
+</Nav>
 </main>

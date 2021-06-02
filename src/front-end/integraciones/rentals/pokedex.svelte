@@ -213,10 +213,10 @@ import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
         type: 'column'
     },
     title: {
-        text: 'Monthly Average Rainfall'
+        text: 'Cantidad de pokemon por su region'
     },
     subtitle: {
-        text: 'Source: WorldClimate.com'
+        text: 'Muestra los pokemon que contiene la pokedex de cada region'
     },
     xAxis: {
         categories: [
@@ -229,13 +229,13 @@ import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
     yAxis: {
         min: 0,
         title: {
-            text: 'Rainfall (mm)'
+            text: 'Cantidad'
         }
     },
     tooltip: {
         headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
         pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+            '<td style="padding:0"><b>{point.y:.1f} Pokemons</b></td></tr>',
         footerFormat: '</table>',
         shared: true,
         useHTML: true

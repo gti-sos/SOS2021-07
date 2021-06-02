@@ -1,6 +1,6 @@
 <script>
-    import {pop} from "svelte-spa-router";
-    import Button from "sveltestrap/src/Button.svelte";
+    import { onMount } from "svelte";
+    import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
     let Data = [];
     let Coins = [];
     let myData =[];
@@ -14,10 +14,10 @@
 	}
 });
 
-        const resDataHappiness_rate = await fetch("/api/v1/rentals");
-        let Happy = await resDataHappiness_rate.json();
+        const resRentals = await fetch("/api/v1/rentals");
+        let Rental = await resRentals.json();
         
-        let DataRental = Happy.map((x) => {
+        let DataRental = Rental.map((x) => {
             let res = {
                 name: x.province + " - " + x.year,
                 value: x["salary"]
@@ -39,7 +39,7 @@
         let dataTotal =
             [
                 {
-                    name: "Ranking de Felicidad",
+                    name: "Salario %",
                     data: DataRental
                 },
                 {
@@ -53,7 +53,7 @@
                 height: '40%'
             },
             title: {
-                text: 'Relación entre el número de mercados en la que se usa la criptomoneda y el Ranking de Felicidad'
+                text: 'Relación entre el número de mercados en la que se usa la criptomoneda y el salario de las provincias de españa'
             },
             tooltip: {
                 useHTML: true,
@@ -101,12 +101,17 @@
 
     <figure class="highcharts-figure">
         <div id="container"></div>
-        <p class="highcharts-description" align = "center">
-            Gráfica que muestra el ranking de felicidad y el número de mercados en la que se usa la criptomoneda.
-        </p>
+        
     </figure>
     <div style="text-align:center;padding-bottom: 3%;">
-    <Button outline align = "center" color="secondary" on:click="{pop}">Volver</Button>
+        <Nav>
+            <NavItem>
+              <NavLink href="/"><Button color="primary">Página Inicial</Button></NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/#/integrations"><Button color="primary">Volver</Button></NavLink>
+            </NavItem>
+        </Nav>
     </div>
 
 </main>

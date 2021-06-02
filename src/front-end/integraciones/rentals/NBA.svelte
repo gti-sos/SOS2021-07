@@ -33,7 +33,7 @@
       
       jugador2 = await resjugador2.json();
 
-      const resjugador3 = await fetch("https://free-nba.p.rapidapi.com/players/3", {
+      const resjugador3 = await fetch("https://free-nba.p.rapidapi.com/players/6", {
           "method": "GET",
           "headers": {
               "x-rapidapi-key": "9b2b2f4d65msh643a2276d42fb51p1e4972jsn8ab58ddd82c9",
@@ -93,7 +93,7 @@
         
         
         var layout = {
-            title: "Styled Point Cloud",
+            title: "NBA Jugadores por su altura (pulgadas)",
             xaxis: {
                 showgrid: false,
                 showline: true,
@@ -144,7 +144,7 @@
         <NavLink href="/"><Button color="primary">Página Inicial </Button></NavLink>
       </NavItem>
       <NavItem>
-        <NavLink href="/#/rentals"><Button color="primary">Datos</Button></NavLink>
+        <NavLink href="/#/integrations"><Button color="primary">Volver</Button></NavLink>
       </NavItem>
   </Nav>
   

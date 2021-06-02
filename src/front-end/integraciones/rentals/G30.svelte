@@ -68,13 +68,14 @@
     
 
         Data1.forEach(d => { 
-          console.log(d);
+         
             let province_minus = d.province.toLowerCase(); 
             console.log(province_minus);
             Data.forEach((data) => {     
-              console.log(data);
-                if(data.province==province_minus){
-                  console.log(data.province);
+              
+              
+                if(data.autonomous_community==province_minus){
+                  
                     provincias.push(province_minus);
                     esperanza.push(d["averageLifeExpectancy"]);
                     rental.push(data["rent_variation"]);
@@ -179,7 +180,7 @@
       <NavLink href="/"><Button color="primary">Página Inicial</Button></NavLink>
     </NavItem>
     <NavItem>
-      <NavLink href="/#/rentals"><Button color="primary">Datos</Button></NavLink>
+      <NavLink href="/#/integrations"><Button color="primary">Volver</Button></NavLink>
     </NavItem>
 </Nav>
 

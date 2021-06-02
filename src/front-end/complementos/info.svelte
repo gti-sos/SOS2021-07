@@ -1,6 +1,9 @@
 <script>
 import {
     Button,
+    Nav,
+    NavItem, 
+    NavLink,
     Icon,
     Card,
     CardBody,
@@ -39,6 +42,12 @@ import {
         ><b>Repositorio: </b>http://github.com/gti-sos/SOS2021-07</a
       >
     </Col>
+    <Nav>
+     
+      <NavItem>
+        <NavLink href="/#/integrations"><Button color="primary">Volver</Button></NavLink>
+      </NavItem>
+  </Nav>
   </Container>
 
   <h2>APIs</h2>
