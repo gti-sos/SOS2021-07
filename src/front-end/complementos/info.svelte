@@ -20,6 +20,10 @@ import {
 
 
 <main>
+       
+  <NavItem>
+    <NavLink href="/"><Button color="primary">Volver</Button></NavLink>
+  </NavItem>
   <h1>SOS2021-07</h1>
 
   <h2>Team</h2>
@@ -43,10 +47,7 @@ import {
       >
     </Col>
     <Nav>
-     
-      <NavItem>
-        <NavLink href="/#/integrations"><Button color="primary">Volver</Button></NavLink>
-      </NavItem>
+
   </Nav>
   </Container>
 

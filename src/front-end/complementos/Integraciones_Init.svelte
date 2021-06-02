@@ -20,20 +20,16 @@
     
     
     <main>
-      <h1>SOS2021-07</h1>
-    
-      
-    
-    
-      
-    
-      <h2>Integraciones</h2>
       <Nav>
-     
+
         <NavItem>
-          <NavLink href="/#/integrations"><Button color="primary">Volver</Button></NavLink>
+          <NavLink href="/"><Button color="primary">Volver</Button></NavLink>
         </NavItem>
     </Nav>
+      <h1>SOS2021-07</h1>
+
+      <h2>Integraciones</h2>
+
       <Container>
         
         
