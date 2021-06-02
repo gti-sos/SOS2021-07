@@ -1,6 +1,7 @@
 
 var path = require('path');
 var Datastore = require('nedb');
+const { compose } = require('underscore');
 
 const datafile = path.join(__dirname, 'unemployment.db');
 const db = new Datastore({ filename: datafile, autoload: true });
@@ -62,7 +63,7 @@ module.exports.register = (app) => {
                 "year": 2020,
                 "unemployment_rate": 24.8484,
                 "occupation_variation": 10899.99
-            }, //X
+            },
             {
                 "autonomous_community": "andalucia",
                 "youth_unemployment_rate": 52.1912,
@@ -160,7 +161,7 @@ module.exports.register = (app) => {
                 "occupation_variation": 1199.99
             },
             {
-                "autonomous_community": "asturias", 
+                "autonomous_community": "asturias",
                 "youth_unemployment_rate": 37.5000,
                 "province": "asturias",
                 "year": 2020,
@@ -168,7 +169,7 @@ module.exports.register = (app) => {
                 "occupation_variation": -300.01
             },
             {
-                "autonomous_community": "la rioja", 
+                "autonomous_community": "la rioja",
                 "youth_unemployment_rate": 29.5454,
                 "province": "la rioja",
                 "year": 2020,
@@ -176,7 +177,7 @@ module.exports.register = (app) => {
                 "occupation_variation": -4199.99
             },
             {
-                "autonomous_community": "navarra", 
+                "autonomous_community": "navarra",
                 "youth_unemployment_rate": 31.7460,
                 "province": "navarra",
                 "year": 2020,
@@ -184,7 +185,7 @@ module.exports.register = (app) => {
                 "occupation_variation": -699.98
             },
             {
-                "autonomous_community": "pais vasco", 
+                "autonomous_community": "pais vasco",
                 "youth_unemployment_rate": 39.0384,
                 "province": "vizcaya",
                 "year": 2020,
@@ -192,7 +193,7 @@ module.exports.register = (app) => {
                 "occupation_variation": -11500
             },
             {
-                "autonomous_community": "pais vasco", 
+                "autonomous_community": "pais vasco",
                 "youth_unemployment_rate": 39.0384,
                 "province": "guipuzcoa",
                 "year": 2020,
@@ -200,7 +201,7 @@ module.exports.register = (app) => {
                 "occupation_variation": 7299.98
             },
             {
-                "autonomous_community": "pais vasco", 
+                "autonomous_community": "pais vasco",
                 "youth_unemployment_rate": 39.0384,
                 "province": "alava",
                 "year": 2020,
@@ -208,7 +209,7 @@ module.exports.register = (app) => {
                 "occupation_variation": 99.99
             },
             {
-                "autonomous_community": "galicia", 
+                "autonomous_community": "galicia",
                 "youth_unemployment_rate": 37.1158,
                 "province": "a coruña",
                 "year": 2020,
@@ -216,7 +217,7 @@ module.exports.register = (app) => {
                 "occupation_variation": -11500
             },
             {
-                "autonomous_community": "galicia", 
+                "autonomous_community": "galicia",
                 "youth_unemployment_rate": 37.1158,
                 "province": "lugo",
                 "year": 2020,
@@ -224,7 +225,7 @@ module.exports.register = (app) => {
                 "occupation_variation": -300
             },
             {
-                "autonomous_community": "galicia", 
+                "autonomous_community": "galicia",
                 "youth_unemployment_rate": 37.1158,
                 "province": "potevedra",
                 "year": 2020,
@@ -232,7 +233,7 @@ module.exports.register = (app) => {
                 "occupation_variation": -9200.01
             },
             {
-                "autonomous_community": "galicia", 
+                "autonomous_community": "galicia",
                 "youth_unemployment_rate": 37.1158,
                 "province": "ourense",
                 "year": 2020,
@@ -240,7 +241,7 @@ module.exports.register = (app) => {
                 "occupation_variation": -299.99
             },
             {
-                "autonomous_community": "ceuta", 
+                "autonomous_community": "ceuta",
                 "youth_unemployment_rate": 70.5882,
                 "province": "ceuta",
                 "year": 2020,
@@ -248,22 +249,18 @@ module.exports.register = (app) => {
                 "occupation_variation": -1600
             },
             {
-                "autonomous_community": "melilla", 
+                "autonomous_community": "melilla",
                 "youth_unemployment_rate": 47.2758,
                 "province": "melilla",
                 "year": 2020,
                 "unemployment_rate": 21.6080,
                 "occupation_variation": -225.03
             }
-        ]; 
+        ];
 
-        if (db.getAllData().length > 0) res.sendStatus(409);
-
-        //evitar que se acumulen datos carga tras carga
-        //db.remove({}, { multi: true }, function (err, numRemoved) { });
-
-        //carga de datos
-        else {
+        if (db.getAllData().length > 0) {
+            res.sendStatus(409);
+        } else {
             db.insert(unemployment_initial);
             res.sendStatus(201);
         }
@@ -300,65 +297,67 @@ module.exports.register = (app) => {
             delete query.limit;
         }
 
-        db.find(query).skip(offset).limit(limit).exec((error, data) => {
-            if (error) {
-                console.error("ERROR accesing DB in GET" + error);
-                res.sendStatus(500);
-            }
-            else {
-                if (data.length == 0) {
-                    console.error("No data found");
-                    res.send(JSON.stringify(data, null, 2));
+        if (query.occupation_variation || query.youth_unemployment_rate || query.unemployment_rate) {
+            console.log("Busque únicamente por comunidad provincia y/o año.");
+            res.sendStatus(400);
+        } else {
+            db.find(query).skip(offset).limit(limit).exec((error, data) => {
+                if (error) {
+                    console.error("ERROR accesing DB in GET" + error);
+                    res.sendStatus(500);
                 }
-                else {
+                else if (data.length == 0) {
+                    console.error("No data found");
+                    res.sendStatus(404);
+                } else {
                     data.forEach(x => { delete x._id; });
                     res.status(200).send(JSON.stringify(data, null, 2));
                     console.log("GET resource:" + JSON.stringify(data, null, 2));
                 }
-            }
-        });
+            });
+        }
     });
-
-    //Get al recurso /:autonomous_community
-    app.get(UNEMPLOYMENT_API_PATH + "/unemployment/:autonomous_community", (req, res) => {
-        var params = req.params;
-
-        db.find({ autonomous_community: params.autonomous_community }, (error, data) => {
-            if (error) {
-                console.error("ERROR accesing DB in GET");
-                res.sendStatus(500);
-            } else {
-                if (data.length == 0) {
-                    console.error("No data found");
-                    res.sendStatus(404);
+    /*
+        //Get al recurso /:autonomous_community
+        app.get(UNEMPLOYMENT_API_PATH + "/unemployment/:autonomous_community", (req, res) => {
+            var params = req.params;
+     
+            db.find({ autonomous_community: params.autonomous_community }, (error, data) => {
+                if (error) {
+                    console.error("ERROR accesing DB in GET");
+                    res.sendStatus(500);
                 } else {
-                    delete data[0]._id;
-                    res.send(JSON.stringify(data[0], null, 2));
+                    if (data.length == 0) {
+                        console.error("No data found");
+                        res.sendStatus(404);
+                    } else {
+                        delete data[0]._id;
+                        res.send(JSON.stringify(data[0], null, 2));
+                    }
                 }
-            }
+            });
         });
-    });
-
-    //Get al recurso /:autonomous_community/:province/:year
-    app.get(UNEMPLOYMENT_API_PATH + "/unemployment/:autonomous_community/:province/:year", (req, res) => {
-        var params = req.params;
-
-        db.find({ autonomous_community: params.autonomous_community, province: params.province, year: parseInt(params.year) }, (error, data) => {
-            if (error) {
-                console.error("ERROR accesing DB in GET");
-                res.sendStatus(500);
-            } else {
-                if (data.length == 0) {
-                    console.error("No data found");
-                    res.sendStatus(404);
+     */
+        //Get al recurso /:autonomous_community/:province/:year
+        app.get(UNEMPLOYMENT_API_PATH + "/unemployment/:autonomous_community/:province/:year", (req, res) => {
+            var params = req.params;
+     
+            db.find({ autonomous_community: params.autonomous_community, province: params.province, year: parseInt(params.year) }, (error, data) => {
+                if (error) {
+                    console.error("ERROR accesing DB in GET");
+                    res.sendStatus(500);
                 } else {
-                    delete data[0]._id;
-                    res.send(JSON.stringify(data[0], null, 2));
+                    if (data.length == 0) {
+                        console.error("No data found");
+                        res.sendStatus(404);
+                    } else {
+                        delete data[0]._id;
+                        res.send(JSON.stringify(data[0], null, 2));
+                    }
                 }
-            }
+            });
         });
-    });
-
+    
     //Post a la lista de recursos unemployment
     app.post(UNEMPLOYMENT_API_PATH + "/unemployment", (req, res) => {
         var newData = req.body;
@@ -372,8 +371,9 @@ module.exports.register = (app) => {
                     if (!newData.autonomous_community
                         || !newData.year
                         || !newData.province
-                        || !newData['unemployment_rate']
-                        || !newData['occupation_variation']) {
+                        || !newData.unemployment_rate
+                        || !newData.occupation_variation
+                        || !newData.youth_unemployment_rate) {
                         res.sendStatus(400);
                     } else {
                         console.log(`New resource added to the database <${JSON.stringify(newData, null, 2)}>`);
@@ -389,7 +389,7 @@ module.exports.register = (app) => {
 
     //Post al recurso /:autonomous_community => Method Not Allowed
     app.post(UNEMPLOYMENT_API_PATH + "/unemployment/:autonomous_community", (req, res) => {
-        res.sendStatus(405); 
+        res.sendStatus(405);
 
     });
 
@@ -404,7 +404,6 @@ module.exports.register = (app) => {
     });
 
     //Put al recurso /:autonomous_community/:province/:year
-
     app.put(UNEMPLOYMENT_API_PATH + "/unemployment/:autonomous_community/:province/:year", (req, res) => {
         var params = req.params;
         var newData = req.body;
@@ -412,14 +411,14 @@ module.exports.register = (app) => {
         if (!newData.autonomous_community
             || !newData.year
             || !newData.province
-            || !newData['unemployment_rate']
-            || !newData['occupation_variation']) {
+            || !newData.unemployment_rate
+            || !newData.occupation_variation) {
             console.log("Data is missing or incorrect.");
             return res.sendStatus(400);
         } else {
             db.update({ "autonomous_community": params.autonomous_community, "province": params.province, "year": parseInt(params.year) }, newData, (error, data) => {
                 if (error) {
-                    console.error("ERROR accesing DB in GET" + error);
+                    console.error("ERROR accesing DB in GET " + error);
                     res.sendStatus(500);
                 } else {
                     if (data.length == 0) {

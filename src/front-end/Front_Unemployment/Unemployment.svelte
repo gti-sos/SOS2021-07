@@ -113,6 +113,9 @@
         } else if (res.status === 500) {
           errorMsg = "No se han podido acceder a la base de datos";
           error = 1000;
+        } else if (res.status === 400) {
+          errorMsg = "Búsqueda errónea. Rellene únicamente los campos comunidad autónoma, provincia y/o año.";
+          error = 1006;
         }
         okMsg = "";
         console.log("ERROR!" + errorMsg);
@@ -254,13 +257,14 @@
         errorMsg = "";
         error = 0;
       } else {
-        if(res.status===404){
-          errorMsg = "No se encuentra el dato a insertar";
-          error = 404;
+        if(res.status===400){
+          errorMsg = "Inserción incompleta.";
+          error = 400;
         }else if(res.status ===500){
           errorMsg = "No se han podido acceder a la base de datos";
         }
         else if(res.status == 409){
+          errorMsg = "Conflicto de carga.";
           error = 409;
         }    
         okMsg = "";
@@ -271,6 +275,7 @@
 
   onMount(getStats);
   getNumTotal();
+
 </script>
 
 <main>
@@ -322,46 +327,58 @@
   <!-- Alerts -->
     {#if error === 0}
       <UncontrolledAlert  color="success" >
-          Operación realizada correctamente.
-        
+        Operación realizada correctamente.
       </UncontrolledAlert>
     {/if}
 
     {#if error === 409}
       <UncontrolledAlert  color="warning" >
-          Los datos ya se encuentran cargados.
-        
+        El dato o los datos a cargar ya existen en la base de datos.
       </UncontrolledAlert>
+
     {:else if error === 404}
-      <UncontrolledAlert  color="danger">
-          No se encuentra en la base de datos.
-        
+      <UncontrolledAlert  color="warning">
+        No se encuentra en la base de datos.
       </UncontrolledAlert>
+
     {:else if error ===1000}
       <UncontrolledAlert  color="danger" >
-       Error desconocido.
+        Error desconocido.
       </UncontrolledAlert>
 
     {:else if error ===1005}
       <UncontrolledAlert  color="danger" >
-       Búsqueda vacía.
+        Búsqueda vacía. Por favor, rellene los campos comunidad autónoma, provincia y/o año.
+      </UncontrolledAlert>
+
+    {:else if error ===1006}
+      <UncontrolledAlert  color="danger" >
+        Búsqueda errónea. Por favor, rellene únicamente los campos comunidad autónoma, provincia y/o año.
+      </UncontrolledAlert>
+
+    {:else if error ===400}
+      <UncontrolledAlert  color="danger" >
+        Inserción errónea. Por favor, rellene todos los campos.
       </UncontrolledAlert>
     {/if}
   
 <!-- Table -->
   {#if unemploymentData.length === 0}
     <p>No se han encontrado datos, por favor carga los datos iniciales o inserte uno usted mismo/a.</p>
+
     <Table borderer>
+    
       <thead>
         <tr>
-          <th>Comunidad Autónoma </th>
-          <th>Tasa de desempleo juvenil </th>
-          <th>Provincia </th>
-          <th>Año </th>
-          <th>Tasa de desempleo </th>
-          <th>Variación de ocupación </th>
+          <th>Comunidad autónoma</th>
+          <th>Tasa de desempleo juvenil</th>
+          <th>Provincia</th>
+          <th>Año</th>
+          <th>Tasa de desempleo</th>
+          <th>Variación de ocupación</th>
         </tr>
       </thead>
+
       <tbody>
         <tr>
         <td
@@ -369,23 +386,26 @@
             type="text"
             placeholder="andalucia"
             bind:value={newData.autonomous_community}
-          /></td
-        >
-        <td
-          ><input
+          />
+        </td>
+
+        <td>
+          <input
             type="number"
             placeholder="52.1912"
             min="1"
             bind:value={newData["youth_unemployment_rate"]}
-          /></td
-        >
-        <td
-          ><input
+          />
+        </td>
+
+        <td>
+          <input
             type="text"
             placeholder="malaga"
             bind:value={newData.province}
-          /></td
-        >
+          />
+        </td>
+
         <td
           ><input
             type="number"
@@ -451,34 +471,36 @@
             bind:value={newData.province}
           /></td
         >
-        <td
-          ><input
+        <td>
+          <input
             type="number"
             placeholder="2020"
             min="1900"
             bind:value={newData.year}
-          /></td
-        >
-        <td
-          ><input
+          />
+        </td>
+
+        <td>
+          <input
             type="number"
             placeholder="19.3225"
             min="1"
             bind:value={newData["unemployment_rate"]}
-          /></td
-        >
-        <td
-          ><input
+          />
+        </td>
+
+        <td>
+          <input
             type="number"
             placeholder="32.79998"
             min="1.0"
             bind:value={newData["occupation_variation"]}
-          /></td
-        >   
-        <td><Button color="primary" on:click={insertStat}>Insertar</Button></td>
-        <td>
-          <Button color="secondary" on:click={searchStat}>Buscar</Button>
+          />
         </td>
+
+        <td> <Button color="primary" on:click={insertStat}>Insertar</Button> </td>
+        <td> <Button color="secondary" on:click={searchStat}>Buscar</Button> </td>
+
       </tr>
       
         {#each unemploymentData as stat}
