@@ -46,7 +46,7 @@
         var data = [trace1, trace2];
 
         var layout = {
-            title: "Styled Point Cloud",
+            title: "Integracion G04",
             xaxis: {
                 showgrid: false,
                 showline: true,
@@ -100,7 +100,7 @@
         <NavLink href="/"><Button color="primary">Página Inicial</Button></NavLink>
       </NavItem>
       <NavItem>
-        <NavLink href="/#/rentals"><Button color="primary">Datos</Button></NavLink>
+        <NavLink href="/#/integrations"><Button color="primary">Volver</Button></NavLink>
       </NavItem>
   </Nav>
   

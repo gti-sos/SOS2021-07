@@ -18,24 +18,9 @@
           };
           return res;
       });
-      let dataStarWars2 = starwar2.map((d) => {
-          let res = {
-              name: d.name,
-              value: parseInt(d["mass"])
-          };
-          return res;
-      });
-      let dataTotal =
-          [
-              {
-                  name: "Altura de algunos personajes de StarWars",
-                  data: dataStarWars
-              },
-              {
-                  name: "Peso de algunos personajes de StarWars",
-                  data: dataStarWars2
-              }
-          ];
+      console.log(dataStarWars);
+     
+      
           Highcharts.chart('container', {
     chart: {
         plotBackgroundColor: null,
@@ -43,17 +28,17 @@
         plotShadow: false
     },
     title: {
-        text: 'Browser<br>shares<br>2017',
+        text: 'Altura<br>Personajes<br>StarWars',
         align: 'center',
         verticalAlign: 'middle',
         y: 60
     },
     tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        pointFormat: '{series.name}: <b>cm</b>'
     },
     accessibility: {
         point: {
-            valueSuffix: '%'
+            valueSuffix: 'cm'
         }
     },
     plotOptions: {
@@ -74,7 +59,7 @@
     },
     series: [{
         type: 'pie',
-        name: 'Browser share',
+        name: 'Altura',
         innerSize: '50%',
         data: dataStarWars
     }]
@@ -94,7 +79,7 @@
   <figure class="highcharts-figure">
       <div id="container"></div>
       <p class="highcharts-description">
-          Peso y altura personajes starWars.
+          Peso personajes starWars.
       </p>
   </figure>
   <div style="text-align:center;padding-bottom: 3%;">

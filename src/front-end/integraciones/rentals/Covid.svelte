@@ -1,6 +1,6 @@
 <script>
-	import {pop} from "svelte-spa-router";
-    import Button from "sveltestrap/src/Button.svelte";
+	import { onMount } from "svelte";
+    import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
 	async function loadGraph(){
 
 
@@ -56,7 +56,7 @@
                 'recovered',
 
             ],
-            plotBands: [{ // visualize the weekend
+            plotBands: [{ 
                 from: 4.5,
                 to: 6.5,
                 color: 'rgba(68, 170, 213, .2)'
@@ -94,10 +94,15 @@
 <main>
     <figure class="highcharts-figure">
         <div id="container"></div>
-        <p class="highcharts-description">
-            Muertes y recuperaciones a causa del covid-19
-        </p>
-        <Button outline color="secondary" on:click="{pop}"> <i class="fas fa-arrow-circle-left"></i> Atrás </Button>
+        
+        <Nav>
+            <NavItem>
+              <NavLink href="/"><Button color="primary">Página Inicial</Button></NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/#/integrations"><Button color="primary">Volver</Button></NavLink>
+            </NavItem>
+        </Nav>
     </figure>
 </main>
 
