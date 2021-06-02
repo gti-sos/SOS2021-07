@@ -19,8 +19,8 @@
         let HearthstoneData = await resDataHearthstone.json();
 
         HearthstoneData.map((x) => { 
-                v.push(x.name);
-                l.push(parseInt(x["attack"]));
+                l.push(x.name);
+                v.push(parseInt(x["attack"]));
         });
 
         console.log(v);
