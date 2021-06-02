@@ -1,13 +1,13 @@
 
 
 <script>
-    import {pop} from "svelte-spa-router";
-  import Button from "sveltestrap/src/Button.svelte";
+   import { onMount } from "svelte";
+    import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
     var jugador1=[];
     var jugador2=[];
     var jugador3=[];
     var jugador4=[];
-    var jugador5=[];
+    
 
   async function loadGraph() {
      
@@ -83,79 +83,47 @@
    console.log(altura);
 
       
+   var trace1 = {
+  x: name,
+  y: altura,
+  fill: 'tozeroy',
+  type: 'scatter'
+};
+var layout = {
+            title: 'Basic Overlaid Area Chart'
+        };
 
 
-   Highcharts.chart('container', {
-    chart: {
-        type: 'areaspline'
-    },
-    title: {
-        text: 'Average fruit consumption during one week'
-    },
-    legend: {
-        layout: 'vertical',
-        align: 'left',
-        verticalAlign: 'top',
-        x: 150,
-        y: 100,
-        floating: true,
-        borderWidth: 1,
-        backgroundColor:
-            Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF'
-    },
-    xAxis: {
-        categories: [
-            name[0],
-            name[1],
-            name[2],
-            name[3]
-        ],
-        plotBands: [{ // visualize the weekend
-            from: 4.5,
-            to: 6.5,
-            color: 'rgba(68, 170, 213, .2)'
-        }]
-    },
-    yAxis: {
-        title: {
-            text: 'Fruit units'
-        }
-    },
-    tooltip: {
-        shared: true,
-        valueSuffix: ' units'
-    },
-    credits: {
-        enabled: false
-    },
-    plotOptions: {
-        areaspline: {
-            fillOpacity: 0.5
-        }
-    },
-    series: [ {
-        name: 'Jugadores NBA',
-        data: altura
-    }]
-});}
+
+var data = [trace1];
+
+Plotly.newPlot('myDiv', data, layout);
+
+   
+
+}
   loadGraph();
 </script>
 
 <svelte:head>
 
-  <script src="https://code.highcharts.com/highcharts.js" on:load={loadGraph}></script>
-  <script src="https://code.highcharts.com/highcharts-more.js" on:load={loadGraph}></script>
-  <script src="https://code.highcharts.com/modules/exporting.js" on:load={loadGraph}></script>
-  <script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadGraph}></script>
+    <script src='https://cdn.plot.ly/plotly-1.58.4.min.js' on:load={loadChart}></script>
 
 </svelte:head>
 
 <main>
 
-  <figure class="highcharts-figure">
-      <div id="container"></div>
-  </figure>
-  <div style="text-align:center;padding-bottom: 3%;">
-      <Button outline align = "center" color="secondary" on:click="{pop}"> Volver</Button>
-      </div>
+    <h2 style="text-align: center;"> <i class="fas fa-car"></i> Jugadores NBA</h2>
+  
+    <Nav>
+      <NavItem>
+        <NavLink href="/"><Button color="primary">Página Inicial</Button></NavLink>
+      </NavItem>
+      <NavItem>
+        <NavLink href="/#/rentals"><Button color="primary">Datos</Button></NavLink>
+      </NavItem>
+  </Nav>
+  
+    <div id='myDiv'>
+    <p>Altura de jugadores de la NBA</p>
 </main>
