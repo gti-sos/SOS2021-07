@@ -30,7 +30,7 @@
         
         
         var trace1 = {
-        x: x,
+        x: "",
         y: y,
         name: '% salario',
         type: 'bar'
