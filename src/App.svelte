@@ -22,7 +22,8 @@
 	import Buy_sell_IP from "./front-end/Front_Buy_sell/Buy_sell_IP.svelte";
 	import Rentals_Graphic from "./front-end/Front_Rentals/graficos.svelte";
 	import Rentals_Graphic2 from "./front-end/Front_Rentals/graficos3.svelte";
-	import Unemployment_Chart from "./front-end/Front_Unemployment/Unemployment_Chart.svelte";
+	import Unemployment_HighChart from "./front-end/Front_Unemployment/Unemployment_HighChart.svelte";
+	import Unemployment_RGraph from "./front-end/Front_Unemployment/Unemployment_RGraph.svelte";
 	import Info from "./front-end/complementos/info.svelte";
 	import Integracion_G27_Tristan from "./front-end/integraciones/rentals/G27.svelte";
 	import IntegracionExt_Educacion from "./front-end/integraciones/rentals/Ext1_educacion.svelte";
@@ -68,7 +69,8 @@
 		"/buy_sell/IP":Buy_sell_IP,
 		"/rentals/rentals_graphic":Rentals_Graphic,
 		"/rentals/rentals_graphic2":Rentals_Graphic2,
-		"/unemployment/unemployment_graphic":Unemployment_Chart,
+		"/unemployment/unemployment_highchart_graphic":Unemployment_HighChart,
+		"/unemployment/unemployment_rgraph_graphic":Unemployment_RGraph,
 		'*': NotFound};
 </script>
 

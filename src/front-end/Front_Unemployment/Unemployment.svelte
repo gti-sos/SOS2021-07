@@ -287,7 +287,15 @@
     </NavItem>
 
     <NavItem>
-      <NavLink href="/#/unemployment/unemployment_graphic"><Button color="primary">Gráfico</Button></NavLink>
+      <NavLink href="/#/unemployment/unemployment_highchart_graphic"><Button color="primary">Gráfico HighChart</Button></NavLink>
+    </NavItem>
+
+    <NavItem>
+      <NavLink href="/#/unemployment/unemployment_rgraph_graphic"><Button color="primary">Gráfico RGraph</Button></NavLink>
+    </NavItem>
+
+    <NavItem>
+      <NavLink href="/#/unemployment/unemployment_graphic"><Button color="primary">Integraciones</Button></NavLink>
     </NavItem>
 
     <NavItem>
