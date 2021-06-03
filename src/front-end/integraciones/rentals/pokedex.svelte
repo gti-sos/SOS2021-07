@@ -218,7 +218,7 @@ import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
           {
             label: "Pokemons",
             data: [numberK,numberJ,numberH],
-            backgroundColor: ["rgb(240, 102, 2)", "rgb(123, 218, 137)","rgb(73, 128, 37)"],
+            backgroundColor: ["rgb(240, 102, 2)", "rgb(123, 217, 137)","rgb(73, 128, 37)"],
             
           },
         ],
