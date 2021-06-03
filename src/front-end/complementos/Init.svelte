@@ -22,27 +22,27 @@ import {
   <h2>Team</h2>
   <Container>
     <Col>
-      <a href="https://github.com/frankys99">Francisco Miguel Tristán Clavijo<p> -- </p></a>
+      <a href="https://github.com/frankys99">Francisco Miguel Tristán Clavijo</a>
       
-      <a href="https://github.com/frankys99">Video</a>
     </Col>
+    <Col><a href="https://github.com/frankys99">Video de Francisco Miguel Tristán Clavijo</a></Col>
     <Col>
-		  <a href="https://github.com/RoundPegInASquareHole">Alejandro Pariente Migoya<p> -- </p></a>
-      
-      <a href="https://github.com/RoundPegInASquareHole">Video</a>
+		  <a href="https://github.com/RoundPegInASquareHole">Alejandro Pariente Migoya</a>
+     
 		</Col>
+    <Col><a href="https://github.com/RoundPegInASquareHole">Video deAlejandro Pariente Migoya</a></Col>
 		<Col>
-		  <a href="https://github.com/nuresctor">Nuria Escamilla Torres<p> -- </p></a>
-      
-      <a href="https://github.com/nuresctor">Video</a>
+		  <a href="https://github.com/nuresctor">Nuria Escamilla Torres</a>
+
 		</Col>
+    <Col><a href="https://github.com/nuresctor">Video de Nuria Escamilla Torres</a></Col>
 
     <a href="http://sos2021-07.herokuapp.com/index_static_old.html"><Button color="info">Inicio Antiguo</Button></a>
     <a href="/#/info"><Button color="info">Información</Button></a>
     <a href="/#/analytics"><Button color="info">Analytics</Button></a>
     <a href="/#/integrations"><Button color="info">Integraciones</Button></a>
     <a href="/#/about"><Button color="info">Acerca de</Button></a>
-    
+
 	  </Container>
 
     <h2>Descripción del proyecto</h2>
