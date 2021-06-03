@@ -1,120 +1,16 @@
-{"autonomous_community":"castilla y león","province":"salamanca","year":2018,"rent":468,"rent_variation":2.2,"meter":91,"salary":24,"_id":"CWvaunPjZLi9nfQ5"}
-{"autonomous_community":"andalucía","province":"sevilla","year":2018,"rent":560.5,"rent_variation":4,"meter":94.6,"salary":29,"_id":"ZOuUIe80FwIMoksi"}
-{"autonomous_community":"cataluña","province":"barcelona","year":2018,"rent":696,"rent_variation":6,"meter":96.8,"salary":49,"_id":"SfXU6ZDPqcifnGwE"}
-{"autonomous_community":"comunidad de madrid","province":"madrid","year":2020,"rent":848,"rent_variation":3.7,"meter":71,"salary":55.7,"_id":"9Q2qneXeqGJziKHP"}
-{"$$deleted":true,"_id":"9Q2qneXeqGJziKHP"}
-{"$$deleted":true,"_id":"CWvaunPjZLi9nfQ5"}
-{"$$deleted":true,"_id":"SfXU6ZDPqcifnGwE"}
-{"$$deleted":true,"_id":"ZOuUIe80FwIMoksi"}
-{"autonomous_community":"castilla y león","province":"salamanca","year":2018,"rent":468,"rent_variation":2.2,"meter":91,"salary":24,"_id":"0AyLrt5MoInJdTPV"}
-{"autonomous_community":"andalucía","province":"sevilla","year":2018,"rent":560.5,"rent_variation":4,"meter":94.6,"salary":29,"_id":"mpUVGV5Mg1gZOObw"}
-{"autonomous_community":"cataluña","province":"barcelona","year":2018,"rent":696,"rent_variation":6,"meter":96.8,"salary":49,"_id":"JKwN6tXJxfRZbqcS"}
-{"autonomous_community":"comunidad de madrid","province":"madrid","year":2020,"rent":848,"rent_variation":3.7,"meter":71,"salary":55.7,"_id":"RcgHtcGNtdIVXOFK"}
-{"$$deleted":true,"_id":"0AyLrt5MoInJdTPV"}
-{"$$deleted":true,"_id":"JKwN6tXJxfRZbqcS"}
-{"$$deleted":true,"_id":"RcgHtcGNtdIVXOFK"}
-{"$$deleted":true,"_id":"mpUVGV5Mg1gZOObw"}
-{"autonomous_community":"castilla y león","province":"salamanca","year":2018,"rent":468,"rent_variation":2.2,"meter":91,"salary":24,"_id":"EQ4CahTzUi1XYgrK"}
-{"autonomous_community":"andalucía","province":"sevilla","year":2018,"rent":560.5,"rent_variation":4,"meter":94.6,"salary":29,"_id":"fTW8v0gbEx2PeZ2Z"}
-{"autonomous_community":"cataluña","province":"barcelona","year":2018,"rent":696,"rent_variation":6,"meter":96.8,"salary":49,"_id":"EjRRGwmeL5eDL0Xg"}
-{"autonomous_community":"comunidad de madrid","province":"madrid","year":2020,"rent":848,"rent_variation":3.7,"meter":71,"salary":55.7,"_id":"xjJc7mW7EgEimcbI"}
-{"autonomous_community":"castilla y león","province":"salamanca","year":2018,"rent":468,"rent_variation":2.2,"meter":91,"salary":24,"_id":"xnCMom1DT7u6CEno"}
-{"autonomous_community":"andalucía","province":"sevilla","year":2018,"rent":560.5,"rent_variation":4,"meter":94.6,"salary":29,"_id":"OYP4cojOd4EL6r7D"}
-{"autonomous_community":"cataluña","province":"barcelona","year":2018,"rent":696,"rent_variation":6,"meter":96.8,"salary":49,"_id":"Nl9gofBcwptoxeuP"}
-{"autonomous_community":"comunidad de madrid","province":"madrid","year":2020,"rent":848,"rent_variation":3.7,"meter":71,"salary":55.7,"_id":"iaDzlDQq962XNxEM"}
-{"$$deleted":true,"_id":"EQ4CahTzUi1XYgrK"}
-{"$$deleted":true,"_id":"EjRRGwmeL5eDL0Xg"}
-{"$$deleted":true,"_id":"Nl9gofBcwptoxeuP"}
-{"$$deleted":true,"_id":"OYP4cojOd4EL6r7D"}
-{"$$deleted":true,"_id":"fTW8v0gbEx2PeZ2Z"}
-{"$$deleted":true,"_id":"iaDzlDQq962XNxEM"}
-{"$$deleted":true,"_id":"xjJc7mW7EgEimcbI"}
-{"$$deleted":true,"_id":"xnCMom1DT7u6CEno"}
-{"autonomous_community":"castilla y león","province":"salamanca","year":2018,"rent":468,"rent_variation":2.2,"meter":91,"salary":24,"_id":"aS9XovgEcnYvLL8J"}
-{"autonomous_community":"andalucía","province":"sevilla","year":2018,"rent":560.5,"rent_variation":4,"meter":94.6,"salary":29,"_id":"63YPU5i80mcNCpcm"}
-{"autonomous_community":"cataluña","province":"barcelona","year":2018,"rent":696,"rent_variation":6,"meter":96.8,"salary":49,"_id":"xbesk8pzy1OM4Mhk"}
-{"autonomous_community":"comunidad de madrid","province":"madrid","year":2020,"rent":848,"rent_variation":3.7,"meter":71,"salary":55.7,"_id":"2As81qVzK0l5rUde"}
-{"autonomous_community":"castilla y león","province":"salamanca","year":2018,"rent":468,"rent_variation":2.2,"meter":91,"salary":24,"_id":"BdfQ218eZWB5w9f6"}
-{"autonomous_community":"andalucía","province":"sevilla","year":2018,"rent":560.5,"rent_variation":4,"meter":94.6,"salary":29,"_id":"tDVcyFRVwlzkfvvn"}
-{"autonomous_community":"cataluña","province":"barcelona","year":2018,"rent":696,"rent_variation":6,"meter":96.8,"salary":49,"_id":"VtadO93bjLDTWSbz"}
-{"autonomous_community":"comunidad de madrid","province":"madrid","year":2020,"rent":848,"rent_variation":3.7,"meter":71,"salary":55.7,"_id":"ohsNX5VR3qPz0Oc2"}
-{"$$deleted":true,"_id":"2As81qVzK0l5rUde"}
-{"$$deleted":true,"_id":"63YPU5i80mcNCpcm"}
-{"$$deleted":true,"_id":"BdfQ218eZWB5w9f6"}
-{"$$deleted":true,"_id":"VtadO93bjLDTWSbz"}
-{"$$deleted":true,"_id":"aS9XovgEcnYvLL8J"}
-{"$$deleted":true,"_id":"ohsNX5VR3qPz0Oc2"}
-{"$$deleted":true,"_id":"tDVcyFRVwlzkfvvn"}
-{"$$deleted":true,"_id":"xbesk8pzy1OM4Mhk"}
-{"autonomous_community":"castilla y león","province":"salamanca","year":2018,"rent":468,"rent_variation":2.2,"meter":91,"salary":24,"_id":"pS5Md3VamNWjPrE0"}
-{"autonomous_community":"andalucía","province":"sevilla","year":2018,"rent":560.5,"rent_variation":4,"meter":94.6,"salary":29,"_id":"sLDsqi2GCUma5G1f"}
-{"autonomous_community":"cataluña","province":"barcelona","year":2018,"rent":696,"rent_variation":6,"meter":96.8,"salary":49,"_id":"Sh1Fx4VtqIAPb8fz"}
-{"autonomous_community":"comunidad de madrid","province":"madrid","year":2020,"rent":848,"rent_variation":3.7,"meter":71,"salary":55.7,"_id":"Hz8AXuUQPp9RQajL"}
-{"$$deleted":true,"_id":"Hz8AXuUQPp9RQajL"}
-{"$$deleted":true,"_id":"Sh1Fx4VtqIAPb8fz"}
-{"$$deleted":true,"_id":"pS5Md3VamNWjPrE0"}
-{"$$deleted":true,"_id":"sLDsqi2GCUma5G1f"}
-{"autonomous_community":"castilla y león","province":"salamanca","year":2018,"rent":468,"rent_variation":2.2,"meter":91,"salary":24,"_id":"lNVlAujVHbjnYqfA"}
-{"autonomous_community":"andalucía","province":"sevilla","year":2018,"rent":560.5,"rent_variation":4,"meter":94.6,"salary":29,"_id":"lNSs1NiLxP39Y4MP"}
-{"autonomous_community":"cataluña","province":"barcelona","year":2018,"rent":696,"rent_variation":6,"meter":96.8,"salary":49,"_id":"WNigqc4F3FWAtw4R"}
-{"autonomous_community":"comunidad de madrid","province":"madrid","year":2020,"rent":848,"rent_variation":3.7,"meter":71,"salary":55.7,"_id":"Q1WlBmZiLctIQwsM"}
-{"$$deleted":true,"_id":"Q1WlBmZiLctIQwsM"}
-{"$$deleted":true,"_id":"WNigqc4F3FWAtw4R"}
-{"$$deleted":true,"_id":"lNSs1NiLxP39Y4MP"}
-{"$$deleted":true,"_id":"lNVlAujVHbjnYqfA"}
-{"autonomous_community":"castilla y león","province":"salamanca","year":2018,"rent":468,"rent_variation":2.2,"meter":91,"salary":24,"_id":"EF4vf7Oc9XgeGnB7"}
-{"autonomous_community":"andalucía","province":"sevilla","year":2018,"rent":560.5,"rent_variation":4,"meter":94.6,"salary":29,"_id":"OZG8PcLFOGqIWYOh"}
-{"autonomous_community":"cataluña","province":"barcelona","year":2018,"rent":696,"rent_variation":6,"meter":96.8,"salary":49,"_id":"WeTWi2o911YN8oJB"}
-{"autonomous_community":"comunidad de madrid","province":"madrid","year":2020,"rent":848,"rent_variation":3.7,"meter":71,"salary":55.7,"_id":"REQZEgaCuV7WD7BQ"}
-{"autonomous_community":"castilla y león","province":"salamanca","year":2018,"rent":468,"rent_variation":2.2,"meter":91,"salary":24,"_id":"YA49pmz8CVCMoszt"}
-{"autonomous_community":"andalucía","province":"sevilla","year":2018,"rent":560.5,"rent_variation":4,"meter":94.6,"salary":29,"_id":"O4M9cqa7s5czRZR5"}
-{"autonomous_community":"cataluña","province":"barcelona","year":2018,"rent":696,"rent_variation":6,"meter":96.8,"salary":49,"_id":"iN821kurW61MtwfN"}
-{"autonomous_community":"comunidad de madrid","province":"madrid","year":2020,"rent":848,"rent_variation":3.7,"meter":71,"salary":55.7,"_id":"wztliNtso0Vm3HmC"}
-{"$$deleted":true,"_id":"EF4vf7Oc9XgeGnB7"}
-{"$$deleted":true,"_id":"O4M9cqa7s5czRZR5"}
-{"$$deleted":true,"_id":"OZG8PcLFOGqIWYOh"}
-{"$$deleted":true,"_id":"REQZEgaCuV7WD7BQ"}
-{"$$deleted":true,"_id":"WeTWi2o911YN8oJB"}
-{"$$deleted":true,"_id":"YA49pmz8CVCMoszt"}
-{"$$deleted":true,"_id":"iN821kurW61MtwfN"}
-{"$$deleted":true,"_id":"wztliNtso0Vm3HmC"}
-{"autonomous_community":"castilla y león","province":"salamanca","year":2018,"rent":468,"rent_variation":2.2,"meter":91,"salary":24,"_id":"xkF4xT6NbIn0vU44"}
-{"autonomous_community":"andalucía","province":"sevilla","year":2018,"rent":560.5,"rent_variation":4,"meter":94.6,"salary":29,"_id":"PkCeBg8WNB9LkXWU"}
-{"autonomous_community":"cataluña","province":"barcelona","year":2018,"rent":696,"rent_variation":6,"meter":96.8,"salary":49,"_id":"4KlMJXDVQTooQVZr"}
-{"autonomous_community":"comunidad de madrid","province":"madrid","year":2020,"rent":848,"rent_variation":3.7,"meter":71,"salary":55.7,"_id":"hqufooTMFZCkkyoE"}
-{"$$deleted":true,"_id":"4KlMJXDVQTooQVZr"}
-{"$$deleted":true,"_id":"PkCeBg8WNB9LkXWU"}
-{"$$deleted":true,"_id":"hqufooTMFZCkkyoE"}
-{"$$deleted":true,"_id":"xkF4xT6NbIn0vU44"}
-{"autonomous_community":"castilla y león","province":"salamanca","year":2018,"rent":468,"rent_variation":2.2,"meter":91,"salary":24,"_id":"tWaP62wTBLChdw7S"}
-{"autonomous_community":"andalucía","province":"sevilla","year":2018,"rent":560.5,"rent_variation":4,"meter":94.6,"salary":29,"_id":"dvknzMqrE0lyhr9E"}
-{"autonomous_community":"cataluña","province":"barcelona","year":2018,"rent":696,"rent_variation":6,"meter":96.8,"salary":49,"_id":"GiVmzLbgNTK0l3Zv"}
-{"autonomous_community":"comunidad de madrid","province":"madrid","year":2020,"rent":848,"rent_variation":3.7,"meter":71,"salary":55.7,"_id":"sgqKExykyhfrlIwJ"}
-{"$$deleted":true,"_id":"GiVmzLbgNTK0l3Zv"}
-{"$$deleted":true,"_id":"dvknzMqrE0lyhr9E"}
-{"$$deleted":true,"_id":"sgqKExykyhfrlIwJ"}
-{"$$deleted":true,"_id":"tWaP62wTBLChdw7S"}
-{"autonomous_community":"castilla y león","province":"salamanca","year":2018,"rent":468,"rent_variation":2.2,"meter":91,"salary":24,"_id":"XRkpIoaNCqYdZINB"}
-{"autonomous_community":"andalucía","province":"sevilla","year":2018,"rent":560.5,"rent_variation":4,"meter":94.6,"salary":29,"_id":"1RrU7fXvKAPMZ6eP"}
-{"autonomous_community":"cataluña","province":"barcelona","year":2018,"rent":696,"rent_variation":6,"meter":96.8,"salary":49,"_id":"huTxnjlLnqdv6KOR"}
-{"autonomous_community":"comunidad de madrid","province":"madrid","year":2020,"rent":848,"rent_variation":3.7,"meter":71,"salary":55.7,"_id":"5jPtgbwbcjRcFwQz"}
-{"autonomous_community":"castilla y león","province":"salamanca","year":2018,"rent":468,"rent_variation":2.2,"meter":91,"salary":24,"_id":"3i1GFl36F40XKWR0"}
-{"autonomous_community":"andalucía","province":"sevilla","year":2018,"rent":560.5,"rent_variation":4,"meter":94.6,"salary":29,"_id":"wFKSBABXFyV2rfJM"}
-{"autonomous_community":"cataluña","province":"barcelona","year":2018,"rent":696,"rent_variation":6,"meter":96.8,"salary":49,"_id":"xdGTUnbor62sJ9qQ"}
-{"autonomous_community":"comunidad de madrid","province":"madrid","year":2020,"rent":848,"rent_variation":3.7,"meter":71,"salary":55.7,"_id":"RrR5dbDwbFU2Arbq"}
-{"autonomous_community":"castilla y león","province":"salamanca","year":2018,"rent":468,"rent_variation":2.2,"meter":91,"salary":24,"_id":"TVDuZKMEy9thYVw1"}
-{"autonomous_community":"andalucía","province":"sevilla","year":2018,"rent":560.5,"rent_variation":4,"meter":94.6,"salary":29,"_id":"tpMNqFvzDVb0hoW6"}
-{"autonomous_community":"cataluña","province":"barcelona","year":2018,"rent":696,"rent_variation":6,"meter":96.8,"salary":49,"_id":"7ThBwKfItw24maDB"}
-{"autonomous_community":"comunidad de madrid","province":"madrid","year":2020,"rent":848,"rent_variation":3.7,"meter":71,"salary":55.7,"_id":"wRKS6vezHt58o3Ie"}
-{"$$deleted":true,"_id":"1RrU7fXvKAPMZ6eP"}
-{"$$deleted":true,"_id":"3i1GFl36F40XKWR0"}
-{"$$deleted":true,"_id":"5jPtgbwbcjRcFwQz"}
-{"$$deleted":true,"_id":"7ThBwKfItw24maDB"}
-{"$$deleted":true,"_id":"RrR5dbDwbFU2Arbq"}
-{"$$deleted":true,"_id":"TVDuZKMEy9thYVw1"}
-{"$$deleted":true,"_id":"XRkpIoaNCqYdZINB"}
-{"$$deleted":true,"_id":"huTxnjlLnqdv6KOR"}
-{"$$deleted":true,"_id":"tpMNqFvzDVb0hoW6"}
-{"$$deleted":true,"_id":"wFKSBABXFyV2rfJM"}
-{"$$deleted":true,"_id":"wRKS6vezHt58o3Ie"}
-{"$$deleted":true,"_id":"xdGTUnbor62sJ9qQ"}
+{"autonomous_community":"castilla y león","province":"salamanca","year":2018,"rent":468,"rent_variation":2.2,"meter":91,"salary":24,"_id":"2xSaGJCRe3sT97s8"}
+{"autonomous_community":"andalucía","province":"sevilla","year":2018,"rent":560.5,"rent_variation":4,"meter":94.6,"salary":29,"_id":"gubYaQ4UdOiNaSSn"}
+{"autonomous_community":"cataluña","province":"barcelona","year":2018,"rent":696,"rent_variation":6,"meter":96.8,"salary":49,"_id":"EDSGoIQnNxiwc4Wl"}
+{"autonomous_community":"comunidad de madrid","province":"madrid","year":2020,"rent":848,"rent_variation":3.7,"meter":71,"salary":55.7,"_id":"fHyoScHETDaNd3EF"}
+{"$$deleted":true,"_id":"2xSaGJCRe3sT97s8"}
+{"$$deleted":true,"_id":"EDSGoIQnNxiwc4Wl"}
+{"$$deleted":true,"_id":"fHyoScHETDaNd3EF"}
+{"$$deleted":true,"_id":"gubYaQ4UdOiNaSSn"}
+{"autonomous_community":"castilla y león","province":"salamanca","year":2018,"rent":468,"rent_variation":2.2,"meter":91,"salary":24,"_id":"Ni2OD2tNym4QgMyi"}
+{"autonomous_community":"andalucía","province":"sevilla","year":2018,"rent":560.5,"rent_variation":4,"meter":94.6,"salary":29,"_id":"ADbs2d6aU8xQYrCC"}
+{"autonomous_community":"cataluña","province":"barcelona","year":2018,"rent":696,"rent_variation":6,"meter":96.8,"salary":49,"_id":"wdb0DHc8YsJwYyfu"}
+{"autonomous_community":"comunidad de madrid","province":"madrid","year":2020,"rent":848,"rent_variation":3.7,"meter":71,"salary":55.7,"_id":"zdb7vUNyoUlweXeT"}
+{"$$deleted":true,"_id":"ADbs2d6aU8xQYrCC"}
+{"$$deleted":true,"_id":"Ni2OD2tNym4QgMyi"}
+{"$$deleted":true,"_id":"wdb0DHc8YsJwYyfu"}
+{"$$deleted":true,"_id":"zdb7vUNyoUlweXeT"}
