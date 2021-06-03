@@ -74,9 +74,7 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
     //click y captura tabla rellena
     
     await page.click("body > main > main > ul > li:nth-child(4) > div > div.modal.show.d-block > div > div > div.modal-footer > button.btn.btn-primary");
-    await page.goto('http://localhost:10000/#/rentals'); //refrescar
-    await page.goto('http://localhost:10000/#/rentals'); //refrescar
-    await page.waitForTimeout(1200);
+
     await page.screenshot({ path: RUTA_RENTALS + "/tabla_cargada.png" });
     //borrar datos
     await page.click("body > main > main > ul > li:nth-child(5) > a > button");
@@ -142,18 +140,18 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
     console.log(">>>> Cargando datos desempleo")
 
     //click interfaz
-    await page.click("body > main > main > div:nth-child(11) > div:nth-child(2) > div > div.card-body > a:nth-child(5)");
+    await page.click("body > main > main > div:nth-child(11) > div:nth-child(2) > div > div.card-body > a:nth-child(5) > button");
     //capturar tabla vacia
     console.log(">>>>>> Capturando tabla vacía")
     await page.screenshot({ path: RUTA_UNEMPLOYMENT + "/tabla-vacia.png" });
     //click cargar datos
-    await page.click("body > main > main > ul > li:nth-child(5) > a > button");
+    await page.click("body > main > main > ul > li:nth-child(4) > a > button");
     //capturar ventana de confirmacion de carga inicial
     console.log(">>>>>> Capturando ventana de confirmación de carga inicial")
     await page.screenshot({ path: RUTA_UNEMPLOYMENT + "/cargar-iniciales.png" });
     //click cargar
     
-    await page.click("body > main > main > ul > li:nth-child(5) > div > div.modal.show.d-block > div > div > div.modal-footer > button.btn.btn-primary");
+    await page.click("body > main > main > ul > li:nth-child(4) > div > div.modal.show.d-block > div > div > div.modal-footer > button.btn.btn-primary");
     //click y captura grafica unemployment
     await page.click("body > main > main > ul > li:nth-child(2) > a > button");
     await page.goto('http://localhost:10000/#/unemployment/unemployment_highchart_graphic'); //refrescar
@@ -272,15 +270,15 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
         //volver a datos
     await page.click("body > main > main > ul > li > a");
     //borrar todo y cargar de nuevo
-    await page.click("body > main > main > ul > li:nth-child(6) > a > button");
+    await page.click("body > main > main > ul > li:nth-child(5) > a > button");
     await page.waitForTimeout(1000);
     await page.screenshot({ path: RUTA_UNEMPLOYMENT + "/borrar-datos-confirmacion.png" });
-    await page.click("body > main > main > ul > li:nth-child(6) > div > div.modal.show.d-block > div > div > div.modal-footer > button.btn.btn-danger");
+    await page.click("body > main > main > ul > li:nth-child(5) > div > div.modal.show.d-block > div > div > div.modal-footer > button.btn.btn-danger");
     await page.waitForTimeout(1000);
     await page.screenshot({ path: RUTA_UNEMPLOYMENT + "/borrar-datos-resultado.png" });
     //cargar datos iniciales de nuevo
-    await page.click("body > main > main > ul > li:nth-child(5) > a > button");
-    await page.click("body > main > main > ul > li:nth-child(5) > div > div.modal.show.d-block > div > div > div.modal-footer > button.btn.btn-primary");
+    await page.click("body > main > main > ul > li:nth-child(4) > a > button");
+    await page.click("body > main > main > ul > li:nth-child(4) > div > div.modal.show.d-block > div > div > div.modal-footer > button.btn.btn-primary");
     //click en volver a inicio
     await page.click("body > main > main > ul > li:nth-child(1) > a");
 
@@ -397,20 +395,26 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
 
 
     //dejar todas las tablas vacias al acabar
-    await page.goto("http://localhost:10000/");
+    
         //borrar rentals
-    await page.click("body > main > main > div:nth-child(11) > div:nth-child(1) > div > div.card-body > a:nth-child(5) > button");
+        console.log(">>>> BORRAR RENTALS.");
+        await page.goto('http://localhost:10000/#/rentals');
     await page.click("body > main > main > ul > li:nth-child(5) > a > button");
+    
     await page.click("body > main > main > ul > li:nth-child(5) > div > div.modal.show.d-block > div > div > div.modal-footer > button.btn.btn-danger");
         //volver
     await page.click("body > main > main > ul > li:nth-child(1) > a > button");
         //borrar unemployment
-    await page.click("body > main > main > div:nth-child(11) > div:nth-child(2) > div > div.card-body > a:nth-child(5)");
+        console.log(">>>> BORRAR unemployment.");
+
+    await page.click("body > main > main > div:nth-child(11) > div:nth-child(2) > div > div.card-body > a:nth-child(5) > button");
     await page.click("body > main > main > ul > li:nth-child(5) > a > button");
     await page.click("body > main > main > ul > li:nth-child(5) > div > div.modal.show.d-block > div > div > div.modal-footer > button.btn.btn-danger");
         //volver
-    await page.click("body > main > main > ul > li:nth-child(1) > a");
+    await page.click("body > main > main > ul > li:nth-child(1) > a > button");
         //borrar buy_sell
+        console.log(">>>> BORRAR buy_sell.");
+
     await page.click("body > main > main > div:nth-child(11) > div:nth-child(3) > div > div.card-body > a:nth-child(4) > button");
     await page.click("body > main > main > div:nth-child(4) > button.btn.btn-danger");
     await page.click("body > main > main > div:nth-child(4) > div > div.modal.show.d-block > div > div > div.modal-footer > button.btn.btn-danger");
