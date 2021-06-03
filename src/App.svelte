@@ -51,7 +51,7 @@
 		"/integrations/Hearthstone":Hearthstone,
 		"/integrations/Covid":Covid19_Tristan,
 		"/integrations/Ext1_educacion":IntegracionExt_Educacion,
-		"/common-graphic":Grafico_Comun,
+		"/analytics":Grafico_Comun,
 		"/rentals": Rentals,
 		"/rentals/:province/:year":RentalsEdit,
 		"/unemployment": Unemployment,

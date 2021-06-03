@@ -33,7 +33,7 @@ import {
 
     <a href="http://sos2021-07.herokuapp.com/index_static_old.html"><Button color="info">Inicio Antiguo</Button></a>
     <a href="/#/info"><Button color="info">Información</Button></a>
-    <a href="/#/common-graphic"><Button color="info">Gráfico Común</Button></a>
+    <a href="/#/analytics"><Button color="info">Analytics</Button></a>
     <a href="/#/integrations"><Button color="info">Integraciones</Button></a>
     <a href="/#/about"><Button color="info">Acerca de</Button></a>
 
