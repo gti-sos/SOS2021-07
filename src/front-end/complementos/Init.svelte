@@ -23,12 +23,15 @@ import {
   <Container>
     <Col>
       <a href="https://github.com/frankys99">Francisco Miguel Tristán Clavijo</a>
+      <a href="https://github.com/frankys99">Video de Francisco Miguel Tristán Clavijo</a>
     </Col>
     <Col>
 		  <a href="https://github.com/RoundPegInASquareHole">Alejandro Pariente Migoya</a>
+      <a href="https://github.com/RoundPegInASquareHole">Video deAlejandro Pariente Migoya</a>
 		</Col>
 		<Col>
 		  <a href="https://github.com/nuresctor">Nuria Escamilla Torres</a>
+      <a href="https://github.com/nuresctor">Video de Nuria Escamilla Torres</a>
 		</Col>
 
     <a href="http://sos2021-07.herokuapp.com/index_static_old.html"><Button color="info">Inicio Antiguo</Button></a>
