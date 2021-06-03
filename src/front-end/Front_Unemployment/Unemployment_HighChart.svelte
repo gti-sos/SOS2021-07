@@ -10,10 +10,8 @@
     );
 
     if (DatosUnemployment.ok) {
-      console.log("highchartsUnemploymentData cargado");
       const json = await DatosUnemployment.json();
       highchartsUnemploymentData = json;
-      console.log(highchartsUnemploymentData);
     } else {
       console.log("ERROR!");
     }
