@@ -16,9 +16,9 @@
         }
         console.log(3);
 
-        let labels_unemp = [""];
-        let data_unemp = [""];
-        let data_youth_unemp = [""];
+        let labels_unemp = [];
+        let data_unemp = [];
+        let data_youth_unemp = [];
 
         for (var i = 0; i <= 10; i++) {
             let dato = rgraphUnemploymentData[i];
