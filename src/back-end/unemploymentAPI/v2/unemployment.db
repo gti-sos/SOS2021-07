@@ -1,420 +1,246 @@
-{"autonomous_community":"madrid","youth_unemployment_rate":31.7662,"province":"madrid","year":2020,"unemployment_rate":12.1491,"occupation_variation":40399.9,"_id":"tBilsLZbVuyMcE3u"}
-{"autonomous_community":"murcia","youth_unemployment_rate":37.4509,"province":"murcia","year":2020,"unemployment_rate":16.4211,"occupation_variation":-1199.95,"_id":"orxI5w8UatD4MGT3"}
-{"autonomous_community":"extremadura","youth_unemployment_rate":48.1605,"province":"badajoz","year":2020,"unemployment_rate":22.8954,"occupation_variation":-1.09999,"_id":"hzXYMNBUqVP5ZkgL"}
-{"autonomous_community":"extremadura","youth_unemployment_rate":48.1605,"province":"caceres","year":2020,"unemployment_rate":18.5352,"occupation_variation":100.0061,"_id":"kqkPVYrZ9XYEyn2M"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"malaga","year":2020,"unemployment_rate":19.3225,"occupation_variation":-42199.95,"_id":"GNnS6lv7J14GfljG"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"granada","year":2020,"unemployment_rate":24.8484,"occupation_variation":10899.99,"_id":"tVvqi3sMuAknfemp"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"cadiz","year":2020,"unemployment_rate":24.0474,"occupation_variation":-24399.99,"_id":"PN8jAYT81xwmhGH8"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"sevilla","year":2020,"unemployment_rate":23.8074,"occupation_variation":-16100.03,"_id":"IJJdTvTR56gu84Jp"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"huelva","year":2020,"unemployment_rate":20.6911,"occupation_variation":8900,"_id":"MSIcfMYgR1kJJ0oj"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"cordoba","year":2020,"unemployment_rate":20.0753,"occupation_variation":8500,"_id":"6n3R0exgxPDoGafL"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"jaen","year":2020,"unemployment_rate":20.1441,"occupation_variation":1900,"_id":"F6YqIGf6vnnzZxJr"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"almeria","year":2020,"unemployment_rate":17.1404,"occupation_variation":21899.99,"_id":"yr9tw9hwhN0HAaBf"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"guadalajara","year":2020,"unemployment_rate":13.6976,"occupation_variation":-899.99,"_id":"H8H4CLl0JkHzOWyG"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"cuenca","year":2020,"unemployment_rate":14.0043,"occupation_variation":-2300,"_id":"rZ43BwGimiapwhtA"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"albacete","year":2020,"unemployment_rate":19.7889,"occupation_variation":-6600,"_id":"9J0BepAnM0AHnyaU"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"ciudad real","year":2020,"unemployment_rate":19.9999,"occupation_variation":-3100,"_id":"WEctlZqQ7xkvkQQy"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"toledo","year":2020,"unemployment_rate":16.7832,"occupation_variation":4900.09,"_id":"XPQ7FleTotyMv0PQ"}
-{"autonomous_community":"cantabria","youth_unemployment_rate":27.9069,"province":"cantabria","year":2020,"unemployment_rate":11.8581,"occupation_variation":1199.99,"_id":"7oWbnREKbVG82WMP"}
-{"autonomous_community":"asturias","youth_unemployment_rate":37.5,"province":"asturias","year":2020,"unemployment_rate":14.0845,"occupation_variation":-300.01,"_id":"Jr7W4PC4NHwtSqma"}
-{"autonomous_community":"la rioja","youth_unemployment_rate":29.5454,"province":"la rioja","year":2020,"unemployment_rate":11.848,"occupation_variation":-4199.99,"_id":"uc1qnxZyDvZtHRaE"}
-{"autonomous_community":"navarra","youth_unemployment_rate":31.746,"province":"navarra","year":2020,"unemployment_rate":11.4832,"occupation_variation":-699.98,"_id":"i7DVdudEDtxzMhqR"}
-{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"vizcaya","year":2020,"unemployment_rate":12.0379,"occupation_variation":-11500,"_id":"SVuNiPcXXfG0Id8K"}
-{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"guipuzcoa","year":2020,"unemployment_rate":9.25,"occupation_variation":7299.98,"_id":"SeDXDOes9jOogQBF"}
-{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"alava","year":2020,"unemployment_rate":11.2924,"occupation_variation":99.99,"_id":"0M3UebUGSzojDms5"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"a coruña","year":2020,"unemployment_rate":12.7018,"occupation_variation":-11500,"_id":"oyFugVehsUFCWqDl"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"lugo","year":2020,"unemployment_rate":8.8489,"occupation_variation":-300,"_id":"lpgSXvPXYrXoY0hO"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"potevedra","year":2020,"unemployment_rate":15.2133,"occupation_variation":-9200.01,"_id":"OWoyD2nVbc8PLfRM"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"ourense","year":2020,"unemployment_rate":11.6459,"occupation_variation":-299.99,"_id":"vSrvbzxHeTVxk6kK"}
-{"autonomous_community":"ceuta","youth_unemployment_rate":70.5882,"province":"ceuta","year":2020,"unemployment_rate":28.0898,"occupation_variation":-1600,"_id":"C0e3SGvI05ifKLkD"}
-{"autonomous_community":"melilla","youth_unemployment_rate":47.2758,"province":"melilla","year":2020,"unemployment_rate":21.608,"occupation_variation":-225.03,"_id":"HCQgVu6xI2WSk12N"}
-{"$$deleted":true,"_id":"0M3UebUGSzojDms5"}
-{"$$deleted":true,"_id":"6n3R0exgxPDoGafL"}
-{"$$deleted":true,"_id":"7oWbnREKbVG82WMP"}
-{"$$deleted":true,"_id":"9J0BepAnM0AHnyaU"}
-{"$$deleted":true,"_id":"C0e3SGvI05ifKLkD"}
-{"$$deleted":true,"_id":"F6YqIGf6vnnzZxJr"}
-{"$$deleted":true,"_id":"GNnS6lv7J14GfljG"}
-{"$$deleted":true,"_id":"H8H4CLl0JkHzOWyG"}
-{"$$deleted":true,"_id":"HCQgVu6xI2WSk12N"}
-{"$$deleted":true,"_id":"IJJdTvTR56gu84Jp"}
-{"$$deleted":true,"_id":"Jr7W4PC4NHwtSqma"}
-{"$$deleted":true,"_id":"MSIcfMYgR1kJJ0oj"}
-{"$$deleted":true,"_id":"OWoyD2nVbc8PLfRM"}
-{"$$deleted":true,"_id":"PN8jAYT81xwmhGH8"}
-{"$$deleted":true,"_id":"SVuNiPcXXfG0Id8K"}
-{"$$deleted":true,"_id":"SeDXDOes9jOogQBF"}
-{"$$deleted":true,"_id":"WEctlZqQ7xkvkQQy"}
-{"$$deleted":true,"_id":"XPQ7FleTotyMv0PQ"}
-{"$$deleted":true,"_id":"hzXYMNBUqVP5ZkgL"}
-{"$$deleted":true,"_id":"i7DVdudEDtxzMhqR"}
-{"$$deleted":true,"_id":"kqkPVYrZ9XYEyn2M"}
-{"$$deleted":true,"_id":"lpgSXvPXYrXoY0hO"}
-{"$$deleted":true,"_id":"orxI5w8UatD4MGT3"}
-{"$$deleted":true,"_id":"oyFugVehsUFCWqDl"}
-{"$$deleted":true,"_id":"rZ43BwGimiapwhtA"}
-{"$$deleted":true,"_id":"tBilsLZbVuyMcE3u"}
-{"$$deleted":true,"_id":"tVvqi3sMuAknfemp"}
-{"$$deleted":true,"_id":"uc1qnxZyDvZtHRaE"}
-{"$$deleted":true,"_id":"vSrvbzxHeTVxk6kK"}
-{"$$deleted":true,"_id":"yr9tw9hwhN0HAaBf"}
-{"autonomous_community":"madrid","youth_unemployment_rate":31.7662,"province":"madrid","year":2020,"unemployment_rate":12.1491,"occupation_variation":40399.9,"_id":"pIs12q6vF0Nd9irO"}
-{"autonomous_community":"murcia","youth_unemployment_rate":37.4509,"province":"murcia","year":2020,"unemployment_rate":16.4211,"occupation_variation":-1199.95,"_id":"DEaCBlz5mq88MJxj"}
-{"autonomous_community":"extremadura","youth_unemployment_rate":48.1605,"province":"badajoz","year":2020,"unemployment_rate":22.8954,"occupation_variation":-1.09999,"_id":"ar4gsLWBJvvwWTHv"}
-{"autonomous_community":"extremadura","youth_unemployment_rate":48.1605,"province":"caceres","year":2020,"unemployment_rate":18.5352,"occupation_variation":100.0061,"_id":"6BfXFSkjPS2uhUhd"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"malaga","year":2020,"unemployment_rate":19.3225,"occupation_variation":-42199.95,"_id":"C7fyVHYQnoJyOzHd"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"granada","year":2020,"unemployment_rate":24.8484,"occupation_variation":10899.99,"_id":"p4RomoPX3TlQpp8d"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"cadiz","year":2020,"unemployment_rate":24.0474,"occupation_variation":-24399.99,"_id":"ZEJW6nm5stAi0Hmc"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"sevilla","year":2020,"unemployment_rate":23.8074,"occupation_variation":-16100.03,"_id":"jSKtDYJPDngtw6Ol"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"huelva","year":2020,"unemployment_rate":20.6911,"occupation_variation":8900,"_id":"kUsQT5a307FLGPov"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"cordoba","year":2020,"unemployment_rate":20.0753,"occupation_variation":8500,"_id":"7U2Mqoxo2l04DmtG"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"jaen","year":2020,"unemployment_rate":20.1441,"occupation_variation":1900,"_id":"TvtsdSht14QUmtoK"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"almeria","year":2020,"unemployment_rate":17.1404,"occupation_variation":21899.99,"_id":"yoWvDmYELSADxC0s"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"guadalajara","year":2020,"unemployment_rate":13.6976,"occupation_variation":-899.99,"_id":"tnPCdmuN7zneC07Y"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"cuenca","year":2020,"unemployment_rate":14.0043,"occupation_variation":-2300,"_id":"gzkrWPMICwOzrsq1"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"albacete","year":2020,"unemployment_rate":19.7889,"occupation_variation":-6600,"_id":"wTaYMNexQHJv9Uvu"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"ciudad real","year":2020,"unemployment_rate":19.9999,"occupation_variation":-3100,"_id":"RUAjwHNmfsHbWCYo"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"toledo","year":2020,"unemployment_rate":16.7832,"occupation_variation":4900.09,"_id":"pLk6H28ecTqTxzKp"}
-{"autonomous_community":"cantabria","youth_unemployment_rate":27.9069,"province":"cantabria","year":2020,"unemployment_rate":11.8581,"occupation_variation":1199.99,"_id":"x8tutLqOTLZULLhl"}
-{"autonomous_community":"asturias","youth_unemployment_rate":37.5,"province":"asturias","year":2020,"unemployment_rate":14.0845,"occupation_variation":-300.01,"_id":"hD9fRrs1VrXiSDDM"}
-{"autonomous_community":"la rioja","youth_unemployment_rate":29.5454,"province":"la rioja","year":2020,"unemployment_rate":11.848,"occupation_variation":-4199.99,"_id":"bCeZYQdYXmgpYKg8"}
-{"autonomous_community":"navarra","youth_unemployment_rate":31.746,"province":"navarra","year":2020,"unemployment_rate":11.4832,"occupation_variation":-699.98,"_id":"zpz2XtCLALQXsp9r"}
-{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"vizcaya","year":2020,"unemployment_rate":12.0379,"occupation_variation":-11500,"_id":"XZY05ttOQGujTPZ0"}
-{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"guipuzcoa","year":2020,"unemployment_rate":9.25,"occupation_variation":7299.98,"_id":"WJ4QxGzNKmO1X1yv"}
-{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"alava","year":2020,"unemployment_rate":11.2924,"occupation_variation":99.99,"_id":"P0AspXyAZdOkogVL"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"a coruña","year":2020,"unemployment_rate":12.7018,"occupation_variation":-11500,"_id":"0nQkUhBb2EDHQ2R1"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"lugo","year":2020,"unemployment_rate":8.8489,"occupation_variation":-300,"_id":"m5rCNvg6MH7HCxne"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"potevedra","year":2020,"unemployment_rate":15.2133,"occupation_variation":-9200.01,"_id":"L8UxVULQHVQO1cBW"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"ourense","year":2020,"unemployment_rate":11.6459,"occupation_variation":-299.99,"_id":"d1KMhjQgYluNMNqL"}
-{"autonomous_community":"ceuta","youth_unemployment_rate":70.5882,"province":"ceuta","year":2020,"unemployment_rate":28.0898,"occupation_variation":-1600,"_id":"GmDLsdClnNXF90TV"}
-{"autonomous_community":"melilla","youth_unemployment_rate":47.2758,"province":"melilla","year":2020,"unemployment_rate":21.608,"occupation_variation":-225.03,"_id":"F0uBrmNYCbqpgl7q"}
-{"$$deleted":true,"_id":"0nQkUhBb2EDHQ2R1"}
-{"$$deleted":true,"_id":"6BfXFSkjPS2uhUhd"}
-{"$$deleted":true,"_id":"7U2Mqoxo2l04DmtG"}
-{"$$deleted":true,"_id":"C7fyVHYQnoJyOzHd"}
-{"$$deleted":true,"_id":"DEaCBlz5mq88MJxj"}
-{"$$deleted":true,"_id":"F0uBrmNYCbqpgl7q"}
-{"$$deleted":true,"_id":"GmDLsdClnNXF90TV"}
-{"$$deleted":true,"_id":"L8UxVULQHVQO1cBW"}
-{"$$deleted":true,"_id":"P0AspXyAZdOkogVL"}
-{"$$deleted":true,"_id":"RUAjwHNmfsHbWCYo"}
-{"$$deleted":true,"_id":"TvtsdSht14QUmtoK"}
-{"$$deleted":true,"_id":"WJ4QxGzNKmO1X1yv"}
-{"$$deleted":true,"_id":"XZY05ttOQGujTPZ0"}
-{"$$deleted":true,"_id":"ZEJW6nm5stAi0Hmc"}
-{"$$deleted":true,"_id":"ar4gsLWBJvvwWTHv"}
-{"$$deleted":true,"_id":"bCeZYQdYXmgpYKg8"}
-{"$$deleted":true,"_id":"d1KMhjQgYluNMNqL"}
-{"$$deleted":true,"_id":"gzkrWPMICwOzrsq1"}
-{"$$deleted":true,"_id":"hD9fRrs1VrXiSDDM"}
-{"$$deleted":true,"_id":"jSKtDYJPDngtw6Ol"}
-{"$$deleted":true,"_id":"kUsQT5a307FLGPov"}
-{"$$deleted":true,"_id":"m5rCNvg6MH7HCxne"}
-{"$$deleted":true,"_id":"p4RomoPX3TlQpp8d"}
-{"$$deleted":true,"_id":"pIs12q6vF0Nd9irO"}
-{"$$deleted":true,"_id":"pLk6H28ecTqTxzKp"}
-{"$$deleted":true,"_id":"tnPCdmuN7zneC07Y"}
-{"$$deleted":true,"_id":"wTaYMNexQHJv9Uvu"}
-{"$$deleted":true,"_id":"x8tutLqOTLZULLhl"}
-{"$$deleted":true,"_id":"yoWvDmYELSADxC0s"}
-{"$$deleted":true,"_id":"zpz2XtCLALQXsp9r"}
-{"autonomous_community":"madrid","youth_unemployment_rate":31.7662,"province":"madrid","year":2020,"unemployment_rate":12.1491,"occupation_variation":40399.9,"_id":"BqlReloRXys4SB3I"}
-{"autonomous_community":"murcia","youth_unemployment_rate":37.4509,"province":"murcia","year":2020,"unemployment_rate":16.4211,"occupation_variation":-1199.95,"_id":"ZYUL0VsbHAbEn5Io"}
-{"autonomous_community":"extremadura","youth_unemployment_rate":48.1605,"province":"badajoz","year":2020,"unemployment_rate":22.8954,"occupation_variation":-1.09999,"_id":"kBTr5RYBNRWraC3l"}
-{"autonomous_community":"extremadura","youth_unemployment_rate":48.1605,"province":"caceres","year":2020,"unemployment_rate":18.5352,"occupation_variation":100.0061,"_id":"5FJi84F9yjtkEbiU"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"malaga","year":2020,"unemployment_rate":19.3225,"occupation_variation":-42199.95,"_id":"oiVe3Cy6NscX2tk2"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"granada","year":2020,"unemployment_rate":24.8484,"occupation_variation":10899.99,"_id":"19ZQmCV1sq5pXJJS"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"cadiz","year":2020,"unemployment_rate":24.0474,"occupation_variation":-24399.99,"_id":"2CKtmeAazIqWGT6x"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"sevilla","year":2020,"unemployment_rate":23.8074,"occupation_variation":-16100.03,"_id":"VlycKOdEKRSIs2tD"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"huelva","year":2020,"unemployment_rate":20.6911,"occupation_variation":8900,"_id":"crGAIwvqmSZbuQSe"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"cordoba","year":2020,"unemployment_rate":20.0753,"occupation_variation":8500,"_id":"HC2fQvRRn51pb4pv"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"jaen","year":2020,"unemployment_rate":20.1441,"occupation_variation":1900,"_id":"eqICN0kmcZZy0wPi"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"almeria","year":2020,"unemployment_rate":17.1404,"occupation_variation":21899.99,"_id":"j1OOZ5fPSV84tBne"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"guadalajara","year":2020,"unemployment_rate":13.6976,"occupation_variation":-899.99,"_id":"bKOtcB58VHLebyf9"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"cuenca","year":2020,"unemployment_rate":14.0043,"occupation_variation":-2300,"_id":"i7ubnfm4kSW0AptE"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"albacete","year":2020,"unemployment_rate":19.7889,"occupation_variation":-6600,"_id":"3cOaXHWMfjOOOtlm"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"ciudad real","year":2020,"unemployment_rate":19.9999,"occupation_variation":-3100,"_id":"RWGCQ7fHnq4wwtgU"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"toledo","year":2020,"unemployment_rate":16.7832,"occupation_variation":4900.09,"_id":"pPALbv7c8EUKx5Z9"}
-{"autonomous_community":"cantabria","youth_unemployment_rate":27.9069,"province":"cantabria","year":2020,"unemployment_rate":11.8581,"occupation_variation":1199.99,"_id":"pYiawV6Syo3UEOQt"}
-{"autonomous_community":"asturias","youth_unemployment_rate":37.5,"province":"asturias","year":2020,"unemployment_rate":14.0845,"occupation_variation":-300.01,"_id":"QBilepq7lC9QTkYv"}
-{"autonomous_community":"la rioja","youth_unemployment_rate":29.5454,"province":"la rioja","year":2020,"unemployment_rate":11.848,"occupation_variation":-4199.99,"_id":"BMXGyi1rXbKMkvQL"}
-{"autonomous_community":"navarra","youth_unemployment_rate":31.746,"province":"navarra","year":2020,"unemployment_rate":11.4832,"occupation_variation":-699.98,"_id":"lZKYlyzuAeFKwDa8"}
-{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"vizcaya","year":2020,"unemployment_rate":12.0379,"occupation_variation":-11500,"_id":"ntSjL0hZiTD6qwJZ"}
-{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"guipuzcoa","year":2020,"unemployment_rate":9.25,"occupation_variation":7299.98,"_id":"2NuVfabFCoXHHHMs"}
-{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"alava","year":2020,"unemployment_rate":11.2924,"occupation_variation":99.99,"_id":"tiPZVbE6ACQMw1ty"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"a coruña","year":2020,"unemployment_rate":12.7018,"occupation_variation":-11500,"_id":"LllP5bMjDUDRN1U2"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"lugo","year":2020,"unemployment_rate":8.8489,"occupation_variation":-300,"_id":"e4rj7hUUnnk3P0Lm"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"potevedra","year":2020,"unemployment_rate":15.2133,"occupation_variation":-9200.01,"_id":"UVF9DVDCgxJi8gHp"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"ourense","year":2020,"unemployment_rate":11.6459,"occupation_variation":-299.99,"_id":"640pqpPVCir4jAnJ"}
-{"autonomous_community":"ceuta","youth_unemployment_rate":70.5882,"province":"ceuta","year":2020,"unemployment_rate":28.0898,"occupation_variation":-1600,"_id":"onDABLkemiAwZ4PM"}
-{"autonomous_community":"melilla","youth_unemployment_rate":47.2758,"province":"melilla","year":2020,"unemployment_rate":21.608,"occupation_variation":-225.03,"_id":"McyBoltdq0grKuRg"}
-{"$$deleted":true,"_id":"19ZQmCV1sq5pXJJS"}
-{"$$deleted":true,"_id":"2CKtmeAazIqWGT6x"}
-{"$$deleted":true,"_id":"2NuVfabFCoXHHHMs"}
-{"$$deleted":true,"_id":"3cOaXHWMfjOOOtlm"}
-{"$$deleted":true,"_id":"5FJi84F9yjtkEbiU"}
-{"$$deleted":true,"_id":"640pqpPVCir4jAnJ"}
-{"$$deleted":true,"_id":"BMXGyi1rXbKMkvQL"}
-{"$$deleted":true,"_id":"BqlReloRXys4SB3I"}
-{"$$deleted":true,"_id":"HC2fQvRRn51pb4pv"}
-{"$$deleted":true,"_id":"LllP5bMjDUDRN1U2"}
-{"$$deleted":true,"_id":"McyBoltdq0grKuRg"}
-{"$$deleted":true,"_id":"QBilepq7lC9QTkYv"}
-{"$$deleted":true,"_id":"RWGCQ7fHnq4wwtgU"}
-{"$$deleted":true,"_id":"UVF9DVDCgxJi8gHp"}
-{"$$deleted":true,"_id":"VlycKOdEKRSIs2tD"}
-{"$$deleted":true,"_id":"ZYUL0VsbHAbEn5Io"}
-{"$$deleted":true,"_id":"bKOtcB58VHLebyf9"}
-{"$$deleted":true,"_id":"crGAIwvqmSZbuQSe"}
-{"$$deleted":true,"_id":"e4rj7hUUnnk3P0Lm"}
-{"$$deleted":true,"_id":"eqICN0kmcZZy0wPi"}
-{"$$deleted":true,"_id":"i7ubnfm4kSW0AptE"}
-{"$$deleted":true,"_id":"j1OOZ5fPSV84tBne"}
-{"$$deleted":true,"_id":"kBTr5RYBNRWraC3l"}
-{"$$deleted":true,"_id":"lZKYlyzuAeFKwDa8"}
-{"$$deleted":true,"_id":"ntSjL0hZiTD6qwJZ"}
-{"$$deleted":true,"_id":"oiVe3Cy6NscX2tk2"}
-{"$$deleted":true,"_id":"onDABLkemiAwZ4PM"}
-{"$$deleted":true,"_id":"pPALbv7c8EUKx5Z9"}
-{"$$deleted":true,"_id":"pYiawV6Syo3UEOQt"}
-{"$$deleted":true,"_id":"tiPZVbE6ACQMw1ty"}
-{"autonomous_community":"madrid","youth_unemployment_rate":31.7662,"province":"madrid","year":2020,"unemployment_rate":12.1491,"occupation_variation":40399.9,"_id":"0pNx4pqJrkPvArQs"}
-{"autonomous_community":"murcia","youth_unemployment_rate":37.4509,"province":"murcia","year":2020,"unemployment_rate":16.4211,"occupation_variation":-1199.95,"_id":"54Lb2IVzyfCowRsq"}
-{"autonomous_community":"extremadura","youth_unemployment_rate":48.1605,"province":"badajoz","year":2020,"unemployment_rate":22.8954,"occupation_variation":-1.09999,"_id":"e2GhumuLqNkoIfZC"}
-{"autonomous_community":"extremadura","youth_unemployment_rate":48.1605,"province":"caceres","year":2020,"unemployment_rate":18.5352,"occupation_variation":100.0061,"_id":"FM6Q19Su9BGxLHz9"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"malaga","year":2020,"unemployment_rate":19.3225,"occupation_variation":-42199.95,"_id":"JxoDfKaFXxqSOAxQ"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"granada","year":2020,"unemployment_rate":24.8484,"occupation_variation":10899.99,"_id":"JNtr9Y3VGgjIz6BS"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"cadiz","year":2020,"unemployment_rate":24.0474,"occupation_variation":-24399.99,"_id":"IrhCmWG41zcw3G8y"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"sevilla","year":2020,"unemployment_rate":23.8074,"occupation_variation":-16100.03,"_id":"gXEdFNQLBzP9WLZR"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"huelva","year":2020,"unemployment_rate":20.6911,"occupation_variation":8900,"_id":"pXDRljdNkD288LRA"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"cordoba","year":2020,"unemployment_rate":20.0753,"occupation_variation":8500,"_id":"dc4uVawIHqZTRJLT"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"jaen","year":2020,"unemployment_rate":20.1441,"occupation_variation":1900,"_id":"3LVIAOVNiBeQ6zHV"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"almeria","year":2020,"unemployment_rate":17.1404,"occupation_variation":21899.99,"_id":"GhGKzVF7ilOAC8LG"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"guadalajara","year":2020,"unemployment_rate":13.6976,"occupation_variation":-899.99,"_id":"1ZhslrcOHOBYSpml"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"cuenca","year":2020,"unemployment_rate":14.0043,"occupation_variation":-2300,"_id":"NG3aRiwLTVZnPAgv"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"albacete","year":2020,"unemployment_rate":19.7889,"occupation_variation":-6600,"_id":"FslPmTyli8VRomKm"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"ciudad real","year":2020,"unemployment_rate":19.9999,"occupation_variation":-3100,"_id":"NOI1goAP8bYN5xJD"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"toledo","year":2020,"unemployment_rate":16.7832,"occupation_variation":4900.09,"_id":"JLPKPfxdymriLhfL"}
-{"autonomous_community":"cantabria","youth_unemployment_rate":27.9069,"province":"cantabria","year":2020,"unemployment_rate":11.8581,"occupation_variation":1199.99,"_id":"CdOh7c03IUYIRutI"}
-{"autonomous_community":"asturias","youth_unemployment_rate":37.5,"province":"asturias","year":2020,"unemployment_rate":14.0845,"occupation_variation":-300.01,"_id":"uVewBY573uwIjBEY"}
-{"autonomous_community":"la rioja","youth_unemployment_rate":29.5454,"province":"la rioja","year":2020,"unemployment_rate":11.848,"occupation_variation":-4199.99,"_id":"kamJ5syeVl8M7thT"}
-{"autonomous_community":"navarra","youth_unemployment_rate":31.746,"province":"navarra","year":2020,"unemployment_rate":11.4832,"occupation_variation":-699.98,"_id":"qau9gBh2ewRJnSmd"}
-{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"vizcaya","year":2020,"unemployment_rate":12.0379,"occupation_variation":-11500,"_id":"y7dI2659TBJoTFSi"}
-{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"guipuzcoa","year":2020,"unemployment_rate":9.25,"occupation_variation":7299.98,"_id":"4PkyYTTDu7CR4BU9"}
-{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"alava","year":2020,"unemployment_rate":11.2924,"occupation_variation":99.99,"_id":"mrUZRQdBl48oLfE5"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"a coruña","year":2020,"unemployment_rate":12.7018,"occupation_variation":-11500,"_id":"rFf2VCHD0i70IxGI"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"lugo","year":2020,"unemployment_rate":8.8489,"occupation_variation":-300,"_id":"WYKkFreJwCOgN7Vb"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"potevedra","year":2020,"unemployment_rate":15.2133,"occupation_variation":-9200.01,"_id":"93JwcbPdISvwkDRx"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"ourense","year":2020,"unemployment_rate":11.6459,"occupation_variation":-299.99,"_id":"nwS8D2pWIw1sadjO"}
-{"autonomous_community":"ceuta","youth_unemployment_rate":70.5882,"province":"ceuta","year":2020,"unemployment_rate":28.0898,"occupation_variation":-1600,"_id":"G5lt9rS9rOG0dq3F"}
-{"autonomous_community":"melilla","youth_unemployment_rate":47.2758,"province":"melilla","year":2020,"unemployment_rate":21.608,"occupation_variation":-225.03,"_id":"rpFqRikmYaLlr6F5"}
-{"$$deleted":true,"_id":"0pNx4pqJrkPvArQs"}
-{"$$deleted":true,"_id":"1ZhslrcOHOBYSpml"}
-{"$$deleted":true,"_id":"3LVIAOVNiBeQ6zHV"}
-{"$$deleted":true,"_id":"4PkyYTTDu7CR4BU9"}
-{"$$deleted":true,"_id":"54Lb2IVzyfCowRsq"}
-{"$$deleted":true,"_id":"93JwcbPdISvwkDRx"}
-{"$$deleted":true,"_id":"CdOh7c03IUYIRutI"}
-{"$$deleted":true,"_id":"FM6Q19Su9BGxLHz9"}
-{"$$deleted":true,"_id":"FslPmTyli8VRomKm"}
-{"$$deleted":true,"_id":"G5lt9rS9rOG0dq3F"}
-{"$$deleted":true,"_id":"GhGKzVF7ilOAC8LG"}
-{"$$deleted":true,"_id":"IrhCmWG41zcw3G8y"}
-{"$$deleted":true,"_id":"JLPKPfxdymriLhfL"}
-{"$$deleted":true,"_id":"JNtr9Y3VGgjIz6BS"}
-{"$$deleted":true,"_id":"JxoDfKaFXxqSOAxQ"}
-{"$$deleted":true,"_id":"NG3aRiwLTVZnPAgv"}
-{"$$deleted":true,"_id":"NOI1goAP8bYN5xJD"}
-{"$$deleted":true,"_id":"WYKkFreJwCOgN7Vb"}
-{"$$deleted":true,"_id":"dc4uVawIHqZTRJLT"}
-{"$$deleted":true,"_id":"e2GhumuLqNkoIfZC"}
-{"$$deleted":true,"_id":"gXEdFNQLBzP9WLZR"}
-{"$$deleted":true,"_id":"kamJ5syeVl8M7thT"}
-{"$$deleted":true,"_id":"mrUZRQdBl48oLfE5"}
-{"$$deleted":true,"_id":"nwS8D2pWIw1sadjO"}
-{"$$deleted":true,"_id":"pXDRljdNkD288LRA"}
-{"$$deleted":true,"_id":"qau9gBh2ewRJnSmd"}
-{"$$deleted":true,"_id":"rFf2VCHD0i70IxGI"}
-{"$$deleted":true,"_id":"rpFqRikmYaLlr6F5"}
-{"$$deleted":true,"_id":"uVewBY573uwIjBEY"}
-{"$$deleted":true,"_id":"y7dI2659TBJoTFSi"}
-{"autonomous_community":"madrid","youth_unemployment_rate":31.7662,"province":"madrid","year":2020,"unemployment_rate":12.1491,"occupation_variation":40399.9,"_id":"O6yCT9BwvFarjYp1"}
-{"autonomous_community":"murcia","youth_unemployment_rate":37.4509,"province":"murcia","year":2020,"unemployment_rate":16.4211,"occupation_variation":-1199.95,"_id":"IP57hu3P9ceVCxmY"}
-{"autonomous_community":"extremadura","youth_unemployment_rate":48.1605,"province":"badajoz","year":2020,"unemployment_rate":22.8954,"occupation_variation":-1.09999,"_id":"z6Uc8DWn6tiYz1Me"}
-{"autonomous_community":"extremadura","youth_unemployment_rate":48.1605,"province":"caceres","year":2020,"unemployment_rate":18.5352,"occupation_variation":100.0061,"_id":"UziYMKskO1xNtAwl"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"malaga","year":2020,"unemployment_rate":19.3225,"occupation_variation":-42199.95,"_id":"MTjTMKI47cyfxl0C"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"granada","year":2020,"unemployment_rate":24.8484,"occupation_variation":10899.99,"_id":"DAv0fxz3oCgxNblg"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"cadiz","year":2020,"unemployment_rate":24.0474,"occupation_variation":-24399.99,"_id":"D2uPC2K0IlWpBgz8"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"sevilla","year":2020,"unemployment_rate":23.8074,"occupation_variation":-16100.03,"_id":"R6112qMqUCZAMnzr"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"huelva","year":2020,"unemployment_rate":20.6911,"occupation_variation":8900,"_id":"xyfW1YsQw7OIhQFN"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"cordoba","year":2020,"unemployment_rate":20.0753,"occupation_variation":8500,"_id":"LqHtUIWXSwEO8bmO"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"jaen","year":2020,"unemployment_rate":20.1441,"occupation_variation":1900,"_id":"UFNLLXcwRnPldT88"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"almeria","year":2020,"unemployment_rate":17.1404,"occupation_variation":21899.99,"_id":"meBDmodt2Puq5ZAh"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"guadalajara","year":2020,"unemployment_rate":13.6976,"occupation_variation":-899.99,"_id":"aXaY0KF6VAANnKii"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"cuenca","year":2020,"unemployment_rate":14.0043,"occupation_variation":-2300,"_id":"fgEMwTdbHHs08X6d"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"albacete","year":2020,"unemployment_rate":19.7889,"occupation_variation":-6600,"_id":"3pfsumbxUsuFJSe2"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"ciudad real","year":2020,"unemployment_rate":19.9999,"occupation_variation":-3100,"_id":"1BDSdoxTv7aPP7h0"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"toledo","year":2020,"unemployment_rate":16.7832,"occupation_variation":4900.09,"_id":"uDtTHwnEJUGuIV0s"}
-{"autonomous_community":"cantabria","youth_unemployment_rate":27.9069,"province":"cantabria","year":2020,"unemployment_rate":11.8581,"occupation_variation":1199.99,"_id":"eIkgt60F557xyL4N"}
-{"autonomous_community":"asturias","youth_unemployment_rate":37.5,"province":"asturias","year":2020,"unemployment_rate":14.0845,"occupation_variation":-300.01,"_id":"ARETDiY42X8b1C7a"}
-{"autonomous_community":"la rioja","youth_unemployment_rate":29.5454,"province":"la rioja","year":2020,"unemployment_rate":11.848,"occupation_variation":-4199.99,"_id":"9aeheZsoVemWMxLh"}
-{"autonomous_community":"navarra","youth_unemployment_rate":31.746,"province":"navarra","year":2020,"unemployment_rate":11.4832,"occupation_variation":-699.98,"_id":"BHis8VXEzi6FqnM2"}
-{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"vizcaya","year":2020,"unemployment_rate":12.0379,"occupation_variation":-11500,"_id":"9OML0wvkJUAmeOMq"}
-{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"guipuzcoa","year":2020,"unemployment_rate":9.25,"occupation_variation":7299.98,"_id":"hlcvr3iaGwAVxDCG"}
-{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"alava","year":2020,"unemployment_rate":11.2924,"occupation_variation":99.99,"_id":"HqGkqiGXtlHeruhz"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"a coruña","year":2020,"unemployment_rate":12.7018,"occupation_variation":-11500,"_id":"mA0dNwY4wEq5xnYB"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"lugo","year":2020,"unemployment_rate":8.8489,"occupation_variation":-300,"_id":"UCUKmzSs3144Xs05"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"potevedra","year":2020,"unemployment_rate":15.2133,"occupation_variation":-9200.01,"_id":"96sz8nsO9miuSM8m"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"ourense","year":2020,"unemployment_rate":11.6459,"occupation_variation":-299.99,"_id":"G8KJ7zQ7BSyJbjb8"}
-{"autonomous_community":"ceuta","youth_unemployment_rate":70.5882,"province":"ceuta","year":2020,"unemployment_rate":28.0898,"occupation_variation":-1600,"_id":"PybUBQnlX2Nc32M8"}
-{"autonomous_community":"melilla","youth_unemployment_rate":47.2758,"province":"melilla","year":2020,"unemployment_rate":21.608,"occupation_variation":-225.03,"_id":"eLhJHMu2qOncJdS0"}
-{"$$deleted":true,"_id":"1BDSdoxTv7aPP7h0"}
-{"$$deleted":true,"_id":"3pfsumbxUsuFJSe2"}
-{"$$deleted":true,"_id":"96sz8nsO9miuSM8m"}
-{"$$deleted":true,"_id":"9OML0wvkJUAmeOMq"}
-{"$$deleted":true,"_id":"9aeheZsoVemWMxLh"}
-{"$$deleted":true,"_id":"ARETDiY42X8b1C7a"}
-{"$$deleted":true,"_id":"BHis8VXEzi6FqnM2"}
-{"$$deleted":true,"_id":"D2uPC2K0IlWpBgz8"}
-{"$$deleted":true,"_id":"DAv0fxz3oCgxNblg"}
-{"$$deleted":true,"_id":"G8KJ7zQ7BSyJbjb8"}
-{"$$deleted":true,"_id":"HqGkqiGXtlHeruhz"}
-{"$$deleted":true,"_id":"IP57hu3P9ceVCxmY"}
-{"$$deleted":true,"_id":"LqHtUIWXSwEO8bmO"}
-{"$$deleted":true,"_id":"MTjTMKI47cyfxl0C"}
-{"$$deleted":true,"_id":"O6yCT9BwvFarjYp1"}
-{"$$deleted":true,"_id":"PybUBQnlX2Nc32M8"}
-{"$$deleted":true,"_id":"R6112qMqUCZAMnzr"}
-{"$$deleted":true,"_id":"UCUKmzSs3144Xs05"}
-{"$$deleted":true,"_id":"UFNLLXcwRnPldT88"}
-{"$$deleted":true,"_id":"UziYMKskO1xNtAwl"}
-{"$$deleted":true,"_id":"aXaY0KF6VAANnKii"}
-{"$$deleted":true,"_id":"eIkgt60F557xyL4N"}
-{"$$deleted":true,"_id":"eLhJHMu2qOncJdS0"}
-{"$$deleted":true,"_id":"fgEMwTdbHHs08X6d"}
-{"$$deleted":true,"_id":"hlcvr3iaGwAVxDCG"}
-{"$$deleted":true,"_id":"mA0dNwY4wEq5xnYB"}
-{"$$deleted":true,"_id":"meBDmodt2Puq5ZAh"}
-{"$$deleted":true,"_id":"uDtTHwnEJUGuIV0s"}
-{"$$deleted":true,"_id":"xyfW1YsQw7OIhQFN"}
-{"$$deleted":true,"_id":"z6Uc8DWn6tiYz1Me"}
-{"autonomous_community":"madrid","youth_unemployment_rate":31.7662,"province":"madrid","year":2020,"unemployment_rate":12.1491,"occupation_variation":40399.9,"_id":"fMINQIV1kPJjbWbF"}
-{"autonomous_community":"murcia","youth_unemployment_rate":37.4509,"province":"murcia","year":2020,"unemployment_rate":16.4211,"occupation_variation":-1199.95,"_id":"XX83pShPgyTHBaOZ"}
-{"autonomous_community":"extremadura","youth_unemployment_rate":48.1605,"province":"badajoz","year":2020,"unemployment_rate":22.8954,"occupation_variation":-1.09999,"_id":"qBKbwgUHPYQG8wim"}
-{"autonomous_community":"extremadura","youth_unemployment_rate":48.1605,"province":"caceres","year":2020,"unemployment_rate":18.5352,"occupation_variation":100.0061,"_id":"tiGGaDbZBlGzSjJn"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"malaga","year":2020,"unemployment_rate":19.3225,"occupation_variation":-42199.95,"_id":"SQiqDAxUsgo0AmoL"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"granada","year":2020,"unemployment_rate":24.8484,"occupation_variation":10899.99,"_id":"sa0ulqDpnUQEXqR0"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"cadiz","year":2020,"unemployment_rate":24.0474,"occupation_variation":-24399.99,"_id":"aUs9uwx1F2cL39us"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"sevilla","year":2020,"unemployment_rate":23.8074,"occupation_variation":-16100.03,"_id":"dtjPOohFOVB2UOSe"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"huelva","year":2020,"unemployment_rate":20.6911,"occupation_variation":8900,"_id":"M2kvvtTyVq25g8Dx"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"cordoba","year":2020,"unemployment_rate":20.0753,"occupation_variation":8500,"_id":"egzJnk6NALD5e5Kg"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"jaen","year":2020,"unemployment_rate":20.1441,"occupation_variation":1900,"_id":"phwUVkLw9O2Rzdm5"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"almeria","year":2020,"unemployment_rate":17.1404,"occupation_variation":21899.99,"_id":"tCc0EQgZTeu1rCs3"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"guadalajara","year":2020,"unemployment_rate":13.6976,"occupation_variation":-899.99,"_id":"mCfgkANpB0Ws4qm5"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"cuenca","year":2020,"unemployment_rate":14.0043,"occupation_variation":-2300,"_id":"gF1trrjQnEKN3Jxb"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"albacete","year":2020,"unemployment_rate":19.7889,"occupation_variation":-6600,"_id":"qsGbsQQKthulgHYy"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"ciudad real","year":2020,"unemployment_rate":19.9999,"occupation_variation":-3100,"_id":"lIVNR9wR8eRMFCie"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"toledo","year":2020,"unemployment_rate":16.7832,"occupation_variation":4900.09,"_id":"PFhPLPDMwOjcvk8T"}
-{"autonomous_community":"cantabria","youth_unemployment_rate":27.9069,"province":"cantabria","year":2020,"unemployment_rate":11.8581,"occupation_variation":1199.99,"_id":"vHDyXFQHPpYtSgR3"}
-{"autonomous_community":"asturias","youth_unemployment_rate":37.5,"province":"asturias","year":2020,"unemployment_rate":14.0845,"occupation_variation":-300.01,"_id":"UE27Vci5rLgEVAwg"}
-{"autonomous_community":"la rioja","youth_unemployment_rate":29.5454,"province":"la rioja","year":2020,"unemployment_rate":11.848,"occupation_variation":-4199.99,"_id":"XxPH6wEJ5QfYVBrB"}
-{"autonomous_community":"navarra","youth_unemployment_rate":31.746,"province":"navarra","year":2020,"unemployment_rate":11.4832,"occupation_variation":-699.98,"_id":"bo5drtbtPhJncpjx"}
-{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"vizcaya","year":2020,"unemployment_rate":12.0379,"occupation_variation":-11500,"_id":"xzPvXgfR7AzSSRjc"}
-{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"guipuzcoa","year":2020,"unemployment_rate":9.25,"occupation_variation":7299.98,"_id":"Iujs84YYgxqIpWmD"}
-{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"alava","year":2020,"unemployment_rate":11.2924,"occupation_variation":99.99,"_id":"YNRfbRPyFnDmZyI8"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"a coruña","year":2020,"unemployment_rate":12.7018,"occupation_variation":-11500,"_id":"nqTtSaAPvOfDzGxs"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"lugo","year":2020,"unemployment_rate":8.8489,"occupation_variation":-300,"_id":"9aLX0AoCigFUgTzY"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"potevedra","year":2020,"unemployment_rate":15.2133,"occupation_variation":-9200.01,"_id":"9W6CSMiBIzEUPy46"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"ourense","year":2020,"unemployment_rate":11.6459,"occupation_variation":-299.99,"_id":"4k6fCi3XwVr42x4a"}
-{"autonomous_community":"ceuta","youth_unemployment_rate":70.5882,"province":"ceuta","year":2020,"unemployment_rate":28.0898,"occupation_variation":-1600,"_id":"GRjbFO2tg14kMBTd"}
-{"autonomous_community":"melilla","youth_unemployment_rate":47.2758,"province":"melilla","year":2020,"unemployment_rate":21.608,"occupation_variation":-225.03,"_id":"bSBV5Gk81A5V2xES"}
-{"$$deleted":true,"_id":"4k6fCi3XwVr42x4a"}
-{"$$deleted":true,"_id":"9W6CSMiBIzEUPy46"}
-{"$$deleted":true,"_id":"9aLX0AoCigFUgTzY"}
-{"$$deleted":true,"_id":"GRjbFO2tg14kMBTd"}
-{"$$deleted":true,"_id":"Iujs84YYgxqIpWmD"}
-{"$$deleted":true,"_id":"M2kvvtTyVq25g8Dx"}
-{"$$deleted":true,"_id":"PFhPLPDMwOjcvk8T"}
-{"$$deleted":true,"_id":"SQiqDAxUsgo0AmoL"}
-{"$$deleted":true,"_id":"UE27Vci5rLgEVAwg"}
-{"$$deleted":true,"_id":"XX83pShPgyTHBaOZ"}
-{"$$deleted":true,"_id":"XxPH6wEJ5QfYVBrB"}
-{"$$deleted":true,"_id":"YNRfbRPyFnDmZyI8"}
-{"$$deleted":true,"_id":"aUs9uwx1F2cL39us"}
-{"$$deleted":true,"_id":"bSBV5Gk81A5V2xES"}
-{"$$deleted":true,"_id":"bo5drtbtPhJncpjx"}
-{"$$deleted":true,"_id":"dtjPOohFOVB2UOSe"}
-{"$$deleted":true,"_id":"egzJnk6NALD5e5Kg"}
-{"$$deleted":true,"_id":"fMINQIV1kPJjbWbF"}
-{"$$deleted":true,"_id":"gF1trrjQnEKN3Jxb"}
-{"$$deleted":true,"_id":"lIVNR9wR8eRMFCie"}
-{"$$deleted":true,"_id":"mCfgkANpB0Ws4qm5"}
-{"$$deleted":true,"_id":"nqTtSaAPvOfDzGxs"}
-{"$$deleted":true,"_id":"phwUVkLw9O2Rzdm5"}
-{"$$deleted":true,"_id":"qBKbwgUHPYQG8wim"}
-{"$$deleted":true,"_id":"qsGbsQQKthulgHYy"}
-{"$$deleted":true,"_id":"sa0ulqDpnUQEXqR0"}
-{"$$deleted":true,"_id":"tCc0EQgZTeu1rCs3"}
-{"$$deleted":true,"_id":"tiGGaDbZBlGzSjJn"}
-{"$$deleted":true,"_id":"vHDyXFQHPpYtSgR3"}
-{"$$deleted":true,"_id":"xzPvXgfR7AzSSRjc"}
-{"autonomous_community":"madrid","youth_unemployment_rate":31.7662,"province":"madrid","year":2020,"unemployment_rate":12.1491,"occupation_variation":40399.9,"_id":"n0aDSUXWnpRWqrfE"}
-{"autonomous_community":"murcia","youth_unemployment_rate":37.4509,"province":"murcia","year":2020,"unemployment_rate":16.4211,"occupation_variation":-1199.95,"_id":"ww6uNXyTtn29ulBI"}
-{"autonomous_community":"extremadura","youth_unemployment_rate":48.1605,"province":"badajoz","year":2020,"unemployment_rate":22.8954,"occupation_variation":-1.09999,"_id":"6UZRywQdcoAekQW6"}
-{"autonomous_community":"extremadura","youth_unemployment_rate":48.1605,"province":"caceres","year":2020,"unemployment_rate":18.5352,"occupation_variation":100.0061,"_id":"ZrD1gDQqAUJ1anak"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"malaga","year":2020,"unemployment_rate":19.3225,"occupation_variation":-42199.95,"_id":"OV9vYZcZfQGTzia9"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"granada","year":2020,"unemployment_rate":24.8484,"occupation_variation":10899.99,"_id":"eShauMARqJqCMd6t"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"cadiz","year":2020,"unemployment_rate":24.0474,"occupation_variation":-24399.99,"_id":"YRJ7AEwQ54lsMpDb"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"sevilla","year":2020,"unemployment_rate":23.8074,"occupation_variation":-16100.03,"_id":"JNns9swkjWWYtlRs"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"huelva","year":2020,"unemployment_rate":20.6911,"occupation_variation":8900,"_id":"w9bnrRlhvmGqfvxI"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"cordoba","year":2020,"unemployment_rate":20.0753,"occupation_variation":8500,"_id":"IqnRPEChUFqjG8YG"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"jaen","year":2020,"unemployment_rate":20.1441,"occupation_variation":1900,"_id":"BqsCFk2zOlmQXqk1"}
-{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"almeria","year":2020,"unemployment_rate":17.1404,"occupation_variation":21899.99,"_id":"vmOfTeQYD948dvkB"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"guadalajara","year":2020,"unemployment_rate":13.6976,"occupation_variation":-899.99,"_id":"flYFfRg6gC6pwlRj"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"cuenca","year":2020,"unemployment_rate":14.0043,"occupation_variation":-2300,"_id":"LsVJef8lCVNg0Jnj"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"albacete","year":2020,"unemployment_rate":19.7889,"occupation_variation":-6600,"_id":"iqGhckkliWjUmdeJ"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"ciudad real","year":2020,"unemployment_rate":19.9999,"occupation_variation":-3100,"_id":"zASGAi4NzJXJjD5b"}
-{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"toledo","year":2020,"unemployment_rate":16.7832,"occupation_variation":4900.09,"_id":"xcoGAeMMIK4uZGLV"}
-{"autonomous_community":"cantabria","youth_unemployment_rate":27.9069,"province":"cantabria","year":2020,"unemployment_rate":11.8581,"occupation_variation":1199.99,"_id":"y82mJ9ooyStSrMON"}
-{"autonomous_community":"asturias","youth_unemployment_rate":37.5,"province":"asturias","year":2020,"unemployment_rate":14.0845,"occupation_variation":-300.01,"_id":"8ZLdamgktkhYwzYO"}
-{"autonomous_community":"la rioja","youth_unemployment_rate":29.5454,"province":"la rioja","year":2020,"unemployment_rate":11.848,"occupation_variation":-4199.99,"_id":"AuGUFfMPsB3m35fW"}
-{"autonomous_community":"navarra","youth_unemployment_rate":31.746,"province":"navarra","year":2020,"unemployment_rate":11.4832,"occupation_variation":-699.98,"_id":"nmjUjfz6ijllx1M0"}
-{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"vizcaya","year":2020,"unemployment_rate":12.0379,"occupation_variation":-11500,"_id":"hYgA21xmhuU2eXvK"}
-{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"guipuzcoa","year":2020,"unemployment_rate":9.25,"occupation_variation":7299.98,"_id":"qdSjFWTMJYJOcAFt"}
-{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"alava","year":2020,"unemployment_rate":11.2924,"occupation_variation":99.99,"_id":"yoFJYeo0DtSiXFnZ"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"a coruña","year":2020,"unemployment_rate":12.7018,"occupation_variation":-11500,"_id":"MAxYxe8WGUXUKIus"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"lugo","year":2020,"unemployment_rate":8.8489,"occupation_variation":-300,"_id":"qKjeiorowjkIRecU"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"potevedra","year":2020,"unemployment_rate":15.2133,"occupation_variation":-9200.01,"_id":"Nxx0aIqBCFFO5Arj"}
-{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"ourense","year":2020,"unemployment_rate":11.6459,"occupation_variation":-299.99,"_id":"GB0RGDnaIStSdauY"}
-{"autonomous_community":"ceuta","youth_unemployment_rate":70.5882,"province":"ceuta","year":2020,"unemployment_rate":28.0898,"occupation_variation":-1600,"_id":"LKcXriREXXfpg28U"}
-{"autonomous_community":"melilla","youth_unemployment_rate":47.2758,"province":"melilla","year":2020,"unemployment_rate":21.608,"occupation_variation":-225.03,"_id":"MASX9Wqa53l0GW36"}
-{"$$deleted":true,"_id":"6UZRywQdcoAekQW6"}
-{"$$deleted":true,"_id":"8ZLdamgktkhYwzYO"}
-{"$$deleted":true,"_id":"AuGUFfMPsB3m35fW"}
-{"$$deleted":true,"_id":"BqsCFk2zOlmQXqk1"}
-{"$$deleted":true,"_id":"GB0RGDnaIStSdauY"}
-{"$$deleted":true,"_id":"IqnRPEChUFqjG8YG"}
-{"$$deleted":true,"_id":"JNns9swkjWWYtlRs"}
-{"$$deleted":true,"_id":"LKcXriREXXfpg28U"}
-{"$$deleted":true,"_id":"LsVJef8lCVNg0Jnj"}
-{"$$deleted":true,"_id":"MASX9Wqa53l0GW36"}
-{"$$deleted":true,"_id":"MAxYxe8WGUXUKIus"}
-{"$$deleted":true,"_id":"Nxx0aIqBCFFO5Arj"}
-{"$$deleted":true,"_id":"OV9vYZcZfQGTzia9"}
-{"$$deleted":true,"_id":"YRJ7AEwQ54lsMpDb"}
-{"$$deleted":true,"_id":"ZrD1gDQqAUJ1anak"}
-{"$$deleted":true,"_id":"eShauMARqJqCMd6t"}
-{"$$deleted":true,"_id":"flYFfRg6gC6pwlRj"}
-{"$$deleted":true,"_id":"hYgA21xmhuU2eXvK"}
-{"$$deleted":true,"_id":"iqGhckkliWjUmdeJ"}
-{"$$deleted":true,"_id":"n0aDSUXWnpRWqrfE"}
-{"$$deleted":true,"_id":"nmjUjfz6ijllx1M0"}
-{"$$deleted":true,"_id":"qKjeiorowjkIRecU"}
-{"$$deleted":true,"_id":"qdSjFWTMJYJOcAFt"}
-{"$$deleted":true,"_id":"vmOfTeQYD948dvkB"}
-{"$$deleted":true,"_id":"w9bnrRlhvmGqfvxI"}
-{"$$deleted":true,"_id":"ww6uNXyTtn29ulBI"}
-{"$$deleted":true,"_id":"xcoGAeMMIK4uZGLV"}
-{"$$deleted":true,"_id":"y82mJ9ooyStSrMON"}
-{"$$deleted":true,"_id":"yoFJYeo0DtSiXFnZ"}
-{"$$deleted":true,"_id":"zASGAi4NzJXJjD5b"}
+{"autonomous_community":"madrid","youth_unemployment_rate":31.7662,"province":"madrid","year":2020,"unemployment_rate":12.1491,"occupation_variation":40399.9,"_id":"ss9TOrHKKYP0uPyG"}
+{"autonomous_community":"murcia","youth_unemployment_rate":37.4509,"province":"murcia","year":2020,"unemployment_rate":16.4211,"occupation_variation":-1199.95,"_id":"W80hUVA4EnBTnuwv"}
+{"autonomous_community":"extremadura","youth_unemployment_rate":48.1605,"province":"badajoz","year":2020,"unemployment_rate":22.8954,"occupation_variation":-1.09999,"_id":"punSzzLV0GVrwjnl"}
+{"autonomous_community":"extremadura","youth_unemployment_rate":48.1605,"province":"caceres","year":2020,"unemployment_rate":18.5352,"occupation_variation":100.0061,"_id":"1C9GqxemTADBSkiz"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"malaga","year":2020,"unemployment_rate":19.3225,"occupation_variation":-42199.95,"_id":"QnKb59hlOJFcM7w8"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"granada","year":2020,"unemployment_rate":24.8484,"occupation_variation":10899.99,"_id":"xwEJEmIxe1UOhTgT"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"cadiz","year":2020,"unemployment_rate":24.0474,"occupation_variation":-24399.99,"_id":"ozfrlViGetCF1Nni"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"sevilla","year":2020,"unemployment_rate":23.8074,"occupation_variation":-16100.03,"_id":"lmJtauofiQ3mLcOa"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"huelva","year":2020,"unemployment_rate":20.6911,"occupation_variation":8900,"_id":"oMrz4oRcJk3c2MC5"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"cordoba","year":2020,"unemployment_rate":20.0753,"occupation_variation":8500,"_id":"Bmp82Bk9fE1lHZqY"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"jaen","year":2020,"unemployment_rate":20.1441,"occupation_variation":1900,"_id":"8PJ05NOpidklHmx0"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"almeria","year":2020,"unemployment_rate":17.1404,"occupation_variation":21899.99,"_id":"gddfzD3hkzMi2cSe"}
+{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"guadalajara","year":2020,"unemployment_rate":13.6976,"occupation_variation":-899.99,"_id":"lt9aa8iDPkzMS38j"}
+{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"cuenca","year":2020,"unemployment_rate":14.0043,"occupation_variation":-2300,"_id":"TG5BQIK9R2jPHYkE"}
+{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"albacete","year":2020,"unemployment_rate":19.7889,"occupation_variation":-6600,"_id":"KHisBzFYImSA0Feb"}
+{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"ciudad real","year":2020,"unemployment_rate":19.9999,"occupation_variation":-3100,"_id":"EBYOf9cLJESjbqNM"}
+{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"toledo","year":2020,"unemployment_rate":16.7832,"occupation_variation":4900.09,"_id":"PVdHx1ULuNZiX1fu"}
+{"autonomous_community":"cantabria","youth_unemployment_rate":27.9069,"province":"cantabria","year":2020,"unemployment_rate":11.8581,"occupation_variation":1199.99,"_id":"zIFS9n7FDaie49ZD"}
+{"autonomous_community":"asturias","youth_unemployment_rate":37.5,"province":"asturias","year":2020,"unemployment_rate":14.0845,"occupation_variation":-300.01,"_id":"Cy36xOpapdO8RsVM"}
+{"autonomous_community":"la rioja","youth_unemployment_rate":29.5454,"province":"la rioja","year":2020,"unemployment_rate":11.848,"occupation_variation":-4199.99,"_id":"BRjuvUaqoxsXYmc7"}
+{"autonomous_community":"navarra","youth_unemployment_rate":31.746,"province":"navarra","year":2020,"unemployment_rate":11.4832,"occupation_variation":-699.98,"_id":"MJOYj3R7icNotQnX"}
+{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"vizcaya","year":2020,"unemployment_rate":12.0379,"occupation_variation":-11500,"_id":"wCq1juOsyVQkipxd"}
+{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"guipuzcoa","year":2020,"unemployment_rate":9.25,"occupation_variation":7299.98,"_id":"JfDP4eejXDAL4FxI"}
+{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"alava","year":2020,"unemployment_rate":11.2924,"occupation_variation":99.99,"_id":"iksvKTpQax9Outrm"}
+{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"a coruña","year":2020,"unemployment_rate":12.7018,"occupation_variation":-11500,"_id":"8sNvuUhvdyXwJaFa"}
+{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"lugo","year":2020,"unemployment_rate":8.8489,"occupation_variation":-300,"_id":"uBxRMe7Vy8BEAQqz"}
+{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"potevedra","year":2020,"unemployment_rate":15.2133,"occupation_variation":-9200.01,"_id":"sZAa1HwYjJ9dOqRu"}
+{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"ourense","year":2020,"unemployment_rate":11.6459,"occupation_variation":-299.99,"_id":"3wbZA644KCm1E5Wv"}
+{"autonomous_community":"ceuta","youth_unemployment_rate":70.5882,"province":"ceuta","year":2020,"unemployment_rate":28.0898,"occupation_variation":-1600,"_id":"Za3dicN7Qb7cApJk"}
+{"autonomous_community":"melilla","youth_unemployment_rate":47.2758,"province":"melilla","year":2020,"unemployment_rate":21.608,"occupation_variation":-225.03,"_id":"SE9ZnEPr8olmztFP"}
+{"$$deleted":true,"_id":"8PJ05NOpidklHmx0"}
+{"autonomous_community":"galiciacomunidad ejemplo","youth_unemployment_rate":37.1158123,"province":"a coruñaprovincia ejemplo","year":20202020,"unemployment_rate":12.7018456,"occupation_variation":-11500789,"_id":"ounNGi5aszKuYdRV"}
+{"autonomous_community":"extremaduracomunidad de ejemplo actualizada","province":"caceres","year":2020,"unemployment_rate":18.5352,"youth_unemployment_rate":48.1605,"occupation_variation":100.0061,"_id":"1C9GqxemTADBSkiz"}
+{"$$deleted":true,"_id":"1C9GqxemTADBSkiz"}
+{"$$deleted":true,"_id":"3wbZA644KCm1E5Wv"}
+{"$$deleted":true,"_id":"8sNvuUhvdyXwJaFa"}
+{"$$deleted":true,"_id":"BRjuvUaqoxsXYmc7"}
+{"$$deleted":true,"_id":"Bmp82Bk9fE1lHZqY"}
+{"$$deleted":true,"_id":"Cy36xOpapdO8RsVM"}
+{"$$deleted":true,"_id":"EBYOf9cLJESjbqNM"}
+{"$$deleted":true,"_id":"JfDP4eejXDAL4FxI"}
+{"$$deleted":true,"_id":"KHisBzFYImSA0Feb"}
+{"$$deleted":true,"_id":"MJOYj3R7icNotQnX"}
+{"$$deleted":true,"_id":"PVdHx1ULuNZiX1fu"}
+{"$$deleted":true,"_id":"QnKb59hlOJFcM7w8"}
+{"$$deleted":true,"_id":"SE9ZnEPr8olmztFP"}
+{"$$deleted":true,"_id":"TG5BQIK9R2jPHYkE"}
+{"$$deleted":true,"_id":"W80hUVA4EnBTnuwv"}
+{"$$deleted":true,"_id":"Za3dicN7Qb7cApJk"}
+{"$$deleted":true,"_id":"gddfzD3hkzMi2cSe"}
+{"$$deleted":true,"_id":"iksvKTpQax9Outrm"}
+{"$$deleted":true,"_id":"lmJtauofiQ3mLcOa"}
+{"$$deleted":true,"_id":"lt9aa8iDPkzMS38j"}
+{"$$deleted":true,"_id":"oMrz4oRcJk3c2MC5"}
+{"$$deleted":true,"_id":"ounNGi5aszKuYdRV"}
+{"$$deleted":true,"_id":"ozfrlViGetCF1Nni"}
+{"$$deleted":true,"_id":"punSzzLV0GVrwjnl"}
+{"$$deleted":true,"_id":"sZAa1HwYjJ9dOqRu"}
+{"$$deleted":true,"_id":"ss9TOrHKKYP0uPyG"}
+{"$$deleted":true,"_id":"uBxRMe7Vy8BEAQqz"}
+{"$$deleted":true,"_id":"wCq1juOsyVQkipxd"}
+{"$$deleted":true,"_id":"xwEJEmIxe1UOhTgT"}
+{"$$deleted":true,"_id":"zIFS9n7FDaie49ZD"}
+{"autonomous_community":"madrid","youth_unemployment_rate":31.7662,"province":"madrid","year":2020,"unemployment_rate":12.1491,"occupation_variation":40399.9,"_id":"WqYdA2e0Fxakieq1"}
+{"autonomous_community":"murcia","youth_unemployment_rate":37.4509,"province":"murcia","year":2020,"unemployment_rate":16.4211,"occupation_variation":-1199.95,"_id":"AHClrEA7kENkCGIW"}
+{"autonomous_community":"extremadura","youth_unemployment_rate":48.1605,"province":"badajoz","year":2020,"unemployment_rate":22.8954,"occupation_variation":-1.09999,"_id":"FPtNS3eyCEzvpXMu"}
+{"autonomous_community":"extremadura","youth_unemployment_rate":48.1605,"province":"caceres","year":2020,"unemployment_rate":18.5352,"occupation_variation":100.0061,"_id":"S8xwdib8NLONluUR"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"malaga","year":2020,"unemployment_rate":19.3225,"occupation_variation":-42199.95,"_id":"4SCKG5zATGEsBEeh"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"granada","year":2020,"unemployment_rate":24.8484,"occupation_variation":10899.99,"_id":"hXTBQjGjWPrD006F"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"cadiz","year":2020,"unemployment_rate":24.0474,"occupation_variation":-24399.99,"_id":"cank720vm8zGmmSG"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"sevilla","year":2020,"unemployment_rate":23.8074,"occupation_variation":-16100.03,"_id":"DktuqmVyL8v7xTW9"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"huelva","year":2020,"unemployment_rate":20.6911,"occupation_variation":8900,"_id":"tMQj5MHxd0BYifg2"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"cordoba","year":2020,"unemployment_rate":20.0753,"occupation_variation":8500,"_id":"qkYxRMqXtkJm0yLV"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"jaen","year":2020,"unemployment_rate":20.1441,"occupation_variation":1900,"_id":"3vwpE3GgNw3scluq"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"almeria","year":2020,"unemployment_rate":17.1404,"occupation_variation":21899.99,"_id":"sfoqnwBUB0YzcYg1"}
+{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"guadalajara","year":2020,"unemployment_rate":13.6976,"occupation_variation":-899.99,"_id":"UBQn8KfucIesEnfX"}
+{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"cuenca","year":2020,"unemployment_rate":14.0043,"occupation_variation":-2300,"_id":"EJOyvlmj3jaiy9K4"}
+{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"albacete","year":2020,"unemployment_rate":19.7889,"occupation_variation":-6600,"_id":"m7OgCSdkhrPD9T8L"}
+{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"ciudad real","year":2020,"unemployment_rate":19.9999,"occupation_variation":-3100,"_id":"y4Lh4yTA8Q3UdJ78"}
+{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"toledo","year":2020,"unemployment_rate":16.7832,"occupation_variation":4900.09,"_id":"DDgpMJhgAYpyi9bL"}
+{"autonomous_community":"cantabria","youth_unemployment_rate":27.9069,"province":"cantabria","year":2020,"unemployment_rate":11.8581,"occupation_variation":1199.99,"_id":"9L8Q9H86YD1xbW3H"}
+{"autonomous_community":"asturias","youth_unemployment_rate":37.5,"province":"asturias","year":2020,"unemployment_rate":14.0845,"occupation_variation":-300.01,"_id":"bv0pYLn90n07Cnru"}
+{"autonomous_community":"la rioja","youth_unemployment_rate":29.5454,"province":"la rioja","year":2020,"unemployment_rate":11.848,"occupation_variation":-4199.99,"_id":"l1EnP4Q3pFZIFki1"}
+{"autonomous_community":"navarra","youth_unemployment_rate":31.746,"province":"navarra","year":2020,"unemployment_rate":11.4832,"occupation_variation":-699.98,"_id":"rqYJef88GaQdP8n3"}
+{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"vizcaya","year":2020,"unemployment_rate":12.0379,"occupation_variation":-11500,"_id":"nVBl7KOEbOoQmco8"}
+{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"guipuzcoa","year":2020,"unemployment_rate":9.25,"occupation_variation":7299.98,"_id":"i9Q0LVP7OGh79jh4"}
+{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"alava","year":2020,"unemployment_rate":11.2924,"occupation_variation":99.99,"_id":"s5jP98j5Lzxzkk5t"}
+{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"a coruña","year":2020,"unemployment_rate":12.7018,"occupation_variation":-11500,"_id":"YAy3BB1b7F4Er4nS"}
+{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"lugo","year":2020,"unemployment_rate":8.8489,"occupation_variation":-300,"_id":"IF4WarZUPYFJexro"}
+{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"potevedra","year":2020,"unemployment_rate":15.2133,"occupation_variation":-9200.01,"_id":"maVjLvWuMSJ0F7Z2"}
+{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"ourense","year":2020,"unemployment_rate":11.6459,"occupation_variation":-299.99,"_id":"SRyP9E7lIS4dryAc"}
+{"autonomous_community":"ceuta","youth_unemployment_rate":70.5882,"province":"ceuta","year":2020,"unemployment_rate":28.0898,"occupation_variation":-1600,"_id":"5HcTYltVMY16se09"}
+{"autonomous_community":"melilla","youth_unemployment_rate":47.2758,"province":"melilla","year":2020,"unemployment_rate":21.608,"occupation_variation":-225.03,"_id":"uvOtbdRnm6pyczrl"}
+{"$$deleted":true,"_id":"3vwpE3GgNw3scluq"}
+{"$$deleted":true,"_id":"4SCKG5zATGEsBEeh"}
+{"$$deleted":true,"_id":"5HcTYltVMY16se09"}
+{"$$deleted":true,"_id":"9L8Q9H86YD1xbW3H"}
+{"$$deleted":true,"_id":"AHClrEA7kENkCGIW"}
+{"$$deleted":true,"_id":"DDgpMJhgAYpyi9bL"}
+{"$$deleted":true,"_id":"DktuqmVyL8v7xTW9"}
+{"$$deleted":true,"_id":"EJOyvlmj3jaiy9K4"}
+{"$$deleted":true,"_id":"FPtNS3eyCEzvpXMu"}
+{"$$deleted":true,"_id":"IF4WarZUPYFJexro"}
+{"$$deleted":true,"_id":"S8xwdib8NLONluUR"}
+{"$$deleted":true,"_id":"SRyP9E7lIS4dryAc"}
+{"$$deleted":true,"_id":"UBQn8KfucIesEnfX"}
+{"$$deleted":true,"_id":"WqYdA2e0Fxakieq1"}
+{"$$deleted":true,"_id":"YAy3BB1b7F4Er4nS"}
+{"$$deleted":true,"_id":"bv0pYLn90n07Cnru"}
+{"$$deleted":true,"_id":"cank720vm8zGmmSG"}
+{"$$deleted":true,"_id":"hXTBQjGjWPrD006F"}
+{"$$deleted":true,"_id":"i9Q0LVP7OGh79jh4"}
+{"$$deleted":true,"_id":"l1EnP4Q3pFZIFki1"}
+{"$$deleted":true,"_id":"m7OgCSdkhrPD9T8L"}
+{"$$deleted":true,"_id":"maVjLvWuMSJ0F7Z2"}
+{"$$deleted":true,"_id":"nVBl7KOEbOoQmco8"}
+{"$$deleted":true,"_id":"qkYxRMqXtkJm0yLV"}
+{"$$deleted":true,"_id":"rqYJef88GaQdP8n3"}
+{"$$deleted":true,"_id":"s5jP98j5Lzxzkk5t"}
+{"$$deleted":true,"_id":"sfoqnwBUB0YzcYg1"}
+{"$$deleted":true,"_id":"tMQj5MHxd0BYifg2"}
+{"$$deleted":true,"_id":"uvOtbdRnm6pyczrl"}
+{"$$deleted":true,"_id":"y4Lh4yTA8Q3UdJ78"}
+{"autonomous_community":"madrid","youth_unemployment_rate":31.7662,"province":"madrid","year":2020,"unemployment_rate":12.1491,"occupation_variation":40399.9,"_id":"SxP6jdyxaTS2RNsu"}
+{"autonomous_community":"murcia","youth_unemployment_rate":37.4509,"province":"murcia","year":2020,"unemployment_rate":16.4211,"occupation_variation":-1199.95,"_id":"KYJnS8h1Lynfjtgc"}
+{"autonomous_community":"extremadura","youth_unemployment_rate":48.1605,"province":"badajoz","year":2020,"unemployment_rate":22.8954,"occupation_variation":-1.09999,"_id":"lKuv6NYMRcLHdxNO"}
+{"autonomous_community":"extremadura","youth_unemployment_rate":48.1605,"province":"caceres","year":2020,"unemployment_rate":18.5352,"occupation_variation":100.0061,"_id":"sJps81fjaN9vvGRw"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"malaga","year":2020,"unemployment_rate":19.3225,"occupation_variation":-42199.95,"_id":"CflHEicBvIUiM0r4"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"granada","year":2020,"unemployment_rate":24.8484,"occupation_variation":10899.99,"_id":"qvo3brnFHbVtD0zL"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"cadiz","year":2020,"unemployment_rate":24.0474,"occupation_variation":-24399.99,"_id":"t0fYy7ObdfScToCL"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"sevilla","year":2020,"unemployment_rate":23.8074,"occupation_variation":-16100.03,"_id":"TQKEwL1faEr4MY5e"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"huelva","year":2020,"unemployment_rate":20.6911,"occupation_variation":8900,"_id":"9o30akTWaQu70btS"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"cordoba","year":2020,"unemployment_rate":20.0753,"occupation_variation":8500,"_id":"kgmVzNsrtgQz30nk"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"jaen","year":2020,"unemployment_rate":20.1441,"occupation_variation":1900,"_id":"iwJLOsDuIlUX6JXP"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"almeria","year":2020,"unemployment_rate":17.1404,"occupation_variation":21899.99,"_id":"MEqaDe0OiVHMLp0P"}
+{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"guadalajara","year":2020,"unemployment_rate":13.6976,"occupation_variation":-899.99,"_id":"4rbtPpHoIw91vDpP"}
+{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"cuenca","year":2020,"unemployment_rate":14.0043,"occupation_variation":-2300,"_id":"ocbbYSSU15Drq0qC"}
+{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"albacete","year":2020,"unemployment_rate":19.7889,"occupation_variation":-6600,"_id":"VojdPEuHosF35uJK"}
+{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"ciudad real","year":2020,"unemployment_rate":19.9999,"occupation_variation":-3100,"_id":"fiI4E64HVSWEgs1v"}
+{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"toledo","year":2020,"unemployment_rate":16.7832,"occupation_variation":4900.09,"_id":"QVIhlXH0kCR2U9jl"}
+{"autonomous_community":"cantabria","youth_unemployment_rate":27.9069,"province":"cantabria","year":2020,"unemployment_rate":11.8581,"occupation_variation":1199.99,"_id":"B4ozymUMdZrq0d8N"}
+{"autonomous_community":"asturias","youth_unemployment_rate":37.5,"province":"asturias","year":2020,"unemployment_rate":14.0845,"occupation_variation":-300.01,"_id":"8FMA8ci0UvAxfqvG"}
+{"autonomous_community":"la rioja","youth_unemployment_rate":29.5454,"province":"la rioja","year":2020,"unemployment_rate":11.848,"occupation_variation":-4199.99,"_id":"J3dgPOLOlSiETSsk"}
+{"autonomous_community":"navarra","youth_unemployment_rate":31.746,"province":"navarra","year":2020,"unemployment_rate":11.4832,"occupation_variation":-699.98,"_id":"BPY6xfneA9vuqpup"}
+{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"vizcaya","year":2020,"unemployment_rate":12.0379,"occupation_variation":-11500,"_id":"m2AllPe0gtmGKhFN"}
+{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"guipuzcoa","year":2020,"unemployment_rate":9.25,"occupation_variation":7299.98,"_id":"dhJAC5grXm1cd50r"}
+{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"alava","year":2020,"unemployment_rate":11.2924,"occupation_variation":99.99,"_id":"44RyW78GsindF68H"}
+{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"a coruña","year":2020,"unemployment_rate":12.7018,"occupation_variation":-11500,"_id":"SIg1Dz7l2HY19uBh"}
+{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"lugo","year":2020,"unemployment_rate":8.8489,"occupation_variation":-300,"_id":"Dd3UIgcKBMQtnBRl"}
+{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"potevedra","year":2020,"unemployment_rate":15.2133,"occupation_variation":-9200.01,"_id":"Li19wm6baGwxm811"}
+{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"ourense","year":2020,"unemployment_rate":11.6459,"occupation_variation":-299.99,"_id":"zeUZ5dSL8NthDpjj"}
+{"autonomous_community":"ceuta","youth_unemployment_rate":70.5882,"province":"ceuta","year":2020,"unemployment_rate":28.0898,"occupation_variation":-1600,"_id":"AqyDDHX45SJlO9dh"}
+{"autonomous_community":"melilla","youth_unemployment_rate":47.2758,"province":"melilla","year":2020,"unemployment_rate":21.608,"occupation_variation":-225.03,"_id":"NiXgVmpS9dKlFIFc"}
+{"$$deleted":true,"_id":"8FMA8ci0UvAxfqvG"}
+{"autonomous_community":"galiciacomunidad ejemplo","youth_unemployment_rate":37.1158123,"province":"a coruñaprovincia ejemplo","year":20202020,"unemployment_rate":12.7018456,"occupation_variation":-11500789,"_id":"vDMFhm4qcj50pEpT"}
+{"autonomous_community":"pais vascocomunidad de ejemplo actualizada","province":"alava","year":2020,"unemployment_rate":11.2924,"youth_unemployment_rate":39.0384,"occupation_variation":99.99,"_id":"44RyW78GsindF68H"}
+{"$$deleted":true,"_id":"44RyW78GsindF68H"}
+{"$$deleted":true,"_id":"4rbtPpHoIw91vDpP"}
+{"$$deleted":true,"_id":"9o30akTWaQu70btS"}
+{"$$deleted":true,"_id":"AqyDDHX45SJlO9dh"}
+{"$$deleted":true,"_id":"B4ozymUMdZrq0d8N"}
+{"$$deleted":true,"_id":"BPY6xfneA9vuqpup"}
+{"$$deleted":true,"_id":"CflHEicBvIUiM0r4"}
+{"$$deleted":true,"_id":"Dd3UIgcKBMQtnBRl"}
+{"$$deleted":true,"_id":"J3dgPOLOlSiETSsk"}
+{"$$deleted":true,"_id":"KYJnS8h1Lynfjtgc"}
+{"$$deleted":true,"_id":"Li19wm6baGwxm811"}
+{"$$deleted":true,"_id":"MEqaDe0OiVHMLp0P"}
+{"$$deleted":true,"_id":"NiXgVmpS9dKlFIFc"}
+{"$$deleted":true,"_id":"QVIhlXH0kCR2U9jl"}
+{"$$deleted":true,"_id":"SIg1Dz7l2HY19uBh"}
+{"$$deleted":true,"_id":"SxP6jdyxaTS2RNsu"}
+{"$$deleted":true,"_id":"TQKEwL1faEr4MY5e"}
+{"$$deleted":true,"_id":"VojdPEuHosF35uJK"}
+{"$$deleted":true,"_id":"dhJAC5grXm1cd50r"}
+{"$$deleted":true,"_id":"fiI4E64HVSWEgs1v"}
+{"$$deleted":true,"_id":"iwJLOsDuIlUX6JXP"}
+{"$$deleted":true,"_id":"kgmVzNsrtgQz30nk"}
+{"$$deleted":true,"_id":"lKuv6NYMRcLHdxNO"}
+{"$$deleted":true,"_id":"m2AllPe0gtmGKhFN"}
+{"$$deleted":true,"_id":"ocbbYSSU15Drq0qC"}
+{"$$deleted":true,"_id":"qvo3brnFHbVtD0zL"}
+{"$$deleted":true,"_id":"sJps81fjaN9vvGRw"}
+{"$$deleted":true,"_id":"t0fYy7ObdfScToCL"}
+{"$$deleted":true,"_id":"vDMFhm4qcj50pEpT"}
+{"$$deleted":true,"_id":"zeUZ5dSL8NthDpjj"}
+{"autonomous_community":"madrid","youth_unemployment_rate":31.7662,"province":"madrid","year":2020,"unemployment_rate":12.1491,"occupation_variation":40399.9,"_id":"EYP3vKI8nfQyhxED"}
+{"autonomous_community":"murcia","youth_unemployment_rate":37.4509,"province":"murcia","year":2020,"unemployment_rate":16.4211,"occupation_variation":-1199.95,"_id":"fSd6VT9wWX9x1uXr"}
+{"autonomous_community":"extremadura","youth_unemployment_rate":48.1605,"province":"badajoz","year":2020,"unemployment_rate":22.8954,"occupation_variation":-1.09999,"_id":"bB8zABOr2cUGk1Bo"}
+{"autonomous_community":"extremadura","youth_unemployment_rate":48.1605,"province":"caceres","year":2020,"unemployment_rate":18.5352,"occupation_variation":100.0061,"_id":"XldcWhdXxO18DLck"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"malaga","year":2020,"unemployment_rate":19.3225,"occupation_variation":-42199.95,"_id":"SHaZOeCfRoy5pOd9"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"granada","year":2020,"unemployment_rate":24.8484,"occupation_variation":10899.99,"_id":"iyQeA8R2rIGsldoQ"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"cadiz","year":2020,"unemployment_rate":24.0474,"occupation_variation":-24399.99,"_id":"a6ZMxZwlbXlsHnpN"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"sevilla","year":2020,"unemployment_rate":23.8074,"occupation_variation":-16100.03,"_id":"Dwv3UfG1f991rXpy"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"huelva","year":2020,"unemployment_rate":20.6911,"occupation_variation":8900,"_id":"z9fzwvmtTxCWrPKJ"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"cordoba","year":2020,"unemployment_rate":20.0753,"occupation_variation":8500,"_id":"9PL4ioqYVrmRXSRO"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"jaen","year":2020,"unemployment_rate":20.1441,"occupation_variation":1900,"_id":"nzXXpdhmvwnDk7mM"}
+{"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"almeria","year":2020,"unemployment_rate":17.1404,"occupation_variation":21899.99,"_id":"meiH1CFeiox1k3VP"}
+{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"guadalajara","year":2020,"unemployment_rate":13.6976,"occupation_variation":-899.99,"_id":"kyjh5EH7zaV8e93Y"}
+{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"cuenca","year":2020,"unemployment_rate":14.0043,"occupation_variation":-2300,"_id":"7vgkyHgywCWmveVa"}
+{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"albacete","year":2020,"unemployment_rate":19.7889,"occupation_variation":-6600,"_id":"IfX7zTjkyapP0azg"}
+{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"ciudad real","year":2020,"unemployment_rate":19.9999,"occupation_variation":-3100,"_id":"Qg61YJ6tnCPkBiPt"}
+{"autonomous_community":"castilla la mancha","youth_unemployment_rate":37.3831,"province":"toledo","year":2020,"unemployment_rate":16.7832,"occupation_variation":4900.09,"_id":"GAeDhpblwrboF2iz"}
+{"autonomous_community":"cantabria","youth_unemployment_rate":27.9069,"province":"cantabria","year":2020,"unemployment_rate":11.8581,"occupation_variation":1199.99,"_id":"uEHHGdr0Cxerwa91"}
+{"autonomous_community":"asturias","youth_unemployment_rate":37.5,"province":"asturias","year":2020,"unemployment_rate":14.0845,"occupation_variation":-300.01,"_id":"AsIfJnBko3S8y5D3"}
+{"autonomous_community":"la rioja","youth_unemployment_rate":29.5454,"province":"la rioja","year":2020,"unemployment_rate":11.848,"occupation_variation":-4199.99,"_id":"X8WOAlLctLmkpDv3"}
+{"autonomous_community":"navarra","youth_unemployment_rate":31.746,"province":"navarra","year":2020,"unemployment_rate":11.4832,"occupation_variation":-699.98,"_id":"A6OgfQYzUySjTT66"}
+{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"vizcaya","year":2020,"unemployment_rate":12.0379,"occupation_variation":-11500,"_id":"whaG2EAOfZE9QvBa"}
+{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"guipuzcoa","year":2020,"unemployment_rate":9.25,"occupation_variation":7299.98,"_id":"OhJsD0jvusKP6WcU"}
+{"autonomous_community":"pais vasco","youth_unemployment_rate":39.0384,"province":"alava","year":2020,"unemployment_rate":11.2924,"occupation_variation":99.99,"_id":"fy3RsZ0HRACyHxER"}
+{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"a coruña","year":2020,"unemployment_rate":12.7018,"occupation_variation":-11500,"_id":"wgHkpKp87geS7VoU"}
+{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"lugo","year":2020,"unemployment_rate":8.8489,"occupation_variation":-300,"_id":"0RIiESfrXT5T9hO5"}
+{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"potevedra","year":2020,"unemployment_rate":15.2133,"occupation_variation":-9200.01,"_id":"vwy5rtLB2iJ0z5qV"}
+{"autonomous_community":"galicia","youth_unemployment_rate":37.1158,"province":"ourense","year":2020,"unemployment_rate":11.6459,"occupation_variation":-299.99,"_id":"UFCnzO8gYyIDv4zi"}
+{"autonomous_community":"ceuta","youth_unemployment_rate":70.5882,"province":"ceuta","year":2020,"unemployment_rate":28.0898,"occupation_variation":-1600,"_id":"OsNYueHG4mSWC1EV"}
+{"autonomous_community":"melilla","youth_unemployment_rate":47.2758,"province":"melilla","year":2020,"unemployment_rate":21.608,"occupation_variation":-225.03,"_id":"5p8RI29mivGJZR8N"}
+{"$$deleted":true,"_id":"0RIiESfrXT5T9hO5"}
+{"$$deleted":true,"_id":"5p8RI29mivGJZR8N"}
+{"$$deleted":true,"_id":"7vgkyHgywCWmveVa"}
+{"$$deleted":true,"_id":"9PL4ioqYVrmRXSRO"}
+{"$$deleted":true,"_id":"A6OgfQYzUySjTT66"}
+{"$$deleted":true,"_id":"AsIfJnBko3S8y5D3"}
+{"$$deleted":true,"_id":"Dwv3UfG1f991rXpy"}
+{"$$deleted":true,"_id":"EYP3vKI8nfQyhxED"}
+{"$$deleted":true,"_id":"GAeDhpblwrboF2iz"}
+{"$$deleted":true,"_id":"IfX7zTjkyapP0azg"}
+{"$$deleted":true,"_id":"OhJsD0jvusKP6WcU"}
+{"$$deleted":true,"_id":"OsNYueHG4mSWC1EV"}
+{"$$deleted":true,"_id":"Qg61YJ6tnCPkBiPt"}
+{"$$deleted":true,"_id":"SHaZOeCfRoy5pOd9"}
+{"$$deleted":true,"_id":"UFCnzO8gYyIDv4zi"}
+{"$$deleted":true,"_id":"X8WOAlLctLmkpDv3"}
+{"$$deleted":true,"_id":"XldcWhdXxO18DLck"}
+{"$$deleted":true,"_id":"a6ZMxZwlbXlsHnpN"}
+{"$$deleted":true,"_id":"bB8zABOr2cUGk1Bo"}
+{"$$deleted":true,"_id":"fSd6VT9wWX9x1uXr"}
+{"$$deleted":true,"_id":"fy3RsZ0HRACyHxER"}
+{"$$deleted":true,"_id":"iyQeA8R2rIGsldoQ"}
+{"$$deleted":true,"_id":"kyjh5EH7zaV8e93Y"}
+{"$$deleted":true,"_id":"meiH1CFeiox1k3VP"}
+{"$$deleted":true,"_id":"nzXXpdhmvwnDk7mM"}
+{"$$deleted":true,"_id":"uEHHGdr0Cxerwa91"}
+{"$$deleted":true,"_id":"vwy5rtLB2iJ0z5qV"}
+{"$$deleted":true,"_id":"wgHkpKp87geS7VoU"}
+{"$$deleted":true,"_id":"whaG2EAOfZE9QvBa"}
+{"$$deleted":true,"_id":"z9fzwvmtTxCWrPKJ"}

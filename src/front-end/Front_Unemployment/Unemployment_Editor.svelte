@@ -129,7 +129,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><input type="text" placeholder="andalucia" min="1"   bind:value={updateComunity} /></td>
+        <td><input type="text" id="input_autonomous_community" placeholder="andalucia" min="1"   bind:value={updateComunity} /></td>
         <td><input type="number" placeholder="52.1912" min="1"   bind:value={updateYouthUnempRate} /></td>
         <td><input type="text" placeholder="malaga" min="1"   bind:value={updateProvince} /></td>
         <td><input type="number" placeholder="2020" min="1"   bind:value={updateYear} /></td>
