@@ -22,18 +22,18 @@ import {
   <h2>Team</h2>
   <Container>
     <Col>
-      <a href="https://github.com/frankys99">Francisco Miguel Tristán Clavijo</a>
-      <p> -- </p>
+      <a href="https://github.com/frankys99">Francisco Miguel Tristán Clavijo<p> -- </p></a>
+      
       <a href="https://github.com/frankys99">Video</a>
     </Col>
     <Col>
-		  <a href="https://github.com/RoundPegInASquareHole">Alejandro Pariente Migoya</a>
-      <p> -- </p>
+		  <a href="https://github.com/RoundPegInASquareHole">Alejandro Pariente Migoya<p> -- </p></a>
+      
       <a href="https://github.com/RoundPegInASquareHole">Video</a>
 		</Col>
 		<Col>
-		  <a href="https://github.com/nuresctor">Nuria Escamilla Torres</a>
-      <p> -- </p>
+		  <a href="https://github.com/nuresctor">Nuria Escamilla Torres<p> -- </p></a>
+      
       <a href="https://github.com/nuresctor">Video</a>
 		</Col>
 
