@@ -126,7 +126,7 @@
         <td>{updateComunity}</td>
         <td>{updateProvince}</td>
         <td>{updateYear}</td>
-        <td><input  placeholder="500.0" min="1"   bind:value={updateRent} /></td>
+        <td><input id="renta_editar" placeholder="500.0" min="1"   bind:value={updateRent} /></td>
         <td><input  placeholder="40.5" min="1"   bind:value={updateRent_V} /></td>
         <td><input  placeholder="10.5" min="1.0" bind:value={updateMeter} /></td>
         <td><input  placeholder="14.8" min="1.0"  bind:value={updateSalary} /></td>
