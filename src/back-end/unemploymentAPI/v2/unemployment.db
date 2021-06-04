@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"sevilla","year":2020,"unemployment_rate":23.8074,"occupation_variation":-16100.03,"_id":"03jqd46Xh581G1eT"}
 {"autonomous_community":"madrid","youth_unemployment_rate":31.7662,"province":"madrid","year":2020,"unemployment_rate":12.1491,"occupation_variation":40399.9,"_id":"5cVIkuVPysXuGFVQ"}
 {"autonomous_community":"andalucia","youth_unemployment_rate":52.1912,"province":"malaga","year":2020,"unemployment_rate":19.3225,"occupation_variation":-42199.95,"_id":"7QD3Wz5sZMLEtaJw"}
@@ -58,3 +59,5 @@
 {"$$deleted":true,"_id":"vhTCBHA0K3Ki7oDW"}
 {"$$deleted":true,"_id":"wQRHFGM16yd7x086"}
 {"$$deleted":true,"_id":"xYDGbSrFmXpnq3eD"}
+=======
+>>>>>>> c9f8fbf02d53b2179cc81224cf120b0307d1a5d5
