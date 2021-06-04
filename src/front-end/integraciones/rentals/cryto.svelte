@@ -1,8 +1,6 @@
 <script>
     import { onMount } from "svelte";
     import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
-    require("highcharts/modules/exporting")(Highcharts);
-    require("highcharts/highcharts-more")(Highcharts);
     let Data = [];
     let Coins = [];
     let myData =[];
