@@ -95,8 +95,8 @@
               <a href="/#/integrations/love_calculator"
                 ><Button color="info">Externa 1 - Love Calculator</Button></a
               >
-              <a href="https://documenter.getpostman.com/view/15352819/TzXwExqo"
-                ><Button color="info">Documentación Postman v2</Button></a
+              <a href="/#/integrations/food"
+                ><Button color="info">Externa 2 - Edaman Food</Button></a
               >
             </CardBody>
             

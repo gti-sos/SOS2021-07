@@ -64,6 +64,16 @@ app.use(pathLove, function (req, res) {
   req.pipe(request(url)).pipe(res);
 });
 
+//Edaman Food - externa 2
+var pathFood = '/parser';
+var apiServerHostFood = "https://edamam-food-and-grocery-database.p.rapidapi.com";
+
+app.use(pathFood, function (req, res) {
+  var url = apiServerHostFood + req.baseUrl + req.url;
+  console.log('piped: ' + req.baseUrl + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
 //proxys Tristan
 //Grupo 27: province-budget-and-investment-in-social-promotion
 

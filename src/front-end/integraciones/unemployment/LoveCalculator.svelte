@@ -1,8 +1,6 @@
 <script>
-  import { onMount } from "svelte";
-  import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
-  var v = [];
-  var l = [];
+  import { Button, Nav, NavItem, NavLink } from "sveltestrap";
+  
   async function loadGraph() {
     const DatosUnemployment = await fetch("/api/v2/unemployment");
 
@@ -204,7 +202,7 @@
   <div style="height: 400px; float:left">
     <canvas id="cvs" width="300" height="300">[No canvas support]</canvas>
     <canvas id="cvs2" width="300" height="300">[No canvas support]</canvas>
-    <h1 class="love-description">Integración externa con Love Calculator.</h1>
+    <h1 class="love-description">Integración externa con Love Calculator</h1>
     <p class="love-description">
       Dadas dos parejas de provincias, calcula cuánto se quieren.
     </p>
