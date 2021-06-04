@@ -24,25 +24,7 @@
     );
     }
 
-    async function loadStats() {
     
-    const res = await fetch(
-      BASE_CONTACT_API_PATH + "/rentals/loadInitialData"
-    ).then(function (res) {
-      if (res.ok) {
-        getStats();
-        errorMsg = "";
-        okMsg = "Datos cargados correctamente";
-        console.log("OK");
-      } else {
-        if (res.status === 500) {
-          errorMsg = "No se ha podido acceder a la base de datos";
-        }
-        okMsg = "";
-        console.log("ERROR!" + errorMsg);
-      }
-    });
-  }
     
     async function loadGraph() {
         var myData={

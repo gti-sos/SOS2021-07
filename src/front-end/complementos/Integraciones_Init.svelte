@@ -49,22 +49,22 @@
               ><Button color="info">G30 life-expectancy</Button></a
               >
               <a href="/#/integrations/Ext1_educacion"
-              ><Button color="info">Ext1 Educacion</Button></a>
+              ><Button color="info">G04 Educacion</Button></a>
 
               <a href="/#/integrations/Ext2_Cartas"
-                ><Button color="primary">Ext2 Cartas E1</Button></a>
+                ><Button color="primary">Ext1 Cartas</Button></a>
 
               <a href="/#/integrations/Pokemon"
-              ><Button color="primary">Ext3 Pokemon</Button></a>
+              ><Button color="primary">Ext2 Pokemon</Button></a>
 
               <a href="/#/integrations/crypto"
-              ><Button color="primary">Ext5 crypto</Button></a>
+              ><Button color="primary">Ext3 crypto</Button></a>
               
               <a href="/#/integrations/Covid"
                 ><Button color="primary">Ext4 Covid E1</Button></a
               >
               <a href="/#/integrations/Hearthstone"
-                ><Button color="primary">Ext6 Hearthstone </Button></a
+                ><Button color="primary">Ext5 Hearthstone </Button></a
               >
               <a href="/#/integrations/SW"
                 ><Button color="primary">Ext6 StarWars </Button></a
