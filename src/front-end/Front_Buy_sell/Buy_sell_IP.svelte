@@ -10,8 +10,10 @@
       return arr.map((mapObj) => mapObj[prop]).indexOf(obj[prop]) === pos;
     });
   }
-	
-   Highcharts.chart('container', {
+  
+  async function loadChart() {
+  
+  Highcharts.chart('container', {
 
     title: {
         text: 'Solar Employment Growth by Sector, 2010-2016'
@@ -81,16 +83,19 @@
     }
 
 });
+  
+  }
+	
 	
 </script>
 
 <svelte:head>
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/series-label.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadChart}></script>
+<script src="https://code.highcharts.com/highcharts.src.js" on:load="{loadChart}"></script>
+//<script src="https://code.highcharts.com/modules/series-label.js"></script>
+//<script src="https://code.highcharts.com/modules/exporting.js"></script>
+//<script src="https://code.highcharts.com/modules/export-data.js"></script>
+//<script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadChart}></script>
 	
 </svelte:head>
 <main>
