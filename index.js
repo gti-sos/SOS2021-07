@@ -54,6 +54,16 @@ app.use(pathSmoker, function (req, res) {
   req.pipe(request(url)).pipe(res);
 });
 
+//Love calculator - externa 1
+var pathLove = '/getPercentage';
+var apiServerHostLove = "https://love-calculator.p.rapidapi.com";
+
+app.use(pathLove, function (req, res) {
+  var url = apiServerHostLove + req.baseUrl + req.url;
+  console.log('piped: ' + req.baseUrl + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
 //proxys Tristan
 //Grupo 27: province-budget-and-investment-in-social-promotion
 
