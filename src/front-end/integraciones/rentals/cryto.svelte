@@ -46,7 +46,7 @@
                 height: '40%'
             },
             title: {
-                text: 'Relación entre el número de mercados en la que se usa la criptomoneda y el salario de las provincias de españa'
+                text: 'Relación entre el número de mercados en la que se usa la criptomoneda y el salario de las provincias de españa. Por favor refresque la pagina si no le carga.'
             },
             tooltip: {
                 useHTML: true,
