@@ -79,7 +79,7 @@ app.use(pathLIFE, function (req, res) {
 
 //Externa crypto
 
-var apiExt01 = "https://coinpaprika1.p.rapidapi.com";
+var apiExt01 = "https://api.coinpaprika.com/v1";
 var pathExt01 = "/exchanges";
 
 app.use(pathExt01, function (req, res) {
