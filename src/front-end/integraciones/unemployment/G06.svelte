@@ -117,7 +117,7 @@
 <main>
   <div style="height: 400px; float:left">
     <canvas id="cvs" width="500" height="400"> [No canvas support] </canvas>
-    <p class="rgraph-description">Integración con G06 - onlinemedia-stats.</p>
+    <h1 class="rgraph-description">Integración con G06 - onlinemedia-stats.</h1>
     <p class="rgraph-description">Precio de las principales plataformas de entretenimiento relacionadas con el desempleo en según que provincias.</p>
 
     <Nav>

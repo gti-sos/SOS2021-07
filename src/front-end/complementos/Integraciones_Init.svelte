@@ -89,8 +89,8 @@
               <a href="/#/integrations/G06_unemployment"
                 ><Button color="primary">G06 - Online Media Stats</Button></a
               >
-              <a href="/#/unemployment"
-                ><Button color="primary">Interfaz</Button></a
+              <a href="/#/integrations/G30_unemployment"
+                ><Button color="primary">G30 - Smoker Stats</Button></a
               >
               <a href="https://documenter.getpostman.com/view/15352819/TzJoE1VM"
                 ><Button color="info">Documentación Postman v1</Button></a

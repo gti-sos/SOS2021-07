@@ -27,6 +27,7 @@
 	import Info from "./front-end/complementos/info.svelte";
 	import Integracion_G27_Tristan from "./front-end/integraciones/rentals/G27.svelte";
 	import Integracion_G06_Alex from "./front-end/integraciones/unemployment/G06.svelte";
+	import Integracion_G30_Alex from "./front-end/integraciones/unemployment/G30.svelte";
 	import IntegracionExt_Educacion from "./front-end/integraciones/rentals/Ext1_educacion.svelte";
 	import Integracion_G30_Tristan from "./front-end/integraciones/rentals/G30.svelte";
 	import cartas from "./front-end/integraciones/rentals/Ext2_cartas.svelte";
@@ -46,6 +47,7 @@
 		"/integrations/G27_rentals":Integracion_G27_Tristan,
 		"/integrations/G30_rentals":Integracion_G30_Tristan,
 		"/integrations/G06_unemployment":Integracion_G06_Alex,
+		"/integrations/G30_unemployment":Integracion_G30_Alex,
 		"/integrations/Ext2_Cartas":cartas,
 		"/integrations/Pokemon":Pokemon,
 		"/integrations/SW":SW,
