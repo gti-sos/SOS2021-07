@@ -74,7 +74,7 @@
 <main>
     <div style="height: 400px; float:left">
         <canvas id="cvs" width="500" height="400"> [No canvas support] </canvas>
-        <p class="rgraph-description">Gráfico de desempleo RGraph.</p>
+        <h1 class="rgraph-description">Gráfico de desempleo RGraph.</h1>
 
         <Nav>
             <NavItem>
