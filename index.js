@@ -45,11 +45,11 @@ unemploymentAPI_Integration.register(app); //importamos integration declarado ar
 
 //proxys alejandro
 //grupo 30: smoker-stats
-var pathLove = '/proxySmoker';
-var apiServerHostLove = "https://sos2021-30.herokuapp.com";
+var pathSmoker = '/proxySmoker';
+var apiServerHostSmoker = "https://sos2021-30.herokuapp.com";
 
-app.use(pathLove, function (req, res) {
-  var url = apiServerHostLove + req.baseUrl + req.url;
+app.use(pathSmoker, function (req, res) {
+  var url = apiServerHostSmoker + req.baseUrl + req.url;
   console.log('piped: ' + req.baseUrl + req.url);
   req.pipe(request(url)).pipe(res);
 });
