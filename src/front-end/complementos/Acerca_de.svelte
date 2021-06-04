@@ -34,7 +34,7 @@ import {
     <h3 align ="center" >Videos</h3>
     <div class="columna">
         <h5 align = "center">Video Fco. Miguel</h5>
-        <iframe title= "Video Fco. Miguel" width="400" height="200" src="https://www.youtube.com/embed/QYJ7eOJIu_A" frameborder="0" allow="accelerometer;autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe title= "Video Fco. Miguel " width="400" height="200" src="https://www.youtube.com/embed/QYJ7eOJIu_A" frameborder="0" allow="accelerometer;autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="columna">
             <h5 align = "center"> Video Alejandro Pariente</h5>
