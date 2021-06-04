@@ -45,11 +45,21 @@ unemploymentAPI_Integration.register(app); //importamos integration declarado ar
 
 //proxys alejandro
 //grupo 30: smoker-stats
-var pathSmoker = '/proxySmoker';
-var apiServerHostSmoker = "https://sos2021-30.herokuapp.com";
+var pathLove = '/proxySmoker';
+var apiServerHostLove = "https://sos2021-30.herokuapp.com";
 
-app.use(pathSmoker, function (req, res) {
-  var url = apiServerHostSmoker + req.baseUrl + req.url;
+app.use(pathLove, function (req, res) {
+  var url = apiServerHostLove + req.baseUrl + req.url;
+  console.log('piped: ' + req.baseUrl + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
+//Love calculator - externa 1
+var pathLove = '/getPercentage';
+var apiServerHostLove = "https://love-calculator.p.rapidapi.com";
+
+app.use(pathLove, function (req, res) {
+  var url = apiServerHostLove + req.baseUrl + req.url;
   console.log('piped: ' + req.baseUrl + req.url);
   req.pipe(request(url)).pipe(res);
 });
