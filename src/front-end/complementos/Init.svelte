@@ -25,7 +25,7 @@ import {
       <a href="https://github.com/frankys99">Francisco Miguel Tristán Clavijo</a>
       
     </Col>
-    <Col><a href="https://github.com/frankys99">Video de Francisco Miguel Tristán Clavijo</a></Col>
+    <Col><a href="https://youtu.be/QYJ7eOJIu_A">Video de Francisco Miguel Tristán Clavijo</a></Col>
     <Col>
 		  <a href="https://github.com/RoundPegInASquareHole">Alejandro Pariente Migoya</a>
      
