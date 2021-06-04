@@ -29,6 +29,7 @@
 	import Integracion_G06_Alex from "./front-end/integraciones/unemployment/G06.svelte";
 	import Integracion_G30_Alex from "./front-end/integraciones/unemployment/G30.svelte";
 	import Integracion_LoveCalculator_Alex from "./front-end/integraciones/unemployment/LoveCalculator.svelte";
+	import Integracion_Food_Alex from "./front-end/integraciones/unemployment/EdamanFood.svelte";
 	import IntegracionExt_Educacion from "./front-end/integraciones/rentals/Ext1_educacion.svelte";
 	import Integracion_G30_Tristan from "./front-end/integraciones/rentals/G30.svelte";
 	import cartas from "./front-end/integraciones/rentals/Ext2_cartas.svelte";
@@ -50,6 +51,7 @@
 		"/integrations/G06_unemployment":Integracion_G06_Alex,
 		"/integrations/G30_unemployment":Integracion_G30_Alex,
 		"/integrations/love_calculator":Integracion_LoveCalculator_Alex,
+		"/integrations/food":Integracion_Food_Alex,
 		"/integrations/Ext2_Cartas":cartas,
 		"/integrations/Pokemon":Pokemon,
 		"/integrations/SW":SW,
