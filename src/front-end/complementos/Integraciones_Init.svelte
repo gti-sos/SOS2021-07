@@ -92,8 +92,8 @@
               <a href="/#/integrations/G30_unemployment"
                 ><Button color="primary">G30 - Smoker Stats</Button></a
               >
-              <a href="https://documenter.getpostman.com/view/15352819/TzJoE1VM"
-                ><Button color="info">Documentación Postman v1</Button></a
+              <a href="/#/integrations/love_calculator"
+                ><Button color="info">Externa 1 - Love Calculator</Button></a
               >
               <a href="https://documenter.getpostman.com/view/15352819/TzXwExqo"
                 ><Button color="info">Documentación Postman v2</Button></a
