@@ -1,6 +1,6 @@
 <script>
   import { Nav, NavItem, NavLink } from "sveltestrap";
-  //const BASE_CONTACT_API_PATH = "/api/v2";
+  
   var employmentData = [];
   var natalityData = [];
   var msg = "";
@@ -28,7 +28,7 @@
    */
   async function loadStats() {
     console.log("Loading data...");
-    const res = await fetch("http://sos2021-01.herokuapp.com/api/v2/natality-stats/loadInitialData"
+    const res = await fetch("https://sos2021-07.herokuapp.com/api/v2/buy_sell/loadInitialData"
     ).then(function (res) {
       if (res.ok) {
         msg = "";
@@ -47,7 +47,7 @@
   async function getStats() {
     console.log("Fetching data...");
     await loadStats();
-    const res = await fetch("http://sos2021-01.herokuapp.com/api/v2/natality-stats");
+    const res = await fetch("https://sos2021-07.herokuapp.com/api/v2/buy_sell");
     if (res.ok) {
       console.log("OK");
       natalityData = await res.json();
@@ -112,7 +112,7 @@
       "year",
       "percent_children_employment_t"
     );
-    var result1 = jsonToMap(natalityData, "date", "fertility-rate");
+    var result1 = jsonToMap(natalityData, "year", "annual_variation_percentage");
     console.log("Calculating children-hiv...");
     labels.push("Niños empleados");
     var total = 0;
@@ -181,6 +181,15 @@
     <h2>Integración API SOS children-employment</h2>
     <p>por favor espere unos segundos a que se cargue la gráfica</p>
   </div>
+  
+  <Nav>
+        <NavItem>
+          <NavLink href="/"><Button color="primary">Pรกgina Inicial</Button></NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="/#/integrations"><Button color="primary">Volver</Button></NavLink>
+        </NavItem>
+    </Nav>
 
   
     <div>
