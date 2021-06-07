@@ -26,7 +26,7 @@ let buy_sell_Chart_eviction_Data = [];
      "https://sos2021-24.herokuapp.com/api/v2/children-with-hiv/loadInitialData"
     ).then(function (res) {
       if (res.ok) {
-        getStats();
+        loadChart();
         errorMsg = "";
         okMsg = "Datos cargados correctamente";
         console.log("OK");
@@ -34,6 +34,7 @@ let buy_sell_Chart_eviction_Data = [];
         if (res.status === 500) {
           errorMsg = "No se ha podido acceder a la base de datos";
         }
+		loadChart();
         okMsg = "";
         console.log("ERROR!" + errorMsg);
       }
@@ -132,7 +133,7 @@ let buy_sell_Chart_eviction_Data = [];
 <script src="https://code.highcharts.com/highcharts-3d.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadChart} ></script>
+<script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadStats} ></script>
 	
 </svelte:head>
 <main>
