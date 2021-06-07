@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
-  import Chart from "chart.js";
+  import chart from "chart.js";
   
   let Data2 = [];
   let evictionData = [];
