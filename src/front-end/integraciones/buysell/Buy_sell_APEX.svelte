@@ -19,43 +19,42 @@
     var bingomaqs = [];
     async function getData() {
       const porsiacaso = await fetch(
-              "http://sos2021-24.herokuapp.com/api/v2/children-out-school/loadInitialData"
+              "https://sos2021-07.herokuapp.com/api/v2/buy_sell/loadInitialData"
           ); // La bd no termina de ser consistente, es necesario esto para que funcione siempre.
   
         const pobres = await fetch(
-            "http://sos2021-24.herokuapp.com/api/v2/children-out-school"
+            "https://sos2021-07.herokuapp.com/api/v2/buy_sell?year=2017&province=valencia"
         );
         let pobresJsons = [];
         pobresJsons = await pobres.json();
+		
+		 if (pobres.ok) {
+	
+      pobresJsons.forEach(stat => {
+	  
+	  sintechos.push(parseInt(stat.surface));
+      
+      });
+    }
   
         const activities = await fetch(
             "https://sos2021-27.herokuapp.com/api/v2/azar-games-and-bet-activities/"
         );
         let activitiesJsons = [];
         activitiesJsons = await activities.json();
-  for (let pobreza of pobresJsons) {
-              for (let ludopatia of activitiesJsons) {
-                  if (pobreza.year == ludopatia.year) {
-                      if (
-                          (pobreza.country == "Spain" &&
-                              ludopatia.province == "Seville" && ludopatia.year == "2016"&& pobreza.year == "2016")
-                      ) {
   
-  
-                          sintechos.push(pobreza.children_out_school_total);
-                          bingomaqs.push(parseInt(ludopatia.catering_bingo_machine));
-  
-                         
-                      }
-                  }
-              }
-        
+  	 if (activities.ok) {
+	
+      activitiesJsons.forEach(stat => {
+	  
+	  bingomaqs.push(parseInt(stat.catering_bingo_machine));
       
-            }
+      });
+    }
           
    
     console.log(sintechos);
-        console.log(bingomaqs);
+    console.log(bingomaqs);
           
           }
   
@@ -97,7 +96,7 @@
         type: 'ring',
         backgroundColor: '#FBFCFE',
         title: {
-          text: 'Diferencia entre abandono y maquinas de bingo',
+          text: 'Diferencia entre la superficie y maquinas de bingo',
           padding: '15px',
           fontColor: '#1E5D9E',
           fontFamily: 'Lato',
@@ -200,7 +199,7 @@
             }
           },
           {
-            text: 'abandono escolar',
+            text: 'superficie',
             values: sintechos,
             backgroundColor: '#E80C60',
             lineColor: '#E80C60',
@@ -233,47 +232,9 @@
   </svelte:head>
   
   <main>
-    <body>
-        <Jumbotron class="p-3" style="background-color: #FFB833">
-            <h1 class="titulo; mainDiv" style="color: white">
-                Integración Api abandono
-            </h1>
-        </Jumbotron>
-        <Navbar style="background-color: #FFB833; color:white;" light expand="lg" >
-          <NavbarBrand href="#/">INICIO</NavbarBrand>
-          <Nav navbar>
-            <NavItem>
-              <NavLink href="#/suicide-records">Registro de suicidios</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="#/province-budget-and-investment-in-social-promotion">Inversion promoción social</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="#/azar-games-and-bet-activities">Actividad en loteria</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="#/integrations">Integraciones</NavLink>
-            </NavItem>
-            <Dropdown nav {isOpen} toggle="{() => isOpen = !isOpen}">
-              <DropdownToggle nav caret> Gráficas </DropdownToggle>
-              <DropdownMenu end>
-                <DropdownItem href="#/graphics/suicide-records">Registro de suicidios</DropdownItem>
-                <DropdownItem href="#/graphics/line/province-budget-and-investment-in-social-promotion">Inversion promoción social</DropdownItem>
-                <DropdownItem href="#/graphics/azar-games-and-bet-activities">Actividad en loteria</DropdownItem>
-                <DropdownItem divider/>
-                <DropdownItem href="#/analytics">Conjunto</DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
-            <NavItem>
-              <NavLink style="float:right; color:white; margin:left;" href="#/about">Acerca de</NavLink>
-            </NavItem>
-          </Nav>
-      </Navbar>
-    </body>
-    <br />
-    <h1 class="titulo2">Abandono escolar y maquinas de bingo activas</h1>
    
     <div id="myChart" class="chart--container"></div>>
+	
   </main>
   
   <style>
