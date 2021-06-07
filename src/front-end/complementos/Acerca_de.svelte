@@ -35,7 +35,7 @@
       frameborder="0"
       allow="accelerometer;autoplay; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
-    />
+    /> 
   </div>
   <div class="columna">
     <h5 align="center">Video Alejandro Pariente</h5>
