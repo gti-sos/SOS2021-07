@@ -33,8 +33,7 @@ let provinceData=[];
         if (res.status === 500) {
           errorMsg = "No se ha podido acceder a la base de datos";
         }
-        okMsg = "";
-        console.log("ERROR!" + errorMsg);
+         loadChart();
       }
     });
   }

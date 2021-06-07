@@ -32,7 +32,9 @@ let estrin='';
       //buy_sell_Chart_comunityprovinceyear_Data.push(stat.autonomous_community);
       });
 	  
-	  console.log(estrin);
+	  console.log("estrin="+estrin);
+	  console.log("autor="+autor);
+	  console.log("cita="+cita);
     }
     }
 	
