@@ -22,10 +22,10 @@ let estrin='';
         okMsg = "Datos cargados correctamente";
         console.log("OK");
       } else {
+	  loadChart();
         if (res.status === 500) {
           errorMsg = "No se ha podido acceder a la base de datos";
         }
-         loadChart();
       }
     });
   }
