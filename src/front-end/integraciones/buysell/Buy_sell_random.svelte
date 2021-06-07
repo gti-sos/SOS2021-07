@@ -90,7 +90,7 @@ let estrin='';
 
 <svelte:head>
 
-	<script src="https://cdn.zingchart.com/zingchart.min.js" on:load={loadChart} ></script>
+	<script src="https://cdn.zingchart.com/zingchart.min.js" on:load={loadQuote} ></script>
 	
 </svelte:head>
 
