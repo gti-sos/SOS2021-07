@@ -8,6 +8,9 @@ let living_withData=[];
 let newly_infectedData=[];
 let total_infectedData=[];
 
+let buy_sell_Chart_surface_Data = [];
+let buy_sell_Chart_eviction_Data = [];
+
   let errorMsg = "";
   let okMsg = "";
   

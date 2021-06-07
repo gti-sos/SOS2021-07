@@ -10,7 +10,27 @@ let buy_sell_Data = [];
 let buy_sell_Chart_comunityprovinceyear_Data = [];
 let estrin='';
 
-    onMount(loadQuote);
+async function loadStats2() {
+    
+    const res = await fetch(
+     "https://sos2021-07.herokuapp.com/api/v2/buy_sell/loadInitialData"
+    ).then(function (res) {
+      if (res.ok) {
+        loadQuote();
+        errorMsg = "";
+        okMsg = "Datos cargados correctamente";
+        console.log("OK");
+      } else {
+        if (res.status === 500) {
+          errorMsg = "No se ha podido acceder a la base de datos";
+        }
+         loadQuote();
+      }
+    });
+  }
+
+    onMount(loadStats2);
+	
     async function loadQuote(){
         const resData = await fetch("https://quotes15.p.rapidapi.com/quotes/random/?language_code=es", {
             "method": "GET",
@@ -36,8 +56,8 @@ let estrin='';
 	  console.log("autor="+autor);
 	  console.log("cita="+cita);
 	  
-	  estrin.join(autor);
-	  estrin.join(cita);
+	  estrin=estrin+autor;
+	  estrin=estrin+cita;
 	  
 	  console.log("estrin="+estrin);
 	  
