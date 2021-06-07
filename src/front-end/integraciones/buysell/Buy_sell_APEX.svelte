@@ -12,7 +12,7 @@
         let rpcData = [];
         let vpyData = [];
         let countries = [];
-        const resData = await fetch("/api/v3/rents-per-capita");
+        const resData = await fetch("https://sos1920-11.herokuapp.com/api/v3/rents-per-capita");
         CountriesData = await resData.json();
         CountriesData.filter(data => data.continent == "Europe" && data.year == 2019).forEach((data) => {
             let country = { 
