@@ -11,6 +11,7 @@ let buy_sell_Chart_comunityprovinceyear_Data = [];
 let estrin='';
 
     onMount(loadQuote);
+	//esta funcion me carga la api externa
     async function loadQuote(){
         const resData = await fetch("https://quotes15.p.rapidapi.com/quotes/random/?language_code=es", {
             "method": "GET",
@@ -23,7 +24,30 @@ let estrin='';
         cita = quoteData["content"];
         autor = quoteData["originator"]["name"];
 		
-		const res = await fetch(BASE_CONTACT_API_PATH + "/buy_sell");
+    }
+	//FUNCION QUE ME CARGA LAS COSAS
+	async function loadStats2() {
+    
+    const res = await fetch(
+     "https://sos2021-07.herokuapp.com/api/v2/buy_sell/loadInitialData"
+    ).then(function (res) {
+      if (res.ok) {
+        loadChart();
+        errorMsg = "";
+        okMsg = "Datos cargados correctamente";
+        console.log("OK");
+      } else {
+        if (res.status === 500) {
+          errorMsg = "No se ha podido acceder a la base de datos";
+        }
+         loadChart();
+      }
+    });
+  }
+  
+  async function loadChart() {
+  
+  const res = await fetch(BASE_CONTACT_API_PATH + "/buy_sell");
     buy_sell_Data = await res.json();
     if (res.ok) {
 	
@@ -37,7 +61,8 @@ let estrin='';
 	  console.log(estrin);
 	  
     }
-    }
+  	
+  }
 	
 	
 </script>
