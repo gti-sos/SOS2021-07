@@ -131,7 +131,7 @@
                 ><Button color="info">INTEGRACION BUY-CHILDRENEMPLOYMENT</Button></a
               >
 			  <a href="/#/buy_sell/pobreza"
-                ><Button color="info">INTEGRACION BUY-POBREZA</Button></a
+                ><Button color="info">API SOS POBREZA</Button></a
               >
 			  
 
