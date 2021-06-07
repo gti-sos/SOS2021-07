@@ -109,8 +109,8 @@ Highcharts.chart('container', {
 
 <script src="https://code.highcharts.com/highcharts.js"on:load={loadStats2}></script>
 <script src="https://code.highcharts.com/modules/wordcloud.js"on:load={loadStats2}on:load={loadStats2}></script>
-<script src="https://code.highcharts.com/modules/exporting.js"on:load={loadStats2}></script>
-<script src="https://code.highcharts.com/modules/export-data.js"on:load={loadStats2}></script>
+//<script src="https://code.highcharts.com/modules/exporting.js"on:load={loadStats2}></script>
+//<script src="https://code.highcharts.com/modules/export-data.js"on:load={loadStats2}></script>
 //<script src="https://code.highcharts.com/modules/accessibility.js"on:load={loadStats2}></script>
 	
 </svelte:head>
