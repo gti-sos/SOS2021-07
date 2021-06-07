@@ -94,4 +94,7 @@ let provinceData=[];
 	
 </script>
 
-<canvas id="myChart"></canvas>
+<main>
+<div> id="myChart"></div>
+//<canvas id="myChart"></canvas>
+</main>
