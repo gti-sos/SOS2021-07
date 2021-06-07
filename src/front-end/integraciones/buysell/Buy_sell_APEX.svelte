@@ -21,6 +21,10 @@
       const porsiacaso = await fetch(
               "https://sos2021-07.herokuapp.com/api/v2/buy_sell/loadInitialData"
           ); // La bd no termina de ser consistente, es necesario esto para que funcione siempre.
+		  
+		  const porsiacaso2 = await fetch(
+              "https://sos2021-27.herokuapp.com/api/v2/azar-games-and-bet-activities/loadInitialData"
+          ); // La bd no termina de ser consistente, es necesario esto para que funcione siempre.
   
         const pobres = await fetch(
             "https://sos2021-07.herokuapp.com/api/v2/buy_sell?year=2018&province=sevilla"

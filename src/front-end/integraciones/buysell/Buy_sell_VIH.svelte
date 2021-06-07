@@ -22,6 +22,10 @@ let buy_sell_Chart_eviction_Data = [];
   }
   
    async function loadStats() {
+   
+   const porsiacaso = await fetch(
+              " http://sos2021-25.herokuapp.com/api/v1/evictions/loadInitialData"
+          ); // La bd no termina de ser consistente, es necesario esto para que funcione siempre.
     
     const res = await fetch(
      "https://sos2021-07.herokuapp.com/api/v2/buy_sell/loadInitialData"
