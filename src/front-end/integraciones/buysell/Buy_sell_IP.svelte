@@ -24,18 +24,7 @@ let provinceData=[];
     const res = await fetch(
      "https://sos2021-07.herokuapp.com/api/v2/buy_sell/loadInitialData"
     ).then(function (res) {
-      if (res.ok) {
-        loadChart();
-        errorMsg = "";
-        okMsg = "Datos cargados correctamente";
-        console.log("OK");
-      } else {
-	  loadChart();
-        if (res.status === 500) {
-          errorMsg = "No se ha podido acceder a la base de datos";
-        }
-         
-      }
+    loadChart();
     });
   }
   
