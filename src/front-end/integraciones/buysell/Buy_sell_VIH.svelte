@@ -6,7 +6,7 @@ let buyData = [];
 let evictionData = [];
 let desaData=[];
 let totalData=[];
-let cont=[];
+let cont=0;
 let ano=2018;
 
 let buy_sell_Chart_surface_Data = [];
@@ -156,10 +156,10 @@ let buy_sell_Chart_eviction_Data = [];
 <svelte:head>
 
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/highcharts-3d.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
+//<script src="https://code.highcharts.com/highcharts.js"></script>
+//<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+//<script src="https://code.highcharts.com/modules/exporting.js"></script>
+//<script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadStats} ></script>
 	
 </svelte:head>
