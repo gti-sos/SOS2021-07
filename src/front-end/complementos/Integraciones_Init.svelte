@@ -127,6 +127,9 @@
 			  <a href="/#/buy_sell/APEX"
                 ><Button color="info">INTEGRACION BUY-AZARGAMES</Button></a
               >
+			  <a href="/#/buy_sell/another"
+                ><Button color="info">INTEGRACION BUY-laksea</Button></a
+              >
 
             </CardBody>
             
