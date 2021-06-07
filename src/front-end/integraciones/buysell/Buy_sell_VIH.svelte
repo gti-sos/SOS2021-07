@@ -8,6 +8,7 @@ let desaData=[];
 let totalData=[];
 let ano=2018;
 
+
 let buy_sell_Chart_surface_Data = [];
 let buy_sell_Chart_eviction_Data = [];
 
@@ -111,7 +112,7 @@ let buy_sell_Chart_eviction_Data = [];
 
     series: [{
         name: 'suma de deshaucios de algunas provincias de andalucia',
-        data: cont
+        data: [cont]
     }, {
         name: 'total de deshaucios de andalucia',
         data: totalData
