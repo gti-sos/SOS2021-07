@@ -232,6 +232,15 @@
   </svelte:head>
   
   <main>
+  
+  <Nav>
+        <NavItem>
+          <NavLink href="/"><Button color="primary">Pรกgina Inicial</Button></NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="/#/integrations"><Button color="primary">Volver</Button></NavLink>
+        </NavItem>
+    </Nav>
    
     <div id="myChart" class="chart--container"></div>>
 	
