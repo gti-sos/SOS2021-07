@@ -1,6 +1,5 @@
 <script lang="ts">
   
-	
 	import NotFound from "./front-end/complementos/NotFound.svelte";
 	import about from "./front-end/complementos/Acerca_de.svelte";
 	import Router from 'svelte-spa-router';
