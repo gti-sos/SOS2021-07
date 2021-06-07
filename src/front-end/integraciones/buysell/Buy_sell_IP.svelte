@@ -68,7 +68,7 @@ let provinceData=[];
                 labels: provinceData,
                 datasets:[
                     {
-                        label: labelInterno,
+                        label: "Deshaucios por provincias",
                         backgroundColor: '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6),
                         borderColor: "rgb(255, 99, 132)",
                         data: evictionData
