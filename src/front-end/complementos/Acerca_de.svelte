@@ -21,7 +21,7 @@
 <body>
   <Nav>
     <NavItem>
-      <NavLink href="/"><Button color="primary">Volver</Button></NavLink>
+      <NavLink href="/"><Button color="primary">Volver </Button></NavLink>
     </NavItem>
   </Nav>
   <h3 align="center">Videos</h3>
