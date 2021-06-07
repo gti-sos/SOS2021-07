@@ -125,7 +125,7 @@
                 ><Button color="info">API EXT RANDOM</Button></a
               >
 			  <a href="/#/buy_sell/APEX"
-                ><Button color="info">INTEGRACION</Button></a
+                ><Button color="info">INTEGRACION BUY-AZARGAMES</Button></a
               >
 
             </CardBody>
