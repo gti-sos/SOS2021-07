@@ -12,12 +12,12 @@
 	import Buy_sell from "./front-end/Front_Buy_sell/Buy_sell.svelte";
 	import Buy_sellEdit from "./front-end/Front_Buy_sell/Buy_sell_Editor.svelte";
 	import Buy_sell_Chart from "./front-end/Front_Buy_sell/Buy_sell_Chart.svelte";
-	import Buy_sell_VIH from "./front-end/integraciones/Buy_sell_VIH.svelte";
-	import Buy_sell_natality from "./front-end/integraciones/Buy_sell_natality.svelte";
+	import Buy_sell_VIH from "./front-end/integraciones/buysell/Buy_sell_VIH.svelte";
+	import Buy_sell_natality from "./front-end/integraciones/buysell/Buy_sell_natality.svelte";
 	import Buy_sell_Chart_NL from "./front-end/Front_Buy_sell/Buy_sell_Chart_NL.svelte";
 	import Buy_sell_Chart_ZING from "./front-end/Front_Buy_sell/Buy_sell_Chart_ZING.svelte";
 	import Buy_sell_Analiticas from "./front-end/Front_Buy_sell/Buy_sell_Analiticas.svelte";
-	import Buy_sell_IP from "./front-end/integraciones/Buy_sell_IP.svelte";
+	import Buy_sell_IP from "./front-end/integraciones/buysell/Buy_sell_IP.svelte";
 	import Rentals_Graphic from "./front-end/Front_Rentals/graficos.svelte";
 	import Rentals_Graphic2 from "./front-end/Front_Rentals/graficos3.svelte";
 	import Unemployment_HighChart from "./front-end/Front_Unemployment/Unemployment_HighChart.svelte";
