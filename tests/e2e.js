@@ -296,44 +296,44 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
     console.log(">>>> Cargando datos compraventa")
 
     //clicamos en interfaz 
-    await page.click("body > main > main.svelte-il7l6l > div.container > div.col-auto > div.mb-3.card > div.card-body > a > button.btn.btn-primary");
+    await page.click("body > main > main > div:nth-child(11) > div:nth-child(3) > div > div.card-body > a:nth-child(4)");
 	//tabla vacia
 	await page.screenshot({ path: RUTA_BUY_SELL + "/tabla-vacia.png" });
     //BOTON CARGAR DATOS
-    await page.click("body > main > main.svelte-huzmzs > div.svelte-huzmzs > button.btn.btn-primary");
+    await page.click("body > main > main > div:nth-child(4) > button.btn.btn-primary");
 	//NOTIFICACION DE CONFIRMACION DE CARGA DE DATOS
 	await page.screenshot({ path: RUTA_BUY_SELL + "/confirmacion-carga-datos.png" });
 	//pulsamos que si
-    await page.click("body.modal-open > main.svelte-huzmzs > div.svelte-huzmzs > div > div.modal.show.d-block > div.modal-dialog > div.modal-content > div.modal-footer > button.btn.btn-primary");
+    await page.click("body > main > main > div:nth-child(4) > div > div.modal.show.d-block > div > div > div.modal-footer > button.btn.btn-primary");
 	await page.screenshot({ path: RUTA_BUY_SELL + "/tablas-cargadas.png" });
 
     console.log(">> Datos cargados.");
 
     //click en analiticas
-    await page.click("body > main > main.svelte-huzmzs > ul.nav > li.nav-item > a.nav-link");
+    await page.click("body > main > main > ul > li:nth-child(2) > a");
     //captura de analiticas
 	await page.waitForTimeout(7000); //esperamos 7000 ms más para que la gráfica se capture bien
 	console.log(">> Analiticas");
 	await page.screenshot({ path: RUTA_BUY_SELL + "/analiticas.png" });
 	//grafica lineal
-    await page.click("body > main > main > ul.nav > li.nav-item > a.nav-link");
+    await page.click("body > main > main > ul > li:nth-child(3) > a");
 	await page.waitForTimeout(7000); //esperamos 7000 ms más para que la gráfica se capture bien
 	console.log(">> Capturando gráfica lineal.");
 	await page.screenshot({ path: RUTA_BUY_SELL + "/graficalineal.png" });
 	//grafica no lineal
-    await page.click(" body > main > main.svelte-1decxa9 > ul.nav > li.nav-item > a.nav-link"); 
+    await page.click("body > main > main > ul > li:nth-child(4) > a"); 
 	await page.waitForTimeout(7000); //esperamos 7000 ms más para que la gráfica se capture bien
 	console.log(">> Capturando gráfica no lineal.");
 	await page.screenshot({ path: RUTA_BUY_SELL + "/graficanolineal.png" });
 	//grafica otra libreria
-    await page.click("body > main > main.svelte-k49gk9 > ul.nav > li.nav-item > a.nav-link"); 
+    await page.click("body > main > main > ul > li:nth-child(5) > a"); 
 	await page.waitForTimeout(7000); //esperamos 7000 ms más para que la gráfica se capture bien
 	console.log(">> Capturando gráfica con otra libreria.");
 	await page.screenshot({ path: RUTA_BUY_SELL + "/graficalibreria.png" });
 	
 	//volvemos a los datos
 	
-    await page.click("body > main > main.svelte-1y2vg5x > ul.nav > li.nav-item > a.nav-link ");
+    await page.click("body > main > main > ul > li:nth-child(2) > a");
 	
 	//busqueda
 	//insertar
