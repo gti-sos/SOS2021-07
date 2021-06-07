@@ -1,6 +1,6 @@
 <script>
     import { onMount } from "svelte";
-  
+  import { pop } from "svelte-spa-router";
     import {
         Jumbotron,
         Navbar,
@@ -235,14 +235,7 @@
    
     <div id="myChart" class="chart--container"></div>
 	
-	<Nav>
-        <NavItem>
-          <NavLink href="/"><Button color="primary">Pรกgina Inicial</Button></NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="/#/integrations"><Button color="primary">Volver</Button></NavLink>
-        </NavItem>
-    </Nav>
+	<Button outline color="secondary" on:click="{pop}"> Atras</Button>
 	
   </main>
   
