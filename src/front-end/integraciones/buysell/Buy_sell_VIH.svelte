@@ -188,6 +188,23 @@ let buy_sell_Chart_eviction_Data = [];
       <p class="msgGreen" style="color: #155724">{okMsg}</p>
     {/if}
   </div>
+  
+  <figure class="highcharts-figure">
+    <div id="container"></div>
+    <p class="highcharts-description">
+        This demo shows how breakpoints can be defined in order to
+        change the chart options depending on the screen width. All
+        charts automatically scale to the container size, but in this
+        case we also change the positioning of the legend and axis
+        elements to accomodate smaller screens.
+    </p>
+</figure>
+
+<div id="button-bar">
+    <button id="small">Small</button>
+    <button id="large">Large</button>
+    <button id="auto">Auto</button>
+</div>
 
 
 </main>
