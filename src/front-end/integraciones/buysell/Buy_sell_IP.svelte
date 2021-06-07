@@ -65,7 +65,7 @@ let provinceData=[];
 	  console.log(evictionData);
 	console.log(provinceData);
   
- var ctx = document.getElementById("myChart").getContext("2d");
+ var ctx = document.getElementById("myChart");
         var chart = new Chart(ctx, {
             type:"radar",
             data: {
