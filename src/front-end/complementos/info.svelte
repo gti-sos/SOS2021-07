@@ -22,7 +22,7 @@ import {
 <main>  
   <Nav>
     <NavItem>
-      <NavLink href="/"><Button color="primary">Volver</Button></NavLink>
+      <NavLink href="/"><Button color="primary">Volver </Button></NavLink>
     </NavItem>
 </Nav>
   <h1>SOS2021-07</h1>
