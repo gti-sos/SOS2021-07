@@ -39,4 +39,13 @@ let estrin='';
     <footer class="blockquote-footer"> <cite title="Source Title">{autor}</cite></footer>
   </blockquote>
   
+  <Nav>
+        <NavItem>
+          <NavLink href="/"><Button color="primary">Pรกgina Inicial</Button></NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="/#/integrations"><Button color="primary">Volver</Button></NavLink>
+        </NavItem>
+    </Nav>
+  
  </main>
