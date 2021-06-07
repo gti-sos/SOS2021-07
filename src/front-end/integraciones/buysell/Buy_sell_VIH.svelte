@@ -6,7 +6,6 @@ let buyData = [];
 let evictionData = [];
 let desaData=[];
 let totalData=[];
-let cont=0;
 let ano=2018;
 
 let buy_sell_Chart_surface_Data = [];
@@ -67,12 +66,15 @@ let buy_sell_Chart_eviction_Data = [];
       });
     }
 	
+	let cont=0;
+	
 	for(let o of evictionData){
 		cont=cont+o;
 	}
+	
+	evictionData=cont;
     
     console.log("evictionData"+evictionData);
-	console.log("contador"+cont);
 	console.log("total"+totalData);
 	
    var chart = Highcharts.chart('container', {
@@ -111,7 +113,7 @@ let buy_sell_Chart_eviction_Data = [];
 
     series: [{
         name: 'suma de deshaucios de algunas provincias de andalucia',
-        data: cont
+        data: evictionData
     }, {
         name: 'total de deshaucios de andalucia',
         data: totalData
