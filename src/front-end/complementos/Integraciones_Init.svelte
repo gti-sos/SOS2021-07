@@ -121,6 +121,9 @@
               <a href="/#/buy_sell/natality"
                 ><Button color="info">INTEGRACION BUY-NATALITY</Button></a
               >
+			  <a href="/#/buy_sell/random"
+                ><Button color="info">INTEGRACION EXT RANDOM</Button></a
+              >
 
             </CardBody>
             
