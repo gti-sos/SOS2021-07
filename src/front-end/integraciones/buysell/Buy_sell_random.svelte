@@ -38,14 +38,6 @@ let estrin='';
     <h1 class="display-4">{cita}</h1>
     <footer class="blockquote-footer"> <cite title="Source Title">{autor}</cite></footer>
   </blockquote>
-  
-  <Nav>
-        <NavItem>
-          <NavLink href="/"><Button color="primary">Pรกgina Inicial</Button></NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="/#/integrations"><Button color="primary">Volver</Button></NavLink>
-        </NavItem>
-    </Nav>
+  <Button outline color="secondary" on:click="{pop}"> Atras</Button>
   
  </main>
