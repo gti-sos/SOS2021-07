@@ -56,7 +56,7 @@
     console.log(sintechos);
     console.log(bingomaqs);
           
-          }
+         }
   
   
   
