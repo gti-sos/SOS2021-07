@@ -45,6 +45,9 @@ let estrin='';
     });
   }
   
+  //llamada de loadstats2
+  loadStats2();
+  
   async function loadChart() {
   
   const res = await fetch(BASE_CONTACT_API_PATH + "/buy_sell");
