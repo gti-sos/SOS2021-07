@@ -23,7 +23,7 @@
           ); // La bd no termina de ser consistente, es necesario esto para que funcione siempre.
   
         const pobres = await fetch(
-            "https://sos2021-07.herokuapp.com/api/v2/buy_sell?year=2017&province=valencia"
+            "https://sos2021-07.herokuapp.com/api/v2/buy_sell?year=2018&province=sevilla"
         );
         let pobresJsons = [];
         pobresJsons = await pobres.json();
@@ -38,7 +38,7 @@
     }
   
         const activities = await fetch(
-            "https://sos2021-27.herokuapp.com/api/v2/azar-games-and-bet-activities/"
+            "https://sos2021-27.herokuapp.com/api/v2/azar-games-and-bet-activities?year=2018&province=Seville"
         );
         let activitiesJsons = [];
         activitiesJsons = await activities.json();
