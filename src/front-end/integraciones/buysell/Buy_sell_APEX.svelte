@@ -19,11 +19,11 @@
     var bingomaqs = [];
     async function getData() {
       const porsiacaso = await fetch(
-              "/api/v2/children-out-school/loadInitialData"
+              "http://sos2021-24.herokuapp.com/api/v2/children-out-school/loadInitialData"
           ); // La bd no termina de ser consistente, es necesario esto para que funcione siempre.
   
         const pobres = await fetch(
-            "/api/v2/children-out-school"
+            "http://sos2021-24.herokuapp.com/api/v2/children-out-school"
         );
         let pobresJsons = [];
         pobresJsons = await pobres.json();
