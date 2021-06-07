@@ -1,6 +1,6 @@
 <script>
   import { Nav, NavItem, NavLink } from "sveltestrap";
-  
+  //const BASE_CONTACT_API_PATH = "/api/v2";
   var employmentData = [];
   var natalityData = [];
   var msg = "";
@@ -28,7 +28,8 @@
    */
   async function loadStats() {
     console.log("Loading data...");
-    const res = await fetch("https://sos2021-07.herokuapp.com/api/v2/buy_sell/loadInitialData"
+    const res = await fetch(
+      "https://sos2021-07.herokuapp.com/api/v2/buy_sell/loadInitialData"
     ).then(function (res) {
       if (res.ok) {
         msg = "";
@@ -122,7 +123,7 @@
     data.push(total);
     console.log("Calculating natality-stats...");
     var total1 = 0;
-    labels.push("indice fecundacion");
+    labels.push("indice variacion anual");
     for (let [key, value] of result1) {
       total1 += value;
     }
@@ -153,7 +154,7 @@
         plugins: {
             title: {
                 display: true,
-                text: 'Comparativa del total de niños empleados y el total de índice de fecundación'
+                text: 'Comparativa del total de niños empleados y el total del porcentaje de variacion anual'
             }
         },
         responsive: true,
@@ -175,27 +176,27 @@
 </svelte:head>
 
 <main>
-  
+  <Nav>
+    <NavItem>
+      <NavLink id="nav_home" href="/">Página Principal</NavLink>
+    </NavItem>
+    <NavItem>
+      <NavLink id="nav_integrations" href="/#/integrations/"
+        >atras</NavLink
+      >
+    </NavItem>
+   
+  </Nav>
 
   <div>
     <h2>Integración API SOS children-employment</h2>
     <p>por favor espere unos segundos a que se cargue la gráfica</p>
   </div>
-  
-  <Nav>
-        <NavItem>
-          <NavLink href="/"><Button color="primary">Pรกgina Inicial</Button></NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="/#/integrations"><Button color="primary">Volver</Button></NavLink>
-        </NavItem>
-    </Nav>
 
-  
     <div>
       <canvas id="myChart" />
     </div>
- 
+
 </main>
 
 <style>
