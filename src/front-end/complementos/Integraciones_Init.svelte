@@ -112,13 +112,13 @@
             <CardBody>
               <CardSubtitle />
               
-              <a href="/buy_sell/IP"
+              <a href="/#/buy_sell/IP"
                 ><Button color="primary">INTEGRACION EXT IP</Button></a
               >
-              <a href="/buy_sell/VIH"
+              <a href="/#/buy_sell/VIH"
                 ><Button color="primary">API SOS VIH</Button></a
               >
-              <a href="/buy_sell/natality"
+              <a href="/#/buy_sell/natality"
                 ><Button color="info">INTEGRACION BUY-NATALITY</Button></a
               >
 
