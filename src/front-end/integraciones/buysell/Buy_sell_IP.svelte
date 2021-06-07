@@ -4,6 +4,7 @@
   
   
   let Data2 = [];
+  let ipfin;
   let evictionData = [];
 let provinceData=[];
 
@@ -45,8 +46,7 @@ let provinceData=[];
 		
   		const extfetch = await fetch("http://api.ipify.org/?format=json");
         const ipaddr = await extfetch.json();
-        var ipfin = ipaddr.ip;
-        console.log(ipfin);
+        ipfin = ipaddr.ip;
 		
 		const res2 = await fetch("https://sos2021-07.herokuapp.com/api/v2/buy_sell?offset=1&limit=6");
 		let Data2 = await res2.json();
