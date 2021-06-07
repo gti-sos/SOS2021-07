@@ -10,7 +10,7 @@ let buy_sell_Data = [];
 let buy_sell_Chart_comunityprovinceyear_Data = [];
 let estrin='';
 
-    onMount(loadQuote);
+    //onMount(loadQuote);
     async function loadQuote(){
         const resData = await fetch("https://quotes15.p.rapidapi.com/quotes/random/?language_code=es", {
             "method": "GET",
