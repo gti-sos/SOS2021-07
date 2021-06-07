@@ -30,12 +30,12 @@ import {
 		  <a href="https://github.com/RoundPegInASquareHole">Alejandro Pariente Migoya</a>
      
 		</Col>
-    <Col><a href="https://github.com/RoundPegInASquareHole">Video deAlejandro Pariente Migoya</a></Col>
+    <Col><a href="https://www.youtube.com/embed/ZprLapvV3zk">Video deAlejandro Pariente Migoya</a></Col>
 		<Col>
 		  <a href="https://github.com/nuresctor">Nuria Escamilla Torres</a>
 
 		</Col>
-    <Col><a href="https://github.com/nuresctor">Video de Nuria Escamilla Torres</a></Col>
+    <Col><a href="https://www.youtube.com/embed/_b6myIUY5jA">Video de Nuria Escamilla Torres</a></Col>
 
     <a href="http://sos2021-07.herokuapp.com/index_static_old.html"><Button color="info">Inicio Antiguo</Button></a>
     <a href="/#/info"><Button color="info">Información </Button></a>
