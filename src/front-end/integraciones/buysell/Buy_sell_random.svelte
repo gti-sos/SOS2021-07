@@ -83,7 +83,7 @@ Highcharts.chart('container', {
 
 <script src="https://code.highcharts.com/highcharts.js"on:load={loadQuote}></script>
 <script src="https://code.highcharts.com/modules/wordcloud.js"on:load={loadQuote}></script>
-	
+<script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadQuote}></script>
 </svelte:head>
 
 
