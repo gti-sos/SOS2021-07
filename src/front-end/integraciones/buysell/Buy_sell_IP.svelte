@@ -91,7 +91,7 @@ let provinceData=[];
 <svelte:head>
   <script
     src="https://cdn.jsdelivr.net/npm/chart.js"
-    on:load={loadChart}></script>
+    on:load={loadStats2}></script>
 </svelte:head>
 
 <main>
@@ -112,18 +112,7 @@ let provinceData=[];
 </main>
 
 <style>
-    main {
-      text-align: center;
-      padding: 1em;
-      margin: 0 auto;
-    }
-    div {
-      margin-bottom: 15px;
-    }
-    #myChart{
-      width: 400px;
-      height: 500px;
-    }
+    
   </style>
 
 <canvas id="myChart"></canvas>
