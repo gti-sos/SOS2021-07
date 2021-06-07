@@ -1,6 +1,6 @@
 <script>
     import { onMount } from "svelte";
-  import { pop } from "svelte-spa-router";
+  
     import {
         Jumbotron,
         Navbar,
@@ -234,8 +234,6 @@
   <main>
    
     <div id="myChart" class="chart--container"></div>
-	
-	<Button outline color="secondary" on:click="{pop}"> Atras</Button>
 	
   </main>
   
