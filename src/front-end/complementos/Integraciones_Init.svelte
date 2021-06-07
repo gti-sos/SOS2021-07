@@ -113,16 +113,16 @@
               <CardSubtitle />
               
               <a href="/#/buy_sell/IP"
-                ><Button color="primary">INTEGRACION EXT IP</Button></a
+                ><Button color="primary">INTEGRACION BUY-EXT IP</Button></a
               >
               <a href="/#/buy_sell/VIH"
-                ><Button color="primary">API SOS VIH</Button></a
+                ><Button color="primary">INTEGRACION BUY-VIH</Button></a
               >
               <a href="/#/buy_sell/natality"
                 ><Button color="info">INTEGRACION BUY-NATALITY</Button></a
               >
 			  <a href="/#/buy_sell/random"
-                ><Button color="info">INTEGRACION EXT RANDOM</Button></a
+                ><Button color="info">API EXT RANDOM</Button></a
               >
 			  <a href="/#/buy_sell/APEX"
                 ><Button color="info">INTEGRACION</Button></a

@@ -74,6 +74,7 @@ let buy_sell_Chart_eviction_Data = [];
 	}
     
     console.log("evictionData"+evictionData);
+	console.log("contador"+cont);
 	console.log("total"+totalData);
 	
    var chart = Highcharts.chart('container', {
