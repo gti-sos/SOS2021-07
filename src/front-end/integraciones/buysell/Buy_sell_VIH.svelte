@@ -71,8 +71,6 @@ let buy_sell_Chart_eviction_Data = [];
 	for(let o of evictionData){
 		cont=cont+o;
 	}
-	
-	evictionData=cont;
     
     console.log("evictionData"+evictionData);
 	console.log("total"+totalData);
@@ -113,7 +111,7 @@ let buy_sell_Chart_eviction_Data = [];
 
     series: [{
         name: 'suma de deshaucios de algunas provincias de andalucia',
-        data: evictionData
+        data: cont
     }, {
         name: 'total de deshaucios de andalucia',
         data: totalData
