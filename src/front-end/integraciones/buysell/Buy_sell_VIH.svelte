@@ -56,9 +56,9 @@ let buy_sell_Chart_eviction_Data = [];
       });
     }
 	
-	const res = await fetch("http://sos2021-25.herokuapp.com/api/v1/evictions?year=2018&location=andalusia");
+	const res2 = await fetch("http://sos2021-25.herokuapp.com/api/v1/evictions?year=2018&location=andalusia");
     desaData = await res.json();
-    if (res.ok) {
+    if (res2.ok) {
 	
       desaData.forEach(stat => {
 	  
