@@ -144,7 +144,7 @@
           <td>{updateProvince}</td>
 		  <td>{updateYear}</td>
           <td
-            ><input
+            ><input id = "updateSurface"
               type="number"
               placeholder="Ej 1000"
               min="0"

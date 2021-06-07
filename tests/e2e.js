@@ -22,7 +22,7 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
 
 
     //vamos a la raíz
-    await page.goto('http://localhost:10000/');
+    await page.goto('https://sos2021-07.herokuapp.com/');
 
     //capturamos inicio
     console.log(">> Inicio");
@@ -35,7 +35,7 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
     await page.click("body > main > main > div:nth-child(3) > a:nth-child(7) > button");
     await page.screenshot({ path: RUTA_GENERAL + "/inicio_antiguo.png" });
     //volvemos a la raíz
-    await page.goto('http://localhost:10000/');
+    await page.goto('https://sos2021-07.herokuapp.com/');
 
 
 
@@ -103,13 +103,13 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
     await page.click("body > main > main > table > tbody > tr:nth-child(1) > td:nth-child(8) > button");
     await page.screenshot({ path: RUTA_RENTALS + "/nuevo_dato.png" });
     //busqueda
-    await page.goto('http://localhost:10000/#/rentals');
+    await page.goto('https://sos2021-07.herokuapp.com/#/rentals');
     await page.focus('#año');
     await page.keyboard.type("2018");
     await page.click("body > main > main > table > tbody > tr:nth-child(1) > td:nth-child(9) > button");
     await page.waitForTimeout(1200);
     await page.screenshot({ path: RUTA_RENTALS + "/busqueda.png" });
-    await page.goto('http://localhost:10000/#/rentals');
+    await page.goto('https://sos2021-07.herokuapp.com/#/rentals');
     //editar
     await page.click("body > main > main > table > tbody > tr:nth-child(2) > td:nth-child(8) > a > button");
     await page.screenshot({ path: RUTA_RENTALS + "/pagina_editar.png" });
@@ -120,12 +120,12 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
     await page.screenshot({ path: RUTA_RENTALS + "/dato_actualizado.png" });
     //grafica 1
     await page.click("body > main > main > ul > li:nth-child(2) > a > button");
-    await page.goto('http://localhost:10000/#/rentals/rentals_graphic');
+    await page.goto('https://sos2021-07.herokuapp.com/#/rentals/rentals_graphic');
     await page.waitForTimeout(1200);
     await page.screenshot({ path: RUTA_RENTALS + "/grafica1.png" });
     await page.click("body > main > main > ul > li:nth-child(2) > a > button");
     await page.click("body > main > main > ul > li:nth-child(3) > a > button");
-    await page.goto('http://localhost:10000/#/rentals/rentals_graphic2');
+    await page.goto('https://sos2021-07.herokuapp.com/#/rentals/rentals_graphic2');
     await page.waitForTimeout(1200);
     await page.screenshot({ path: RUTA_RENTALS + "/grafica2.png" });
     await page.click("body > main > main > ul > li:nth-child(1) > a > button");
@@ -154,8 +154,8 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
     await page.click("body > main > main > ul > li:nth-child(4) > div > div.modal.show.d-block > div > div > div.modal-footer > button.btn.btn-primary");
     //click y captura grafica unemployment
     await page.click("body > main > main > ul > li:nth-child(2) > a > button");
-    await page.goto('http://localhost:10000/#/unemployment/unemployment_highchart_graphic'); //refrescar
-    await page.goto('http://localhost:10000/#/unemployment/unemployment_highchart_graphic'); //refrescar
+    await page.goto('https://sos2021-07.herokuapp.com/#/unemployment/unemployment_highchart_graphic'); //refrescar
+    await page.goto('https://sos2021-07.herokuapp.com/#/unemployment/unemployment_highchart_graphic'); //refrescar
     await page.waitForTimeout(1200);
     console.log(">>>>>> Capturando gráfica unemployment")
     await page.screenshot({ path: RUTA_UNEMPLOYMENT + "/grafica-unemployment.png" });
@@ -193,7 +193,7 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
     await page.waitForTimeout(1200);
     await page.screenshot({ path: RUTA_UNEMPLOYMENT + "/resultado-busqueda-rellena-bien.png" });
     //volvemos a los datos
-    await page.goto("http://localhost:10000/#/unemployment");
+    await page.goto("https://sos2021-07.herokuapp.com/#/unemployment");
         //mal rellena
     await page.focus('#input_autonomous_community');
     await page.keyboard.type("andalucia");
@@ -209,7 +209,7 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
     await page.waitForTimeout(1200);
     await page.screenshot({ path: RUTA_UNEMPLOYMENT + "/resultado-busqueda-rellena-mal.png" });
     //volvemos a los datos
-    await page.goto("http://localhost:10000/#/unemployment");
+    await page.goto("https://sos2021-07.herokuapp.com/#/unemployment");
     //borrar un dato
     await page.click("body > main > main > table > tbody > tr:nth-child(4) > td:nth-child(8) > button");
     await page.waitForTimeout(1200);
@@ -296,48 +296,75 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
     console.log(">>>> Cargando datos compraventa")
 
     //clicamos en interfaz 
-    await page.click("body > main > main.svelte-il7l6l > div.container > div.col-auto > div.mb-3.card > div.card-body > a > button.btn.btn-primary");
+    await page.click("body > main > main > div:nth-child(11) > div:nth-child(3) > div > div.card-body > a:nth-child(4) > button");
 	//tabla vacia
 	await page.screenshot({ path: RUTA_BUY_SELL + "/tabla-vacia.png" });
     //BOTON CARGAR DATOS
-    await page.click("body > main > main.svelte-huzmzs > div.svelte-huzmzs > button.btn.btn-primary");
+    await page.click("body > main > main > div:nth-child(4) > button.btn.btn-primary");
 	//NOTIFICACION DE CONFIRMACION DE CARGA DE DATOS
 	await page.screenshot({ path: RUTA_BUY_SELL + "/confirmacion-carga-datos.png" });
 	//pulsamos que si
-    await page.click("body.modal-open > main.svelte-huzmzs > div.svelte-huzmzs > div > div.modal.show.d-block > div.modal-dialog > div.modal-content > div.modal-footer > button.btn.btn-primary");
+    await page.click("body > main > main > div:nth-child(4) > div > div.modal.show.d-block > div > div > div.modal-footer > button.btn.btn-primary");
 	await page.screenshot({ path: RUTA_BUY_SELL + "/tablas-cargadas.png" });
-
+    //Insertar un dato
+    await page.focus('#comunidad');
+    await page.keyboard.type("Andalucía");
+    await page.focus('#provincia');
+    await page.keyboard.type("Malaga");
+    await page.focus('#año');
+    await page.keyboard.type("2014");
+    await page.focus('#surface');
+    await page.keyboard.type("1000");
+    await page.focus('#annual_variation_percentage');
+    await page.keyboard.type("10");
+    await page.focus('#eviction');
+    await page.keyboard.type("100");
+    await page.click("body > main > main > div:nth-child(5) > table > tbody > tr:nth-child(3) > td:nth-child(7) > button");
+    await page.screenshot({ path: RUTA_BUY_SELL + "/tablas-dato-nuevo.png" });
+    //buscar un dato
+    await page.goto('https://sos2021-07.herokuapp.com/#/buy_sell');
+    await page.focus('#año');
+    await page.keyboard.type("2020");
+    //Borrar un dato
+    await page.click("body > main > main > div:nth-child(5) > table > tbody > tr:nth-child(5) > td:nth-child(8) > button");
+    await page.screenshot({ path: RUTA_BUY_SELL + "/tablas-dato-borrado.png" });
+    
     console.log(">> Datos cargados.");
 
     //click en analiticas
-    await page.click("body > main > main.svelte-huzmzs > ul.nav > li.nav-item > a.nav-link");
+    await page.click("body > main > main > ul > li:nth-child(2) > a");
     //captura de analiticas
 	await page.waitForTimeout(7000); //esperamos 7000 ms más para que la gráfica se capture bien
 	console.log(">> Analiticas");
 	await page.screenshot({ path: RUTA_BUY_SELL + "/analiticas.png" });
 	//grafica lineal
-    await page.click("body > main > main > ul.nav > li.nav-item > a.nav-link");
+    await page.click("body > main > main > ul > li:nth-child(3) > a");
 	await page.waitForTimeout(7000); //esperamos 7000 ms más para que la gráfica se capture bien
 	console.log(">> Capturando gráfica lineal.");
 	await page.screenshot({ path: RUTA_BUY_SELL + "/graficalineal.png" });
 	//grafica no lineal
-    await page.click(" body > main > main.svelte-1decxa9 > ul.nav > li.nav-item > a.nav-link"); 
+    await page.click("body > main > main > ul > li:nth-child(4) > a"); 
 	await page.waitForTimeout(7000); //esperamos 7000 ms más para que la gráfica se capture bien
 	console.log(">> Capturando gráfica no lineal.");
 	await page.screenshot({ path: RUTA_BUY_SELL + "/graficanolineal.png" });
 	//grafica otra libreria
-    await page.click("body > main > main.svelte-k49gk9 > ul.nav > li.nav-item > a.nav-link"); 
+    await page.click("body > main > main > ul > li:nth-child(5) > a"); 
 	await page.waitForTimeout(7000); //esperamos 7000 ms más para que la gráfica se capture bien
 	console.log(">> Capturando gráfica con otra libreria.");
 	await page.screenshot({ path: RUTA_BUY_SELL + "/graficalibreria.png" });
 	
 	//volvemos a los datos
 	
-    await page.click("body > main > main.svelte-1y2vg5x > ul.nav > li.nav-item > a.nav-link ");
+    await page.click("body > main > main > ul > li:nth-child(2) > a");
 	
-	//busqueda
-	//insertar
-	//editar
+	//editar 
+    await page.click("body > main > main > div:nth-child(5) > table > tbody > tr:nth-child(5) > td:nth-child(7) > a > button");
+    await page.focus('#updateSurface');
+    await page.keyboard.type("2000");
+    await page.click("body > main > main > div:nth-child(4) > table > tbody > tr > td:nth-child(7) > button");
+    await page.screenshot({ path: RUTA_BUY_SELL + "/editar.png" });
+    await page.click("body > main > main > ul > li > a");
+    await page.screenshot({ path: RUTA_BUY_SELL + "/tablaEditada.png" });
 
 
 
@@ -346,7 +373,7 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
     
         //borrar rentals
         console.log(">>>> BORRAR RENTALS.");
-        await page.goto('http://localhost:10000/#/rentals');
+        await page.goto('https://sos2021-07.herokuapp.com/#/rentals');
     await page.click("body > main > main > ul > li:nth-child(5) > a > button");
     
     await page.click("body > main > main > ul > li:nth-child(5) > div > div.modal.show.d-block > div > div > div.modal-footer > button.btn.btn-danger");

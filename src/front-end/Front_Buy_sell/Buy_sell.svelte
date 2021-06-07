@@ -550,21 +550,21 @@
         <tr>
           
 		  <td
-            ><input
+            ><input id ="comunidad"
               type="text"
               placeholder="Ej Andalucía"
               bind:value={queryStatInput.autonomous_community}
             /></td
           >
           <td
-            ><input
+            ><input id ="provincia"
               type="text"
               placeholder="Ej Granada"
               bind:value={queryStatInput.province}
             /></td
           >
           <td
-            ><input
+            ><input id ="año"
               type="number"
               placeholder="Ej 2021"
               min="1999"
@@ -572,7 +572,7 @@
             /></td
           >
           <td
-            ><input
+            ><input id ="surface"
               type="number"
               placeholder="Ej 1000"
               min="0"
@@ -580,7 +580,7 @@
             /></td
           >
           <td
-            ><input
+            ><input id ="annual_variation_percentage"
               type="number"
               placeholder="Ej 10"
               min="0"
@@ -588,7 +588,7 @@
             /></td
           >
           <td
-            ><input
+            ><input id ="eviction"
               type="number"
               placeholder="100"
               min="0"
