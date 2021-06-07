@@ -124,6 +124,9 @@
 			  <a href="/#/buy_sell/random"
                 ><Button color="info">INTEGRACION EXT RANDOM</Button></a
               >
+			  <a href="/#/buy_sell/APEX"
+                ><Button color="info">INTEGRACION</Button></a
+              >
 
             </CardBody>
             
