@@ -13,6 +13,11 @@
   
   async function loadChart() {
   
+  		const extfetch = await fetch("http://api.ipify.org/?format=json");
+        const ipaddr = await extfetch.json();
+        var ipfin = ipaddr.ip;
+        console.log(ipfin)
+  
   Highcharts.chart('container', {
 
     title: {
