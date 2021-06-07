@@ -22,7 +22,6 @@
 	import Buy_sell_APEX from "./front-end/integraciones/buysell/Buy_sell_APEX.svelte";
 	import Buy_sell_another from "./front-end/integraciones/buysell/Buy_sell_another.svelte";
 	import Buy_sell_pobreza from "./front-end/integraciones/buysell/Buy_sell_pobreza.svelte";
-	import Buy_sell_nuevo from "./front-end/integraciones/buysell/Buy_sell_nuevo.svelte";
 	import Rentals_Graphic from "./front-end/Front_Rentals/graficos.svelte";
 	import Rentals_Graphic2 from "./front-end/Front_Rentals/graficos3.svelte";
 	import Unemployment_HighChart from "./front-end/Front_Unemployment/Unemployment_HighChart.svelte";
@@ -81,7 +80,6 @@
 		"/buy_sell/APEX":Buy_sell_APEX,
 		"/buy_sell/another":Buy_sell_another,
 		"/buy_sell/pobreza":Buy_sell_pobreza,
-		"/buy_sell/nuevo":Buy_sell_nuevo,
 		"/rentals/rentals_graphic":Rentals_Graphic,
 		"/rentals/rentals_graphic2":Rentals_Graphic2,
 		"/unemployment/unemployment_highchart_graphic":Unemployment_HighChart,

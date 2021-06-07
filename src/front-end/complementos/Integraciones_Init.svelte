@@ -133,9 +133,7 @@
 			  <a href="/#/buy_sell/pobreza"
                 ><Button color="info">INTEGRACION BUY-POBREZA</Button></a
               >
-			  <a href="/#/buy_sell/nuevo"
-                ><Button color="info">API EXT JOKES</Button></a
-              >
+			  
 
             </CardBody>
             
