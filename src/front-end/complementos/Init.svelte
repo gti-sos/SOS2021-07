@@ -22,7 +22,7 @@ import {
   <h2>Team</h2>
   <Container>
     <Col>
-      <a href="https://github.com/frankys99">Francisco Miguel Tristán Clavijo</a>
+      <a href="https://github.com/frankys99">Francisco Miguel Tristán Clavijo </a>
       
     </Col>
     <Col><a href="https://youtu.be/QYJ7eOJIu_A">Video  de Francisco Miguel Tristán Clavijo</a></Col>
