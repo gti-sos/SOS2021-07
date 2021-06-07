@@ -46,6 +46,15 @@ let estrin='';
 
 <main>
 
+ <Nav>
+        <NavItem>
+          <NavLink href="/"><Button color="primary">Pรกgina Inicial</Button></NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="/#/integrations"><Button color="primary">Volver</Button></NavLink>
+        </NavItem>
+</Nav>
+
 <br>
 <blockquote class="blockquote text-center">
     

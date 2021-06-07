@@ -182,26 +182,14 @@ let totalData=[];
 </svelte:head>
 <main>
 
-  <Nav>
-    <NavItem>
-      <NavLink href="/">Página Principal</NavLink>
-    </NavItem>
-    <NavItem>
-      <NavLink href="/">Volver</NavLink>
-    </NavItem>
-	<NavItem>
-      <NavLink href="/#/buy_sell/VIH">API SOS VIH</NavLink>
-    </NavItem>
-	<NavItem>
-      <NavLink href="/#/buy_sell/natality">INTEGRACION BUY-NATALITY</NavLink>
-    </NavItem>
-	<NavItem>
-      <NavLink href="">API3</NavLink>
-    </NavItem>
-	<NavItem>
-      <NavLink href="">API4</NavLink>
-    </NavItem>
-  </Nav>
+   <Nav>
+        <NavItem>
+          <NavLink href="/"><Button color="primary">Pรกgina Inicial</Button></NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="/#/integrations"><Button color="primary">Volver</Button></NavLink>
+        </NavItem>
+    </Nav>
 
   <div>
     <h2>
