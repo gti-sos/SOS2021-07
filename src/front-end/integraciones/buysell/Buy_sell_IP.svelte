@@ -23,7 +23,7 @@ let provinceData=[];
      "https://sos2021-07.herokuapp.com/api/v2/buy_sell/loadInitialData"
     ).then(function (res) {
       if (res.ok) {
-        getStats();
+        //getStats();
         errorMsg = "";
         okMsg = "Datos cargados correctamente";
         console.log("OK");
@@ -144,10 +144,10 @@ let provinceData=[];
 <svelte:head>
 
 <script src="https://code.highcharts.com/highcharts.src.js" on:load="{loadChart}"></script>
-//<script src="https://code.highcharts.com/modules/series-label.js"></script>
-//<script src="https://code.highcharts.com/modules/exporting.js"></script>
-//<script src="https://code.highcharts.com/modules/export-data.js"></script>
-//<script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadChart}></script>
+<script src="https://code.highcharts.com/modules/series-label.js"on:load="{loadChart}></script>
+<script src="https://code.highcharts.com/modules/exporting.js"on:load="{loadChart}></script>
+<script src="https://code.highcharts.com/modules/export-data.js"on:load="{loadChart}></script>
+<script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadChart}></script>
 	
 </svelte:head>
 <main>
