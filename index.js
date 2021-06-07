@@ -43,6 +43,16 @@ unemploymentAPI_Integration.register(app); //importamos integration declarado ar
 
 //integraciones proxys
 
+//Proxy nuria
+var pathNatality = '/api/v2/natality-stats';
+var apiServerHostNatality = "https://sos2021-01.herokuapp.com";
+
+app.use(pathNatality, function (req, res) {
+  var url = apiServerHostNatality + req.baseUrl + req.url;
+  console.log('piped: ' + req.baseUrl + req.url);
+  req.pipe(request(url)).pipe(res);
+});
+
 //proxys alejandro
 //grupo 30: smoker-stats
 var pathSmoker = '/proxySmoker';
