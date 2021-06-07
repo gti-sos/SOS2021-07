@@ -35,6 +35,12 @@ let estrin='';
 	  console.log("estrin="+estrin);
 	  console.log("autor="+autor);
 	  console.log("cita="+cita);
+	  
+	  estrin.join(autor);
+	  estrin.join(cita);
+	  
+	  console.log("estrin="+estrin);
+	  
     }
     }
 	
