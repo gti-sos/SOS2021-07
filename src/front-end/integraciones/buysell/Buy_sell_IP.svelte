@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { Table, Button, Nav, NavItem, NavLink } from "sveltestrap";
-  import chart from "chart.js";
+  
   
   let Data2 = [];
   let evictionData = [];
@@ -15,8 +15,6 @@ let provinceData=[];
       return arr.map((mapObj) => mapObj[prop]).indexOf(obj[prop]) === pos;
     });
   }
-  
-  onMount(async () => {renderChart});
   
   //loadinitial de mis datos
   
@@ -43,7 +41,7 @@ let provinceData=[];
   loadStats2();
   
   
-  async function renderChart() {
+  async function loadChart() {
   		
 		//API EXT IP
 		
@@ -66,7 +64,7 @@ let provinceData=[];
 	console.log(provinceData);
   
  var ctx = document.getElementById("myChart").getContext("2d");
-        var chart = new Chart(ctx, {
+        var myChart = new Chart(ctx, {
             type:"radar",
             data: {
                 labels: provinceData,
@@ -88,12 +86,49 @@ let provinceData=[];
         });
   
   }
-  
-  renderChart();
 	
 	
 </script>
 
+<svelte:head>
+  <script
+    src="https://cdn.jsdelivr.net/npm/chart.js"
+    on:load={loadChart}></script>
+</svelte:head>
+
+<main>
+    <Nav>
+        <NavItem>
+          <NavLink href="/"><Button color="primary">Pรกgina Inicial</Button></NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="/"><Button color="primary">Volver</Button></NavLink>
+        </NavItem>
+    </Nav>
+    
+    {#if msg}
+    <p>{msg}</p>
+  {:else}
+    <div class="chart-container">
+      <canvas id="myChart" />
+    </div>
+  {/if}
+</main>
+
+<style>
+    main {
+      text-align: center;
+      padding: 1em;
+      margin: 0 auto;
+    }
+    div {
+      margin-bottom: 15px;
+    }
+    #myChart{
+      width: 400px;
+      height: 500px;
+    }
+  </style>
 
 <canvas id="myChart"></canvas>
 
