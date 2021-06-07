@@ -338,10 +338,6 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
 	//busqueda
 	//insertar
 	//editar
-    
-
-
-
 
 
 
