@@ -108,6 +108,10 @@ let provinceData=[];
     <div class="chart-container">
       <canvas id="myChart" />
     </div>
+	
+	<div>
+		<h1>IP ${ipfin}</h1>
+	</div>
   
 </main>
 
