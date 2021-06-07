@@ -53,6 +53,8 @@ app.use(pathNatality, function (req, res) {
   req.pipe(request(url)).pipe(res);
 });
 
+
+
 //proxys alejandro
 //grupo 30: smoker-stats
 var pathSmoker = '/proxySmoker';

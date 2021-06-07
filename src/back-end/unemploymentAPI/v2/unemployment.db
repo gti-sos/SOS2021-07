@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {"autonomous_community":"madrid","youth_unemployment_rate":31.7662,"province":"madrid","year":2020,"unemployment_rate":12.1491,"occupation_variation":40399.9,"_id":"gK4DbPx1DTcr8PDd"}
 {"autonomous_community":"murcia","youth_unemployment_rate":37.4509,"province":"murcia","year":2020,"unemployment_rate":16.4211,"occupation_variation":-1199.95,"_id":"PVhgHzgL60TC44hS"}
 {"autonomous_community":"extremadura","youth_unemployment_rate":48.1605,"province":"badajoz","year":2020,"unemployment_rate":22.8954,"occupation_variation":-1.09999,"_id":"SuzuHTkpLkz0eEoq"}
@@ -310,3 +311,5 @@
 {"$$deleted":true,"_id":"xPyO958F1x03UB5m"}
 {"$$deleted":true,"_id":"xe5LfOGpiDr863Xg"}
 {"$$deleted":true,"_id":"zj2MyH0ndgTFcC1Z"}
+=======
+>>>>>>> eb12c775aba656ef9d0df493a773fd17051469c8
