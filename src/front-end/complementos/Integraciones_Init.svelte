@@ -128,7 +128,10 @@
                 ><Button color="info">INTEGRACION BUY-AZARGAMES</Button></a
               >
 			  <a href="/#/buy_sell/another"
-                ><Button color="info">INTEGRACION BUY-laksea</Button></a
+                ><Button color="info">INTEGRACION BUY-CHILDRENEMPLOYMENT</Button></a
+              >
+			  <a href="/#/buy_sell/pobreza"
+                ><Button color="info">INTEGRACION BUY-POBREZA</Button></a
               >
 
             </CardBody>
