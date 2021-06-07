@@ -5,6 +5,7 @@
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_dark from "@amcharts/amcharts4/themes/dark";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
+
     async function loadGraph() {
         let SmokingData = [];
         let SmokingDataGraph = [];
