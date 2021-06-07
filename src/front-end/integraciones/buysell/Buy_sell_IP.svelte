@@ -24,7 +24,7 @@ let provinceData=[];
      "https://sos2021-07.herokuapp.com/api/v2/buy_sell/loadInitialData"
     ).then(function (res) {
       if (res.ok) {
-        //getStats();
+        loadChart();
         errorMsg = "";
         okMsg = "Datos cargados correctamente";
         console.log("OK");
@@ -37,8 +37,6 @@ let provinceData=[];
       }
     });
   }
-  
-  loadStats2();
   
   
   async function loadChart() {
@@ -106,13 +104,11 @@ let provinceData=[];
         </NavItem>
     </Nav>
     
-    {#if msg}
-    <p>{msg}</p>
-  {:else}
+    
     <div class="chart-container">
       <canvas id="myChart" />
     </div>
-  {/if}
+  
 </main>
 
 <style>
