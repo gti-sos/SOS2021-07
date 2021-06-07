@@ -112,24 +112,16 @@
             <CardBody>
               <CardSubtitle />
               
-              <a href="/api/v2/buy_sell"
-                ><Button color="primary">Backend</Button></a
+              <a href="/buy_sell/IP"
+                ><Button color="primary">INTEGRACION EXT IP</Button></a
               >
-              <a href="/#/buy_sell"
-                ><Button color="primary">Interfaz</Button></a
+              <a href="/buy_sell/VIH"
+                ><Button color="primary">API SOS VIH</Button></a
               >
-              <a href="/#/buy_sell/buy_sell_Charts"
-                ><Button color="info">Analíticas</Button></a
+              <a href="/buy_sell/natality"
+                ><Button color="info">INTEGRACION BUY-NATALITY</Button></a
               >
-              <a href="https://documenter.getpostman.com/view/14952576/TzJydbQv"
-                ><Button color="info">Documentación Postman v1</Button></a
-              >
-              <a href="https://documenter.getpostman.com/view/14952576/TzRUA75V"
-                ><Button color="info">Documentación Postman v2</Button></a
-              >
-              <a href="/#/buy_sell/buy_sell_Integraciones"
-                ><Button color="info">Integraciones</Button></a
-              >
+
             </CardBody>
             
           </Card>
