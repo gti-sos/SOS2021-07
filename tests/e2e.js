@@ -296,97 +296,49 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
     console.log(">>>> Cargando datos compraventa")
 
     //clicamos en interfaz 
-    await page.click("body > main > main > div:nth-child(11) > div:nth-child(3) > div > div.card-body > a:nth-child(4) > button");
-    //clicamos en cargar datos iniciales
-    await page.click("body > main > main > div:nth-child(4) > button.btn.btn-primary");
-    await page.click("body > main > main > div:nth-child(4) > div > div.modal.show.d-block > div > div > div.modal-footer > button.btn.btn-primary");
+    await page.click("body > main > main.svelte-il7l6l > div.container > div.col-auto > div.mb-3.card > div.card-body > a > button.btn.btn-primary");
+	//tabla vacia
+	await page.screenshot({ path: RUTA_BUY_SELL + "/tabla-vacia.png" });
+    //BOTON CARGAR DATOS
+    await page.click("body > main > main.svelte-huzmzs > div.svelte-huzmzs > button.btn.btn-primary");
+	//NOTIFICACION DE CONFIRMACION DE CARGA DE DATOS
+	await page.screenshot({ path: RUTA_BUY_SELL + "/confirmacion-carga-datos.png" });
+	//pulsamos que si
+    await page.click("body.modal-open > main.svelte-huzmzs > div.svelte-huzmzs > div > div.modal.show.d-block > div.modal-dialog > div.modal-content > div.modal-footer > button.btn.btn-primary");
+	await page.screenshot({ path: RUTA_BUY_SELL + "/tablas-cargadas.png" });
 
     console.log(">> Datos cargados.");
 
-    //click en volver
-    await page.click("body > main > main > ul > li:nth-child(1) > a");
-
-    //nos dirigimos a la grafica comun para capturarla
-    await page.click("body > main > main > div:nth-child(3) > a:nth-child(9) > button");
-    await page.click(" body > main > main > figure > ul > li > a"); //volvemos a inicio
-    await page.click("body > main > main > div:nth-child(3) > a:nth-child(9) > button"); //volvemos a recargar la grafica para que se vea en la imagen
-
-    console.log(">> Capturando gráfica común.");
-    await page.waitForTimeout(7000); //esperamos 7000 ms más para que la gráfica se capture bien
-    await page.screenshot({ path: RUTA_GENERAL + "/grafica_comun.png" });
-    await page.click("body > main > main > figure > ul > li > a > button");//volvemos al principal
-    console.log(">> INTEGRACIONES.");
-
-        //integraciones
-        await page.click("body > main > main > div:nth-child(3) > a:nth-child(10) > button");
-        await page.screenshot({ path: RUTA_INTEGRACIONES + "/pagina_Integraciones.png" });
-        //integraciones Rentals
-        //G27
-        console.log(">>>> G27.");
-        await page.click("body > main > main > div > div:nth-child(1) > div > div.card-body > a:nth-child(2) > button");
-        await page.waitForTimeout(7000); //esperamos 7000 ms más para que la gráfica se capture bien
-        await page.screenshot({ path: RUTA_INTEGRACIONES_Rentals + "/integracion_G27.png" });
-        await page.click("body > main > main > ul > li:nth-child(2) > a > button");
-        //G30
-        console.log(">>>> G30.");
-        await page.click("body > main > main > div > div:nth-child(1) > div > div.card-body > a:nth-child(3) > button");
-        await page.waitForTimeout(7000); //esperamos 7000 ms más para que la gráfica se capture bien
-        await page.screenshot({ path: RUTA_INTEGRACIONES_Rentals + "/integracion_G30.png" });
-        await page.click("body > main > main > ul > li:nth-child(2) > a > button");
-        //G04
-        console.log(">>>> G04.");
-        await page.click("body > main > main > div > div:nth-child(1) > div > div.card-body > a:nth-child(4) > button");
-        await page.waitForTimeout(7000); //esperamos 7000 ms más para que la gráfica se capture bien
-        await page.screenshot({ path: RUTA_INTEGRACIONES_Rentals + "/integracion_G04.png" });
-        await page.click("body > main > main > ul > li:nth-child(2) > a > button");
-        //Cartas
-        console.log(">>>> CARTAS.");
-        await page.click("body > main > main > div > div:nth-child(1) > div > div.card-body > a:nth-child(5) > button");
-        await page.waitForTimeout(7000); //esperamos 7000 ms más para que la gráfica se capture bien
-        await page.screenshot({ path: RUTA_INTEGRACIONES_Rentals + "/integracion_Cartas.png" });
-        await page.click("body > main > main > ul > li:nth-child(2) > a > button");
-        //pokemon
-        console.log(">>>> POKEMON.");
-        await page.click("body > main > main > div > div:nth-child(1) > div > div.card-body > a:nth-child(6) > button");
-        await page.waitForTimeout(7000); //esperamos 7000 ms más para que la gráfica se capture bien
-        await page.screenshot({ path: RUTA_INTEGRACIONES_Rentals + "/integracion_pokemon.png" });
-        await page.click("body > main > main > ul > li:nth-child(2) > a > button");
-        //crypto Monedas
-        console.log(">>>> CRYPTO.");
-        await page.click("body > main > main > div > div:nth-child(1) > div > div.card-body > a:nth-child(7) > button");
-        await page.waitForTimeout(7000); //esperamos 7000 ms más para que la gráfica se capture bien
-        await page.screenshot({ path: RUTA_INTEGRACIONES_Rentals + "/integracion_crypto.png" });
-        await page.click("body > main > main > div > ul > li:nth-child(2) > a > button");
-        //covid
-        console.log(">>>> COVID.");
-
-         await page.click("body > main > main > div > div:nth-child(1) > div > div.card-body > a:nth-child(8) > button");
-         await page.waitForTimeout(7000); //esperamos 7000 ms más para que la gráfica se capture bien
-         await page.screenshot({ path: RUTA_INTEGRACIONES_Rentals + "/integracion_Covid.png" });
-         await page.click("body > main > main > figure > ul > li:nth-child(2) > a > button");
-        //Heartstone
-        console.log(">>>> Heartstone.");
-
-        await page.click("body > main > main > div > div:nth-child(1) > div > div.card-body > a:nth-child(9) > button");
-        await page.waitForTimeout(7000); //esperamos 7000 ms más para que la gráfica se capture bien
-        await page.screenshot({ path: RUTA_INTEGRACIONES_Rentals + "/integracion_Heartstone.png" });
-        await page.click("body > main > main > ul > li:nth-child(2) > a > button");
-        //SW
-        console.log(">>>> SW.");
-        await page.click("body > main > main > div > div:nth-child(1) > div > div.card-body > a:nth-child(10) > button");
-        await page.waitForTimeout(7000); //esperamos 7000 ms más para que la gráfica se capture bien
-        await page.screenshot({ path: RUTA_INTEGRACIONES_Rentals + "/integracion_SW.png" });
-        await page.click("body > main > main > ul > li:nth-child(2) > a > button");
-        //NBA
-        console.log(">>>> NBA.");
-
-        await page.click("body > main > main > div > div:nth-child(1) > div > div.card-body > a:nth-child(11) > button");
-        await page.waitForTimeout(7000); //esperamos 7000 ms más para que la gráfica se capture bien
-        await page.screenshot({ path: RUTA_INTEGRACIONES_Rentals + "/integracion_NBA.png" });
-        await page.click("body > main > main > ul > li:nth-child(2) > a > button");
-        console.log(">>>> FIN INTEGRACIONES TRISTAN.");
-
-        //aqui estemos en la pagina de integraciones y empezarian las vuestras
+    //click en analiticas
+    await page.click("body > main > main.svelte-huzmzs > ul.nav > li.nav-item > a.nav-link");
+    //captura de analiticas
+	await page.waitForTimeout(7000); //esperamos 7000 ms más para que la gráfica se capture bien
+	console.log(">> Analiticas");
+	await page.screenshot({ path: RUTA_BUY_SELL + "/analiticas.png" });
+	//grafica lineal
+    await page.click("body > main > main > ul.nav > li.nav-item > a.nav-link");
+	await page.waitForTimeout(7000); //esperamos 7000 ms más para que la gráfica se capture bien
+	console.log(">> Capturando gráfica lineal.");
+	await page.screenshot({ path: RUTA_BUY_SELL + "/graficalineal.png" });
+	//grafica no lineal
+    await page.click(" body > main > main.svelte-1decxa9 > ul.nav > li.nav-item > a.nav-link"); 
+	await page.waitForTimeout(7000); //esperamos 7000 ms más para que la gráfica se capture bien
+	console.log(">> Capturando gráfica no lineal.");
+	await page.screenshot({ path: RUTA_BUY_SELL + "/graficanolineal.png" });
+	//grafica otra libreria
+    await page.click("body > main > main.svelte-k49gk9 > ul.nav > li.nav-item > a.nav-link"); 
+	await page.waitForTimeout(7000); //esperamos 7000 ms más para que la gráfica se capture bien
+	console.log(">> Capturando gráfica con otra libreria.");
+	await page.screenshot({ path: RUTA_BUY_SELL + "/graficalibreria.png" });
+	
+	//volvemos a los datos
+	
+    await page.click("body > main > main.svelte-1y2vg5x > ul.nav > li.nav-item > a.nav-link ");
+	
+	//busqueda
+	//insertar
+	//editar
+    
 
 
 
@@ -414,10 +366,16 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
     await page.click("body > main > main > ul > li:nth-child(1) > a > button");
         //borrar buy_sell
         console.log(">>>> BORRAR buy_sell.");
+	await page.goto('http://sos2021-07.herokuapp.com/#/buy_sell');
+    await page.click("body > main > main.svelte-huzmzs > div.svelte-huzmzs > button.btn.btn-danger");
+	//CAPTURA BORRADO DE TODAS LAS TABLAS
+	await page.screenshot({ path: RUTA_BUY_SELL + "/confirmacion-borrado-total.png" });
+	//confirmamos borrado
+	await page.click("body.modal-open > main > main.svelte-huzmzs > div.svelte-huzmzs > div > div.modal.show.d-block > div.modal-dialog > div.modal-content > div.modal-footer > button.btn.btn-danger");
+	//CAPTURA TABLAS BORRADAS
+	await page.screenshot({ path: RUTA_BUY_SELL + "/tablas-borradas.png" });
 
-    await page.click("body > main > main > div:nth-child(11) > div:nth-child(3) > div > div.card-body > a:nth-child(4) > button");
-    await page.click("body > main > main > div:nth-child(4) > button.btn.btn-danger");
-    await page.click("body > main > main > div:nth-child(4) > div > div.modal.show.d-block > div > div > div.modal-footer > button.btn.btn-danger");
+   
         //volver
     await page.click("body > main > main > ul > li:nth-child(1) > a");
 
