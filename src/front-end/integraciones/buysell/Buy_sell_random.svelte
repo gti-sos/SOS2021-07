@@ -10,27 +10,7 @@ let buy_sell_Data = [];
 let buy_sell_Chart_comunityprovinceyear_Data = [];
 let estrin='';
 
-async function loadStats2() {
-    
-    const res = await fetch(
-     "https://sos2021-07.herokuapp.com/api/v2/buy_sell/loadInitialData"
-    ).then(function (res) {
-      if (res.ok) {
-        loadQuote();
-        errorMsg = "";
-        okMsg = "Datos cargados correctamente";
-        console.log("OK");
-      } else {
-        if (res.status === 500) {
-          errorMsg = "No se ha podido acceder a la base de datos";
-        }
-         loadQuote();
-      }
-    });
-  }
-
-    onMount(loadStats2);
-	
+    onMount(loadQuote);
     async function loadQuote(){
         const resData = await fetch("https://quotes15.p.rapidapi.com/quotes/random/?language_code=es", {
             "method": "GET",
@@ -52,16 +32,9 @@ async function loadStats2() {
       //buy_sell_Chart_comunityprovinceyear_Data.push(stat.autonomous_community);
       });
 	  
-	  console.log("estrin="+estrin);
-	  console.log("autor="+autor);
-	  console.log("cita="+cita);
-	  
 	  estrin=estrin+autor;
 	  estrin=estrin+cita;
-	  
-	  console.log("estrin="+estrin);
-	  
-	  //HIGHCHARTS
+	  console.log(estrin);
 	  
 	  var lines = text.split(/[,\. ]+/g),
     data = Highcharts.reduce(lines, function (arr, word) {
@@ -95,10 +68,10 @@ Highcharts.chart('container', {
         name: 'Occurrences'
     }],
     title: {
-        text: 'INTEGRACION BUY-EXT RANDOM'
+        text: 'Wordcloud of Lorem Ipsum'
     }
 });
-	  
+
     }
     }
 	
@@ -107,13 +80,25 @@ Highcharts.chart('container', {
 
 <svelte:head>
 
-<script src="https://code.highcharts.com/highcharts.js"on:load={loadStats2}></script>
-<script src="https://code.highcharts.com/modules/wordcloud.js"on:load={loadStats2}></script>
-//<script src="https://code.highcharts.com/modules/exporting.js"on:load={loadStats2}></script>
-//<script src="https://code.highcharts.com/modules/export-data.js"on:load={loadStats2}></script>
-//<script src="https://code.highcharts.com/modules/accessibility.js"on:load={loadStats2}></script>
+
+<script src="https://code.highcharts.com/highcharts.js"on:load={loadQuote}></script>
+<script src="https://code.highcharts.com/modules/wordcloud.js"on:load={loadQuote}></script>
 	
 </svelte:head>
+
+
+
+<main>
+
+<br>
+<blockquote class="blockquote text-center">
+    
+    <h1 class="display-4">{cita}</h1>
+    <footer class="blockquote-footer"> <cite title="Source Title">{autor}</cite></footer>
+  </blockquote>
+  <Button outline color="secondary" on:click="{pop}"> Atrรกs</Button>
+
+</main>
 
 <main>
 
