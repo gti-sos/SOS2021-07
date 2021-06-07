@@ -22,7 +22,7 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
 
 
     //vamos a la raíz
-    await page.goto('https://sos2021-07.herokuapp.com/');
+    await page.goto('http://localhost:10000/');
 
     //capturamos inicio
     console.log(">> Inicio");
@@ -35,7 +35,7 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
     await page.click("body > main > main > div:nth-child(3) > a:nth-child(7) > button");
     await page.screenshot({ path: RUTA_GENERAL + "/inicio_antiguo.png" });
     //volvemos a la raíz
-    await page.goto('https://sos2021-07.herokuapp.com/');
+    await page.goto('http://localhost:10000/');
 
 
 
@@ -103,13 +103,13 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
     await page.click("body > main > main > table > tbody > tr:nth-child(1) > td:nth-child(8) > button");
     await page.screenshot({ path: RUTA_RENTALS + "/nuevo_dato.png" });
     //busqueda
-    await page.goto('https://sos2021-07.herokuapp.com/#/rentals');
+    await page.goto('http://localhost:10000/#/rentals');
     await page.focus('#año');
     await page.keyboard.type("2018");
     await page.click("body > main > main > table > tbody > tr:nth-child(1) > td:nth-child(9) > button");
     await page.waitForTimeout(1200);
     await page.screenshot({ path: RUTA_RENTALS + "/busqueda.png" });
-    await page.goto('https://sos2021-07.herokuapp.com/#/rentals');
+    await page.goto('http://localhost:10000/#/rentals');
     //editar
     await page.click("body > main > main > table > tbody > tr:nth-child(2) > td:nth-child(8) > a > button");
     await page.screenshot({ path: RUTA_RENTALS + "/pagina_editar.png" });
@@ -120,12 +120,12 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
     await page.screenshot({ path: RUTA_RENTALS + "/dato_actualizado.png" });
     //grafica 1
     await page.click("body > main > main > ul > li:nth-child(2) > a > button");
-    await page.goto('https://sos2021-07.herokuapp.com/#/rentals/rentals_graphic');
+    await page.goto('http://localhost:10000/#/rentals/rentals_graphic');
     await page.waitForTimeout(1200);
     await page.screenshot({ path: RUTA_RENTALS + "/grafica1.png" });
     await page.click("body > main > main > ul > li:nth-child(2) > a > button");
     await page.click("body > main > main > ul > li:nth-child(3) > a > button");
-    await page.goto('https://sos2021-07.herokuapp.com/#/rentals/rentals_graphic2');
+    await page.goto('http://localhost:10000/#/rentals/rentals_graphic2');
     await page.waitForTimeout(1200);
     await page.screenshot({ path: RUTA_RENTALS + "/grafica2.png" });
     await page.click("body > main > main > ul > li:nth-child(1) > a > button");
@@ -138,9 +138,9 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
 
     //######## UNEMPLOYMENT ########
     console.log(">>>> Cargando datos desempleo")
-
+    await page.goto('http://localhost:10000/');
     //click interfaz
-    await page.click("body > main > main > div:nth-child(11) > div:nth-child(2) > div > div.card-body > a:nth-child(5) > button");
+    await page.click("body > main > main > div:nth-child(11) > div:nth-child(2) > div > div.card-body > a:nth-child(4) > button");
     //capturar tabla vacia
     console.log(">>>>>> Capturando tabla vacía")
     await page.screenshot({ path: RUTA_UNEMPLOYMENT + "/tabla-vacia.png" });
@@ -154,8 +154,8 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
     await page.click("body > main > main > ul > li:nth-child(4) > div > div.modal.show.d-block > div > div > div.modal-footer > button.btn.btn-primary");
     //click y captura grafica unemployment
     await page.click("body > main > main > ul > li:nth-child(2) > a > button");
-    await page.goto('https://sos2021-07.herokuapp.com/#/unemployment/unemployment_highchart_graphic'); //refrescar
-    await page.goto('https://sos2021-07.herokuapp.com/#/unemployment/unemployment_highchart_graphic'); //refrescar
+    await page.goto('http://localhost:10000/#/unemployment/unemployment_highchart_graphic'); //refrescar
+    await page.goto('http://localhost:10000/#/unemployment/unemployment_highchart_graphic'); //refrescar
     await page.waitForTimeout(1200);
     console.log(">>>>>> Capturando gráfica unemployment")
     await page.screenshot({ path: RUTA_UNEMPLOYMENT + "/grafica-unemployment.png" });
@@ -193,7 +193,7 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
     await page.waitForTimeout(1200);
     await page.screenshot({ path: RUTA_UNEMPLOYMENT + "/resultado-busqueda-rellena-bien.png" });
     //volvemos a los datos
-    await page.goto("https://sos2021-07.herokuapp.com/#/unemployment");
+    await page.goto("http://localhost:10000/#/unemployment");
         //mal rellena
     await page.focus('#input_autonomous_community');
     await page.keyboard.type("andalucia");
@@ -209,7 +209,7 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
     await page.waitForTimeout(1200);
     await page.screenshot({ path: RUTA_UNEMPLOYMENT + "/resultado-busqueda-rellena-mal.png" });
     //volvemos a los datos
-    await page.goto("https://sos2021-07.herokuapp.com/#/unemployment");
+    await page.goto("http://localhost:10000/#/unemployment");
     //borrar un dato
     await page.click("body > main > main > table > tbody > tr:nth-child(4) > td:nth-child(8) > button");
     await page.waitForTimeout(1200);
@@ -322,7 +322,7 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
     await page.click("body > main > main > div:nth-child(5) > table > tbody > tr:nth-child(3) > td:nth-child(7) > button");
     await page.screenshot({ path: RUTA_BUY_SELL + "/tablas-dato-nuevo.png" });
     //buscar un dato
-    await page.goto('https://sos2021-07.herokuapp.com/#/buy_sell');
+    await page.goto('http://localhost:10000/#/buy_sell');
     await page.focus('#año');
     await page.keyboard.type("2020");
     //Borrar un dato
@@ -369,38 +369,39 @@ const RUTA_BUY_SELL = "screenshots/buy_sell";
 
 
 
-    //dejar todas las tablas vacias al acabar
+        //dejar todas las tablas vacias al acabar
     
         //borrar rentals
         console.log(">>>> BORRAR RENTALS.");
-        await page.goto('https://sos2021-07.herokuapp.com/#/rentals');
-    await page.click("body > main > main > ul > li:nth-child(5) > a > button");
+        await page.goto('http://localhost:10000/#/rentals');
+        await page.click("body > main > main > ul > li:nth-child(5) > a > button");
     
-    await page.click("body > main > main > ul > li:nth-child(5) > div > div.modal.show.d-block > div > div > div.modal-footer > button.btn.btn-danger");
+        await page.click("body > main > main > ul > li:nth-child(5) > div > div.modal.show.d-block > div > div > div.modal-footer > button.btn.btn-danger");
         //volver
-    await page.click("body > main > main > ul > li:nth-child(1) > a > button");
+        await page.click("body > main > main > ul > li:nth-child(1) > a > button");
         //borrar unemployment
         console.log(">>>> BORRAR unemployment.");
 
-    await page.click("body > main > main > div:nth-child(11) > div:nth-child(2) > div > div.card-body > a:nth-child(5) > button");
-    await page.click("body > main > main > ul > li:nth-child(5) > a > button");
-    await page.click("body > main > main > ul > li:nth-child(5) > div > div.modal.show.d-block > div > div > div.modal-footer > button.btn.btn-danger");
+        await page.click("body > main > main > div:nth-child(11) > div:nth-child(2) > div > div.card-body > a:nth-child(5) > button");
+        await page.goto('http://localhost:10000/#/unemployment');
+        await page.click("body > main > main > ul > li:nth-child(5) > a > button");
+        await page.click("body > main > main > ul > li:nth-child(5) > div > div.modal.show.d-block > div > div > div.modal-footer > button.btn.btn-danger");
         //volver
-    await page.click("body > main > main > ul > li:nth-child(1) > a > button");
+        await page.click("body > main > main > ul > li:nth-child(1) > a > button");
         //borrar buy_sell
         console.log(">>>> BORRAR buy_sell.");
-	await page.goto('http://sos2021-07.herokuapp.com/#/buy_sell');
-    await page.click("body > main > main.svelte-huzmzs > div.svelte-huzmzs > button.btn.btn-danger");
-	//CAPTURA BORRADO DE TODAS LAS TABLAS
-	await page.screenshot({ path: RUTA_BUY_SELL + "/confirmacion-borrado-total.png" });
-	//confirmamos borrado
-	await page.click("body.modal-open > main > main.svelte-huzmzs > div.svelte-huzmzs > div > div.modal.show.d-block > div.modal-dialog > div.modal-content > div.modal-footer > button.btn.btn-danger");
-	//CAPTURA TABLAS BORRADAS
-	await page.screenshot({ path: RUTA_BUY_SELL + "/tablas-borradas.png" });
+	    await page.goto('http://localhost:10000/#/buy_sell');
+        await page.click("body > main > main.svelte-huzmzs > div.svelte-huzmzs > button.btn.btn-danger");
+	    //CAPTURA BORRADO DE TODAS LAS TABLAS
+	    await page.screenshot({ path: RUTA_BUY_SELL + "/confirmacion-borrado-total.png" });
+	    //confirmamos borrado
+	    await page.click("body.modal-open > main > main.svelte-huzmzs > div.svelte-huzmzs > div > div.modal.show.d-block > div.modal-dialog > div.modal-content > div.modal-footer > button.btn.btn-danger");
+	    //CAPTURA TABLAS BORRADAS
+	    await page.screenshot({ path: RUTA_BUY_SELL + "/tablas-borradas.png" });
 
    
         //volver
-    await page.click("body > main > main > ul > li:nth-child(1) > a");
+        await page.click("body > main > main > ul > li:nth-child(1) > a");
 
 
 
