@@ -1,5 +1,5 @@
 //Declaracion de variables globales
-
+console.log("a");
 var cool = require("cool-ascii-faces");
 var express = require("express");
 var bodyParser = require("body-parser");
@@ -213,7 +213,8 @@ app.get("/info/buy_sell", (req, res) => {
     "</table></body></html>");
 });
 
-//Puerto de escucha para localhost
+console.log("b");
 app.listen(port, () => {
-  console.log(`Server currently listening on port ${port} ...`)
+  console.log("c");console.log(`Server currently listening on port ${port} ...`)
 });
+console.log("d");

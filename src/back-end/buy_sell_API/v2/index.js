@@ -9,9 +9,9 @@ var datafile = path.join(__dirname, 'buy_sell.db');
 var db = new Datastore({ filename: datafile, autoload: true});
 
 
-//implementation
+console.log("e");
 module.exports.register = (app) => {
-	
+console.log("f");
     //Crea 2 o mรกs recursos.
     app.get(BASE_API_PATH + "/buy_sell/loadInitialData", (req, res) => {
         
@@ -207,9 +207,9 @@ module.exports.register = (app) => {
             }
         });
     });
-
+console.log("g");
   app.put(BASE_API_PATH + "/buy_sell/:autonomous_community/:province/:year", (req,res) => {
-    var oldObject = req.params;
+    var oldObject = req.params; console.log("h");
     var newObject = req.body;
     var autonomous_community_url = req.body.autonomous_community;
     var province_url = req.body.province;
@@ -228,24 +228,24 @@ module.exports.register = (app) => {
             console.log("invalid update, incorrect or empty data");
         res.sendStatus(400);
     } else {
-        
+        console.log("i");
         db.update({"autonomous_community": oldObject.autonomous_community, "province": oldObject.province, "year": parseInt(oldObject.year)}, newObject, (err, resource) => {
-            if (err) {
+            console.log("j"); if (err) { 
                 console.error("ERROR accesing DB: "+ err);
                 res.sendStatus(500);
             } else{
                 if(resource==0){ 
                     console.error("No data found");
-                    res.sendStatus(404);
+                    res.sendStatus(404); console.log("k");
                 }else {
                     console.log("Put done successfully");
-                    res.sendStatus(200);
+                    res.sendStatus(200); console.log("l");
                 }
             }
-        });
+            console.log("m");}); 
     }
-});
-
+    console.log("n");}); 
+console.log("ñ");
     //PUT a la lista de recursos (ERROR)
     app.put(BASE_API_PATH + "/buy_sell", (req, res) => {
         console.log("Put a una lista de recursos no se puede");
@@ -305,3 +305,4 @@ module.exports.register = (app) => {
 
     })
 }
+console.log("o");

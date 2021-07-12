@@ -1,9 +1,6 @@
 <script>
 import {
     Button,
-    Nav,
-    NavItem, 
-    NavLink,
     Icon,
     Card,
     CardBody,
@@ -19,26 +16,40 @@ import {
 </script>
 
 
-<main>  
-  <Nav>
-    <NavItem>
-      <NavLink href="/"><Button color="primary">Volver </Button></NavLink>
-    </NavItem>
-</Nav>
+<main>
   <h1>SOS2021-07</h1>
 
   <h2>Team</h2>
   <Container>
     <Col>
-      <a href="https://github.com/frankys99">Francisco Miguel Tristán Clavijo, Fuente ->Rentals(Alquileres)</a>
+      <a href="https://github.com/frankys99">Francisco Miguel Tristán Clavijo </a>
+      
     </Col>
+    <Col><a href="https://youtu.be/QYJ7eOJIu_A">Video  de Francisco Miguel Tristán Clavijo</a></Col>
     <Col>
-		  <a href="https://github.com/RoundPegInASquareHole">Alejandro Pariente Migoya, Fuente ->Unemployment(Desempleo)</a>
+		  <a href="https://github.com/RoundPegInASquareHole">Alejandro Pariente Migoya</a>
+     
 		</Col>
+    <Col><a href="https://www.youtube.com/watch?v=ZprLapvV3zk">Video deAlejandro Pariente Migoya</a></Col>
 		<Col>
-		  <a href="https://github.com/nuresctor">Nuria Escamilla Torres, Fuente ->Buy_sell(Compraventa)</a>
+		  <a href="https://github.com/nuresctor">Nuria Escamilla Torres</a>
+      
 		</Col>
+    <Col><a href="https://www.youtube.com/watch?v=_b6myIUY5jA">Video de Nuria Escamilla Torres</a></Col>
+
+    <a href="http://sos2021-07.herokuapp.com/index_static_old.html"><Button color="info">Inicio Antiguo</Button></a>
+    <a href="/#/info"><Button color="info">Información </Button></a>
+    <a href="/#/analytics"><Button color="info">Analytics</Button></a>
+    <a href="/#/integrations"><Button color="info">Integraciones</Button></a>
+    <a href="/#/about"><Button color="info">Acerca de</Button></a>
+
 	  </Container>
+
+    <h2>Descripción del proyecto</h2>
+	  <p>Registros sobre la evolución de la compra-venta de viviendas en España por comunidades autónomas, provincias, años, precio metros cuadrados, porcentaje de la  variación anual de la compraventa y número de desahucios.</p>
+<p>Registros sobre la evolución de los alquileres en España según comunidades autónomas, provincias, euros/mes, porcentaje de variación de precios, metros cuadrados, años.</p>
+<p>Registros sobre el paro en España comunidades autónomas, provincias, años, porcentaje creación empleo por año, tasa de paro por edades, tasa de paro por sexo, tasa hogares con todos sus miembros en paro, contratos tiempo completo/parcial (en miles de personas), evolución de población inactiva, evolución tasa del paro por año.</p>
+<p>Nuestra intención es relacionar la compraventa de viviendas con los precios de alquileres en las diferentes ubicaciones y su relación con el paro para ver como afecta el incremente del paro con el precio y situacion de las otras dos variables de datos.</p>
 
 
   <Container>
@@ -47,9 +58,11 @@ import {
         ><b>Repositorio: </b>http://github.com/gti-sos/SOS2021-07</a
       >
     </Col>
-    <Nav>
-
-  </Nav>
+    <Col>
+      <a href="http://sos2021-07.herokuapp.com"
+        ><b>URL: </b>http://sos2021-07.herokuapp.com</a
+      >
+    </Col>
   </Container>
 
   <h2>APIs</h2>
@@ -59,7 +72,7 @@ import {
     <Col xs="auto">
       <Card class="mb-3">
         <CardHeader>
-          <CardTitle><h5>Rentals</h5></CardTitle>
+          <CardTitle><h5>Alquileres</h5></CardTitle>
         </CardHeader>
         <CardBody>
           <CardSubtitle />
@@ -68,6 +81,9 @@ import {
           </CardText>
           <a href="/api/v1/rentals"
             ><Button color="primary">Backend</Button></a
+          >
+          <a href="/#/rentals/rentals_graphic"
+            ><Button color="primary">Gráfico</Button></a
           >
           <a href="/#/rentals"
             ><Button color="primary">Interfaz</Button></a
@@ -87,7 +103,7 @@ import {
     <Col xs="auto">
       <Card class="mb-3">
         <CardHeader>
-          <CardTitle><h5>Unemployment</h5></CardTitle>
+          <CardTitle><h5>Desempleo</h5></CardTitle>
         </CardHeader>
         <CardBody>
           <CardSubtitle />
@@ -118,7 +134,7 @@ import {
     <Col xs="auto">
       <Card class="mb-3">
         <CardHeader>
-          <CardTitle><h5>Buy_sell</h5></CardTitle>
+          <CardTitle><h5>COMPRAVENTA</h5></CardTitle>
         </CardHeader>
         <CardBody>
           <CardSubtitle />
@@ -131,7 +147,7 @@ import {
           <a href="/#/buy_sell"
             ><Button color="primary">Interfaz</Button></a
           >
-		  <a href="/#/buy_sell/buy_sell_Charts"
+		  <a href="/#/buy_sell/analiticas"
             ><Button color="info">Analíticas</Button></a
           >
           <a href="https://documenter.getpostman.com/view/14952576/TzJydbQv"
@@ -140,9 +156,7 @@ import {
 		  <a href="https://documenter.getpostman.com/view/14952576/TzRUA75V"
             ><Button color="info">Documentación Postman v2</Button></a
           >
-		  <a href="/#/buy_sell/buy_sell_Integraciones"
-            ><Button color="info">Integraciones</Button></a
-          >
+		  
         </CardBody>
         <CardFooter
           >Desarrollador
@@ -153,7 +167,18 @@ import {
     </Col>
 
 
-    
+    <Col xs="auto">
+      <Card class="mb-3">
+        <CardHeader>
+          Comprobacion Página no encontrada, ERROR 404
+        </CardHeader>
+        <CardBody>
+          <CardSubtitle />
+          <a href="/#/NoexisteEstaPagina"><Button color="primary">404</Button></a>
+        </CardBody>
+        
+      </Card>
+    </Col>
 
 
   </Container>
